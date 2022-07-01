@@ -50,7 +50,7 @@ public class ReviewDaoTestMain {
 	/*
 	insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,\r\n"
 			+ "            R_RATING, P_NO, U_NO, U_NAME, O_DATE )\r\n"
-			+ "            values (REVIEW_R_NO_SEQ.nextval,'r1.png','정말 맛있어요!!',sysdate,5,'1','1','김두유',sysdate-7)";
+			+ "            values (REVIEW_R_NO_SEQ.nextval,'r1.png','정말 맛있어요!!',sysdate,5,'1','1','김두유', )";
 			*/
 	
 	System.out.println(reviewDao.insertReview(insertReview));

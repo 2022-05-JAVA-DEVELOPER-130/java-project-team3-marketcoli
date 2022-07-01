@@ -25,7 +25,7 @@ public class ReviewSQL {
 	public static final String REVIEW_INSERT=
 	"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,"
 	+ "            R_RATING, P_NO, U_NO, U_NAME, O_DATE )"
-	+ "            values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?)";
+	+ "            values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,sysdate-7)";
 	
 	/*	"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,"
 		+ "            R_RATING, P_NO, U_NO, U_NAME, O_DATE )"

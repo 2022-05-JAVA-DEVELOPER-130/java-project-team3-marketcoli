@@ -53,8 +53,7 @@ public class ReviewDao {
 		pstmt.setInt(4, review.getProduct().getP_no());	// 상품이름으로 변경필요
 		pstmt.setInt(5, review.getUserInfo().getU_no());	// 회원이름으로 변경필요
 		pstmt.setString(6, review.getUserInfo().getU_name());
-		//pstmt.setDate(7, review.getOrders().getO_date());	// java.util.Date -> java.sql.Date로 변경
-		pstmt.setDate(7, new java.sql.Date(review.getOrders().getO_date().getTime()));	// java.util.Date -> java.sql.Date로 변경
+		//pstmt.setDate(7, new java.sql.Date(review.getOrders().getO_date().getTime()));	// java.util.Date -> java.sql.Date로 변경
 		
 		/*	
 			new java.sql.Date(review.getOrders().getO_date().getTime())
@@ -81,6 +80,14 @@ public class ReviewDao {
 		pstmt.close();
 		con.close();
 		return insertRowCount;
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
