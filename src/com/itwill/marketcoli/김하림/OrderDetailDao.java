@@ -13,8 +13,10 @@ public class OrderDetailDao {
 		dataSource = new DataSource();
 	}
 
-	public int insertOrderDetail(OrderDetail orderdetail)  {
+	public int insertOrderDetail(OrderDetail orderdetail) throws Exception  {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(OrderDetailSQL.ORDERDETAIL_INSERT);
+		return 0;
+	}
 	}
 	
