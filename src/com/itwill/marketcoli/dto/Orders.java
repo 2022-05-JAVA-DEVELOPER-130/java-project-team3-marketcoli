@@ -40,10 +40,11 @@ public class Orders {
 	//private int u_no;			//회원번호
 	private Product product;
 	//private int p_no;			//상품번호
-	//private String d_memo;		//배송메모
+	//private String d_memo;		//배송메모 --??
 	//private int p_piece;		//상품수량
 	//private int p_price;		//상품가격
 	//private String p_name;			//상품이름
+	private OrderDetail orderdetail;
 	
 	public Orders() {
 	}
@@ -56,6 +57,7 @@ public class Orders {
 		this.d_fee = d_fee;
 		this.userInfo = userInfo;
 		this.product = product;
+		this.orderdetail = orderdetail;
 	}
 
 	public int getO_no() {
@@ -104,6 +106,15 @@ public class Orders {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+	
+	
+	public OrderDetail getOrderdetail() {
+		return orderdetail;
+	}
+
+	public void setOrderdetail(OrderDetail orderdetail) {
+		this.orderdetail = orderdetail;
 	}
 
 	@Override
