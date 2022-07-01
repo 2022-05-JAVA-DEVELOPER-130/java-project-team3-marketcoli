@@ -2,7 +2,9 @@ package com.itwill.marketcoli.최서영;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.itwill.marketcoli.common.DataSource;
 
@@ -40,7 +42,6 @@ public class ReviewDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_INSERT);
 
-
 		/*
 		public static final String REVIEW_INSERT=
 				"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,  R_RATING, P_NO, U_NO, U_NAME, O_DATE )"
@@ -56,14 +57,14 @@ public class ReviewDao {
 				pstmt.setString(6, "itwill2");
 				pstmt.setDate(7, null); // java.util.Date ->
 			*/
-				pstmt.setString(1, review.getR_image());
-								pstmt.setString(2, review.getR_content());
-								pstmt.setInt(3, review.getR_rating());
-								pstmt.setInt(4, review.getProduct().getP_no()); // 상품이름으로 변경필요
-								pstmt.setInt(5, review.getUserInfo().getU_no()); // 회원이름으로 변경필요
-								pstmt.setString(6, review.getUserInfo().getU_name());
-								pstmt.setDate(7, new java.sql.Date(review.getOrders().getO_date().getTime())); // java.util.Date ->
-								// java.sql.Date로 변경
+		pstmt.setString(1, review.getR_image());
+		pstmt.setString(2, review.getR_content());
+		pstmt.setInt(3, review.getR_rating());
+		pstmt.setInt(4, review.getProduct().getP_no()); // 상품이름으로 변경필요
+		pstmt.setInt(5, review.getUserInfo().getU_no()); // 회원이름으로 변경필요
+		pstmt.setString(6, review.getUserInfo().getU_name());
+		pstmt.setDate(7, new java.sql.Date(review.getOrders().getO_date().getTime())); // java.util.Date ->
+		// java.sql.Date로 변경
 		/*	
 			new java.sql.Date(review.getOrders().getO_date().getTime())
 			
@@ -71,53 +72,65 @@ public class ReviewDao {
 			
 			java.sql.Date utilDate2ToSqlDate2 = new java.sql.Date(utilDate2.getTime());
 		*/
-				int insertRowCount = pstmt.executeUpdate();
+		int insertRowCount = pstmt.executeUpdate();
 
 		pstmt.close();
 		con.close();
 		return insertRowCount;
 
 	}
-	
-	
-	/*	
-		public int insertReview(String r_image, String r_content, int r_rating, int p_no,int u_no, String u_name, Date o_date) throws Exception {
-			//String insertQuery="insert into cart(cart_no,userId,p_no,cart_qty) values (cart_cart_no_SEQ.nextval,?,?,?)";
-			//Connection con=null;
-			Connection con = dataSource.getConnection();
-			PreparedStatement pstmt=con.prepareStatement(ReviewSQL.REVIEW_INSERT);
+
+	//상품번호로 후기 조회 -> 상품페이지-후기에서 보여짐. ex> 상품-바나나 -> 바나나 구매고객들의 후기
+	public List<Review> selectByProductNo(int p_no) throws Exception {
+		// String selectAllSql = "select * from review";
+		List<Review> reviewList = new ArrayList<Review>();
+
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_SELECT_BY_PRODUCT_NO);
+		
+		pstmt.setInt(1, p_no);
+		
+		ResultSet rs = pstmt.executeQuery();
+
+		while (rs.next()) {
+			/*
+					private int p_no;			//상품번호	
+					private String p_name;		//상품이름
+					private int p_price;		//상품가격
+					private String p_exp;		//상품설명
+					private String p_category_b;	//상위카테고리
+					private String p_category_s;	//하위카테고리
+			*/
 			
-			int insertRowCount=pstmt.executeUpdate();
+			reviewList.add(new Review(rs.getInt("r_no"),
+										rs.getString("r_image"),
+										rs.getString("r_content"),
+										rs.getDate("r_wdate"),
+										rs.getInt("r_rating"),
+										new Product(rs.getInt("p_no"), null, 0, null, null, null),
+										new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
+										new Orders(0, rs.getDate("o_date"), null, 0, null, null)
+									)
+					);
 			
 			
-			public static final String REVIEW_INSERT=
-					"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,  R_RATING, P_NO, U_NO, U_NAME, O_DATE )"
-					+ "         values (REVIEW_R_NO_SEQ.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?)";
-			 
-			
-			
-			
-			pstmt.setString(1, review.getR_image());
-			pstmt.setString(2, review.getR_content());
-			pstmt.setInt(3, review.getR_rating());
-			pstmt.setInt(4, review.getProduct().getP_no());	// 상품이름으로 변경필요
-			pstmt.setInt(5, review.getUserInfo().getU_no());	// 회원이름으로 변경필요
-			pstmt.setString(6, review.getUserInfo().getU_name());
-			pstmt.setDate(7, new java.sql.Date(review.getOrders().getO_date().getTime()));	// java.util.Date -> java.sql.Date로 변경
-			
-				
-				new java.sql.Date(review.getOrders().getO_date().getTime())
-				
-				java.util.Date--> java.sql.Date
-				
-				java.sql.Date utilDate2ToSqlDate2 = new java.sql.Date(utilDate2.getTime());
-			 
-			
-			pstmt.close();
-			con.close();
-			return insertRowCount;
-			
+			/*
+						reviewList.add(new Review(rs.getInt("review_no"),
+											rs.getString("review_name"),
+											rs.getDate("review_Date"),sql.date는 상위(util.date)로 자동캐스팅
+											rs.getString("review_email"),
+											rs.getString("review_homepage"),
+											rs.getString("review_title"),
+											rs.getString("review_content")
+												)
+										);
+			*/
 		}
-		*/
+		rs.close();
+		pstmt.close();
+		con.close();
+
+		return reviewList;
+	}
 
 }

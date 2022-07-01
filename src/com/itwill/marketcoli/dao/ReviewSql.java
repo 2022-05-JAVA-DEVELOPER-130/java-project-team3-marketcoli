@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.임은비;
+package com.itwill.marketcoli.dao;
 
 public class ReviewSql {
 	

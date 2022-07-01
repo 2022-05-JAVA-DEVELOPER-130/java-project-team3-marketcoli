@@ -36,7 +36,7 @@ public class OrderDetailDao {
 		return rowCount;		
 	}
 		
-		
+	//주문상세 내역 - 생일 인자를 이용하여 검색 -> 인자 수정예정	
 	public int selectByBirth(int u_birth) throws Exception	{
 		String ORDERDETAIL_SELECT_BY_phone = "select * from orderdetail od join UserInfo u on od.u_no = u.u_no where u_birth=? ";
 		Connection con =dataSource.getConnection();

@@ -22,16 +22,6 @@ public class ReviewSQL {
 	--카트아이템한개의 수량증가(PK조건)
 	update cart set cart_qty=10 where cart_no=3;
 	 */
-	public static final String REVIEW_INSERT=
-			"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,"
-					+ "            R_RATING, P_NO, U_NO, U_NAME, O_DATE )"
-					+ "            values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?)";
-			/*
-			"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,\r\n"
-					+ "                        R_RATING, P_NO, U_NO, U_NAME, O_DATE )\r\n"
-					+ "                        values (REVIEW_R_NO_SEQ.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?)";
-		
-	*/	
 	/*
 		public static final String REVIEW_SELECT_LIST=
 		"select c.*,p.* from cart c join product p on c.p_no=p.p_no where userid=?";
@@ -46,5 +36,17 @@ public class ReviewSQL {
 		"update cart set cart_qty=cart_qty+? where userid=? and p_no=?";
 		
 		public static final String REVIEW_SELECT_BY_USERID_PRODUCT_NO=
-				"select count(*) as cnt from cart where userid=? and p_no=?";*/
+				"select count(*) as cnt from cart where userid=? and p_no=?";
+	 */
+	
+	
+	public static final String REVIEW_INSERT=
+			"insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,"
+					+ "            R_RATING, P_NO, U_NO, U_NAME, O_DATE )"
+					+ "            values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?)";
+
+	public static final String REVIEW_SELECT_BY_PRODUCT_NO=
+			"select * from review where p_no=?";
+
+
 }

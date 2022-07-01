@@ -22,13 +22,25 @@ public class Review {
 	private String r_content;	//후기 글
 	private Date r_wdate;		//후기 작성일자
 	private int r_rating;		//후기 평가
-	private int p_no;			//상품번호
-	private int u_no;			//상품이름
-	private String u_name;		//회원이름
-	private Date o_date;		//주문일자
+	private Product product;	//상품번호, 상품이름
+	private UserInfo userInfo;			//회원번호, 회원이름
+	private Orders orders;		//주문일자
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Review(int r_no, String r_image, String r_content, Date r_wdate, int r_rating, Product product,
+			UserInfo userInfo, Orders orders) {
+		super();
+		this.r_no = r_no;
+		this.r_image = r_image;
+		this.r_content = r_content;
+		this.r_wdate = r_wdate;
+		this.r_rating = r_rating;
+		this.product = product;
+		this.userInfo = userInfo;
+		this.orders = orders;
 	}
 
 	public int getR_no() {
@@ -71,44 +83,39 @@ public class Review {
 		this.r_rating = r_rating;
 	}
 
-	public int getP_no() {
-		return p_no;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setP_no(int p_no) {
-		this.p_no = p_no;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
-	public int getU_no() {
-		return u_no;
+	public UserInfo getUserInfo() {
+		return userInfo;
 	}
 
-	public void setU_no(int u_no) {
-		this.u_no = u_no;
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
-	public String getU_name() {
-		return u_name;
+	public Orders getOrders() {
+		return orders;
 	}
 
-	public void setU_name(String u_name) {
-		this.u_name = u_name;
-	}
-
-	public Date getO_date() {
-		return o_date;
-	}
-
-	public void setO_date(Date o_date) {
-		this.o_date = o_date;
+	public void setOrders(Orders orders) {
+		this.orders = orders;
 	}
 
 	@Override
 	public String toString() {
 		return "Review [r_no=" + r_no + ", r_image=" + r_image + ", r_content=" + r_content + ", r_wdate=" + r_wdate
-				+ ", r_rating=" + r_rating + ", p_no=" + p_no + ", u_no=" + u_no + ", u_name=" + u_name + ", o_date="
-				+ o_date + "]";
+				+ ", r_rating=" + r_rating + ", product=" + product + ", userInfo=" + userInfo + ", orders=" + orders
+				+ "]";
 	}
+
+	
+
 	
 	
 }

@@ -1,6 +1,11 @@
-package com.itwill.marketcoli.임은비;
+package com.itwill.marketcoli.test;
 
 import java.util.List;
+
+import com.itwill.marketcoli.dao.ReviewDao;
+import com.itwill.marketcoli.dto.Product;
+import com.itwill.marketcoli.dto.Review;
+import com.itwill.marketcoli.dto.UserInfo;
 
 
 public class ReviewTestMain {

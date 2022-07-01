@@ -1,7 +1,8 @@
 package com.itwill.marketcoli.최서영;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
+
 
 
 
@@ -72,7 +73,9 @@ public class ReviewDaoTestMain {
 	
 	System.out.println(reviewDao.insertReview(insertReview));
 	
-	
+	System.out.println("5.selectByProductNo");
+	List<Review> reviewList = reviewDao.selectByProductNo(1);
+	System.out.println(reviewList);
 	
 	
 	
