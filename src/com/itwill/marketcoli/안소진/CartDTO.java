@@ -10,7 +10,7 @@ P_NAME           VARCHAR2(50)
 P_PRICE          NUMBER(10)   
 U_NO             NUMBER(10)   
  */
-public class cartDTO {
+public class CartDTO {
 	private int c_no;
 	private int c_qty;
 	private int p_no;
@@ -18,11 +18,11 @@ public class cartDTO {
 	private int p_price;
 	private int u_no;
 
-	public cartDTO() {
+	public CartDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public cartDTO(int c_no, int c_qty, int p_no, String p_name, int p_price, int u_no) {
+	public CartDTO(int c_no, int c_qty, int p_no, String p_name, int p_price, int u_no) {
 		super();
 		this.c_no = c_no;
 		this.c_qty = c_qty;
