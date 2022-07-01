@@ -3,7 +3,9 @@ package com.itwill.marketcoli.임은비;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -93,24 +95,21 @@ public class ReviewDao {
 
 	
 	//select - 후기번호로 조회(전체상품조회 후 후기 상세조회)
-	
-/*	
-	
-	//list 마이페이지에서 조회 다시하기
-	public Review selectIdReview(int u_no) throws Exception{
+	public Review selectNoReview(int r_no) throws Exception{
 		Review findReviewId = null;
 		
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_ID);
-		pstmt.setInt(1, u_no);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_R_NO);
+		pstmt.setInt(1, r_no);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
 			findReviewId = new Review(rs.getInt("r_no"), rs.getString("r_image"), 
 									 rs.getString("r_content"), 
 									 rs.getDate("r_wdate"), 
 									 rs.getInt("r_rating"), 
-									 rs.getInt("p_no"), rs.getInt("u_no"), 
-									 rs.getString("u_name"), rs.getDate("o_date"));
+									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
+									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
+									 new Orders(0, rs.getDate("o_date"), null, 0, null, null));
 		}
 		rs.close();
 		pstmt.close();
@@ -119,8 +118,35 @@ public class ReviewDao {
 		return findReviewId;
 		
 	}
+
+	
+	
+	public List<Review> selectIdReviewAll(String u_id) throws Exception{
+		
+		List<Review> reviewList = new ArrayList<Review>();
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_ID_ALL);
+		pstmt.setString(1,u_id);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			reviewList.add(new Review(rs.getInt("r_no"), rs.getString("r_image"), 
+									 rs.getString("r_content"), 
+									 rs.getDate("r_wdate"), 
+									 rs.getInt("r_rating"), 
+									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
+									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
+									 new Orders(0, null, null, 0, null, null)));
+		}
+		
+		return reviewList;
+	}
+
+	
 	 
 	
+	
+	
+/*	
 	//list 다시하기
 	public Review selectProductReview(int p_no) throws Exception{
 		Review findReviewProduct = null;
@@ -143,7 +169,6 @@ public class ReviewDao {
 		return findReviewProduct;
 		
 	}
-	
 	
 */	
 	
