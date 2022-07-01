@@ -119,7 +119,7 @@ public class ReviewDao {
 		return findReviewId;
 		
 	}
-	
+	 
 	
 	//list 다시하기
 	public Review selectProductReview(int p_no) throws Exception{
