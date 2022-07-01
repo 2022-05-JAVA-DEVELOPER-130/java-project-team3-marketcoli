@@ -13,7 +13,7 @@ select * from orderdetail where  u_no=1 and p_no=1 ;
 
 --insert 상품 추가 
 insert into orderdetail(od_no,p_piece,p_no,u_no)
-        values ( orderdetail_od_no_SEQ.nextval,3,3,3);
+        values ( orderdetail_od_no_SEQ.nextval,3,3,1);
 
 
 --update
