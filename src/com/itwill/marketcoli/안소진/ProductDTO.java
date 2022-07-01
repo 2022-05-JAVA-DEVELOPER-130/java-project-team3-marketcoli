@@ -10,7 +10,7 @@ package com.itwill.marketcoli.안소진;
 	P_CATEGORY_S          VARCHAR2(50)   
 	
  */
-public class productDTO {
+public class ProductDTO {
 
 	private int p_no;
 	private String p_name;
@@ -19,11 +19,11 @@ public class productDTO {
 	private String p_category_b;
 	private String p_category_s;
 
-	public productDTO() {
+	public ProductDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public productDTO(int p_no, String p_name, int p_price, String p_exp, String p_category_b, String p_category_s) {
+	public ProductDTO(int p_no, String p_name, int p_price, String p_exp, String p_category_b, String p_category_s) {
 		super();
 		this.p_no = p_no;
 		this.p_name = p_name;
