@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.dao;
+package com.itwill.marketcoli.김하림;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,23 +21,7 @@ public class OrdersDao {
 		Connection con = dataSource.getConnection();
 		// prepared는 일반statement에 비해 준비된 pipe!
 		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_INSERT);
-		/*	
-		private int o_no;			//주문번호 - pk, 변경불가
-		private Date o_date;		//주문일시 - 변경불가
-		private String o_state;		//주문상태
-		private String u_name;		//회원이름 - 변경불가
-		private int u_phone;		//휴대폰번호
-		private String u_address;	//주소
-		private int u_no;			//회원번호 - 변경불가
-		private int o_no;			//상품번호
-		private int d_fee;			//배송비
-		private String d_memo;		//배송메모
-		private int o_piece;		//상품수량
-		private int o_price;		//상품가격
-		private Sting o_name;		//상품이름
-	*/
-		pstmt.setInt(1,orders.getO_no());
-		
+
 		// (참고)
 		//pstmt.setString(1, user.getU_name());
 		/*********** 내용 입력 필요합니다 *********************/
@@ -83,7 +67,7 @@ public class OrdersDao {
 				private String d_memo;		//배송메모
 				private int o_piece;		//상품수량
 				private int o_price;		//상품가격
-				private Sting o_name;		//상품이름
+				private Sting o_name;			//상품이름
 			*/
 			pstmt.setString(1, orders.getO_state());
 			pstmt.setInt(2, orders.getU_phone());
