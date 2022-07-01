@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.김하림;
+package com.itwill.marketcoli.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,15 +37,13 @@ public class OrderDetailDao {
 	}
 		
 		
-	public int selectByBirth(int u_birth) throws Exception	{
-		String ORDERDETAIL_SELECT_BY_phone = "select * from orderdetail od join UserInfo u on od.u_no = u.u_no where u_birth=? ";
-		Connection con =dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ORDERDETAIL_SELECT_BY_phone);
-		pstmt.setInt(1, u_birth);
-		int rowCount = pstmt.executeUpdate();
-		return rowCount;
 		
-	}
+		
+	
+
+	
+	
+	
 	
 	
 }

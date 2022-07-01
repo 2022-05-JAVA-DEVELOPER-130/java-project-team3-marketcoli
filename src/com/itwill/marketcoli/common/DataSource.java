@@ -19,8 +19,8 @@ public class DataSource {
 	/*****************개인서버 정보*************************/
 	String driverClass = "oracle.jdbc.OracleDriver";
 	String url = "jdbc:oracle:thin:@182.237.126.19:1521:xe";
-	String user = "jdeveloper55";
-	String password = "jdeveloper55";
+	String user = "jdeveloper36";
+	String password = "jdeveloper36";
 	/******************************************************/
 	
 	/*****************개인로컬 정보************************/
