@@ -85,6 +85,7 @@ public class Product {
 		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_price=" + p_price + ", p_exp=" + p_exp
 				+ ", p_category_b=" + p_category_b + ", p_category_s=" + p_category_s + "]";
 	}
+
 	
 	
 }
