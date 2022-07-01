@@ -15,13 +15,12 @@ public class CartDao {
 	public int insertCart(Cart cart) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_INSERT);
-		
-		pstmt.setInt(1, cart.getC_no());
-		pstmt.setInt(2, cart.getC_qty());
-		pstmt.setInt(3, cart.getP_no());
-		pstmt.setString(4, cart.getP_name());
-		pstmt.setInt(5, cart.getP_price());
-		pstmt.setInt(6, cart.getU_no());
+
+		pstmt.setInt(1, cart.getC_qty());
+		pstmt.setInt(2, cart.getP_no());
+		pstmt.setString(3, cart.getP_name());
+		pstmt.setInt(4, cart.getP_price());
+		pstmt.setInt(5, cart.getU_no());
 
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
@@ -31,11 +30,11 @@ public class CartDao {
 	}
 
 	// pk를 통해 삭제
-	public int deleteCart(int c_no) throws Exception {
+	public int deleteCart(int u_no) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_DELETE);
 
-		pstmt.setInt(1, c_no);
+		pstmt.setInt(1, u_no);
 
 		int rowCount = pstmt.executeUpdate();
 
@@ -49,12 +48,12 @@ public class CartDao {
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_UPDATE);
 		
-		pstmt.setInt(1, cart.getC_no());
-		pstmt.setInt(2, cart.getC_qty());
-		pstmt.setInt(3, cart.getP_no());
-		pstmt.setString(4, cart.getP_name());
-		pstmt.setInt(5, cart.getP_price());
-		pstmt.setInt(6, cart.getU_no());
+		pstmt.setInt(1, cart.getC_qty());
+		pstmt.setInt(2, cart.getP_no());
+		pstmt.setString(3, cart.getP_name());
+		pstmt.setInt(4, cart.getP_price());
+		pstmt.setInt(5, cart.getU_no());
+		pstmt.setInt(6, cart.getC_no());
 
 
 		int rowCount = pstmt.executeUpdate();
