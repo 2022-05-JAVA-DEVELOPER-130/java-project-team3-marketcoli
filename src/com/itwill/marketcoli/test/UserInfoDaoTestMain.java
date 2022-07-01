@@ -2,22 +2,22 @@ package com.itwill.marketcoli.test;
 
 import java.util.List;
 
-import com.itwill.marketcoli.dao.UserDao;
-import com.itwill.marketcoli.dto.User;
+import com.itwill.marketcoli.dao.UserInfoDao;
+import com.itwill.marketcoli.dto.UserInfo;
 
-public class UserDaoTestMain {
+public class UserInfoDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 
-		UserDao userDao= new UserDao();
+		UserInfoDao userInfoDao= new UserInfoDao();
 		//VALUES (userinfo_u_no_seq.nextval, 'itwill1', '1111', '김첨지', 'a@www.a.com', '11111111111', '사랑시고백구행복동','19500625',null,sysdate);
 		//User insertDao = new User(0, 'today', '0630', '오늘이, 'today@nail.com', '', null, 0, null, null)
-		//아직 진행줒ㅇ
+		//아직 진행중
 		
-		System.out.println("1.insertUser");
+		System.out.println("1.insertUserInfo");
 		// (수정)생성자 변경하여 사용
-		User insertUser = new User(0, "today2", "0630", "오늘이", "today@nail.com", 888888888, "하늘", 20220303, null, null);
-		System.out.println(userDao.insertUser(insertUser));
+		UserInfo insertUserInfo = new UserInfo(0, "today2", "0630", "오늘이", "today@nail.com", 888888888, "하늘", 20220303, null, null);
+		System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
 
 		/*
 		 * = "insert into userinfo(u_no, u_id, u_pw, u_name, u_email, u_phone, u_address, u_birth, u_job, u_joindate)\r\n"

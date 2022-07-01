@@ -17,7 +17,7 @@ U_JOB               VARCHAR2(20)
 U_JOINDATE NOT NULL DATE    
  */
 
-public class User {
+public class UserInfo {
 
 	private int u_no;			//회원번호
 	private String u_id;		//아이디
@@ -30,11 +30,11 @@ public class User {
 	private String u_job;		//직업
 	private Date u_joindate;	//java.util.Date
 	
-	public User() {
+	public UserInfo() {
 
 	}
 
-	public User(int u_no, String u_id, String u_pw, String u_name, String u_email, int u_phone, String u_address,
+	public UserInfo(int u_no, String u_id, String u_pw, String u_name, String u_email, int u_phone, String u_address,
 			int u_birth, String u_job, Date u_joindate) {
 		super();
 		this.u_no = u_no;
@@ -131,10 +131,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [u_no=" + u_no + ", u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email="
+		return "UserInfo [u_no=" + u_no + ", u_id=" + u_id + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_email="
 				+ u_email + ", u_phone=" + u_phone + ", u_address=" + u_address + ", u_birth=" + u_birth + ", u_job="
 				+ u_job + ", u_joindate=" + u_joindate + "]";
 	}
+
+	
 	
 	
 }
