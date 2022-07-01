@@ -32,6 +32,7 @@ public class Orders {
 	private Date o_date;		//주문일시
 	private String o_state;		//주문상태
 	private int d_fee;			//배송비
+	private String d_memo;		//배송메모
 	/******/
 	private UserInfo userInfo;
 	//private String u_name;		//회원이름
@@ -40,7 +41,6 @@ public class Orders {
 	//private int u_no;			//회원번호
 	private Product product;
 	//private int p_no;			//상품번호
-	//private String d_memo;		//배송메모 --??
 	//private int p_piece;		//상품수량
 	//private int p_price;		//상품가격
 	//private String p_name;			//상품이름
@@ -49,7 +49,7 @@ public class Orders {
 	public Orders() {
 	}
 
-	public Orders(int o_no, Date o_date, String o_state, int d_fee, UserInfo userInfo, Product product) {
+	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo,UserInfo userInfo, Product product) {
 		super();
 		this.o_no = o_no;
 		this.o_date = o_date;
@@ -90,6 +90,14 @@ public class Orders {
 
 	public void setD_fee(int d_fee) {
 		this.d_fee = d_fee;
+	}
+	
+	public String getD_memo() {
+		return d_memo;
+	}
+
+	public void setD_memo(String d_memo) {
+		this.d_memo = d_memo;
 	}
 
 	public UserInfo getUserInfo() {

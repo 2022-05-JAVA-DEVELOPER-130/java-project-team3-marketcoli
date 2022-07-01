@@ -46,7 +46,7 @@ public class OrdersDao {
       pstmt.setString(3, orders.getUserInfo().getU_address());
       pstmt.setInt(4, orders.getO_no());
       pstmt.setInt(5, orders.getD_fee());
-      pstmt.setString(6, orders.getProduct().d_memo());//?????D_memo가 없어용
+      pstmt.setString(6, orders.getD_memo());
       pstmt.setInt(7, orders.getOrderdetail().getP_piece());
       pstmt.setInt(8, orders.getProduct().getP_price());
       pstmt.setString(9, orders.getProduct().getP_name());
@@ -98,7 +98,7 @@ public class OrdersDao {
          pstmt.setString(3, orders.getUserInfo().getU_address());
          pstmt.setInt(4, orders.getO_no());
          pstmt.setInt(5, orders.getD_fee());
-         pstmt.setString(6, orders.getProduct().getD_memo());  //?????D_memo가 없어용
+         pstmt.setString(6, orders.getD_memo());
          pstmt.setInt(7, orders.getOrderdetail().getP_piece());
          pstmt.setInt(8, orders.getProduct().getP_price());
          pstmt.setString(9, orders.getProduct().getP_name());
