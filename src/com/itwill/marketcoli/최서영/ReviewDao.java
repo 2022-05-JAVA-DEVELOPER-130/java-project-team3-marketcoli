@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.itwill.marketcoli.common.DataSource;
 
 public class ReviewDao {
 	private DataSource dataSource;

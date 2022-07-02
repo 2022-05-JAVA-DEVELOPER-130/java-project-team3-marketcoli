@@ -8,11 +8,13 @@ import java.util.Date;
 import java.util.List;
 
 import com.itwill.marketcoli.common.DataSource;
-import com.itwill.marketcoli.dto.Orders;
-import com.itwill.marketcoli.dto.Product;
-import com.itwill.marketcoli.dto.Review;
-import com.itwill.marketcoli.dto.UserInfo;
-
+import com.itwill.marketcoli.임은비.Orders;
+import com.itwill.marketcoli.임은비.Review;
+import com.itwill.marketcoli.임은비.Product;
+import com.itwill.marketcoli.임은비.UserInfo;
+//import com.itwill.marketcoli.dto.Product;
+//import com.itwill.marketcoli.dto.Review;
+// (수정 필요) import문은 Dto가 완료되는 데로 연결해두는 것으로..
 
 public class ReviewDao {
 
