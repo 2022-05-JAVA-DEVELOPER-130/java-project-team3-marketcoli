@@ -16,7 +16,7 @@ public class OrderDetail {
 	private int p_piece;	//주문상품갯수
 	private int u_no;		//회원 번호
 	private int p_no;		//상품 번호
-	
+	 
 	 public OrderDetail() {
 		// TODO Auto-generated constructor stub
 	}
