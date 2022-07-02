@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 import com.itwill.marketcoli.dto.Orders;
+//(to.하림) 위에 import문 지우고 아래 import로 사용해보세요
+//import com.itwill.marketcoli.김하림.Orders;
 
 public class OrdersDao {
 	private DataSource dataSource;
