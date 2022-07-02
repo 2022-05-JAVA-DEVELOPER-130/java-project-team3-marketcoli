@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.곤듀봉규니;
+package com.itwill.marketcoli.김봉균;
 
 import java.util.Date;
 
@@ -135,6 +135,8 @@ public class UserInfo {
 				+ u_email + ", u_phone=" + u_phone + ", u_address=" + u_address + ", u_birth=" + u_birth + ", u_job="
 				+ u_job + ", u_joindate=" + u_joindate + "]";
 	}
+
+	
 
 	
 	

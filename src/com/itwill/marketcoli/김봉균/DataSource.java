@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.곤듀봉규니;
+package com.itwill.marketcoli.김봉균;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -19,18 +19,40 @@ public class UserInfoDao {
 	
 	public int insertUserInfo(UserInfo userInfo) throws Exception {
 		Connection con = dataSource.getConnection();
-		// prepared는 일반statement에 비해 준비된 pipe!
 		PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_INSERT);
-
+		// prepared는 일반statement에 비해 준비된 pipe!
+		/*	
+		private int u_no;			//회원번호 - pk
+		private String u_id;		//아이디 - 변경불가
+		private String u_pw;		//비밀번호
+		private String u_name;		//이름
+		private String u_email;		//이메일
+		private int u_phone;		//휴대폰번호
+		private String u_address;	//주소
+		private int u_birth;		//생년월일
+		private String u_job;		//직업
+		private Date u_joindate;	//java.util.Date - 변경불가
+*/
+		pstmt.setInt(1, userInfo.getU_no());
+		pstmt.setString(2, userInfo.getU_id());
+		pstmt.setString(3, userInfo.getU_pw());
+		pstmt.setString(4, userInfo.getU_name());
+		pstmt.setString(5, userInfo.getU_email());
+		pstmt.setInt(6, userInfo.getU_phone());
+		pstmt.setString(7, userInfo.getU_address());
+		pstmt.setInt(8, userInfo.getU_birth());
+		pstmt.setString(9, userInfo.getU_job());
+		//pstmt.setDate(10, new java.sql.Date(userInfo.getU_joindate().getTime()));
+		//date 추가하기
 		// (참고)
 		//pstmt.setString(1, userInfo.getU_name());
 		/*********** 내용 입력 필요합니다 *********************/
 
-		int rowCount = pstmt.executeUpdate();
+		int insertrowCount = pstmt.executeUpdate();
 		pstmt.close();
 		con.close();
 
-		return rowCount;
+		return insertrowCount;
 		
 	}
 	
@@ -41,12 +63,11 @@ public class UserInfoDao {
 
 		pstmt.setInt(1, u_no);
 
-		int rowCount = pstmt.executeUpdate();
-
+		int deleterowCount = pstmt.executeUpdate();
 		pstmt.close();
 		con.close();
 
-		return rowCount;
+		return deleterowCount;
 	} 
 	
 		public int updateUserInfo(UserInfo userInfo) throws Exception {
