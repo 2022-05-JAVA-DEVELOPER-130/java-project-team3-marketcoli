@@ -1,6 +1,6 @@
 package com.itwill.marketcoli.김하림;
 /*
-이름        널?       유형             
+이름        널?       유형            
 --------- -------- -------------- 
 O_NO      NOT NULL NUMBER(10)     
 O_DATE             DATE           

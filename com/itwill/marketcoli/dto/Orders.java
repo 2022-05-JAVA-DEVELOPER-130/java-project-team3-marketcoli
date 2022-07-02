@@ -46,7 +46,7 @@ public class Orders {
 	//private String p_name;			//상품이름
 	private OrderDetail orderdetail;
 	
-	public Orders(int i, java.sql.Date date, String string, String string2, int j, String string3, int k, int l, int m, String string4, int n, int o, String string5) {
+	public Orders() {
 	}
 
 	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo,UserInfo userInfo, Product product) {

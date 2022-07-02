@@ -19,6 +19,7 @@ P_NAME             VARCHAR2(50)
 
 import java.util.Date;
 
+import com.itwill.marketcoli.dto.OrderDetail;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
 
@@ -28,27 +29,26 @@ import com.itwill.marketcoli.dto.UserInfo;
  */
 public class Orders {
 
-	private int o_no;			//주문번호
-	private Date o_date;		//주문일시
-	private String o_state;		//주문상태
-	private int d_fee;			//배송비
-	private String d_memo;		//배송메모
+	private int o_no; // 주문번호
+	private Date o_date; // 주문일시
+	private String o_state; // 주문상태
+	private int d_fee; // 배송비
+	private String d_memo; // 배송메모
 	/******/
 	private UserInfo userInfo;
-	//private String u_name;		//회원이름
-	//private int u_phone;		//휴대폰번호
-	//private String u_address;	//주소
-	//private int u_no;			//회원번호
+	// private int u_phone; //휴대폰번호
+	// private String u_address; //주소
 	private Product product;
-	//private int p_no;			//상품번호
-	//private int p_piece;		//상품수량
-	//private int p_price;		//상품가격
-	//private String p_name;			//상품이름
+	// private int p_price; //상품가격
+	// private String p_name; //상품이름
+	// private int p_piece //상품수량
 	
+
 	public Orders() {
 	}
 
-	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo,                 UserInfo userInfo, Product product) {
+	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo, UserInfo userInfo, Product product
+			) {
 		super();
 		this.o_no = o_no;
 		this.o_date = o_date;
@@ -96,7 +96,8 @@ public class Orders {
 
 	public void setD_memo(String d_memo) {
 		this.d_memo = d_memo;
-	}	
+	}
+
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
@@ -113,12 +114,11 @@ public class Orders {
 		this.product = product;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Orders [o_no=" + o_no + ", o_date=" + o_date + ", o_state=" + o_state + ", d_fee=" + d_fee
-				+ ", userInfo=" + userInfo + ", product=" + product + "]";
+		return "Orders [o_no=" + o_no + ", o_date=" + o_date + ", o_state=" + o_state + ", d_fee=" + d_fee + ", d_memo="
+				+ d_memo + ", userInfo=" + userInfo + ", product=" + product  + "]";
 	}
-	
-}
 
-	
+}

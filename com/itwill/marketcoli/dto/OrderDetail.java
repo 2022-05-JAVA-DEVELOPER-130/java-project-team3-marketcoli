@@ -1,6 +1,6 @@
 package com.itwill.marketcoli.dto;
 /*
-orderdetail(
+orderdetail
 		od_no   NUMBER(10)		 NULL ,
 		p_piece NUMBER(10)		 NULL ,
 		u_no    NUMBER(10)		 NULL ,
