@@ -7,7 +7,7 @@ public class UserInfoDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 		UserInfoDao userInfoDao = new UserInfoDao();
-		/*
+		
 		//회원가입
 		//VALUES (userinfo_u_no_seq.nextval, 'itwill1', '1111', '김첨지', 'a@www.a.com', '11111111111', '사랑시고백구행복동','19500625',null,sysdate);
 		//User insertDao = new User(0, 'today', '0630', '오늘이, 'today@mail.com', '', null, 0, null, null)
@@ -21,7 +21,7 @@ public class UserInfoDaoTestMain {
 						20220303, null, null);
 		System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
 		
-		
+		/*
 		 = "insert into userinfo(u_no, u_id, u_pw, u_name, u_email, u_phone, u_address, u_birth, u_job, u_joindate)\r\n"
 				+ "VALUES (userinfo_u_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ? , sysdate) ";
 		 */
