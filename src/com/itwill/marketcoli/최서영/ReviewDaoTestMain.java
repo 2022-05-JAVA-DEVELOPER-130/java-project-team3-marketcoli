@@ -74,9 +74,16 @@ public class ReviewDaoTestMain {
 	System.out.println(reviewDao.insertReview(insertReview));
 	
 	System.out.println("5.selectByProductNo");
-	List<Review> reviewList = reviewDao.selectByProductNo(1);
+	List<Review> reviewList = reviewDao.selectByProductNo(10);
 	System.out.println(reviewList);
 	
+	System.out.println("6.updateByReviewNo");
+	Review updateReview = new Review( 9, "up.jpg", "씨이원한 맛!!", null, 5,
+										new Product(0, null, 0, null, null,null),
+										new UserInfo(0,null,null,null,null,0,null,0,null,null),
+										new Orders(0, null, null, 0, null, null)
+									);
+	System.out.println(reviewDao.updateByReviewNo(updateReview));
 	
 	
 	

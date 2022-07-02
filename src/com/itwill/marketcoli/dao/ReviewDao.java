@@ -64,6 +64,7 @@ public class ReviewDao {
 		
 	}
 	
+	//확인 필요
 	public int upadateReview(Review review) throws Exception{
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE);
@@ -77,8 +78,27 @@ public class ReviewDao {
 		con.close();
 		
 		return rowCount;
-		
 	}
+
+	public int updateByReviewNo(Review review) throws Exception {
+		
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE_BY_REVIEW_NO);
+
+		//"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
+		//"update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8";
+
+		pstmt.setString(1, review.getR_image());
+		pstmt.setString(2, review.getR_content());
+		pstmt.setInt(3, review.getR_rating());
+		pstmt.setInt(4, review.getR_no());
+		
+		int updateRowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return updateRowCount;
+	}
+	
 	
 	public int deleteReview(int r_no) throws Exception{
 		Connection con = dataSource.getConnection();

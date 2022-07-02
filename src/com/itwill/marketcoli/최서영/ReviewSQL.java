@@ -48,5 +48,8 @@ public class ReviewSQL {
 	public static final String REVIEW_SELECT_BY_PRODUCT_NO=
 			"select * from review where p_no=?";
 
+	public static final String REVIEW_UPDATE_BY_REVIEW_NO=
+			"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
+	//"update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8";
 
 }

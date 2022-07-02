@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class ReviewDao {
 	private DataSource dataSource;
 
@@ -79,11 +80,31 @@ public class ReviewDao {
 
 	}
 
+	public int updateByReviewNo(Review review) throws Exception {
+		
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_UPDATE_BY_REVIEW_NO);
+
+		//"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
+		//"update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8";
+
+		pstmt.setString(1, review.getR_image());
+		pstmt.setString(2, review.getR_content());
+		pstmt.setInt(3, review.getR_rating());
+		pstmt.setInt(4, review.getR_no());
+		
+		int updateRowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return updateRowCount;
+	}
+	
+	
+	
 	//상품번호로 후기 조회 -> 상품페이지-후기에서 보여짐. ex> 상품-바나나 -> 바나나 구매고객들의 후기
 	public List<Review> selectByProductNo(int p_no) throws Exception {
 		// String selectAllSql = "select * from review";
 		List<Review> reviewList = new ArrayList<Review>();
-
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_SELECT_BY_PRODUCT_NO);
 		

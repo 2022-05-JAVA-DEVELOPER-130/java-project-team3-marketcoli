@@ -22,10 +22,12 @@ public class ReviewTestMain {
 		
 		System.out.println(">>insert");
 		
+		// 은비깨비대장 -> 후기 입력할때, Orders정보가 필요하지 않을까유?
 		Review insertReview = new Review(0, "a.png", "너무 맛있어요 최고", null, 5,
 							 new Product(1, "바나나", 0, null, null, null),
 							 new UserInfo(1, null, null, "은비은비", null, 0, null, 0, null, null),
-							 null);
+							 null
+				);
 		System.out.println(reviewDao.insertReview(insertReview));
 	
 		
@@ -42,6 +44,14 @@ public class ReviewTestMain {
 						);
 				System.out.println(">>"+reviewDao.upadateReview(updateReview));
 				*/
+		
+		System.out.println(">>updateByReviewNo");
+		Review updateReview = new Review( 9, "up.jpg", "씨이원한 맛!!", null, 5,
+											new Product(0, null, 0, null, null,null),
+											new UserInfo(0,null,null,null,null,0,null,0,null,null),
+											new Orders(0, null, null, 0, null, null)
+										);
+		System.out.println(reviewDao.updateByReviewNo(updateReview));
 		
 		
 		System.out.println(">>selectNoReview");
