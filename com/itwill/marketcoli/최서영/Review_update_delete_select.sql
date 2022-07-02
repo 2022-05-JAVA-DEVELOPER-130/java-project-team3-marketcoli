@@ -1,8 +1,13 @@
 --Review update
 update review set r_image = 'rr1.jpg', r_content='너무너무 맛있어요 최고!', r_rating='4' where u_no = 1; 
 
+update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8;
+
+select * from review;
+
 --Review delete
 delete review where u_no = 1;
+
 
 
 
