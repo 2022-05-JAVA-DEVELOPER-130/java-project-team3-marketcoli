@@ -13,7 +13,7 @@ import com.itwill.marketcoli.임은비.Review;
 import com.itwill.marketcoli.임은비.Product;
 import com.itwill.marketcoli.임은비.UserInfo;
 //import com.itwill.marketcoli.dto.Product;
-//import com.itwill.marketcoli.dto.Review;
+//import com.itwill.marketcoli.dto.Review;  
 // (수정 필요) import문은 Dto가 완료되는 데로 연결해두는 것으로..
 
 public class ReviewDao {
