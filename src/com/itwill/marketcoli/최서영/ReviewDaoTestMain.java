@@ -50,7 +50,7 @@ public class ReviewDaoTestMain {
 		
 		private Orders orders;		// 상품번호를 통해 주문일자 얻어와야
 		 */
-	System.out.println("1.insertGuest");
+	System.out.println("1.insertReview");
 	/*	Review insertReview = new Review(0, "r1.png", "정말 맛있어요!!", null, 5,
 													new Product(1, null, 0, null, null,null),
 													 new UserInfo(2,null,null,"itwill2",null,0,null,0,null,null),

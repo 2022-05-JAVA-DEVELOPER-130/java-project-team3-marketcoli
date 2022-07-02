@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.itwill.marketcoli.common.DataSource;		// jdeveloper55로 연결되어 있음
+//import com.itwill.marketcoli.common.DataSource;		// jdeveloper55로 연결되어 있음
+import com.itwill.marketcoli.임은비.DataSource;
 import com.itwill.marketcoli.임은비.Orders;
 import com.itwill.marketcoli.임은비.Review;
 import com.itwill.marketcoli.임은비.Product;

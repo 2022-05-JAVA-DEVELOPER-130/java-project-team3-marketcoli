@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.dto;
+package com.itwill.marketcoli.최서영;
 
 import java.util.Date;
 

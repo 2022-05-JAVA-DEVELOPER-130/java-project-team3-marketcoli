@@ -1,10 +1,7 @@
-package com.itwill.marketcoli.test;
+package com.itwill.marketcoli.최서영;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-
-import com.itwill.marketcoli.dao.NoticeDao;
-import com.itwill.marketcoli.dto.Notice;
 
 public class NoticeDaoTestMain {
 
