@@ -2,7 +2,7 @@
 
 desc product;
 /*
-ì´ë¦„           ë„?       ìœ í˜•             
+ÀÌ¸§           ³Î?       À¯Çü             
 ------------ -------- -------------- 
 P_NO         NOT NULL NUMBER(10)     
 P_NAME       NOT NULL VARCHAR2(50)   
@@ -13,5 +13,4 @@ P_CATEGORY_S          VARCHAR2(50)
 */
 
 -----insert
-insert into product(p_no,p_name,p_price,p_exp,p_category_b,p_category_s) values (product_p_no_seq.nextval,'í”¼ë§',1000,'ë§›ìˆì–´ìš”','"ì±„ì†Œ,ê³¼ì¼','ì±„ì†Œ');
-
+insert into product(p_no,p_name,p_price,p_exp,p_category_b,p_category_s) values (product_p_no_seq.nextval,'ÇÇ¸Á',1000,'¸ÀÀÖ¾î¿ä','"Ã¤¼Ò,°úÀÏ','Ã¤¼Ò');
