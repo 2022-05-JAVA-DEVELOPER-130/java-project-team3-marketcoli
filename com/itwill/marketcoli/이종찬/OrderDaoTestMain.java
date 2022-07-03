@@ -3,33 +3,42 @@ package com.itwill.marketcoli.이종찬;
 import java.util.List;
 
 import com.itwill.marketcoli.dto.Orders;
+import com.itwill.marketcoli.dto.Product;
+import com.itwill.marketcoli.dto.UserInfo;
+
 
 public class OrderDaoTestMain {
 
-	public static void main(String[] args) throws Exception {
-		OrdersDao ordersDao = new OrdersDao();
-		
-		System.out.println("1.insert");
-		Orders insertOrders = new Orders(0, null, "입금완료", 3000, "그냥 버려주세요", null, null);
-		System.out.println(">>insert row count:"+ordersDao.insertOrders(null));
-		
-		System.out.println("2.delete");
-		System.out.println(">>delete row count:"+ordersDao.deleteOrders(4));
-
-		System.out.println("3.update");
-		Orders updateOrders = new Orders(0, null, "입금완료", 3000, "그냥 버려주세요", null, null);
-		System.out.println(">>update row count"+ordersDao.updateOrders(null));
-		
-		System.out.println("4.selectByno");
-		Orders findOrders = ordersDao.selectByNo(0);
-		System.out.println(findOrders);
-		
-		System.out.println("5.selectAll");
-		List<Orders> ordersList = ordersDao.selectAll();
-		for (Orders orders : ordersList) {
-			System.out.println(orders);
-			
-		}
-	}
-
+   public static void main(String[] args) throws Exception {
+      OrdersDao ordersDao = new OrdersDao();
+   
+      System.out.println("1.insert");
+     
+      Orders insertOrders =  new Orders(0, null, "입금완료", 3000, "버려주세요", 
+    		  null, 
+    		  null);
+    		  
+      System.out.println(ordersDao.insertOrders(insertOrders));
+      
+      System.out.println("2.update");
+      /*
+      Orders updateOrders = new Orders(1, null, "입금완료", 3000, "버려주세요", 
+    		  				new UserInfo(0, null, null, null, null,11112222,"강남", 0, null,null), 
+    		  				new Product(0, "사과",1 ,1000, null, null, null));
+      System.out.println(ordersDao.updateOrders(updateOrders));
+      */
+      System.out.println("3.delete");
+      System.out.println(ordersDao.deleteOrders(0));
+    
+      System.out.println("4.selectByno");
+      Orders selectByno = ordersDao.selectByNo(1);
+      System.out.println(selectByno);
+      
+      System.out.println("5.selectAll");
+      List<Orders> ordersList = ordersDao.selectAll();
+      for (Orders orders : ordersList) {   
+      System.out.println(ordersList);
+      } 
+   	
+   }
 }

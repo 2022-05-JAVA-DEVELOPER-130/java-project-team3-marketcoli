@@ -16,7 +16,7 @@ select u_id from userinfo where u_email = 'e@www.japan.com';
 select u_pw from userinfo where u_id = 'itwill5' and u_email = 'e@www.japan.com';
 
 --회원 탈퇴
-delete userinfo where u_id = 'itwill1';
+delete userinfo where u_id = 'itwill8';
 
 --총회원 정보
 select * from userinfo;

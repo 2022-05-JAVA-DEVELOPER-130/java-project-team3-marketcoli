@@ -7,10 +7,6 @@ orderdetail(
 		p_no    NUMBER(10)		 NULL 
 );
 */
-/**
- * @author ITWILL
- *
- */
 public class OrderDetail {
 	private int od_no;		//주문상세번호
 	private int p_piece;	//주문상품갯수

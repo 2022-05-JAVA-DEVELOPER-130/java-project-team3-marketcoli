@@ -1,4 +1,5 @@
-package com.itwill.marketcoli.dto;
+package com.itwill.marketcoli.이종찬;
+
 /*
   이름           널?       유형             
 ------------ -------- -------------- 
@@ -11,14 +12,14 @@ P_CATEGORY_S          VARCHAR2(50)
  */
 public class Product {
 
-	private int p_no;			//상품번호	
-	private String p_name;		//상품이름
-	private int p_piece;		//상품수량
-	private int p_price;		//상품가격
-	private String p_exp;		//상품설명
-	private String p_category_b;	//상위카테고리
-	private String p_category_s;	//하위카테고리
-	
+	private int p_no; // 상품번호
+	private String p_name; // 상품이름
+	private int p_piece; // 상품수량
+	private int p_price; // 상품가격
+	private String p_exp; // 상품설명
+	private String p_category_b; // 상위카테고리
+	private String p_category_s; // 하위카테고리
+
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
@@ -96,8 +97,7 @@ public class Product {
 		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_piece=" + p_piece + ", p_price=" + p_price
 				+ ", p_exp=" + p_exp + ", p_category_b=" + p_category_b + ", p_category_s=" + p_category_s + "]";
 	}
+	
+		
 
-	
-	
-	
 }
