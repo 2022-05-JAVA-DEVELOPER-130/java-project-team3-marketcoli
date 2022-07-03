@@ -7,6 +7,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//import com.itwill.marketcoli.common.DataSource;		// jdeveloper55로 연결되어 있음
+import com.itwill.marketcoli.임은비.DataSource;
+import com.itwill.marketcoli.임은비.Orders;
+import com.itwill.marketcoli.임은비.Review;
+import com.itwill.marketcoli.임은비.Product;
+import com.itwill.marketcoli.임은비.UserInfo;
+
+// (추후 변경 필요) import문은 Dto가 완료되는 데로 연결예정
+/*
+import com.itwill.marketcoli.dto.Product;
+import com.itwill.marketcoli.dto.Review;
+import com.itwill.marketcoli.dto.UserInfo;
+*/
 
 public class ReviewDao {
 
@@ -51,6 +64,7 @@ public class ReviewDao {
 		
 	}
 	
+	//확인 필요
 	public int upadateReview(Review review) throws Exception{
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE);
@@ -64,8 +78,27 @@ public class ReviewDao {
 		con.close();
 		
 		return rowCount;
-		
 	}
+
+	public int updateByReviewNo(Review review) throws Exception {
+		
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE_BY_REVIEW_NO);
+
+		//"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
+		//"update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8";
+
+		pstmt.setString(1, review.getR_image());
+		pstmt.setString(2, review.getR_content());
+		pstmt.setInt(3, review.getR_rating());
+		pstmt.setInt(4, review.getR_no());
+		
+		int updateRowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return updateRowCount;
+	}
+	
 	
 	public int deleteReview(int r_no) throws Exception{
 		Connection con = dataSource.getConnection();

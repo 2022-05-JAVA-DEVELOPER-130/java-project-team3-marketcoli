@@ -1,7 +1,20 @@
 package com.itwill.marketcoli.임은비;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.itwill.marketcoli.dao.ReviewDao;
+
+//Dto
+import com.itwill.marketcoli.임은비.Orders;
+import com.itwill.marketcoli.임은비.Review;
+import com.itwill.marketcoli.임은비.Product;
+import com.itwill.marketcoli.임은비.UserInfo;
+/* 추후 변경 필요
+import com.itwill.marketcoli.dto.Product;
+import com.itwill.marketcoli.dto.Review;
+import com.itwill.marketcoli.dto.UserInfo;
+*/
 
 public class ReviewTestMain {
 
@@ -10,10 +23,13 @@ public class ReviewTestMain {
 		
 		System.out.println(">>insert");
 		
+		// 은비깨비대장 -> 후기 입력할때, Orders정보가 필요하지 않을까유?
+		
 		Review insertReview = new Review(0, "a.png", "너무 맛있어요 최고", null, 5,
 							 new Product(1, "바나나", 0, null, null, null),
 							 new UserInfo(1, null, null, "은비은비", null, 0, null, 0, null, null),
-							 null);
+							 new Orders(1, new SimpleDateFormat("yyyy-mm-dd").parse("2022-02-20"), null, 0, null, null,null)
+				);
 		System.out.println(reviewDao.insertReview(insertReview));
 	
 		
@@ -30,6 +46,14 @@ public class ReviewTestMain {
 						);
 				System.out.println(">>"+reviewDao.upadateReview(updateReview));
 				*/
+		
+		System.out.println(">>updateByReviewNo");
+		Review updateReview = new Review( 9, "up.jpg", "씨이원한 맛!!", null, 5,
+											new Product(0, null, 0, null, null,null),
+											new UserInfo(0,null,null,null,null,0,null,0,null,null),
+											new Orders(0, null, null, 0, null, null,null)
+										);
+		System.out.println(reviewDao.updateByReviewNo(updateReview));
 		
 		
 		System.out.println(">>selectNoReview");

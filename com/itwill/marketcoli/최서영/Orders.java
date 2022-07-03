@@ -5,7 +5,7 @@ package com.itwill.marketcoli.최서영;
 O_NO      NOT NULL NUMBER(10)     
 O_DATE             DATE           
 O_STATE   NOT NULL VARCHAR2(30)   
-U_NAME    NOT NULL VARCSHAR2(15)   
+U_NAME    NOT NULL VARCHAR2(15)   
 U_PHONE   NOT NULL NUMBER(20)     
 U_ADDRESS NOT NULL VARCHAR2(100)  
 U_NO      NOT NULL NUMBER(10)     
@@ -18,43 +18,93 @@ P_NAME             VARCHAR2(50)
  */
 
 import java.util.Date;
+
+
 public class Orders {
 
 	private int o_no;			//주문번호
 	private Date o_date;		//주문일시
 	private String o_state;		//주문상태
-	/******/
-	private UserInfo userInfo;		// -> u_name, u_phone, u_address, u_no
-	/*private int u_no;			//회원번호
-	private String u_id;		//아이디
-	private String u_pw;		//비밀번호
-	private String u_name;		//이름
-	private String u_email;		//이메일
-	private int u_phone;		//휴대폰번호
-	private String u_address;	//주소
-	private int u_birth;		//생년월일
-	private String u_job;		//직업
-	private Date u_joindate;	//java.util.Date
-	*/
-	/*
-		private Product product;	// -> p_no, p_price
-	  	private int p_no;			//상품번호	
-		private String p_name;		//상품이름
-		private int p_price;		//상품가격
-		private String p_exp;		//상품설명
-		private String p_category_b;	//상위카테고리
-		private String p_category_s;	//하위카테고리
-	*/	
 	private int d_fee;			//배송비
-	private String d_memo;	
-	private OrderDetail orderDetail;	// -> p_no, p_piece
-	/*
-	private int od_no;		//주문상세번호
-	private int p_piece;	//주문상품갯수
-	private int u_no;		//회원 번호
-	private int p_no;		//상품 번호
-	*/	
+	/******/
+	private UserInfo userInfo;
+	//private String u_name;		//회원이름
+	//private int u_phone;		//휴대폰번호
+	//private String u_address;	//주소
+	//private int u_no;			//회원번호
+	private Product product;
+	//private int p_no;			//상품번호
+	//private String d_memo;		//배송메모
+	// ------ 없는 부분 : private int p_piece;		//상품수량
+	//private int p_price;		//상품가격
+	//private String p_name;			//상품이름
 	
+	public Orders() {
+	}
+
+	public Orders(int o_no, Date o_date, String o_state, int d_fee, UserInfo userInfo, Product product) {
+		super();
+		this.o_no = o_no;
+		this.o_date = o_date;
+		this.o_state = o_state;
+		this.d_fee = d_fee;
+		this.userInfo = userInfo;
+		this.product = product;
+	}
+
+	public int getO_no() {
+		return o_no;
+	}
+
+	public void setO_no(int o_no) {
+		this.o_no = o_no;
+	}
+
+	public Date getO_date() {
+		return o_date;
+	}
+
+	public void setO_date(Date o_date) {
+		this.o_date = o_date;
+	}
+
+	public String getO_state() {
+		return o_state;
+	}
+
+	public void setO_state(String o_state) {
+		this.o_state = o_state;
+	}
+
+	public int getD_fee() {
+		return d_fee;
+	}
+
+	public void setD_fee(int d_fee) {
+		this.d_fee = d_fee;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	@Override
+	public String toString() {
+		return "Orders [o_no=" + o_no + ", o_date=" + o_date + ", o_state=" + o_state + ", d_fee=" + d_fee
+				+ ", userInfo=" + userInfo + ", product=" + product + "]";
+	}
 	
 }
 

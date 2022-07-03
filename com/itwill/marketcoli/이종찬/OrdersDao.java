@@ -22,15 +22,15 @@ public class OrdersDao {
       Connection con = dataSource.getConnection();
       PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_INSERT);
       
-      pstmt.setString(1, orders.getO_state());
-      pstmt.setInt(2, orders.getUserInfo().getU_phone());
-      pstmt.setString(3, orders.getUserInfo().getU_address());
-      pstmt.setInt(4, orders.getO_no());
-      pstmt.setInt(5, orders.getD_fee());
-      pstmt.setString(6, orders.getD_memo());
-      pstmt.setInt(7, orders.getProduct().getP_piece());  
-      pstmt.setInt(8, orders.getProduct().getP_price());
-      pstmt.setString(9, orders.getProduct().getP_name());
+      pstmt.setInt(1, orders.getO_no());
+      pstmt.setString(2, orders.getO_state());
+      pstmt.setInt(3, orders.getD_fee());
+      pstmt.setString(4, orders.getD_memo());
+      pstmt.setInt(5, orders.getUserInfo().getU_phone());
+      pstmt.setString(6, orders.getUserInfo().getU_address());
+      pstmt.setString(7, orders.getProduct().getP_name());
+      pstmt.setInt(8, orders.getProduct().getP_piece());  
+      pstmt.setInt(9, orders.getProduct().getP_price());
 
       int rowCount = pstmt.executeUpdate();
       
