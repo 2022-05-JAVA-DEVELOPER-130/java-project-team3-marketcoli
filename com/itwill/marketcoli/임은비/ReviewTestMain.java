@@ -1,5 +1,6 @@
 package com.itwill.marketcoli.임은비;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.itwill.marketcoli.dao.ReviewDao;
@@ -23,10 +24,11 @@ public class ReviewTestMain {
 		System.out.println(">>insert");
 		
 		// 은비깨비대장 -> 후기 입력할때, Orders정보가 필요하지 않을까유?
+		
 		Review insertReview = new Review(0, "a.png", "너무 맛있어요 최고", null, 5,
 							 new Product(1, "바나나", 0, null, null, null),
 							 new UserInfo(1, null, null, "은비은비", null, 0, null, 0, null, null),
-							 new Orders(1, null, null, 0, null, null)
+							 new Orders(1, new SimpleDateFormat("yyyy-mm-dd").parse("2022-02-20"), null, 0, null, null,null)
 				);
 		System.out.println(reviewDao.insertReview(insertReview));
 	
