@@ -17,9 +17,9 @@ P_PRICE            NUMBER(10)
 P_NAME             VARCHAR2(50)   
  */
 
-import java.util.Date;
-import com.itwill.marketcoli.dto.Product;
-import com.itwill.marketcoli.dto.UserInfo;
+import java.util.Date; 
+//import com.itwill.marketcoli.dto.Product;
+//import com.itwill.marketcoli.dto.UserInfo;
 
 /**
  * @author ITWILL
