@@ -3,9 +3,9 @@ package com.itwill.marketcoli.임은비;
 public class ReviewSql {
 	
 	
-	public static final String REVIEW_INSERT = "insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,R_RATING, P_NO, U_NO, U_NAME, O_DATE )values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?)";
+	public static final String REVIEW_INSERT = "insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,R_RATING, P_NO, U_NO, U_NAME, O_NO, O_DATE )values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?,?)";
 	public static final String REVIEW_UPDATE = "update review set r_image = ?, r_content=?, r_rating=? where u_no = ?";
-	public static final String REVIEW_DELETE = "delete review where u_no = ?";
+	public static final String REVIEW_DELETE = "delete review where r_no = ?";
 	
 	//후기를 번호로 조회
 	public static final String REVIEW_SELECT_R_NO = "select * from review where r_no=?";
@@ -20,6 +20,9 @@ public class ReviewSql {
 	public static final String REVIEW_SELECT_BY_PRODUCT_NO=
 			"select * from review where p_no=?";
 
+	//후기번호로 후기 업데이트 -> (마이페이지,상품페이지의)후기리스트에서 후기선택 후 업데이트
+	public static final String REVIEW_UPDATE_BY_REVIEW_NO=
+			"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
 
 	
 }

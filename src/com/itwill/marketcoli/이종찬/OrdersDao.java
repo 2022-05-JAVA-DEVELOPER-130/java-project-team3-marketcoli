@@ -1,15 +1,15 @@
 package com.itwill.marketcoli.이종찬;
 
-import java.sql.Connection; 
+import java.sql.Connection;  
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.itwill.marketcoli.dto.Orders;
-import com.itwill.marketcoli.dto.UserInfo;
-import com.itwill.marketcoli.dto.Product;
+//import com.itwill.marketcoli.dto.Orders;
+//import com.itwill.marketcoli.dto.UserInfo;
+//import com.itwill.marketcoli.dto.Product;
 
 public class OrdersDao {
    private DataSource dataSource;

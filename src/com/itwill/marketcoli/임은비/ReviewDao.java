@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.dao;
+package com.itwill.marketcoli.임은비;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
