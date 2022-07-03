@@ -2,11 +2,6 @@ package com.itwill.marketcoli.이종찬;
 
 import java.util.List;
 
-import com.itwill.marketcoli.dto.Orders;
-import com.itwill.marketcoli.dto.Product;
-import com.itwill.marketcoli.dto.UserInfo;
-
-
 public class OrderDaoTestMain {
 
    public static void main(String[] args) throws Exception {
