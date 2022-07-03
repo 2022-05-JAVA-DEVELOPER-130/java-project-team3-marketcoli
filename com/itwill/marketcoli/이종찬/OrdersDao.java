@@ -1,6 +1,6 @@
 package com.itwill.marketcoli.이종찬;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -33,6 +33,7 @@ public class OrdersDao {
       pstmt.setString(9, orders.getProduct().getP_name());
 
       int rowCount = pstmt.executeUpdate();
+      
       pstmt.close();
       con.close();
       return rowCount;
