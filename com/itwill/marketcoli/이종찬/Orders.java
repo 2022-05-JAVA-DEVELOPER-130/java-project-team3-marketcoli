@@ -32,7 +32,6 @@ public class Orders {
 	private String o_state; // 주문상태
 	private int d_fee; // 배송비
 	private String d_memo; // 배송메모
-	private int p_piece;		//상품수량
 	/******/
 	private UserInfo userInfo;
 	 //private int u_phone; //휴대폰번호
@@ -41,20 +40,20 @@ public class Orders {
 	 //private int p_price; //상품가격
 	 //private String p_name; //상품이름
 	 //private int p_piece;		//상품수량
-	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo, int p_piece, UserInfo userInfo,
-			Product product) {
+	
+	
+	public int getO_no() {
+		return o_no;
+	}
+	public Orders(int o_no, Date o_date, String o_state, int d_fee, String d_memo, UserInfo userInfo, Product product) {
 		super();
 		this.o_no = o_no;
 		this.o_date = o_date;
 		this.o_state = o_state;
 		this.d_fee = d_fee;
 		this.d_memo = d_memo;
-		this.p_piece = p_piece;
 		this.userInfo = userInfo;
 		this.product = product;
-	}
-	public int getO_no() {
-		return o_no;
 	}
 	public void setO_no(int o_no) {
 		this.o_no = o_no;
@@ -83,12 +82,6 @@ public class Orders {
 	public void setD_memo(String d_memo) {
 		this.d_memo = d_memo;
 	}
-	public int getP_piece() {
-		return p_piece;
-	}
-	public void setP_piece(int p_piece) {
-		this.p_piece = p_piece;
-	}
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
@@ -104,8 +97,9 @@ public class Orders {
 	@Override
 	public String toString() {
 		return "Orders [o_no=" + o_no + ", o_date=" + o_date + ", o_state=" + o_state + ", d_fee=" + d_fee + ", d_memo="
-				+ d_memo + ", p_piece=" + p_piece + ", userInfo=" + userInfo + ", product=" + product + "]";
+				+ d_memo + ", userInfo=" + userInfo + ", product=" + product + "]";
 	}
+	
 	
 	
 	

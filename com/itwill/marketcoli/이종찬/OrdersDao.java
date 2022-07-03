@@ -28,7 +28,7 @@ public class OrdersDao {
       pstmt.setInt(4, orders.getO_no());
       pstmt.setInt(5, orders.getD_fee());
       pstmt.setString(6, orders.getD_memo());
-     //pstmt.setInt(7, orders.getProduct().getpiece);  //Product p_piece 추가 필요
+      pstmt.setInt(7, orders.getProduct().getP_piece());  
       pstmt.setInt(8, orders.getProduct().getP_price());
       pstmt.setString(9, orders.getProduct().getP_name());
 
@@ -63,7 +63,7 @@ public class OrdersDao {
       pstmt.setInt(4, orders.getO_no());
       pstmt.setInt(5, orders.getD_fee());
       pstmt.setString(6, orders.getD_memo());
-     // pstmt.setInt(7, orders.getProduct().getP_piece());  //Product p_piece 추가 필요
+      pstmt.setInt(7, orders.getProduct().getP_piece());  
       pstmt.setInt(8, orders.getProduct().getP_price());
       pstmt.setString(9, orders.getProduct().getP_name());
 
@@ -88,7 +88,7 @@ public class OrdersDao {
   					rs.getInt("d_fee"), 
   					rs.getString("d_memo"),
   					new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
-  					new Product(0, rs.getString("p_name"), rs.getInt("p_price"), null, null, null));
+  					new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null));
       }
       
 
@@ -114,7 +114,7 @@ public class OrdersDao {
    					rs.getInt("d_fee"), 
    					rs.getString("d_memo"),
    					new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
-   					new Product(0, rs.getString("p_name"), rs.getInt("p_price"), null, null, null)));
+   					new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null)));
            		  	      
 
           }

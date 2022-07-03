@@ -13,6 +13,7 @@ public class Product {
 
 	private int p_no;			//상품번호	
 	private String p_name;		//상품이름
+	private int p_piece;		//상품수량
 	private int p_price;		//상품가격
 	private String p_exp;		//상품설명
 	private String p_category_b;	//상위카테고리
@@ -22,10 +23,12 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int p_no, String p_name, int p_price, String p_exp, String p_category_b, String p_category_s) {
+	public Product(int p_no, String p_name, int p_piece, int p_price, String p_exp, String p_category_b,
+			String p_category_s) {
 		super();
 		this.p_no = p_no;
 		this.p_name = p_name;
+		this.p_piece = p_piece;
 		this.p_price = p_price;
 		this.p_exp = p_exp;
 		this.p_category_b = p_category_b;
@@ -46,6 +49,14 @@ public class Product {
 
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
+	}
+
+	public int getP_piece() {
+		return p_piece;
+	}
+
+	public void setP_piece(int p_piece) {
+		this.p_piece = p_piece;
 	}
 
 	public int getP_price() {
@@ -82,10 +93,11 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_price=" + p_price + ", p_exp=" + p_exp
-				+ ", p_category_b=" + p_category_b + ", p_category_s=" + p_category_s + "]";
+		return "Product [p_no=" + p_no + ", p_name=" + p_name + ", p_piece=" + p_piece + ", p_price=" + p_price
+				+ ", p_exp=" + p_exp + ", p_category_b=" + p_category_b + ", p_category_s=" + p_category_s + "]";
 	}
 
+	
 	
 	
 }
