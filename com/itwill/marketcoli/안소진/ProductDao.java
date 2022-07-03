@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-import com.itwill.marketcoli.dto.Product;
-
 public class ProductDao {
 
 	public int insert(Product product) throws Exception {
@@ -34,8 +32,8 @@ public class ProductDao {
 		Class.forName(driverClass); //dirve 클래스 생성
 		Connection con = DriverManager.getConnection(url, user, password); //Connection 객체생성
 		Statement stmt = con.createStatement(); //Statemetn객체생성
-		
 		int rowCount = stmt.executeUpdate(insertSQL);
+				
 		stmt.close();
 		con.close();
 		return rowCount;

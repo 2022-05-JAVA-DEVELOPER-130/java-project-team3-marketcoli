@@ -101,7 +101,7 @@ public class UserInfoDao {
 
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			/*
+			/* 
 			 * private int u_no; //회원번호 - pk private String u_id; //아이디 - 변경불가 private
 			 * String u_pw; //비밀번호 private String u_name; //이름 private String u_email; //이메일
 			 * private int u_phone; //휴대폰번호 private String u_address; //주소 private int
@@ -123,7 +123,6 @@ public class UserInfoDao {
 	}
 	//아이디 찾기
 	public UserInfo selectById(String u_email) throws Exception {
-
 		UserInfo findUserInfo = null;
 
 		Connection con = this.dataSource.getConnection();
@@ -139,13 +138,24 @@ public class UserInfoDao {
 			 * u_birth; //생년월일 private String u_job; //직업 private Date u_joindate;
 			 * //java.util.Date - 변경불가
 			 */
-
+			findUserInfo = new UserInfo(0, rs.getString("u_id"), 
+					null,
+					null, 
+					null, 
+					0, 
+					null,
+					0, 
+					null,
+					null);
+		}
+			/*
 			findUserInfo = new UserInfo(rs.getInt("u_no"), rs.getString("u_id"), rs.getString("u_pw"),
 					rs.getString("u_name"), rs.getString("u_email"), rs.getInt("u_phone"), rs.getString("u_address"),
 					rs.getInt("u_birth"), rs.getString("u_job"),
-					rs.getDate("u_joindate"));/* sql.date는 상위(util.date)로 자동캐스팅 */
-
+					rs.getDate("u_joindate"));/* sql.date는 상위(util.date)로 자동캐스팅 
+												
 		}
+		*/
 		rs.close();
 		pstmt.close(); // 이 pstmt는 이미 sql문을 가지고 있으므로, 또
 		con.close();
@@ -153,6 +163,49 @@ public class UserInfoDao {
 
 	}
 
+	//아이디 찾기
+		public UserInfo selectByPW(String u_id ,String u_email) throws Exception {
+			UserInfo findUserInfo = null;
+
+			Connection con = this.dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_SELECT_BY_PW);
+			pstmt.setString(1, u_id);
+			pstmt.setString(2, u_email);
+
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				/*
+				 * private int u_no; //회원번호 - pk private String u_id; //아이디 - 변경불가 private
+				 * String u_pw; //비밀번호 private String u_name; //이름 private String u_email; //이메일
+				 * private int u_phone; //휴대폰번호 private String u_address; //주소 private int
+				 * u_birth; //생년월일 private String u_job; //직업 private Date u_joindate;
+				 * //java.util.Date - 변경불가
+				 */
+				findUserInfo = new UserInfo(0, null, 
+						rs.getString("u_pw"),
+						null, 
+						null, 
+						0, 
+						null,
+						0, 
+						null,
+						null);
+			}
+				/*
+				findUserInfo = new UserInfo(rs.getInt("u_no"), rs.getString("u_id"), rs.getString("u_pw"),
+						rs.getString("u_name"), rs.getString("u_email"), rs.getInt("u_phone"), rs.getString("u_address"),
+						rs.getInt("u_birth"), rs.getString("u_job"),
+						rs.getDate("u_joindate"));/* sql.date는 상위(util.date)로 자동캐스팅 
+													
+			}
+			*/
+			rs.close();
+			pstmt.close(); // 이 pstmt는 이미 sql문을 가지고 있으므로, 또
+			con.close();
+			return findUserInfo;
+
+		}
+	
 	// 관리자가 서비스에서 사용하게 될 부분
 	public List<UserInfo> selectAll() throws Exception {
 
