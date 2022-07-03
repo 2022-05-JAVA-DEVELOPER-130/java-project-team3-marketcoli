@@ -15,10 +15,10 @@ public class UserInfoDaoTestMain {
 		//User insertDao = new User(0, 'today', '0630', '오늘이, 'today@nail.com', '', null, 0, null, null)
 		//아직 진행중
 		
-		//System.out.println("1.insertUserInfo");
+		System.out.println("1.insertUserInfo");
 		// (수정)생성자 변경하여 사용
-		//UserInfo insertUserInfo = new UserInfo(0, "insert6", "1111", "고길동", "1@insert.com", 888888888, "서울", 20110201, "둘리보호자", null);
-		//System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
+		UserInfo insertUserInfo = new UserInfo(0, "insert7", "1111", "고길동", "1@insert.com", 888888888, "서울", 20110201, "둘리보호자", null);
+		System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
 
 		/*
 		 * = "insert into userinfo(u_no, u_id, u_pw, u_name, u_email, u_phone, u_address, u_birth, u_job, u_joindate)\r\n"
@@ -48,13 +48,15 @@ public class UserInfoDaoTestMain {
 		System.out.println(userInfoDao.selectByNo(1));
 		
 		System.out.println("5.seleteById");
-		System.out.println(userInfoDao.selectById("b@www.b.com"));
+		System.out.println(userInfoDao.selectById("11@update.com"));
 		
+		System.out.println("6.seleteByPw");
+		System.out.println(userInfoDao.selectByPW("itwill1", "11@update.com"));
 		
-		System.out.println("5.selectAll");
+		System.out.println("7.selectAll");
 		List<UserInfo> userInfoList = userInfoDao.selectAll();
 		for(UserInfo userInfo : userInfoList) {
-			System.out.print(userInfo);
+			System.out.println(userInfo);
 		
 		}
 		
