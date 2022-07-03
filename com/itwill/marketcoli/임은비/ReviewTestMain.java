@@ -51,7 +51,7 @@ public class ReviewTestMain {
 		Review updateReview = new Review( 9, "up.jpg", "씨이원한 맛!!", null, 5,
 											new Product(0, null, 0, null, null,null),
 											new UserInfo(0,null,null,null,null,0,null,0,null,null),
-											new Orders(0, null, null, 0, null, null)
+											new Orders(0, null, null, 0, null, null,null)
 										);
 		System.out.println(reviewDao.updateByReviewNo(updateReview));
 		
