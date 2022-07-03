@@ -108,12 +108,12 @@ public class UserInfoDao {
 			 * u_birth; //생년월일 private String u_job; //직업 private Date u_joindate;
 			 * //java.util.Date - 변경불가
 			 */
-
+			
 			findUserInfoId = new UserInfo(rs.getInt("u_no"), rs.getString("u_id"), rs.getString("u_pw"),
 					rs.getString("u_name"), rs.getString("u_email"), rs.getInt("u_phone"), rs.getString("u_address"),
 					rs.getInt("u_birth"), rs.getString("u_job"),
 					rs.getDate("u_joindate"));/* sql.date는 상위(util.date)로 자동캐스팅 */
-
+			
 		}
 		rs.close();
 		pstmt.close(); // 이 pstmt는 이미 sql문을 가지고 있으므로, 또
@@ -127,7 +127,7 @@ public class UserInfoDao {
 		UserInfo findUserInfo = null;
 
 		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_SELECT_BY_NO);
+		PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_SELECT_BY_ID);
 		pstmt.setString(1, u_email);
 
 		ResultSet rs = pstmt.executeQuery();

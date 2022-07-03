@@ -44,10 +44,12 @@ public class UserInfoDaoTestMain {
 		UserInfo updateUserInfo = new UserInfo(1, "update1", "1234", "고고길동", "11@update.com", 01012341234, "서울 강북", 20220703, "둘리사육사", null);
 		System.out.println(userInfoDao.updateUserInfo(updateUserInfo));
 		
-		System.out.println("4.seleteById");
-		System.out.println(userInfoDao.selectById("11@update.com"));
 		System.out.println("4.selectByNo");
-		System.out.println(userInfoDao.selectByNo(2));
+		System.out.println(userInfoDao.selectByNo(1));
+		
+		System.out.println("5.seleteById");
+		System.out.println(userInfoDao.selectById("b@www.b.com"));
+		
 		
 		System.out.println("5.selectAll");
 		List<UserInfo> userInfoList = userInfoDao.selectAll();
