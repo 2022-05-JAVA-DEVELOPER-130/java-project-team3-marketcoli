@@ -44,7 +44,6 @@ public class Orders {
 	//private int p_piece;		//상품수량
 	//private int p_price;		//상품가격
 	//private String p_name;			//상품이름
-	private OrderDetail orderdetail;
 	
 	public Orders() {
 	}
@@ -57,7 +56,6 @@ public class Orders {
 		this.d_fee = d_fee;
 		this.userInfo = userInfo;
 		this.product = product;
-		this.orderdetail = orderdetail;
 	}
 
 	public int getO_no() {
@@ -116,14 +114,6 @@ public class Orders {
 		this.product = product;
 	}
 	
-	
-	public OrderDetail getOrderdetail() {
-		return orderdetail;
-	}
-
-	public void setOrderdetail(OrderDetail orderdetail) {
-		this.orderdetail = orderdetail;
-	}
 
 	@Override
 	public String toString() {
