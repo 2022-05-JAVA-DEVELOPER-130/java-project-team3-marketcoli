@@ -27,7 +27,8 @@ public class CartTestMain {
 		
 		
 		
-		
+		Cart selectCartByNo = CartDao.selectCartByNo(1);
+		System.out.println(selectCartByNo);
 
 	}
 
