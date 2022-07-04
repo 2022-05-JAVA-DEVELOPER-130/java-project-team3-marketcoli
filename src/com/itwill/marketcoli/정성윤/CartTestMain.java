@@ -24,12 +24,7 @@ public class CartTestMain {
 		System.out.println(">> 장바구니 전체 출력");
 		List<Cart> cartList = CartDao.selectAll();
 		System.out.println(cartList);
-		
-		
-		
-		Cart selectCartByNo = CartDao.selectCartByNo(1);
-		System.out.println(selectCartByNo);
-
+	
 	}
 
 }
