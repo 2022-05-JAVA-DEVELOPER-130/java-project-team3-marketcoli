@@ -2,7 +2,7 @@ package com.itwill.marketcoli.dto;
 
 import java.util.Date;
 
-/*
+/*//
 이름         널?       유형            
 ---------- -------- ------------- 
 U_NO       NOT NULL NUMBER(10)    
@@ -24,7 +24,7 @@ public class UserInfo {
 	private String u_pw;		//비밀번호
 	private String u_name;		//이름
 	private String u_email;		//이메일
-	private int u_phone;		//휴대폰번호
+	private String u_phone;		//휴대폰번호
 	private String u_address;	//주소
 	private int u_birth;		//생년월일
 	private String u_job;		//직업
@@ -34,7 +34,7 @@ public class UserInfo {
 
 	}
 
-	public UserInfo(int u_no, String u_id, String u_pw, String u_name, String u_email, int u_phone, String u_address,
+	public UserInfo(int u_no, String u_id, String u_pw, String u_name, String u_email, String u_phone, String u_address,
 			int u_birth, String u_job, Date u_joindate) {
 		super();
 		this.u_no = u_no;
@@ -89,11 +89,11 @@ public class UserInfo {
 		this.u_email = u_email;
 	}
 
-	public int getU_phone() {
+	public String getU_phone() {
 		return u_phone;
 	}
 
-	public void setU_phone(int u_phone) {
+	public void setU_phone(String u_phone) {
 		this.u_phone = u_phone;
 	}
 
@@ -136,7 +136,6 @@ public class UserInfo {
 				+ u_job + ", u_joindate=" + u_joindate + "]";
 	}
 
-	
 	
 	
 }

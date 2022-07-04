@@ -5,6 +5,8 @@ import java.util.List;
 import com.itwill.marketcoli.dao.UserInfoDao;
 import com.itwill.marketcoli.dto.UserInfo;
 
+
+
 public class UserInfoDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
@@ -16,35 +18,51 @@ public class UserInfoDaoTestMain {
 		
 		System.out.println("1.insertUserInfo");
 		// (수정)생성자 변경하여 사용
-		UserInfo insertUserInfo = new UserInfo(0, "today2", "0630", "오늘이", "today@nail.com", 888888888, "하늘", 20220303, null, null);
+		UserInfo insertUserInfo = new UserInfo(0, "insert14", "1111", "고길동", "1@insert.com", "01011112222", "서울", 20110201, "둘리보호자", null);
 		System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
 
 		/*
 		 * = "insert into userinfo(u_no, u_id, u_pw, u_name, u_email, u_phone, u_address, u_birth, u_job, u_joindate)\r\n"
 				+ "VALUES (userinfo_u_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ? , sysdate) ";
-		 * 
-		System.out.println("2.deleteUser");
-		System.out.println(userDao.deleteUser(5));
+		 */
+		System.out.println("2.deleteUserInfo");
+		System.out.println(userInfoDao.deleteUserInfo(5));
 
-		System.out.println("3.updateUser");
-			// (수정)생성자 변경하여 사용
-		User updateUser = new User();
-		System.out.println(userDao.updateUser(updateUser));
-
-		System.out.println("4.selectByNo");
-		System.out.println(userDao.selectByNo(3));
-
-		System.out.println("5.selectAll");
-		List<User> userList = userDao.selectAll();
-		System.out.println(userList);
+		// (수정)생성자 변경하여 사용
+		/*	
+		private int u_no;			//회원번호 - pk
+		private String u_id;		//아이디 - 변경불가
+		private String u_pw;		//비밀번호
+		private String u_name;		//이름
+		private String u_email;		//이메일
+		private int u_phone;		//휴대폰번호
+		private String u_address;	//주소
+		private int u_birth;		//생년월일
+		private String u_job;		//직업
+		private Date u_joindate;	//java.util.Date - 변경불가
+*/
+		System.out.println("3.updateUserInfo");
+		UserInfo updateUserInfo = new UserInfo(1, "update1", "1234", "고고길동", "11@update.com", "01011111111", "서울 강북", 20220703, "둘리사육사", null);
+		System.out.println(userInfoDao.updateUserInfo(updateUserInfo));
 		
-		System.out.println("---for each사용---");
-		for(User user : userList) {
-			System.out.print(user);
-		*/
+		System.out.println("4.selectByNo");
+		System.out.println(userInfoDao.selectByNo(1));
+		
+		System.out.println("5.seleteById");
+		System.out.println(userInfoDao.selectById("11@update.com"));
+		
+		System.out.println("6.seleteByPw");
+		System.out.println(userInfoDao.selectByPW("itwill1", "11@update.com"));
+		
+		System.out.println("7.selectAll");
+		List<UserInfo> userInfoList = userInfoDao.selectAll();
+		for(UserInfo userInfo : userInfoList) {
+			System.out.println(userInfo);
+		
 		}
 		
 		
 		
 	}
+}
 
