@@ -128,7 +128,7 @@ public class ReviewDao {
 									 rs.getInt("r_rating"), 
 									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
 									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-									 new Orders(0, rs.getDate("o_date"), null, 0, null, null));
+									 new Orders(0, rs.getDate("o_date"), null, 0, null, null,null));
 		}
 		rs.close();
 		pstmt.close();
@@ -154,7 +154,7 @@ public class ReviewDao {
 									 rs.getInt("r_rating"), 
 									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
 									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-									 new Orders(0, rs.getDate("o_date"), null, 0, null, null)));
+									 new Orders(0, rs.getDate("o_date"), null, 0, null, null,null)));
 		}
 		
 		return reviewList;
@@ -180,7 +180,7 @@ public class ReviewDao {
 										rs.getInt("r_rating"),
 										new Product(rs.getInt("p_no"), null, 0, null, null, null),
 										new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-										new Orders(0, rs.getDate("o_date"), null, 0, null, null)
+										new Orders(0, rs.getDate("o_date"), null, 0, null, null,null)
 									)
 					);
 		}
