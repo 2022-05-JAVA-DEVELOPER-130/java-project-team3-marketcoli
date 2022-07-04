@@ -24,12 +24,7 @@ public class CartTestMain {
 		System.out.println(">> 장바구니 전체 출력");
 		List<Cart> cartList = CartDao.selectAll();
 		System.out.println(cartList);
-<<<<<<< HEAD
-	
-=======
-		
 
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 	}
 
 }
