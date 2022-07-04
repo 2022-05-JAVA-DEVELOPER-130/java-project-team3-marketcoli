@@ -229,3 +229,4 @@ ALTER TABLE review ADD CONSTRAINT IDX_review_PK PRIMARY KEY (r_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK0 FOREIGN KEY (u_no) REFERENCES userinfo (u_no);
 ALTER TABLE review ADD CONSTRAINT IDX_review_FK1 FOREIGN KEY (p_no) REFERENCES product (p_no);
 
+commit;

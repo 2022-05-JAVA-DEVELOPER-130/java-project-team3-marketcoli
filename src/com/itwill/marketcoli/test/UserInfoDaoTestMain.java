@@ -18,7 +18,8 @@ public class UserInfoDaoTestMain {
 		
 		System.out.println("1.insertUserInfo");
 		// (수정)생성자 변경하여 사용
-		UserInfo insertUserInfo = new UserInfo(0, "insert14", "1111", "고길동", "1@insert.com", "01011112222", "서울", 20110201, "둘리보호자", null);
+		UserInfo insertUserInfo = new UserInfo(0, "insert14", "1111", "고길동", "1@insert.com", 
+												"01011112222", "서울", 20110201, "둘리보호자", null);
 		System.out.println(userInfoDao.insertUserInfo(insertUserInfo));
 
 		/*
