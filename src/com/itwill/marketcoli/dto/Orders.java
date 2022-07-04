@@ -14,7 +14,7 @@ public class Orders {
 
 	private int o_no;			//주문번호
 	private Date o_date;		//주문일시
-	private int o_price;		
+	private int o_price;		//주문 총가격 total_price
 	private UserInfo userInfo;	//u_no 또는 u_id를 얻기 위함
 
 	/*	<<UserInfo>>
