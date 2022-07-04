@@ -67,12 +67,15 @@ update orders set o_state = '주문취소'  where u_no =3;
 
 
 /********order insert**************/
+/*
 insert into order(od_no,p_poece,,email) values('guard1','1111','김경호1','guard1@korea.com');
 insert into order(od_no,p_poece,name,email) values('guard2','2222','김경호2','guard2@korea.com');
 insert into order(od_no,p_poece,name,email) values('guard3','3333','김경호3','guard3@korea.com');
 insert into order(od_no,p_poece,name,email) values('guard4','4444','김경호4','guard4@korea.com');
+*/
 
 /*******product insert************/
+/*
 insert into product values(1,'비글',55000,'bigle.png','귀여워요...',0);
 insert into product values(2,'달마시안',55000,'bigle.png','귀여워요...',0);
 insert into product values(3,'퍼그',55000,'bigle.png','귀여워요...',0);
@@ -81,18 +84,21 @@ insert into product values(5,'포메라이안',55000,'bigle.png','귀여워요..
 insert into product values(6,'샤페이',55000,'bigle.png','귀여워요...',0);
 insert into product values(7,'닥스훈트',55000,'bigle.png','귀여워요...',0);
 insert into product values(8,'샤모예드',55000,'bigle.png','귀여워요...',0);
-
+*/
 
 /**********cart insert************/
+/*
 --guard1님 카트아이템 담기(insert)
 insert into cart(cart_no,cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,1,3,'guard1');
 insert into cart(cart_no,cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,2,7,'guard1');
 insert into cart(cart_no,cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,3,8,'guard1');
+*/
 
 --guard2님 카트아이템 담기(insert)
+/*
 insert into cart(cart_no,cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,1,1,'guard2');
 insert into cart(cart_no,cart_qty,p_no,userid) values(cart_cart_no_seq.nextval,2,2,'guard2');
-
+*/
 
 
 commit;
