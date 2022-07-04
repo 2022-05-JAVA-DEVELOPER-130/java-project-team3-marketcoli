@@ -5,11 +5,7 @@ package com.itwill.marketcoli.김하림;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Date;
 
-import com.itwill.marketcoli.dto.Product;
-import com.itwill.marketcoli.dto.UserInfo;
 
 
 
@@ -37,8 +33,8 @@ public class OrderDetailDao {
 	
 	//주문이 들어오고 (order) 상세내역 받기
 	public int insertOrderdetail(OrderDetail orderDetail) throws Exception {
-		String ORDERDETAIL_INSERT= "insert into orderdetail(od_no,p_name,p_piece,p_price,u_address,o_no,o_date,d_fee,d_memo)"
-				+ "values ( orderdetail_od_no_SEQ.nextval,?,?,?,?,?,?,?,?)";
+		String ORDERDETAIL_INSERT= "insert into orderdetail(od_no,p_name,p_piece,p_price,u_address,o_no,o_date)"
+				+ "values ( orderdetail_od_no_SEQ.nextval,?,?,?,?,?,?)";
 		Connection con =dataSource.getConnection();
 		PreparedStatement pstmt= con.prepareStatement(ORDERDETAIL_INSERT);
 		pstmt.setString(1, orderDetail.getOrder().getProduct().getP_name());//p_name
@@ -46,9 +42,7 @@ public class OrderDetailDao {
 		pstmt.setInt(3, orderDetail.getOrder().getProduct().getP_price());//p_price
 		pstmt.setString(4, orderDetail.getOrder().getUserInfo().getU_address());//u_address
 		pstmt.setInt(5, orderDetail.getOrder().getO_no());//o_no
-		pstmt.setDate(6, new java.sql.Date(orderDetail.getOrder().getO_date().getTime()));//o_date
-		pstmt.setInt(7, orderDetail.getOrder().getD_fee());//d_fee
-		pstmt.setString(8, orderDetail.getOrder().getD_memo());//d_memo
+		pstmt.setDate(6, new java.util.Date(orderDetail.getOrder().getO_date().getTime()));//o_date
 		int insertRowCount	= pstmt.executeUpdate();
 		pstmt.close();
 		con.close();
