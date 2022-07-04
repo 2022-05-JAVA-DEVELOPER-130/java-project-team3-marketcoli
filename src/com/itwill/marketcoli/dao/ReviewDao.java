@@ -33,8 +33,8 @@ public class ReviewDao {
 		pstmt.setInt(5, review.getUserInfo().getU_no());
 		pstmt.setString(6, review.getUserInfo().getU_name());
 		
-		pstmt.setInt(7, review.getOrders().getO_no());
-		pstmt.setDate(8, new java.sql.Date(review.getOrders().getO_date().getTime()) );
+		//pstmt.setInt(7, review.getOrders().getO_no());
+		//pstmt.setDate(8, new java.sql.Date(review.getOrders().getO_date().getTime()) );
 		
 		int rowCount = pstmt.executeUpdate();
 		

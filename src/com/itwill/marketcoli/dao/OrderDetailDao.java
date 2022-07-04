@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.itwill.marketcoli.common.DataSource;
-import com.itwill.marketcoli.dto.OrderDetail;
+import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.UserInfo;
 
