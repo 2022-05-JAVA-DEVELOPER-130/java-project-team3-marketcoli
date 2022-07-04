@@ -2,7 +2,7 @@ package com.itwill.marketcoli.김봉균;
 
 import java.util.Date;
 
-/*
+/*//
 이름         널?       유형            
 ---------- -------- ------------- 
 U_NO       NOT NULL NUMBER(10)    

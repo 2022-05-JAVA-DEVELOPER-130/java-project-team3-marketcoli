@@ -33,7 +33,7 @@ public class ReviewTestMain {
 		System.out.println(reviewDao.insertReview(insertReview));
 	
 		
-		System.out.println(">>delete");
+		System.out.println(">>delete"); 
 		System.out.println(reviewDao.deleteReview(2));
 		/* (수정예정)
 		 * where 후기번호로 줘야함.
