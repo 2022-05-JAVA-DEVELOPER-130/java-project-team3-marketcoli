@@ -30,7 +30,6 @@ public class OrderDetail {
 	}
 
 	public OrderDetail(int od_no, Orders order) {
-		super();
 		this.od_no = od_no;
 		this.order = order;
 	}
