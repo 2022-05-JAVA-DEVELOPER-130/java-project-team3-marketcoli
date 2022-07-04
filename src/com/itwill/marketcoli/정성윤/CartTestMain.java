@@ -25,10 +25,6 @@ public class CartTestMain {
 		List<Cart> cartList = CartDao.selectAll();
 		System.out.println(cartList);
 		
-		
-		
-		Cart selectCartByNo = CartDao.selectCartByNo(1);
-		System.out.println(selectCartByNo);
 
 	}
 
