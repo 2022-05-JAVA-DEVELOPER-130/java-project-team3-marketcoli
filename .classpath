@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 <<<<<<< HEAD
 =======
@@ -7,7 +8,9 @@
 	<classpathentry exported="true" kind="lib" path="src/lib/ojdbc6.jar"/>
 =======
 >>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
-	<classpathentry kind="src" path="src"/>
+=======
 >>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
