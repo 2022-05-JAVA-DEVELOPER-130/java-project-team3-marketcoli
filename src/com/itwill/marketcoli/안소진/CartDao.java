@@ -14,7 +14,7 @@ public class CartDao {
 public int insertCart(Cart cart) throws Exception {
 	
 	Connection con=dataSource.getConnection();
-	PreparedStatement pstmt = con.prepareStatement(null)
+	PreparedStatement pstmt = con.prepareStatement(null);
 	
 }
 	
