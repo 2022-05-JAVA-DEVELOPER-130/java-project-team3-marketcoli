@@ -18,4 +18,6 @@ public class CartSQL {
 	
 	public static final String CART_SELECT_ALL 
 								= " ";
+	
+	//
 }
