@@ -1,11 +1,11 @@
-package com.itwill.marketcoli.임은비;
+package com.itwill.marketcoli.dao;
 
-public class ReviewSql {
+public class ReviewSQL {
 	
 	
-	public static final String REVIEW_INSERT = "insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,R_RATING, P_NO, U_NO, U_NAME, O_NO, O_DATE )values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?,?)";
+	public static final String REVIEW_INSERT = "insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,R_RATING, P_NO, U_NO, U_NAME, O_DATE )values (REVIEW_R_NO_SEQ.nextval,?,?,sysdate,?,?,?,?,?)";
 	public static final String REVIEW_UPDATE = "update review set r_image = ?, r_content=?, r_rating=? where u_no = ?";
-	public static final String REVIEW_DELETE = "delete review where r_no = ?";
+	public static final String REVIEW_DELETE = "delete review where u_no = ?";
 	
 	//후기를 번호로 조회
 	public static final String REVIEW_SELECT_R_NO = "select * from review where r_no=?";

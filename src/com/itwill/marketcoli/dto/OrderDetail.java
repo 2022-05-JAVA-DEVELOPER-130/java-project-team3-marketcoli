@@ -7,10 +7,6 @@ orderdetail
 		p_no    NUMBER(10)		 NULL 
 );
 */
-/**
- * @author ITWILL
- *
- */
 public class OrderDetail {
 	private int od_no;		//주문상세번호
 	private int p_piece;	//주문상품갯수
@@ -65,20 +61,6 @@ public class OrderDetail {
 	public String toString() {
 		return "OrderDetail [od_no=" + od_no + ", p_piece=" + p_piece + ", u_no=" + u_no + ", p_no=" + p_no + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

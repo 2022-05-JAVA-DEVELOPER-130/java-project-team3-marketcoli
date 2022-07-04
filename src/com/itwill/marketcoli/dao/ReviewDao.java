@@ -7,19 +7,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//import com.itwill.marketcoli.common.DataSource;		// jdeveloper55로 연결되어 있음
-import com.itwill.marketcoli.임은비.DataSource;
-import com.itwill.marketcoli.임은비.Orders;
-import com.itwill.marketcoli.임은비.Review;
-import com.itwill.marketcoli.임은비.Product;
-import com.itwill.marketcoli.임은비.UserInfo;
+import com.itwill.marketcoli.common.DataSource;
 
-// (추후 변경 필요) import문은 Dto가 완료되는 데로 연결예정
-/*
+
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.Review;
 import com.itwill.marketcoli.dto.UserInfo;
-*/
 
 public class ReviewDao {
 
@@ -27,23 +20,10 @@ public class ReviewDao {
 	public ReviewDao() {
 		dataSource = new DataSource();
 	}
-	
-	/*
-	 private int r_no;			//후기 번호
-	private String r_image;		//후기 이미지
-	private String r_content;	//후기 글
-	private Date r_wdate;		//후기 작성일자
-	private int r_rating;		//후기 평가
-	private int p_no;			//상품번호
-	private int u_no;			//상품이름
-	private String u_name;		//회원이름
-	private Date o_date;		//주문일자
-	 */
-	
 	public int insertReview (Review review) throws Exception{
 		
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_INSERT);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_INSERT);
 		
 		pstmt.setString(1, review.getR_image());
 		pstmt.setString(2, review.getR_content());
@@ -68,7 +48,7 @@ public class ReviewDao {
 	//확인 필요
 	public int upadateReview(Review review) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_UPDATE);
 		pstmt.setString(1, review.getR_image());
 		pstmt.setString(2, review.getR_content());
 		pstmt.setInt(3, review.getR_rating());
@@ -84,7 +64,7 @@ public class ReviewDao {
 	public int updateByReviewNo(Review review) throws Exception {
 		
 		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_UPDATE_BY_REVIEW_NO);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_UPDATE_BY_REVIEW_NO);
 
 		//"update review set r_image = ?, r_content=?, r_rating=? where r_no = ?";
 		//"update review set r_image = 'up.jpg', r_content='씨이원한 맛!', r_rating='3' where r_no = 8";
@@ -103,7 +83,7 @@ public class ReviewDao {
 	
 	public int deleteReview(int r_no) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_DELETE);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_DELETE);
 		pstmt.setInt(1, r_no);
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
@@ -119,17 +99,11 @@ public class ReviewDao {
 		Review findReviewId = null;
 		
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_R_NO);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_SELECT_R_NO);
 		pstmt.setInt(1, r_no);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
-			findReviewId = new Review(rs.getInt("r_no"), rs.getString("r_image"), 
-									 rs.getString("r_content"), 
-									 rs.getDate("r_wdate"), 
-									 rs.getInt("r_rating"), 
-									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
-									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-									 new Orders(0, rs.getDate("o_date"), null, 0, null, null,null));
+
 		}
 		rs.close();
 		pstmt.close();
@@ -145,17 +119,11 @@ public class ReviewDao {
 		
 		List<Review> reviewList = new ArrayList<Review>();
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_ID_ALL);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_SELECT_ID_ALL);
 		pstmt.setString(1,u_id);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
-			reviewList.add(new Review(rs.getInt("r_no"), rs.getString("r_image"), 
-									 rs.getString("r_content"), 
-									 rs.getDate("r_wdate"), 
-									 rs.getInt("r_rating"), 
-									 new Product(rs.getInt("p_no"),null, 0, null, null, null),
-									 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-									 new Orders(0, rs.getDate("o_date"), null, 0, null, null,null)));
+
 		}
 		
 		return reviewList;
@@ -167,23 +135,14 @@ public class ReviewDao {
 		List<Review> reviewList = new ArrayList<Review>();
 
 		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSql.REVIEW_SELECT_BY_PRODUCT_NO);
+		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_SELECT_BY_PRODUCT_NO);
 		
 		pstmt.setInt(1, p_no);
 		
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
-			reviewList.add(new Review(rs.getInt("r_no"),
-										rs.getString("r_image"),
-										rs.getString("r_content"),
-										rs.getDate("r_wdate"),
-										rs.getInt("r_rating"),
-										new Product(rs.getInt("p_no"), null, 0, null, null, null),
-										new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, 0, null, 0, null, null),
-										new Orders(0, rs.getDate("o_date"), null, 0, null, null,null)
-									)
-					);
+
 		}
 		rs.close();
 		pstmt.close();

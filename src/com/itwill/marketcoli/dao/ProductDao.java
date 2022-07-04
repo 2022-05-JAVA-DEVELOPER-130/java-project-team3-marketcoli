@@ -15,23 +15,13 @@ public class ProductDao {
 	public ProductDao() {
 		dataSource = new DataSource();
 	}
-	/*
-	private int p_no;			//상품번호	
-	private String p_name;		//상품이름
-	private int p_price;		//상품가격
-	private String p_exp;		//상품설명
-	private String p_category_b;	//상위카테고리
-	private String p_category_s;	//하위카테고리
-	 */
 
 	public int insertProduct(Product product) throws Exception {
 
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_INSERT);
 
-		// (참고)
 		// pstmt.setString(1, product.getP_name()());
-		/*********** 내용 입력 필요합니다 *********************/
 
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
@@ -45,7 +35,7 @@ public class ProductDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_DELETE);
 
-		pstmt.setInt(1, p_no);
+		//pstmt.setInt(1, p_no);
 
 		int rowCount = pstmt.executeUpdate();
 
@@ -61,9 +51,7 @@ public class ProductDao {
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_UPDATE);
 
-		// (참고)
 		// pstmt.setString(1, product.getP_name());
-		/*********** 내용 입력 필요합니다 *********************/
 
 		int rowCount = pstmt.executeUpdate();
 
@@ -84,21 +72,8 @@ public class ProductDao {
 
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			/*
-				private int p_no;			//상품번호	
-				private String p_name;		//상품이름
-				private int p_price;		//상품가격
-				private String p_exp;		//상품설명
-				private String p_category_b;	//상위카테고리
-				private String p_category_s;	//하위카테고리
-			 */
-			findProduct = new Product(rs.getInt("p_no"),
-										rs.getString("p_name"), 
-										rs.getInt("p_price"),
-										rs.getString("p_exp"), 
-										rs.getString("p_category_b"), 
-										rs.getString("p_category_s"));
 
+			
 		}
 		rs.close();
 		pstmt.close();
@@ -109,7 +84,6 @@ public class ProductDao {
 
 	public List<Product> selectAll() throws Exception {
 
-		// String selectAllSql = "select * from guest";
 		List<Product> productList = new ArrayList<Product>();
 
 		Connection con = this.dataSource.getConnection();
@@ -117,20 +91,7 @@ public class ProductDao {
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
-			/*
-				private int p_no;			//상품번호	
-				private String p_name;		//상품이름
-				private int p_price;		//상품가격
-				private String p_exp;		//상품설명
-				private String p_category_b;	//상위카테고리
-				private String p_category_s;	//하위카테고리
-			 */
-						productList.add(new Product(rs.getInt("p_no"),
-													rs.getString("p_name"),
-													rs.getInt("p_price"),
-													rs.getString("p_exp"),
-													rs.getString("p_category_b"),
-													rs.getString("p_category_s")));
+
 		}
 		rs.close();
 		pstmt.close();

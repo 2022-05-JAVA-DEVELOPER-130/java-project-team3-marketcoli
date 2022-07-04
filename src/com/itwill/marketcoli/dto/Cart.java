@@ -1,6 +1,12 @@
 package com.itwill.marketcoli.dto;
 
 /*
+
+		내용 확인 필요
+
+*/
+
+/*
 이름      널?       유형           
 ------- -------- ------------ 
 C_NO    NOT NULL NUMBER(10)   
