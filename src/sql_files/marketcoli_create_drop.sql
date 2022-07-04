@@ -9,11 +9,11 @@ DROP TABLE userinfo CASCADE CONSTRAINTS;
 
 CREATE TABLE userinfo(
 		u_no                          		NUMBER(10)		 NOT NULL,
-		u_id                          		VARCHAR2(10)		 NOT NULL,
+		u_id                          		VARCHAR2(10)		NOT NULL,
 		u_pw                          		VARCHAR2(20)		 NOT NULL,
 		u_name                        		VARCHAR2(50)		 NOT NULL,
 		u_email                       		VARCHAR2(40)		 NOT NULL,
-		u_phone                       		NUMBER(11)		 NOT NULL,
+		u_phone                       		varchar2(11)		 NOT NULL,
 		u_address                     		VARCHAR2(100)		 NOT NULL,
 		u_birth                       		NUMBER(8)		 NOT NULL,
 		u_job                         		VARCHAR2(20)		 DEFAULT Null		 NULL ,

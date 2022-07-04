@@ -9,14 +9,36 @@ public class UserinfoServiceTestMain {
 
 	public static void main(String[] args) throws Exception{
 		UserInfoService userInfoService = new UserInfoService();
+		
+/*		
 		//회원가입
 		UserInfo newUserInfo =
 				new UserInfo(0, "insert100", "1234", "서비스맨", "1@service.test", "01099999999", "아이티윌", 20220702, null, null);
 		System.out.println(userInfoService.addUserInfo(newUserInfo));
+*/		
+		
 		//로그인
 		/* UserInfo UserInfoLogin = 
 				new UserInfo(12, "insert100", "1234", "서비스맨", "1@service.test", "01099999999", "아이티윌", 20220702, null, null);*/
 				System.out.println(userInfoService.UserInfoLogin("insert100", "1234"));
+		
+		System.out.println(">>로그인 테스트");
+		int userInfoLogin = userInfoService.UserInfoLogin("insert100", "updatePw");
+		if(userInfoLogin==0) {
+			System.out.println("로그인 성공");
+		}else if (userInfoLogin==1) {
+			System.out.println("회원 정보가 없습니다 회원가입 바로가기>>");
+		}else {
+			System.out.println("패스워드 불일치 합니다 다시 입력해주세요");
+		}
+		
+		/*
+		 else if(userInfoLogin==2) {
+			System.out.println("패스워드 불일치 합니다 다시 입력해주세요");
+		}
+		 */
+		
+				
 		//회원 아이디 찾기
 		System.out.println(userInfoService.selectById("1@service.test"));
 		//회원 비밀번호 찾기
