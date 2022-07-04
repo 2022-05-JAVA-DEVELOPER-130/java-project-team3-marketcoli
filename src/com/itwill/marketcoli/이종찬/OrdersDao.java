@@ -83,13 +83,13 @@ public class OrdersDao {
       ResultSet rs = pstmt.executeQuery();
       
       if (rs.next()) {
-    	  findOrders = new Orders(rs.getInt("o_no"), 
-  					rs.getDate("o_date"), /* sql.date는 상위(util.date)로 자동캐스팅 */
-  					rs.getString("o_state"), 
-  					rs.getInt("d_fee"), 
-  					rs.getString("d_memo"),
-  					new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
-  					new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null));
+         findOrders = new Orders(rs.getInt("o_no"), 
+                 rs.getDate("o_date"), /* sql.date는 상위(util.date)로 자동캐스팅 */
+                 rs.getString("o_state"), 
+                 rs.getInt("d_fee"), 
+                 rs.getString("d_memo"),
+                 new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
+                 new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null));
       }
       
 
@@ -110,13 +110,13 @@ public class OrdersDao {
 
          while (rs.next()) {
              ordersList.add(new Orders(rs.getInt("o_no"), 
-   					rs.getDate("o_date"), /* sql.date는 상위(util.date)로 자동캐스팅 */
-   					rs.getString("o_state"), 
-   					rs.getInt("d_fee"), 
-   					rs.getString("d_memo"),
-   					new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
-   					new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null)));
-           		  	      
+                  rs.getDate("o_date"), /* sql.date는 상위(util.date)로 자동캐스팅 */
+                  rs.getString("o_state"), 
+                  rs.getInt("d_fee"), 
+                  rs.getString("d_memo"),
+                  new UserInfo(0, null, null, null, null, rs.getInt("u_phone"), rs.getString("u_address"), 0, null,null),
+                  new Product(0, rs.getString("p_name"),rs.getInt("p_piece") ,rs.getInt("p_price"), null, null, null)));
+                            
 
           }
          
