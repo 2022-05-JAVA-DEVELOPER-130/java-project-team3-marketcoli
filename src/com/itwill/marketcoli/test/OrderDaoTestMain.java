@@ -29,7 +29,7 @@ public class OrderDaoTestMain {
 		orderItemList.add(new OrderItem(0, 2, 0, product));
 		// System.out.println(orderItemList.get(0).getOi_qty());
 		Orders insertOrder = new Orders(0, null, product.getP_price() * orderItemList.get(0).getOi_qty(),
-				new UserInfo(0, "itwill5", null, null, null, null, null, 0, null, null), orderItemList);
+				new UserInfo(0, "itwill4", null, null, null, null, null, 0, null, null), orderItemList);
 
 		// (확인 완료)order_item 테이블 - insert order_item이 안되는 상태 -> excuteQuery가 주석처리
 		// 되어있었음...
@@ -68,7 +68,7 @@ public class OrderDaoTestMain {
 
 		
 		System.out.println("2-1.deleteOrdersByOrderNo - 주문내역 번호로 주문전체 삭제");
-		System.out.println(ordersDao.deleteOrdersByOrderNo(23));
+		System.out.println(ordersDao.deleteOrdersByOrderNo(76));
 		
 		System.out.println("2-2.deleteOrdersByUserId - 아이디로 주문전체 삭제");
 		System.out.println(ordersDao.deleteOrdersByUserId("itwill6"));
