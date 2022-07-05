@@ -27,11 +27,6 @@ public class OrdersSQL {
 			+ "join order_item oi on o.o_no=oi.o_no"
 			+ "join  product p on oi.p_no=p.p_no"
 			+ "where o.u_id=? and o.o_no = ?";
-	/*= "select *"
-			+ "from product p"
-			+ "join order_item oi"
-			+ "on p.p_no = oi.p_no"
-			+ "where oi_no = ?";*/
 
 	public static final String ORDERS_SELECT_BY_NO = " ";
 

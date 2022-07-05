@@ -171,5 +171,30 @@ public class OrdersDao {
 		con.close();
 		return findOrders;
 	}
-
+	
+	//주문번호를 이용한 주문 상품 수량 변경
+	public int updateOrderItemByO_no(int OI_QTY, int P_NO, int O_no) throws Exception {
+		String updateOrderitem =" update order_item set OI_QTY = ?  where  P_NO =? and O_no=?";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(updateOrderitem);
+		pstmt.setInt(1, OI_QTY);
+		pstmt.setInt(2, P_NO);
+		pstmt.setInt(3, O_no);
+		int rowCount = pstmt.executeUpdate();
+		return rowCount;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
