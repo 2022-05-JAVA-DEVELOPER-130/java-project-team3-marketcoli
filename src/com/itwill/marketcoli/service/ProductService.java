@@ -8,6 +8,23 @@ import com.itwill.marketcoli.dto.Product;
 public class ProductService {
 	
 	private ProductDao productDao;
+
+	public ProductService() {
+		productDao = new ProductDao();
+	}
+	
+	public int inserProduct(Product product) throws Exception {
+		return productDao.insertProduct(product);	
+	}
+	
+	public int deleteProdunt(int p_no) throws Exception {
+		return productDao.deleteProduct(p_no);
+	}
+	
+	public int updateProduct(Product product) throws Exception {
+		return productDao.updateProduct(product);
+	}
+	
 	
 	//상품 1개보기-상세보기
 	public Product productDetail(int p_no) throws Exception {
@@ -17,8 +34,7 @@ public class ProductService {
 	//전체상품보기
 	public List<Product> productList() throws Exception {
 		return productDao.selsectAll();
-	}	
-		
+	}
 	
 
-}
+}//

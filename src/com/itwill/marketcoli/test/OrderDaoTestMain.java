@@ -21,7 +21,7 @@ public class OrderDaoTestMain {
 		insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
 		*/
 
-		System.out.println("1.insertOrders - 상품1개");
+		System.out.println("1-1.insertOrders - 상품1개");
 		//1. 1가지 상품 주문 넣기
 		ProductDao selectProduct = new ProductDao();
 		Product product = selectProduct.selectByNo(12);
@@ -29,13 +29,13 @@ public class OrderDaoTestMain {
 		orderItemList.add(new OrderItem(0, 2, 0, product));
 		// System.out.println(orderItemList.get(0).getOi_qty());
 		Orders insertOrder = new Orders(0, null, product.getP_price() * orderItemList.get(0).getOi_qty(),
-				new UserInfo(0, "itwill6", null, null, null, null, null, 0, null, null), orderItemList);
+				new UserInfo(0, "itwill5", null, null, null, null, null, 0, null, null), orderItemList);
 
 		// (확인 완료)order_item 테이블 - insert order_item이 안되는 상태 -> excuteQuery가 주석처리
 		// 되어있었음...
-		System.out.println(ordersDao.insertOrder(insertOrder));
+		System.out.println(ordersDao.insertOrders(insertOrder));
 
-		System.out.println("1.insertOrders - 상품 여러개");
+		System.out.println("1-2.insertOrders - 상품 여러개");
 		// 2. 2가지 상품 주문 넣기
 		selectProduct = new ProductDao();
 		orderItemList = new ArrayList<OrderItem>();
@@ -61,12 +61,50 @@ public class OrderDaoTestMain {
 		}
 		
 		insertOrder = new Orders(0, null, totalPrice,
-				new UserInfo(0, "itwill6", null, null, null, null, null, 0, null, null), orderItemList);
+				new UserInfo(0, "itwill5", null, null, null, null, null, 0, null, null), orderItemList);
 
 		// (확인 완료)order_item 테이블 - insert order_item이 안되는 상태 -> excuteQuery가 주석처리
-		// 되어있었음...
-		System.out.println(ordersDao.insertOrder(insertOrder));
+		System.out.println(ordersDao.insertOrders(insertOrder));
 
+		
+		System.out.println("2-1.deleteOrdersByOrderNo - 주문내역 번호로 주문전체 삭제");
+		System.out.println(ordersDao.deleteOrdersByOrderNo(23));
+		
+		System.out.println("2-2.deleteOrdersByUserId - 아이디로 주문전체 삭제");
+		System.out.println(ordersDao.deleteOrdersByUserId("itwill6"));
+		
+		System.out.println("3.ORDERS_UPDATE_BY_ORDER_iTEM_NO - 주문아이템 수량변경");
+		System.out.println(ordersDao.updateOrderItemQty(3,74));
+		
+		
+	    /**************************************************************/
+		System.out.println("1. 주문 전체 검색");
+		List<Orders>orderList = ordersDao.selectAll();
+		for (Orders orders : orderList) {
+			System.out.println(orders);
+		}
+		
+		System.out.println("2. U_id를 이용한 주문검색");
+		Orders findOrders = ordersDao.findOrders("itwill5");
+		System.out.println(findOrders);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

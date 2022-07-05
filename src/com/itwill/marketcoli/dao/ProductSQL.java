@@ -1,9 +1,9 @@
 package com.itwill.marketcoli.dao;
 
 public class ProductSQL {
-	
+
 	//SQL 문장을 채워서 사용하세요
-	
+
 	public static final String PRODUCT_INSERT 
 	= "insert into product values (product_p_no_seq.nextval,?,?,?,?,?)";
 
