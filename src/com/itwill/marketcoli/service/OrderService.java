@@ -111,13 +111,6 @@ public class OrderService {
 	
 	
 	
-
-	public int insertOrders(CartDao carDao) throws Exception{
-		return 0;
-		
-	}
-	
-	
 	
 	
 	

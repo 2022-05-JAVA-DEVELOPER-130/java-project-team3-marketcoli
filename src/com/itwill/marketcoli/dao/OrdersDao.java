@@ -135,10 +135,11 @@ public class OrdersDao {
 		PreparedStatement pstmt = con.prepareStatement(selectAll);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
-			orderslist.add(new Orders(rs.getInt("O_no"), rs.getDate("O_date"), rs.getInt("O_PRICE"),
-					new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
-					/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
-					null));                                 
+			orderslist.add(new Orders(rs.getInt("O_no"),
+										rs.getDate("O_date"),
+										rs.getInt("O_PRICE"),null,null));
+										/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+					                               
 		}
 		rs.close();
 		pstmt.close();
