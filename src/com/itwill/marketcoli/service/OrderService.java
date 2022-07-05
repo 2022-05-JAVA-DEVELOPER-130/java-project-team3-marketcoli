@@ -127,8 +127,13 @@ public class OrderService {
 		return 0;
 	}
 	
-	
-	
+	//주문 상세보기
+	public int findOrdersById () throws Exception {
+		
+		
+		return 0;
+		
+	}
 	
 	
 	
