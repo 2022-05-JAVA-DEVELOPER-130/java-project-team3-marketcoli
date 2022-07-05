@@ -8,8 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.itwill.marketcoli.common.DataSource;
-
-
+import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.Review;
 import com.itwill.marketcoli.dto.UserInfo;
@@ -33,8 +32,8 @@ public class ReviewDao {
 		pstmt.setInt(5, review.getUserInfo().getU_no());
 		pstmt.setString(6, review.getUserInfo().getU_name());
 		
-		//pstmt.setInt(7, review.getOrders().getO_no());
-		//pstmt.setDate(8, new java.sql.Date(review.getOrders().getO_date().getTime()) );
+		pstmt.setInt(7, review.getOrders().getO_no());
+		pstmt.setDate(8, new java.sql.Date(review.getOrders().getO_date().getTime()) );
 		
 		int rowCount = pstmt.executeUpdate();
 		
@@ -45,21 +44,7 @@ public class ReviewDao {
 		
 	}
 	
-	//확인 필요
-	public int upadateReview(Review review) throws Exception{
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ReviewSQL.REVIEW_UPDATE);
-		pstmt.setString(1, review.getR_image());
-		pstmt.setString(2, review.getR_content());
-		pstmt.setInt(3, review.getR_rating());
-		pstmt.setInt(4, review.getUserInfo().getU_no());
-		
-		int rowCount = pstmt.executeUpdate();
-		pstmt.close();
-		con.close();
-		
-		return rowCount;
-	}
+
 
 	public int updateByReviewNo(Review review) throws Exception {
 		
@@ -103,7 +88,13 @@ public class ReviewDao {
 		pstmt.setInt(1, r_no);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
-
+			findReviewId = new Review(rs.getInt("r_no"), rs.getString("r_image"), 
+					 rs.getString("r_content"), 
+					 rs.getDate("r_wdate"), 
+					 rs.getInt("r_rating"), 
+					 new Product(rs.getInt("p_no"),null, 0, null, null, null),
+					 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, null, null, 0, null, null),
+					 new Orders(0, rs.getDate("o_date"), 0, null, null));
 		}
 		rs.close();
 		pstmt.close();
@@ -114,7 +105,7 @@ public class ReviewDao {
 	}
 
 	
-	
+	//리뷰테이블에 아이디도 추가해야하는거 아닌가
 	public List<Review> selectIdReviewAll(String u_id) throws Exception{
 		
 		List<Review> reviewList = new ArrayList<Review>();
@@ -123,7 +114,13 @@ public class ReviewDao {
 		pstmt.setString(1,u_id);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
-
+			reviewList.add(new Review(rs.getInt("r_no"), rs.getString("r_image"), 
+					 rs.getString("r_content"), 
+					 rs.getDate("r_wdate"), 
+					 rs.getInt("r_rating"), 
+					 new Product(rs.getInt("p_no"),null, 0, null, null, null),
+					 new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, null, null, 0, null, null),
+					 new Orders(0, rs.getDate("o_date"), 0, null, null)));
 		}
 		
 		return reviewList;
@@ -142,7 +139,16 @@ public class ReviewDao {
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
-
+			reviewList.add(new Review(rs.getInt("r_no"),
+					rs.getString("r_image"),
+					rs.getString("r_content"),
+					rs.getDate("r_wdate"),
+					rs.getInt("r_rating"),
+					new Product(rs.getInt("p_no"), null, 0, null, null, null),
+					new UserInfo(rs.getInt("u_no"), null, null, rs.getString("u_name"), null, null, null, 0, null, null),
+					new Orders(0, rs.getDate("o_date"), 0, null, null)
+				)
+);
 		}
 		rs.close();
 		pstmt.close();

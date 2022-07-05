@@ -28,59 +28,47 @@ public class ReviewDaoTestMain {
 		 */
 		
 		System.out.println(">>insert");
-/*							
-				// 은비깨비대장 -> 후기 입력할때, Orders정보가 필요하지 않을까유?
+	/*						
+				// 은비깨비대장 -> 후기 입력할때, Orders정보가 필요하지 않을까유? --> 주문 번호를 추가하려면 테이블부터 다시 만들어야합니다!
 				Review insertReview = new Review(0, "a.png", "너무 맛있어요 최고", null, 5,
 									 new Product(1, "바나나", 0, null, null, null),
 									 new UserInfo(1, null, null, "은비은비", null, null, null, 0, null, null),
-									 new Orders(1, null, 0, null, null)
+									 new Orders(68, new SimpleDateFormat("yyyy-MM-dd").parse("2022-05-08"), 0, null, null)
 						);
 				System.out.println(reviewDao.insertReview(insertReview));
-		*/	
+	*/		
 				
 		System.out.println(">>delete");
 		System.out.println(reviewDao.deleteReview(2));
-		
-		 
-		  
-		System.out.println(">>update");
 				
-				Review updateReview = new Review(0, "hi.jpg", "정말 배불러요!!", null, 4,
-						new Product(1, null, 0, null, null, null),
-						new UserInfo(0, null, null, null, null, 0, null, 0, null, null),
-						new Orders(0, Date, null, 0, null) 
-						);
-				System.out.println(">>"+reviewDao.upadateReview(updateReview));
-			
-		/*		
 				System.out.println(">>updateByReviewNo");
-				Review updateReview = new Review( 9, "up.jpg", "씨이원한 맛!!", null, 5,
+				Review updateReview = new Review( 6, "up.jpg", "씨이원한 맛!!", null, 5,
 													new Product(0, null, 0, null, null,null),
-													new UserInfo(0,null,null,null,null,0,null,0,null,null),
-													new Orders(0, null, null, 0, null, null)
+													new UserInfo(0,null,null,null,null,null,null,0,null,null),
+													new Orders(0, null,0, null, null)
 												);
 				System.out.println(reviewDao.updateByReviewNo(updateReview));
-				*/
-		/*		
+				
+				
 				System.out.println(">>selectNoReview");
-				Review findReviewId = reviewDao.selectNoReview(2);
+				Review findReviewId = reviewDao.selectNoReview(4);
 				System.out.println(findReviewId);
 				
 			
+				//리뷰테이블에 아이디도 추가해야하는거 아닌가
 				System.out.println(">>selectidReviewAll");
 				List<Review> reviewIdListAll = reviewDao.selectIdReviewAll("itwill1");
 				for (Review review : reviewIdListAll) {
 					System.out.println(review);
 				}
 		
+				
 				System.out.println("5.selectByProductNo");
 				List<Review> reviewList = reviewDao.selectByProductNo(1);
-				//System.out.println(reviewList);
-		
 				for (Review review : reviewList) {
 					System.out.println(review);
 				}
-				*/
+				
 		
 	}
 
