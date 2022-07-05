@@ -10,6 +10,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JLabel;
 import java.awt.Dimension;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
 
 public class JFrame extends javax.swing.JFrame {
 
@@ -41,8 +43,19 @@ public class JFrame extends javax.swing.JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("New menu");
+		JMenu mnNewMenu_1 = new JMenu("");
+		mnNewMenu_1.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\작은문.jpg"));
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
+		mnNewMenu_1.add(mntmNewMenuItem);
+		
+		JMenu mnNewMenu = new JMenu("가운데");
 		menuBar.add(mnNewMenu);
+		
+		JMenu mnNewMenu_2 = new JMenu("");
+		mnNewMenu_2.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\작은문.jpg"));
+		menuBar.add(mnNewMenu_2);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -54,6 +67,9 @@ public class JFrame extends javax.swing.JFrame {
 		JPanel joinPanel = new JPanel();
 		joinPanel.setName("");
 		tabbedPane.addTab("회원가입", null, joinPanel, null);
+		
+		JPanel mypagePanel = new JPanel();
+		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
 		
 		JPanel loginPanel = new JPanel();
 		tabbedPane.addTab("로그인", null, loginPanel, null);

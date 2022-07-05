@@ -50,6 +50,13 @@ public class OrderService {
 	public int deleteOrderAllByOrderNo (int o_no) throws Exception {
 		return orderDao.deleteOrdersByOrderNo(o_no);
 	}
+	//유저아이디가 주문한 주문 전체삭제(u_id)
+	public int deleteOrderByUserId (String u_id)throws Exception{
+		return orderDao.deleteOrdersByUserId(u_id);
+	}
+	
+	
+	
 	
 	//주문 넣기
 	public int insertOrderOne (int p_no,int o_qty,String u_id ) throws Exception {
@@ -116,11 +123,15 @@ public class OrderService {
 		
 		
 		
+		
 		return 0;
 	}
 	
 	
 	
 	
-
+	
+	
+	
+	
 }
