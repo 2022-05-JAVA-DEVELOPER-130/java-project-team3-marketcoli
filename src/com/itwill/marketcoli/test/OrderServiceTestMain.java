@@ -31,16 +31,16 @@ public class OrderServiceTestMain {
 		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill4"));
 
 		// cart에서 주문 -> cart에서 Order로 옮겨닮기
-//		System.out.println("00.cart에서 주문");	
-//		System.out.println(orderService.cartToOrders(9));
-//		
-//
-//		System.out.println("00.주문 전체 삭제");
-//		System.out.println(orderService.deleteOrderAllByOrderNo(72));
-//		
-//
-//		System.out.println(orderService.deleteOrderByUserId("itwill4"));
-//		
+		System.out.println("00.cart에서 주문");	
+		System.out.println(orderService.cartToOrders(9));
+		
+
+		System.out.println("00.주문 전체 삭제");
+		System.out.println(orderService.deleteOrderAllByOrderNo(72));
+		
+
+		System.out.println(orderService.deleteOrderByUserId("itwill4"));
+		
 		//주문목록에서 1개 삭제
 		
 		//주문 전체 출력 -주문 상세보기
