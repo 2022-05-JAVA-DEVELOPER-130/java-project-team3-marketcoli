@@ -24,52 +24,52 @@ public class join extends JPanel {
 	public join() {
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uAC00\uC785");
+		JLabel lblNewLabel = new JLabel("회원가입");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 		lblNewLabel.setBounds(124, 51, 131, 72);
 		add(lblNewLabel);
 		
-		JLabel joinidLB = new JLabel("\uC544\uC774\uB514");
+		JLabel joinidLB = new JLabel("아이디");
 		joinidLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinidLB.setBounds(43, 146, 57, 15);
 		add(joinidLB);
 		
-		JLabel joinPwLB = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		JLabel joinPwLB = new JLabel("비밀번호");
 		joinPwLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinPwLB.setBounds(43, 209, 57, 15);
 		add(joinPwLB);
 		
-		JLabel joinPwReLB = new JLabel("\uBE44\uBC00\uBC88\uD638\uD655\uC778");
+		JLabel joinPwReLB = new JLabel("비밀번호확인");
 		joinPwReLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinPwReLB.setBounds(43, 271, 139, 15);
 		add(joinPwReLB);
 		
-		JLabel joinNameLB = new JLabel("\uC774\uB984");
+		JLabel joinNameLB = new JLabel("이름");
 		joinNameLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinNameLB.setBounds(43, 332, 57, 15);
 		add(joinNameLB);
 		
-		JLabel joinemailLB = new JLabel("\uC774\uBA54\uC77C");
+		JLabel joinemailLB = new JLabel("이메일");
 		joinemailLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinemailLB.setBounds(43, 388, 57, 15);
 		add(joinemailLB);
 		
-		JLabel joinphoneLB = new JLabel("\uD734\uB300\uD3F0");
+		JLabel joinphoneLB = new JLabel("핸드폰");
 		joinphoneLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinphoneLB.setBounds(43, 437, 57, 15);
 		add(joinphoneLB);
 		
-		JLabel joinaddressLB = new JLabel("\uC8FC\uC18C");
+		JLabel joinaddressLB = new JLabel("주소");
 		joinaddressLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinaddressLB.setBounds(43, 479, 57, 15);
 		add(joinaddressLB);
 		
-		JLabel joinhbdLB = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
+		JLabel joinhbdLB = new JLabel("생년월일");
 		joinhbdLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinhbdLB.setBounds(43, 520, 57, 15);
 		add(joinhbdLB);
 		
-		JLabel joinjobLB = new JLabel("\uC9C1\uC5C5");
+		JLabel joinjobLB = new JLabel("직업");
 		joinjobLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		joinjobLB.setBounds(43, 576, 57, 15);
 		add(joinjobLB);
