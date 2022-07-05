@@ -32,7 +32,7 @@ public class OrdersDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt1 = con.prepareStatement(OrdersSQL.ORDERS_INSERT);
 		/*
-		public static final String ORDERS_INSERT
+		public static final sString ORDERS_INSERT
 				= "insert into orders(o_no, o_date, o_price, u_id) values (orders_o_no_SEQ.nextval,sysdate, ?, ?)";
 		public static final String ORDERITEM_INSERT
 			= "insert into order_item(oi_no, oi_qty, o_no, p_no) values(order_item_oi_no_SEQ.nextval, ? ,orders_o_no_SEQ.currval, ?)";
