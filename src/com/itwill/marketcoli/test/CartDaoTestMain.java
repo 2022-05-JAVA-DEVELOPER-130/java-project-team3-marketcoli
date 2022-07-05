@@ -1,5 +1,6 @@
 package com.itwill.marketcoli.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.itwill.marketcoli.dao.CartDao;
@@ -33,7 +34,7 @@ public class CartDaoTestMain {
 		System.out.println(selectCartByNo);
 		
 		System.out.println(">> 카트 전체 출력");
-		List<Cart> cartList = CartDao.selectAll();
+		ArrayList<Cart> cartList = CartDao.selectAll();
 		System.out.println(cartList);
 		
 	}
