@@ -28,11 +28,11 @@ public class OrdersSQL {
 			+ "join  product p on oi.p_no=p.p_no"
 			+ "where o.u_id=? and o.o_no = ?";
 
-	public static final String ORDERS_SELECT_BY_NO = " ";
+	public static final String ORDERS_SELECT_BY_NO = "select * from orders where u_no = ?";
 
 	// 주문 전체 출력 - 관리자
-	public static final String ORDERS_SELECT_ALL = " ";
+	public static final String ORDERS_SELECT_ALL = "select * from orders";
 
 	// 유저 id를 이용한 주문내역 전체검색
-	public static final String ORDERS_SELECT_BY_USERID = " ";
+	public static final String ORDERS_SELECT_BY_USERID = "select * from orders where u_id ";
 }
