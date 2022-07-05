@@ -25,10 +25,10 @@ public class OrderServiceTestMain {
 				}
 		*/
 		System.out.println("00.주문 넣기 - 상품에서 직접주문");
-		System.out.println(orderService.insertOrderOne(20, 10, "itwill3"));
+		System.out.println(orderService.insertOrderOne(20, 10, "itwill4"));
 		
 		System.out.println("00.주문 2개 동시에 넣기");	//맞나...
-		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill3"));
+		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill4"));
 
 		//cart에서 주문
 		
@@ -38,6 +38,8 @@ public class OrderServiceTestMain {
 		System.out.println(orderService.deleteOrderAllByOrderNo(72));
 		
 		//주문목록에서 1개 삭제
+		System.out.println(orderService.deleteOrderByUserId("itwill4"));
+		
 		
 		//cart에서 주문
 		
