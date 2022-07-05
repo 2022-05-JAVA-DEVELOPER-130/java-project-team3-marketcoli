@@ -75,7 +75,15 @@ public class OrderDaoTestMain {
 		
 		System.out.println("3.ORDERS_UPDATE_BY_ORDER_iTEM_NO - 주문아이템 수량변경");
 		System.out.println(ordersDao.updateOrderItemQty(3,74));
-		
+		/*		
+				System.out.println("4.SelectOrderItemByOrderNo - 아이디, 주문번호로 주문목록 조회");
+				List<Orders> orderItemList2 = new ArrayList<Orders>();
+						orderItemList2.add(ordersDao.selectOrderItemByOrderNo("itwill5", 73));
+						
+						for (Orders orders : orderItemList2) {
+							System.out.println(orders);
+						}
+				*/
 		
 	    /**************************************************************/
 		System.out.println("1. 주문 전체 검색");
