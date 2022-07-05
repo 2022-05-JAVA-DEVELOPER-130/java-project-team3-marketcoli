@@ -38,14 +38,17 @@ public class OrderServiceTestMain {
 		System.out.println("00.주문 전체 삭제");
 		System.out.println(orderService.deleteOrderAllByOrderNo(72));
 		
-		//주문목록에서 1개 삭제
+		System.out.println("00.userId를 통해 주문 전체 삭제");
 		System.out.println(orderService.deleteOrderByUserId("itwill4"));
 		
+		//주문목록에서 1개 삭제
 		
 		//주문 전체 출력 -주문 상세보기
 		
 		//주문내역 수량 변경
-
+		System.out.println("00.주문내역 수량 변경");
+		System.out.println(orderService.updateOrderItemQty(100, 97));
+		
 		//주문번호 를 이용한 주문내역 전체 검색
 		
 	}
