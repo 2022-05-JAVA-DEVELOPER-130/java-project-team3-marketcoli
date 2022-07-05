@@ -138,7 +138,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.setLayout(null);
 		
 		JLabel productImageLabel = new JLabel("");
-		productImageLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\체리 (1).jpg"));
+		productImageLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류135.jpg"));
 		productImageLabel.setBounds(12, 10, 135, 135);
 		productItemPanel.add(productImageLabel);
 		
@@ -172,9 +172,37 @@ public class JFrame extends javax.swing.JFrame {
 		productServePanel.add(productServelScrollPane, BorderLayout.CENTER);
 		
 		JPanel productDetailpanel = new JPanel();
-		productDetailpanel.setPreferredSize(new Dimension(10, 800));
+		productDetailpanel.setPreferredSize(new Dimension(10, 550));
 		productServelScrollPane.setViewportView(productDetailpanel);
 		productDetailpanel.setLayout(null);
+		
+		JLabel productDetailImegeLabel = new JLabel("");
+		productDetailImegeLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류310.jpg"));
+		productDetailImegeLabel.setBounds(12, 10, 310, 310);
+		productDetailpanel.add(productDetailImegeLabel);
+		
+		JComboBox productDetailComboBox = new JComboBox();
+		productDetailComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		productDetailComboBox.setBounds(205, 500, 39, 25);
+		productDetailpanel.add(productDetailComboBox);
+		
+		JButton productDetailCartBtn = new JButton("");
+		productDetailCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productDetailCartBtn.setBounds(255, 500, 67, 25);
+		productDetailpanel.add(productDetailCartBtn);
+		
+		JLabel productDetailTitleLabel = new JLabel("상품명");
+		productDetailTitleLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		productDetailTitleLabel.setBounds(12, 330, 310, 32);
+		productDetailpanel.add(productDetailTitleLabel);
+		
+		JLabel productDetailExpLabel = new JLabel("상품설명");
+		productDetailExpLabel.setBounds(12, 372, 311, 116);
+		productDetailpanel.add(productDetailExpLabel);
+		
+		JLabel productDetailPriceLabel = new JLabel("상품가격");
+		productDetailPriceLabel.setBounds(12, 500, 181, 25);
+		productDetailpanel.add(productDetailPriceLabel);
 		
 		JPanel cartPanel = new JPanel();
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
