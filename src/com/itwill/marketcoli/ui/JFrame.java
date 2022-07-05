@@ -20,6 +20,8 @@ import javax.swing.JScrollPane;
 import java.awt.Insets;
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.awt.Font;
+import java.awt.Color;
 
 
 
@@ -52,7 +54,7 @@ public class JFrame extends javax.swing.JFrame {
 	 */
 	public JFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 390, 844);
+		setBounds(100, 100, 390, 680);
 		
 		JMenuBar menuBar = new JMenuBar();
 		
@@ -62,52 +64,65 @@ public class JFrame extends javax.swing.JFrame {
 		menuBar.setAlignmentX(Component.LEFT_ALIGNMENT);
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu_1 = new JMenu("");
-		mnNewMenu_1.setHorizontalAlignment(SwingConstants.CENTER);
-		mnNewMenu_1.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\작은문.jpg"));
-		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("New menu item");
-		mnNewMenu_1.add(mntmNewMenuItem);
+		JMenu cartMenu = new JMenu("");
+		cartMenu.setHorizontalAlignment(SwingConstants.RIGHT);
+		cartMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		menuBar.add(cartMenu);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("");
-		mntmNewMenuItem_1.setEnabled(false);
-		menuBar.add(mntmNewMenuItem_1);
+		JMenuItem nothing1 = new JMenuItem("");
+		nothing1.setEnabled(false);
+		menuBar.add(nothing1);
 		
-		JMenu mnNewMenu = new JMenu("Market Coli");
-		mnNewMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		menuBar.add(mnNewMenu);
+		JMenu titleMenu = new JMenu("Market Coli");
+		titleMenu.setForeground(new Color(128, 0, 128));
+		titleMenu.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		titleMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		menuBar.add(titleMenu);
 		menuBar.setSize(300, 20);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("");
-		mntmNewMenuItem_2.setEnabled(false);
-		menuBar.add(mntmNewMenuItem_2);
+		JMenuItem nothing2 = new JMenuItem("");
+		nothing2.setEnabled(false);
+		menuBar.add(nothing2);
 		
+		JMenu userMenu = new JMenu("");
+		userMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		userMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\door.png"));
+		menuBar.add(userMenu);
 		
-		JMenu mnNewMenu_2 = new JMenu("");
-		mnNewMenu_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		mnNewMenu_2.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\작은문.jpg"));
-		menuBar.add(mnNewMenu_2);
+		JMenuItem joinMenuItem = new JMenuItem("회원가입");
+		userMenu.add(joinMenuItem);
+		
+		JMenuItem loginMenuItem = new JMenuItem("로그인");
+		userMenu.add(loginMenuItem);
+		
+		JMenuItem mypageMenuItem_4 = new JMenuItem("마이페이지");
+		userMenu.add(mypageMenuItem_4);
+		
+		JMenuItem logoutMenuItem_5 = new JMenuItem("로그아웃");
+		userMenu.add(logoutMenuItem_5);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane);
+		JTabbedPane mainTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(mainTabbedPane);
 		
 		JPanel productPanel = new JPanel();
-		tabbedPane.addTab("상품", null, productPanel, null);
-		productPanel.setLayout(null);
+		mainTabbedPane.addTab("상품", null, productPanel, null);
+		productPanel.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane productScrollPane = new JScrollPane();
-		productScrollPane.setBounds(0, 524, 329, -522);
-		productPanel.add(productScrollPane);
+		JScrollPane scrollPane = new JScrollPane();
+		productPanel.add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		scrollPane.setViewportView(panel);
 		
 		JPanel orderPanel = new JPanel();
-		tabbedPane.addTab("주문하기", null, orderPanel, null);
+		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
 		
 		JPanel noticePanel = new JPanel();
-		tabbedPane.addTab("공지사항", null, noticePanel, null);
+		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 	}
 }
