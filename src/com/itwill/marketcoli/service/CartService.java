@@ -33,7 +33,7 @@ public class CartService {
 	}
 	
 	public Cart getCartNo(int c_no) throws Exception {
-		return cartDao.selectCartByNo(c_no);
+		return cartDao.selectCartByCartNo(c_no);
 	}
 	
 	public ArrayList<Cart> getCartList(int c_no) throws Exception {
