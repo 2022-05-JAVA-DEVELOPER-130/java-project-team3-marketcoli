@@ -128,8 +128,8 @@ public class OrdersDao {
 
 	/****************************************************************/
 	// 주문 전체 출력
-	public List<Orders> selectAll() throws Exception {
-		List<Orders> orderslist = new ArrayList<Orders>();
+	public ArrayList<Orders> selectAll() throws Exception {
+		ArrayList<Orders> orderslist = new ArrayList<Orders>();
 		String selectAll = "select * from orders o join userinfo u on o.u_id = u.u_id";
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(selectAll);
@@ -137,7 +137,9 @@ public class OrdersDao {
 		while (rs.next()) {
 			orderslist.add(new Orders(rs.getInt("O_no"),
 										rs.getDate("O_date"),
-										rs.getInt("O_PRICE"),null,null));
+										rs.getInt("O_PRICE"),
+										new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+										null));
 										/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
 					                               
 		}
