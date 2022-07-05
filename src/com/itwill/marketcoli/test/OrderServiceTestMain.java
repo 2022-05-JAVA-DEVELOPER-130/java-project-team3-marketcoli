@@ -30,14 +30,11 @@ public class OrderServiceTestMain {
 		System.out.println("00.주문 2개 동시에 넣기");	//맞나...
 		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill4"));
 
-		//cart에서 주문
+		// cart에서 주문 -> cart에서 Order로 옮겨닮기
+		System.out.println("00.cart에서 주문");	
+		System.out.println(orderService.cartToOrders(9));
 		
-		//cart에서 선택 주문
-		
-		
-		
-		
-		//주문번호로 주문 전체삭제 --테스트 완료
+
 		System.out.println("00.주문 전체 삭제");
 		System.out.println(orderService.deleteOrderAllByOrderNo(72));
 		
@@ -45,9 +42,11 @@ public class OrderServiceTestMain {
 		System.out.println(orderService.deleteOrderByUserId("itwill4"));
 		
 		
-		//cart에서 주문
+		//주문 전체 출력 -주문 상세보기
 		
-		//주문 상세보기
+		//주문내역 수량 변경
+
+		//주문번호 를 이용한 주문내역 전체 검색
 		
 	}
 
