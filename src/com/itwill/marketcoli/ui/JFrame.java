@@ -22,6 +22,9 @@ import java.awt.Component;
 import java.awt.Rectangle;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 
 
@@ -113,36 +116,65 @@ public class JFrame extends javax.swing.JFrame {
 		mainTabbedPane.addTab("상품", null, productPanel, null);
 		productPanel.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane = new JScrollPane();
-		productPanel.add(scrollPane, BorderLayout.CENTER);
+		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		productPanel.add(productTabbedPane, BorderLayout.CENTER);
 		
-		JPanel productListPanel = new JPanel();
-		productListPanel.setPreferredSize(new Dimension(10, 800));
-		scrollPane.setViewportView(productListPanel);
-		productListPanel.setLayout(null);
+		JPanel productMainPanel = new JPanel();
+		productTabbedPane.addTab("상품전체보기", null, productMainPanel, null);
+		productMainPanel.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane productMainScrollPane = new JScrollPane();
+		productMainPanel.add(productMainScrollPane, BorderLayout.CENTER);
+		
+		JPanel productPriceLabel = new JPanel();
+		productPriceLabel.setPreferredSize(new Dimension(10, 800));
+		productMainScrollPane.setViewportView(productPriceLabel);
+		productPriceLabel.setLayout(null);
 		
 		JPanel productItemPanel = new JPanel();
 		productItemPanel.setBackground(new Color(230, 230, 250));
-		productItemPanel.setBounds(12, 10, 316, 158);
-		productListPanel.add(productItemPanel);
+		productItemPanel.setBounds(12, 10, 311, 156);
+		productPriceLabel.add(productItemPanel);
 		productItemPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\체리 (1).jpg"));
-		lblNewLabel.setBounds(12, 10, 135, 135);
+		JLabel productImageLabel = new JLabel("");
+		productImageLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\체리 (1).jpg"));
+		productImageLabel.setBounds(12, 10, 135, 135);
+		productItemPanel.add(productImageLabel);
+		
+		JLabel productNameLabel = new JLabel("상품명");
+		productNameLabel.setBounds(159, 21, 140, 15);
+		productItemPanel.add(productNameLabel);
+		
+		JLabel lblNewLabel = new JLabel("상품가격");
+		lblNewLabel.setBounds(159, 46, 140, 15);
 		productItemPanel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("상품명");
-		lblNewLabel_1.setBounds(159, 10, 145, 29);
-		productItemPanel.add(lblNewLabel_1);
+		JLabel producExpLabel = new JLabel("상품설명");
+		producExpLabel.setBounds(159, 65, 140, 51);
+		productItemPanel.add(producExpLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("상품가격");
-		lblNewLabel_2.setBounds(159, 49, 145, 29);
-		productItemPanel.add(lblNewLabel_2);
+		JComboBox productComboBox = new JComboBox();
+		productComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+		productComboBox.setBounds(227, 120, 39, 25);
+		productItemPanel.add(productComboBox);
+
+		JButton productCartBtn = new JButton("");
+		productCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productCartBtn.setBounds(267, 120, 32, 25);
+		productItemPanel.add(productCartBtn);
 		
-		JLabel lblNewLabel_3 = new JLabel("상품상세");
-		lblNewLabel_3.setBounds(159, 88, 145, 57);
-		productItemPanel.add(lblNewLabel_3);
+		JPanel productServePanel = new JPanel();
+		productTabbedPane.addTab("상품상세보기", null, productServePanel, null);
+		productServePanel.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane productServelScrollPane = new JScrollPane();
+		productServePanel.add(productServelScrollPane, BorderLayout.CENTER);
+		
+		JPanel productDetailpanel = new JPanel();
+		productDetailpanel.setPreferredSize(new Dimension(10, 800));
+		productServelScrollPane.setViewportView(productDetailpanel);
+		productDetailpanel.setLayout(null);
 		
 		JPanel cartPanel = new JPanel();
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
