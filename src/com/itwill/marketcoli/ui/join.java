@@ -24,7 +24,7 @@ public class join extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uAC00\uC785");
-		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 		lblNewLabel.setBounds(124, 51, 131, 72);
 		add(lblNewLabel);
 		
