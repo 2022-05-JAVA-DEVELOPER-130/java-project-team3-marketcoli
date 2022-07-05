@@ -13,6 +13,10 @@ import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
+<<<<<<< HEAD
+//import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
+=======
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 
 public class OrderService {
 	private OrdersDao orderDao;
@@ -126,8 +130,8 @@ public class OrderService {
 	}
 	
 	//주문번호 를 이용한 주문내역 전체 검색
-	public String selectOrderItemByno(int o_no)throws Exception {
-		return null; //orderDao.findOrderByOi_No(o_no);
+	public OrderItem selectOrderItemByno(int o_no)throws Exception {
+		return orderDao.findOrderByOi_No(o_no);
 		
 	}
 
