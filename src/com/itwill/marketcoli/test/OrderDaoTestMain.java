@@ -67,6 +67,35 @@ public class OrderDaoTestMain {
 		// 되어있었음...
 		System.out.println(ordersDao.insertOrder(insertOrder));
 
+		
+	    /**************************************************************/
+		System.out.println("1. 주문 전체 검색");
+		List<Orders>orderList = ordersDao.selectAll();
+		for (Orders orders : orderList) {
+			System.out.println(orders);
+		}
+		
+		System.out.println("2. U_id를 이용한 주문검색");
+		Orders findOrders = ordersDao.findOrders("itwill3");
+		System.out.println(findOrders);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

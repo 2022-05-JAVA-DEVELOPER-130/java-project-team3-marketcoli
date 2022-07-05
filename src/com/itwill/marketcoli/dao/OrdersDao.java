@@ -10,6 +10,7 @@ import java.util.List;
 import com.itwill.marketcoli.common.DataSource;
 import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
+import com.itwill.marketcoli.dto.UserInfo;
 
 
 public class OrdersDao {
@@ -64,8 +65,48 @@ public class OrdersDao {
 	}
 	
 	
-	
-	
+	/****************************************************************/
+	// 주문 전체 출력
+		public List<Orders> selectAll() throws Exception {
+			List<Orders> orderslist = new ArrayList<Orders>();
+			String selectAll = "select * from orders o join userinfo u on o.u_id = u.u_id";
+			Connection con = dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(selectAll);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				orderslist.add(new Orders(rs.getInt("O_no"),
+										  rs.getDate("O_date"),
+										  rs.getInt("O_PRICE"), 
+							   new UserInfo(), null));
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+			return orderslist;
+		}
+			
+			// 유저 id를 이용한 검색
+			public Orders findOrders(String u_id) throws Exception {
+				Orders findOrders = null;
+				String selectOrders = "select * from orders o join userinfo u on o.u_id = u.u_id where o.u_id =?";
+				Connection con = dataSource.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(selectOrders);
+				pstmt.setString(1, u_id);
+				ResultSet rs = pstmt.executeQuery();
+				if (rs.next()) {
+					findOrders = new Orders(rs.getInt("o_no"),
+											rs.getDate("O_date"),
+											rs.getInt("O_PRICE"),
+								 new UserInfo(), null);
+				}
+				rs.close();
+				pstmt.close();
+				con.close();
+				return findOrders;	
+			}
+			
+			
+			
 	
 	
 	
