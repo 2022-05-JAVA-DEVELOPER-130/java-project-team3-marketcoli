@@ -126,8 +126,8 @@ public class OrderService {
 	}
 
 	//주문번호 를 이용한 주문내역 전체 검색
-	public int selectOrderItemByno(int o_no)throws Exception {
-		return orderDao.findOrderByOi_No(o_no);
+	public String selectOrderItemByno(int o_no)throws Exception {
+		return null; //orderDao.findOrderByOi_No(o_no);
 		
 	}
 	
