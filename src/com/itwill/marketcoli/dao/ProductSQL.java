@@ -19,4 +19,15 @@ public static final String PRODUCT_SELECT_BY_NO
 public static final String PRODUCT_SELECT_ALL 
 	= "select * from product";
 
+
+
+
+/************************상품카테고리 Select ************************/
+//대분류
+public static final String PRODUCT_SELECT_BY_CATEGORY_B
+							= "select * from product where p_category_b=? ";
+
+//소분류
+public static final String PRODUCT_SELECT_BY_CATEGORY_S
+							= "select * from product where p_category_s=? ";
 }

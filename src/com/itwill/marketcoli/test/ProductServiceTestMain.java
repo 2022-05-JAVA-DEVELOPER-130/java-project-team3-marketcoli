@@ -42,6 +42,27 @@ public class ProductServiceTestMain {
 		System.out.println("5.상품리스트 전체보기");
 		System.out.println(productService.productList());
 		
+		
+				
+		/************************상품카테고리 Select ************************/
+		
+		//대분류-분류별 상품명, 가격 출력
+		System.out.println("6-1.큰카테고리별 리스트 보기-부분");
+		System.out.println(productService.categoryBMapList("정육/수산"));
+		
+		//대분류-분류별 전체 출력
+		System.out.println("6-2.큰카테고리별 리스트 보기-전체");
+		System.out.println(productService.categoryBList("정육/수산"));
+		
+		
+		//소분류-분류별 상품명, 가격 출력
+		System.out.println("7-1.소카테고리별 리스트 보기-부분");
+		System.out.println(productService.categoryBList("과일"));
+		
+		//소분류-분류별 전체 출력
+		System.out.println("7-1.소카테고리별 리스트 보기-전체");
+		System.out.println(productService.categoryBList("과일"));
+			
 
 	}
 
