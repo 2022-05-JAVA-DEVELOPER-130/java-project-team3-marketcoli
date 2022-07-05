@@ -145,7 +145,7 @@ ALTER TABLE notice ADD CONSTRAINT IDX_notice_PK PRIMARY KEY (n_no);
 
 
 ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_PK PRIMARY KEY (oi_no);
-ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK0 FOREIGN KEY (o_no) REFERENCES orders (o_no) ON DELETE CASCADE;
+ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK0 FOREIGN KEY (o_no) REFERENCES orders (o_no) ON DELETE CASCADE;--pk삭제시, fk삭제됨
 ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK1 FOREIGN KEY (p_no) REFERENCES product (p_no);
 
 ALTER TABLE inquiry ADD CONSTRAINT IDX_inquiry_PK PRIMARY KEY (i_no);
