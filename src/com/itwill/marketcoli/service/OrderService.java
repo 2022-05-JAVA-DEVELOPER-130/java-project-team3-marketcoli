@@ -15,4 +15,14 @@ public class OrderService {
 		cartDao=new CartDao();
 	}
 
+	public int insertOrders(CartDao carDao) throws Exception{
+		return 0;
+		
+	}
+	
+	
+	
+	
+	
+	
 }
