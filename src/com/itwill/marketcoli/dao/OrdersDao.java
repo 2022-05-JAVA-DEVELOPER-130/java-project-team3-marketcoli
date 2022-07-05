@@ -106,7 +106,7 @@ public class OrdersDao {
 		// update order_item set oi_qty = ? where oi_no= ?"
 
 		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE_BY_ORDER_iTEM_NO);
+		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE_BY_ORDER_ITEM_NO);
 
 		pstmt.setInt(1, oi_qty);
 		pstmt.setInt(2, oi_no);
@@ -135,14 +135,10 @@ public class OrdersDao {
 		PreparedStatement pstmt = con.prepareStatement(selectAll);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
-			orderslist.add(
-					new Orders(rs.getInt("O_no"),
-								rs.getDate("O_date"),
-								rs.getInt("O_PRICE"),
-								null,
-								//new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
-								/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
-								null));
+			orderslist.add(new Orders(rs.getInt("O_no"), rs.getDate("O_date"), rs.getInt("O_PRICE"),
+					new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+					/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+					null));                                 
 		}
 		rs.close();
 		pstmt.close();

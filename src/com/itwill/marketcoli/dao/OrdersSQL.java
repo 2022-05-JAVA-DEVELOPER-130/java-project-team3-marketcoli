@@ -20,9 +20,19 @@ public class OrdersSQL {
 	public static final String ORDERS_DELETE_BY_USER_ID = "delete from orders where u_id=?";
 
 	//주문내역 화면에서, 주문아이템 수량변경
-	public static final String ORDERS_UPDATE_BY_ORDER_iTEM_NO = "update order_item set oi_qty = ? where oi_no = ?";
+	public static final String ORDERS_UPDATE_BY_ORDER_ITEM_NO = "update order_item set oi_qty = ? where oi_no = ?";
 
-	
+	public static final String ORDERS_SELECT_BY_ORDER_ITEM_NO 
+	= "select * from orders o"
+			+ "join order_item oi on o.o_no=oi.o_no"
+			+ "join  product p on oi.p_no=p.p_no"
+			+ "where o.u_id=? and o.o_no = ?";
+	/*= "select *"
+			+ "from product p"
+			+ "join order_item oi"
+			+ "on p.p_no = oi.p_no"
+			+ "where oi_no = ?";*/
+
 	public static final String ORDERS_SELECT_BY_NO = " ";
 
 	// 주문 전체 출력 - 관리자
