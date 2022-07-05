@@ -27,24 +27,6 @@ public class OrderService {
 		cartDao = new CartDao();
 	}
 
-	/*public List<OrderItem> showOrderListByOrderNo (int o_no) throws Exception {
-		List<Orders> orderList = orderDao.selectAll();
-		Orders orderListByOrderNo = null;
-		for (Orders orders : orderList) {
-			if(orders.getO_no() == o_no) {
-				orderListByOrderNo = orders;
-				break;
-			}
-		}
-		
-		List<OrderItem> orderItemList = null;
-		
-		for (int i = 0; i < orderListByOrderNo.getOrderItemList().size(); i++) {
-			orderItemList.add(orderListByOrderNo.getOrderItemList().get(i));
-		}
-		return orderItemList;
-	}
-	*/
 
 	// 주문 1개 전체 삭제
 	public int deleteOrderAllByOrderNo(int o_no) throws Exception {
@@ -100,7 +82,7 @@ public class OrderService {
 
 	}
 
-	// cart에서 주문 -> cart에서 Order로 옮겨닮기
+	// cart에서 주문 -> cart에서 Order로 옮겨닮기 -- 실행이 안되는 중
 	public Orders cartToOrders(int u_no) throws Exception {
 		ArrayList<Cart> cartList = new ArrayList<Cart>();
 		ArrayList<OrderItem> orderItemList = new ArrayList<OrderItem>();
@@ -111,19 +93,35 @@ public class OrderService {
 		cartList = cartDao.selectCartByUserNo(u_no);
 		for (Cart cart : cartList) {
 			Product product = productDao.selectByNo(cart.getP_no());
+			
 			oi_total_qty = cart.getC_qty();
 			o_total_price += oi_total_qty * product.getP_price();
+			
 			OrderItem orderItem = new OrderItem(0, oi_total_qty, 0, product);
 			orderItemList.add(orderItem);
 		}
 		Orders cartToOrders = new Orders(0, null, o_total_price, userInfoDao.selectByNo(u_no), orderItemList);
+		orderDao.insertOrders(cartToOrders);
 		cartDao.deleteUserNo(u_no);
 
 		return cartToOrders;
 	}
 	
-	//주문내역 수량 변경
+	public ArrayList<Orders> selectOrderListbyUserId(String u_id) throws Exception{
+		ArrayList<Orders> orderListAll = orderDao.selectAll();
+		ArrayList<Orders> orderListByUserId = new ArrayList<Orders>();
+		
+		for (Orders orders : orderListAll) {
+			if(orders.getUserInfo().getU_id().equals(u_id)) {
+				orderListByUserId.add(orders);
+			}
+		}
+		
+		return orderListByUserId;
+	}
 	
+	
+	//주문내역 수량 변경
 	public int updateOrderItemQty(int oi_qty, int oi_no) throws Exception {
 		return orderDao.updateOrderItemQty(oi_qty, oi_no);
 	}
