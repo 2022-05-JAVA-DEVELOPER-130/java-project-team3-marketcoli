@@ -49,11 +49,11 @@ public class UserInfoDaoTestMain {
 		System.out.println("4.selectByNo");
 		System.out.println(userInfoDao.selectByNo(1));
 		
-		System.out.println("5.seleteById");
-		System.out.println(userInfoDao.selectById("11@update.com"));
+		System.out.println("5.findById");
+		System.out.println(userInfoDao.findById("11@update.com"));
 		
-		System.out.println("6.seleteByPw");
-		System.out.println(userInfoDao.selectByPW("itwill1", "11@update.com"));
+		System.out.println("6.findByPw");
+		System.out.println(userInfoDao.findByPW("itwill1", "11@update.com"));
 		
 		System.out.println("7.selectAll");
 		List<UserInfo> userInfoList = userInfoDao.selectAll();
@@ -61,6 +61,9 @@ public class UserInfoDaoTestMain {
 			System.out.println(userInfo);
 		
 		}
+		
+		System.out.println("8.selectById");
+		System.out.println(userInfoDao.selectById("itwill1"));
 		
 		
 		

@@ -10,9 +10,9 @@
 insert into orders(o_no,o_date,o_state,u_name,u_phone,u_address,u_no,p_no,d_fee,d_memo,p_piece,p_price,p_name) 
                      values (ORDERS_O_NO_SEQ.nextval,sysdate,'입금완료','김첨지',11111111112,'사랑시고백구행복동',1,1,3000,'문 앞에',1,2500,'사과');
 insert into orders(o_no,o_date,o_state,u_name,u_phone,u_address,u_no,p_no,d_fee,d_memo,p_piece,p_price,p_name) 
-                     values (2222,sysdate,'출고완료','박혁거세',22222222222,'egg',2,2,3000,'경비실에 전달',2,2000,'딸기');
+                     values (ORDERS_O_NO_SEQ.nextval,sysdate,'출고완료','박혁거세',22222222222,'egg',2,2,3000,'경비실에 전달',2,2000,'딸기');
 insert into orders(o_no,o_date,o_state,u_name,u_phone,u_address,u_no,p_no,d_fee,d_memo,p_piece,p_price,p_name) 
-                     values (4444,sysdate,'배송중','김샛달',01043218765,'tjsdjsadj',3,3,3000,' ',3,3000,'바나나');
+                     values (ORDERS_O_NO_SEQ.nextval,sysdate,'배송중','김샛달',01043218765,'tjsdjsadj',3,3,3000,' ',3,3000,'바나나');
 
 
 

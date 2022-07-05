@@ -125,12 +125,41 @@ public class UserInfoDao {
 		return findUserInfoId;
 
 	}
-	//아이디 찾기
-	public UserInfo selectById(String u_email) throws Exception {
-		UserInfo findUserInfo = null;
+	
+	//아이디로 회원 한명 찾기
+	public UserInfo selectById(String u_id) throws Exception{
+		UserInfo selectUserInfoId = null;
 
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_SELECT_BY_ID);
+		pstmt.setString(1, u_id);
+
+		ResultSet rs = pstmt.executeQuery();
+		if (rs.next()) {
+			selectUserInfoId = new UserInfo(rs.getInt("u_no"), rs.getString("u_id"), rs.getString("u_pw"),
+					rs.getString("u_name"), rs.getString("u_email"), rs.getString("u_phone"), rs.getString("u_address"),
+					rs.getInt("u_birth"), rs.getString("u_job"),
+					rs.getDate("u_joindate"));
+		}
+		
+		rs.close();
+		pstmt.close(); 
+		con.close();
+		
+		
+		return selectUserInfoId;
+	}
+	
+	
+	
+	
+	
+	//아이디 찾기
+	public UserInfo findById(String u_email) throws Exception {
+		UserInfo findUserInfo = null;
+
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(UserInfoSQL.USERINFO_FIND_BY_ID);
 		pstmt.setString(1, u_email);
 
 		ResultSet rs = pstmt.executeQuery();
@@ -168,7 +197,7 @@ public class UserInfoDao {
 	}
 
 	//비밀번호 찾기
-		public UserInfo selectByPW(String u_id ,String u_email) throws Exception {
+		public UserInfo findByPW(String u_id ,String u_email) throws Exception {
 			UserInfo findUserInfo = null;
 
 			Connection con = this.dataSource.getConnection();
