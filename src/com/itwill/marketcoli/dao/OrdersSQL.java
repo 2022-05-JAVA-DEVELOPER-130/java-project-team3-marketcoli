@@ -14,7 +14,11 @@ public class OrdersSQL {
 	*/
 	public static final String ORDERS_UPDATE = " ";
 
-	public static final String ORDERS_DELETE = " ";
+	//주문번호를 통해 주문내역 전체삭제
+	public static final String ORDERS_DELETE_BY_ORDER_NO = "delete from orders where o_no=?";
+
+	//아이디를 통해 주문내역 전체삭제
+	public static final String ORDERS_DELETE_BY_USER_ID = "delete from orders where u_id=?";
 
 	public static final String ORDERS_SELECT_BY_NO = " ";
 
