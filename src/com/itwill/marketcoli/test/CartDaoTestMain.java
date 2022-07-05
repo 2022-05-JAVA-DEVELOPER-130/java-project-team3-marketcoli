@@ -20,8 +20,8 @@ public class CartDaoTestMain {
 		System.out.println(">> 유저 번호로 카트 삭제");
 		System.out.println(CartDao.deleteUserNo(1));
 		
-		System.out.println(">> 유저 번호로 카트에 담긴 상품 수량 변경");
-		Cart updateCart1 = new Cart(0,6,0,1);
+		System.out.println(">> 카트 번호로 카트에 담긴 상품 수량 변경");
+		Cart updateCart1 = new Cart(10,6,0,0);
 		System.out.println(CartDao.updateCartQty(updateCart1));
 
 		System.out.println(">> 유저 번호로 카트에 담긴 상품 변경");
@@ -29,7 +29,7 @@ public class CartDaoTestMain {
 		System.out.println(CartDao.updateCartProduct(updateCart2));
 		
 		System.out.println(">> 카트 번호로 출력");
-		Cart selectCartByNo = CartDao.selectCartByNo(1);
+		Cart selectCartByNo = CartDao.selectCartByNo(12);
 		System.out.println(selectCartByNo);
 		
 		System.out.println(">> 카트 전체 출력");
