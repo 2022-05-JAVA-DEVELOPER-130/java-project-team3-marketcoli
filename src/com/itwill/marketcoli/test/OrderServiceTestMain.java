@@ -1,6 +1,6 @@
 package com.itwill.marketcoli.test;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 
 import com.itwill.marketcoli.dao.OrdersDao;
@@ -30,16 +30,15 @@ public class OrderServiceTestMain {
 		System.out.println("00.주문 2개 동시에 넣기");	//맞나...
 		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill3"));
 
-		//cart에서 주문
+		System.out.println("00.cart에서 주문");
+		System.out.println(orderService.cartToOrders(1));
 		
 		//cart에서 선택 주문
 		
 		System.out.println("00.주문 전체 삭제");
 		System.out.println(orderService.deleteOrderAllByOrderNo(72));
 		
-		//주문목록에서 1개 삭제
-		
-		//cart에서 주문
+		System.out.println("주문 1개 삭제");
 		
 		//주문 상세보기
 		

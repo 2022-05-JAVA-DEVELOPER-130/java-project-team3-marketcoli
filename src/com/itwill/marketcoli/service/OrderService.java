@@ -13,6 +13,7 @@ import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 public class OrderService {
 	private OrdersDao orderDao;
@@ -108,5 +109,6 @@ public class OrderService {
 
 		return 0;
 	}
-
+	// 회원의 전체 주문내역 출력
+		
 }
