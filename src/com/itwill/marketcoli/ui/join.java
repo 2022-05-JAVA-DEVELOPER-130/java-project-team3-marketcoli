@@ -28,25 +28,25 @@ public class join extends JPanel {
 		lblNewLabel.setBounds(124, 51, 131, 72);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(43, 146, 57, 15);
-		add(lblNewLabel_1);
+		JLabel joinIdLabel = new JLabel("\uC544\uC774\uB514");
+		joinIdLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		joinIdLabel.setBounds(43, 146, 57, 15);
+		add(joinIdLabel);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_1_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1.setBounds(43, 209, 57, 15);
-		add(lblNewLabel_1_1);
+		JLabel joinPwLabel = new JLabel("\uBE44\uBC00\uBC88\uD638");
+		joinPwLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		joinPwLabel.setBounds(43, 209, 57, 15);
+		add(joinPwLabel);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("\uBE44\uBC00\uBC88\uD638\uD655\uC778");
-		lblNewLabel_1_2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel_1_2.setBounds(43, 271, 139, 15);
-		add(lblNewLabel_1_2);
+		JLabel joinPwReLabel = new JLabel("\uBE44\uBC00\uBC88\uD638\uD655\uC778");
+		joinPwReLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		joinPwReLabel.setBounds(43, 271, 139, 15);
+		add(joinPwReLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("\uC774\uB984");
-		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(43, 332, 57, 15);
-		add(lblNewLabel_2);
+		JLabel joinNameLabel = new JLabel("\uC774\uB984");
+		joinNameLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		joinNameLabel.setBounds(43, 332, 57, 15);
+		add(joinNameLabel);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\uC774\uBA54\uC77C");
 		lblNewLabel_2_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));

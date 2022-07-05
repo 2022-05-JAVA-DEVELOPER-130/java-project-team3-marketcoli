@@ -144,6 +144,9 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel_3.setBounds(159, 88, 145, 57);
 		productItemPanel.add(lblNewLabel_3);
 		
+		JPanel cartPanel = new JPanel();
+		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
+		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
 		
