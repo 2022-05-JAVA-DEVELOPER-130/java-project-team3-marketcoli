@@ -9,6 +9,7 @@ import java.util.List;
 import com.itwill.marketcoli.common.DataSource;
 import com.itwill.marketcoli.dto.Product;
 
+
 /*
 이름           널?       유형             
 ------------ -------- -------------- 
@@ -26,6 +27,60 @@ public class ProductDao {
 	public ProductDao() {
 		dataSource = new DataSource();
 	}
+
+	
+	//상품등록
+	public int insertProduct(Product product) throws Exception {
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_INSERT);
+		
+		pstmt.setString(1, product.getP_name());
+		pstmt.setInt(2, product.getP_price());
+		pstmt.setString(3, product.getP_exp());
+		pstmt.setString(4, product.getP_category_b());
+		pstmt.setString(5, product.getP_category_s());
+
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
+	}
+
+	//상품삭제 -상품번호로
+	public int deleteProduct(int P_no) throws Exception {   
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_DELETE);
+
+		pstmt.setInt(1, P_no);
+
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
+
+	}
+	
+	//상품수정 -상품번호로
+	public int updateProduct(Product product) throws Exception {
+		
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_UPDATE);
+		
+		pstmt.setString(1, product.getP_name());
+		pstmt.setInt(2, product.getP_price());
+		pstmt.setString(3, product.getP_exp());
+		pstmt.setString(4, product.getP_category_b());
+		pstmt.setString(5, product.getP_category_s());
+		pstmt.setInt(6, product.getP_no());  //해당번호 상품 수정
+		
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
+	}
+	
 	
 	//상품번호로 상품 출력 -상품번호로
 	public Product selectByNo(int p_no) throws Exception {
@@ -76,7 +131,7 @@ public class ProductDao {
 		pstmt.close();
 		con.close();
 		return productList;
-		
 	}
-		
+	
+
 }
