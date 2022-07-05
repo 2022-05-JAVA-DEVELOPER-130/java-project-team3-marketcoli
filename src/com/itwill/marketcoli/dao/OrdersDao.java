@@ -100,7 +100,25 @@ public class OrdersDao {
 		return rowCount;
 	}
 	
-	
+	//주문내역 화면에서, 주문아이템 수량변경 ----- 작성중, 일단은 매개변수로
+	public int updateOrderItemQty(int oi_qty, int oi_no) throws Exception {
+
+		// update order_item set oi_qty = ? where oi_no= ?"
+
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE_BY_ORDER_iTEM_NO);
+
+		pstmt.setInt(1, oi_qty);
+		pstmt.setInt(2, oi_no);
+
+		int rowCount = pstmt.executeUpdate();
+		// System.out.println(rowCount+" 행 update.. ");
+
+		pstmt.close();
+		con.close();
+
+		return rowCount;
+	}
 	
 	
 	
@@ -134,7 +152,7 @@ public class OrdersDao {
 		
 	}
 
-	// 유저 id를 이용한 검색
+	// 유저 id를 이용한 주문내역 전체검색
 	public Orders findOrders(String u_id) throws Exception {
 		Orders findOrders = null;
 		String selectOrders = "select * from orders o join userinfo u on o.u_id = u.u_id where o.u_id =?";

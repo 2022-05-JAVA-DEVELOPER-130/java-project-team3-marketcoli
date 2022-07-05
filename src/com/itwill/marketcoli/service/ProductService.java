@@ -6,13 +6,27 @@ import com.itwill.marketcoli.dao.ProductDao;
 import com.itwill.marketcoli.dto.Product;
 
 public class ProductService {
-	private ProductDao productDao;
 	
+	private ProductDao productDao;
+
 	public ProductService() {
 		productDao = new ProductDao();
 	}
-		
-	//상품넘버로 상세페이지 불러오기
+	
+	public int inserProduct(Product product) throws Exception {
+		return productDao.insertProduct(product);	
+	}
+	
+	public int deleteProdunt(int p_no) throws Exception {
+		return productDao.deleteProduct(p_no);
+	}
+	
+	public int updateProduct(Product product) throws Exception {
+		return productDao.updateProduct(product);
+	}
+	
+	
+	//상품 1개보기-상세보기
 	public Product productDetail(int p_no) throws Exception {
 		return productDao.selectByNo(p_no);
 	}
@@ -23,4 +37,4 @@ public class ProductService {
 	}
 	
 
-}
+}//

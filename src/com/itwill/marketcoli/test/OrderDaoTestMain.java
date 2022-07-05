@@ -73,6 +73,8 @@ public class OrderDaoTestMain {
 		System.out.println("2-2.deleteOrdersByUserId - 아이디로 주문전체 삭제");
 		System.out.println(ordersDao.deleteOrdersByUserId("itwill6"));
 		
+		System.out.println("3.ORDERS_UPDATE_BY_ORDER_iTEM_NO - 주문아이템 수량변경");
+		System.out.println(ordersDao.updateOrderItemQty(3,74));
 		
 		
 	    /**************************************************************/
