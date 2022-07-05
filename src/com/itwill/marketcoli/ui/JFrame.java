@@ -116,8 +116,33 @@ public class JFrame extends javax.swing.JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		productPanel.add(scrollPane, BorderLayout.CENTER);
 		
-		JPanel panel = new JPanel();
-		scrollPane.setViewportView(panel);
+		JPanel productListPanel = new JPanel();
+		productListPanel.setPreferredSize(new Dimension(10, 800));
+		scrollPane.setViewportView(productListPanel);
+		productListPanel.setLayout(null);
+		
+		JPanel productItemPanel = new JPanel();
+		productItemPanel.setBackground(new Color(230, 230, 250));
+		productItemPanel.setBounds(12, 10, 316, 158);
+		productListPanel.add(productItemPanel);
+		productItemPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\체리 (1).jpg"));
+		lblNewLabel.setBounds(12, 10, 135, 135);
+		productItemPanel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("상품명");
+		lblNewLabel_1.setBounds(159, 10, 145, 29);
+		productItemPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("상품가격");
+		lblNewLabel_2.setBounds(159, 49, 145, 29);
+		productItemPanel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("상품상세");
+		lblNewLabel_3.setBounds(159, 88, 145, 57);
+		productItemPanel.add(lblNewLabel_3);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
