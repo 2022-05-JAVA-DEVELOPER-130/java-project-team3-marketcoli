@@ -19,7 +19,7 @@ public class OrdersDao {
 		dataSource = new DataSource();
 	}
 
-	public int insertOrder(Orders orders) throws Exception {
+	public int insertOrders(Orders orders) throws Exception {
 
 		/*
 		private int o_no;			//주문번호
@@ -62,6 +62,51 @@ public class OrdersDao {
 		return rowCount1 * rowCount2Sum; // 둘중에 하나라도 안되면 0이므로 곱한다.
 
 	}
+	
+	//주문번호를 통해 주문내역 전체삭제
+	public int deleteOrdersByOrderNo(int o_no) throws Exception { // pk를 통해 삭제
+
+		//delete from orders where o_no=?
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE_BY_ORDER_NO);
+
+		pstmt.setInt(1, o_no);
+
+		int rowCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close(); 
+
+		return rowCount;
+	}
+	
+	
+	//주문번호를 통해 주문내역 전체삭제
+	public int deleteOrdersByUserId(String u_id) throws Exception { // pk를 통해 삭제
+
+		//delete from orders where u_id=?
+
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE_BY_USER_ID);
+
+		pstmt.setString(1, u_id);
+
+		int rowCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close();
+
+		return rowCount;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/****************************************************************/
 	// 주문 전체 출력
