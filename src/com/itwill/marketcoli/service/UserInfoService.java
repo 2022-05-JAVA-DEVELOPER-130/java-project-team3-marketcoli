@@ -21,7 +21,7 @@ public class UserInfoService {
 		/*
 		 * 아이디존재여부체크 - 존재하면 메세지 - 존재안하면 가입
 		 */
-		UserInfo findUserInfo = userInfoDao.selectById(newUserInfo.getU_id());
+		UserInfo findUserInfo = userInfoDao.findById(newUserInfo.getU_id());
 		if (findUserInfo == null) {
 			int rowCount = userInfoDao.insertUserInfo(newUserInfo);
 			isSuccess = true;
@@ -44,7 +44,7 @@ public class UserInfoService {
 			loginResult = 1;
 		} else {
 			// 존재하는 아이디
-			if (findUserInfo.getU_pw().equals(password)) {
+			if (findUserInfo.getU_pw().equals(password) && (findUserInfo.getU_id().equals(id))) {
 				loginResult = 0;
 			} else {
 				// 패스워드 불일치
@@ -55,12 +55,12 @@ public class UserInfoService {
 	}
 	//회원 아이디 찾기
 	public UserInfo selectById(String u_email) throws Exception {
-		return userInfoDao.selectById(u_email);
+		return userInfoDao.findById(u_email);
 		
 	}
 	//회원 비밀번호 찾기
 	public UserInfo selectByPw(String u_id, String u_email) throws Exception {
-		return userInfoDao.selectByPW(u_id, u_email);
+		return userInfoDao.findByPW(u_id, u_email);
 	}
 	//회원번호로 회원정보 출력
 	public UserInfo selectByNo(int u_no) throws Exception {

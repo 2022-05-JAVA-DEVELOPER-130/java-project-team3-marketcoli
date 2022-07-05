@@ -20,3 +20,6 @@ delete userinfo where u_id = 'itwill8';
 
 --총회원 정보
 select * from userinfo;
+
+--아이디로 회원 한명 조회
+select * from userinfo where u_id = 'itwill1';

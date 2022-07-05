@@ -13,7 +13,7 @@ public class UserInfoSQL {
 	public static final String USERINFO_DELETE 
 	 = "delete from userinfo where u_no = ?";
 	
-	public static final String USERINFO_SELECT_BY_ID
+	public static final String USERINFO_FIND_BY_ID
 	 = "select u_id from userinfo where u_email = ?";
 	
 	public static final String USERINFO_SELECT_BY_PW 
@@ -24,4 +24,6 @@ public class UserInfoSQL {
 
 	public static final String USERINFO_SELECT_BY_NO
 	 = "select *from userinfo where u_no = ?";
+	
+	public static final String USERINFO_SELECT_BY_ID = "select * from userinfo where u_id = ?";
 }
