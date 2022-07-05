@@ -199,7 +199,7 @@ public class CartDao {
 		ArrayList<Cart> cartList = new ArrayList<Cart>();
 
 		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_ALL);
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_BY_ALL);
 		pstmt.setInt(1, c_no);
 		ResultSet rs = pstmt.executeQuery();
 
