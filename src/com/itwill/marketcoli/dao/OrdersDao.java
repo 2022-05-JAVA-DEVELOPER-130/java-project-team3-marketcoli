@@ -8,12 +8,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.itwill.marketcoli.common.DataSource;
-import com.itwill.marketcoli.dto.Notice;
 import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
-import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
-import com.itwill.marketcoli.dao.OrdersSQL;
 
 public class OrdersDao {
 	private DataSource dataSource;
@@ -65,11 +62,11 @@ public class OrdersDao {
 		return rowCount1 * rowCount2Sum; // 둘중에 하나라도 안되면 0이므로 곱한다.
 
 	}
-
-	// 주문번호를 통해 주문내역 전체삭제
+	
+	//주문번호를 통해 주문내역 전체삭제
 	public int deleteOrdersByOrderNo(int o_no) throws Exception { // pk를 통해 삭제
 
-		// delete from orders where o_no=?
+		//delete from orders where o_no=?
 
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE_BY_ORDER_NO);
@@ -79,15 +76,16 @@ public class OrdersDao {
 		int rowCount = pstmt.executeUpdate();
 
 		pstmt.close();
-		con.close();
+		con.close(); 
 
 		return rowCount;
 	}
-
-	// 주문번호를 통해 주문내역 전체삭제
+	
+	
+	//주문번호를 통해 주문내역 전체삭제
 	public int deleteOrdersByUserId(String u_id) throws Exception { // pk를 통해 삭제
 
-		// delete from orders where u_id=?
+		//delete from orders where u_id=?
 
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE_BY_USER_ID);
@@ -101,9 +99,8 @@ public class OrdersDao {
 
 		return rowCount;
 	}
-
-	// (확인필요) 카트에서 이루어지는 작업
-	// 주문내역 화면에서, 주문아이템 수량변경 ----- 작성중, 일단은 매개변수로
+	
+	//주문내역 화면에서, 주문아이템 수량변경 ----- 작성중, 일단은 매개변수로
 	public int updateOrderItemQty(int oi_qty, int oi_no) throws Exception {
 
 		// update order_item set oi_qty = ? where oi_no= ?"
@@ -122,120 +119,13 @@ public class OrdersDao {
 
 		return rowCount;
 	}
-
-	/*	public OrderItem selectByOrderItemNo(int oi_no) {
-			
-			OrderItem orderItem = null;
-			
-			Connection con = this.dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(NoticeSQL.NOTICE_SELECT_BY_NO);
-	
-			pstmt.setInt(1, oi_no);
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				
-				private int oi_no; // 주문 아이템 번호(pk)
-				private int oi_qty; // 주문 상품 수량
-				private int o_no; // 주문 번호
-				private Product product; // 상품 - 상품 번호
-					<<Product>>
-					private int p_no;				//상품번호	
-					private String p_name;			//상품이름
-					private int p_price;			//상품가격
-					private String p_exp;			//상품설명
-					private String p_category_b;	//상위카테고리
-					private String p_category_s;	//하위카테고리
-				 
-				
-				"select oi.oi_no, p.p_no, p.p_name, p.p_price, oi.oi_qty, p.p_price*oi.oi_qty, oi.o_no"
-				+ "from product p"
-				+ "join order_item oi"
-				+ "on p.p_no = oi.p_no"
-				+ "where oi_no = ?";
-				
-				
-				orderItem = new OrderItem(rs.getInt("oi_no"), rs.getString("oi_qty"), rs.getInt("o_no"),
-											new Product(rs.getInt("p_no"), rs.getString("p_name"),
-															rs.getInt("p_price"), null, null, null)
-											);
-			}
-			rs.close();
-			pstmt.close();
-			con.close();
-			return orderItem;
-		}*/
-
-	// 주문 전체 출력
-	public Orders selectOrderItemByOrderNo(String u_id,int o_no)throws Exception{
-		
-		Orders orders=null;
-		Connection con=dataSource.getConnection();
-		PreparedStatement pstmt=con.prepareStatement(OrdersSQL.ORDERS_SELECT_BY_ORDER_ITEM_NO);
-		pstmt.setString(1,u_id);
-		pstmt.setInt(2,o_no);
-		ResultSet rs=pstmt.executeQuery();
-		/*
-		private int o_no; // 주문번호
-		private Date o_date; // 주문일시
-		private int o_price; // 주문 총가격 total_price
-		private UserInfo userInfo; // u_no 또는 u_id를 얻기 위함
-		private ArrayList<OrderItem> orderItemList = new ArrayList<OrderItem>();
-		<<UserInfo>>
-	 	private int u_no;			//회원번호
-		private String u_id;		//아이디
-		private String u_pw;		//비밀번호
-		private String u_name;		//이름
-		private String u_email;		//이메일
-		private String u_phone;		//휴대폰번호
-		private String u_address;	//주소
-		private int u_birth;		//생년월일
-		private String u_job;		//직업
-		private Date u_joindate;	//java.util.Date
-		
-		*/
-		
-		if(rs.next()) {
-			orders=new Orders(rs.getInt("o_no"), 
-								rs.getDate("o_date"),
-								rs.getInt("o_price"),
-								new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
-								null
-								);
-			do{
-				/*	private int oi_no; // 주문 아이템 번호(pk)
-				private int oi_qty; // 주문 상품 수량
-				private int o_no; // 주문 번호
-				private Product product; // 상품 - 상품 번호
-
-					<<Product>>
-					private int p_no;				//상품번호	
-					private String p_name;			//상품이름
-					private int p_price;			//상품가격
-					private String p_exp;			//상품설명
-					private String p_category_b;	//상위카테고리
-					private String p_category_s;	//하위카테고리
-				 */
-				
-				orders.getOrderItemList()
-					.add(new OrderItem(
-								rs.getInt("oi_no"), 
-								rs.getInt("oi_qty"), 
-								rs.getInt("o_no"), 
-								new Product(rs.getInt("p_no"),
-											rs.getString("p_name"),
-											rs.getInt("p_price"),
-											rs.getString("p_exp"),
-											rs.getString("p_category_b"),
-											rs.getString("p_category_s"))
-								)
-							);
-			}while(rs.next());
-		}
-		
-		return orders;
-	}
 	
 	
+	
+	
+	
+	
+
 	/****************************************************************/
 	// 주문 전체 출력
 	public List<Orders> selectAll() throws Exception {
@@ -245,16 +135,19 @@ public class OrdersDao {
 		PreparedStatement pstmt = con.prepareStatement(selectAll);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
-			orderslist.add(new Orders(rs.getInt("O_no"), rs.getDate("O_date"), rs.getInt("O_PRICE"),
-					new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
-					/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
-					null));
+			orderslist.add(new Orders(rs.getInt("O_no"),
+										rs.getDate("O_date"),
+										rs.getInt("O_PRICE"),null,null));
+										/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+					                               
 		}
 		rs.close();
 		pstmt.close();
 		con.close();
 		return orderslist;
-
+		
+		
+		
 	}
 
 	// 유저 id를 이용한 주문내역 전체검색
@@ -266,10 +159,12 @@ public class OrdersDao {
 		pstmt.setString(1, u_id);
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			findOrders = new Orders(rs.getInt("o_no"), rs.getDate("O_date"), rs.getInt("O_PRICE"),
-					new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
-					/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
-					null);
+			findOrders = new Orders(rs.getInt("o_no"),
+									rs.getDate("O_date"),
+									rs.getInt("O_PRICE"),
+									new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+									/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+									null);
 		}
 		rs.close();
 		pstmt.close();

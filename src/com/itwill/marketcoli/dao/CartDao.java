@@ -150,20 +150,46 @@ public class CartDao {
 		return rowCount;
 	}
 	
-	
-	public Cart selectCartByNo(int c_no) throws Exception {
+	public ArrayList<Cart> selectCartByUserNo(int u_no) throws Exception {
 		Cart findCart = null;
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_BY_USER_NO);
-		pstmt.setInt(1, c_no);
+		pstmt.setInt(1, u_no);
+		ArrayList<Cart> cartList = new ArrayList<Cart>();
+		ResultSet rs = pstmt.executeQuery();
 
+		while (rs.next()) {
+
+			cartList.add(new Cart(rs.getInt("c_no"),
+									rs.getInt("c_qty"),
+									rs.getInt("p_no"),
+									rs.getInt("u_no")));
+
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		return cartList;
+	}
+	
+	public Cart selectCartByCartNo(int c_no) throws Exception {
+		Cart findCart = null;
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_BY_CART_NO);
+		pstmt.setInt(1, c_no);
+		
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			
-			findCart = new Cart(rs.getInt("c_no"),
+
+			findCart=new Cart(rs.getInt("c_no"),
 									rs.getInt("c_qty"),
 									rs.getInt("p_no"),
 									rs.getInt("u_no"));
+
 		}
 		rs.close();
 		pstmt.close();
