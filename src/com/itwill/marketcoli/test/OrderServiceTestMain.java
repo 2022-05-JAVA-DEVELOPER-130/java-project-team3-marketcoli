@@ -34,10 +34,14 @@ public class OrderServiceTestMain {
 		
 		//cart에서 선택 주문
 		
+		
+		
+		
+		//주문번호로 주문 전체삭제 --테스트 완료
 		System.out.println("00.주문 전체 삭제");
 		System.out.println(orderService.deleteOrderAllByOrderNo(72));
 		
-		//주문목록에서 1개 삭제
+		//주문목록에서 1개 삭제--테스트 완료
 		System.out.println(orderService.deleteOrderByUserId("itwill4"));
 		
 		
