@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.itwill.marketcoli.common.DataSource;
 import com.itwill.marketcoli.dto.Product;
@@ -131,6 +133,112 @@ public class ProductDao {
 		pstmt.close();
 		con.close();
 		return productList;
+	}
+	
+	
+	
+	
+	
+	
+	/************************상품카테고리 Select ************************/
+	//대분류-분류별 상품명, 가격 출력
+	public List<Map> selectCategoryBMap(String p_categort_b) throws Exception {
+		
+		List<Map> categoryBMapList = new ArrayList<Map>();
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_B);
+		
+		pstmt.setString(1, p_categort_b);
+		ResultSet rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			Map rowMap=new HashMap();
+			rowMap.put("p_name",rs.getString("p_name"));
+			rowMap.put("p_price",rs.getInt("p_price"));
+			categoryBMapList.add(rowMap);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();		
+		return categoryBMapList;
+	}
+	
+
+	//대분류-분류별 전체 출력
+	public List<Product> selectCategoryB(String p_category_b) throws Exception {
+		
+		List<Product> categorySBList = new ArrayList<Product>();
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_B);
+		
+		pstmt.setString(1,p_category_b);
+		ResultSet rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			categorySBList.add(new Product(rs.getInt("p_no"),
+					 rs.getString("p_name"),
+					 rs.getInt("p_price"),
+					 rs.getString("p_exp"),
+					 rs.getString("p_category_b"),
+					 rs.getString("p_category_s")
+					 ));
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return categorySBList;
+	}
+	
+	
+	//소분류-분류별 상품명, 가격 출력
+	public List<Map> selectCategorySMap(String p_categort_s) throws Exception {
+		
+		List<Map> categorySMapList = new ArrayList<Map>();
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_S);
+		
+		pstmt.setString(1, p_categort_s);
+		ResultSet rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			Map rowMap=new HashMap();
+			rowMap.put("p_name",rs.getString("p_name"));
+			rowMap.put("p_price",rs.getInt("p_price"));
+			categorySMapList.add(rowMap);
+		}
+		rs.close();
+		pstmt.close();
+		con.close();		
+		return categorySMapList;
+	}
+	
+	//소분류-분류별 전체 출력
+	public List<Product> selectCategoryS(String p_category_s) throws Exception {
+		
+		List<Product> categorySList = new ArrayList<Product>();
+		
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_S);
+		
+		pstmt.setString(1,p_category_s);
+		ResultSet rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			categorySList.add(new Product(rs.getInt("p_no"),
+					 rs.getString("p_name"),
+					 rs.getInt("p_price"),
+					 rs.getString("p_exp"),
+					 rs.getString("p_category_b"),
+					 rs.getString("p_category_s")
+					 ));
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+		return categorySList;
 	}
 	
 
