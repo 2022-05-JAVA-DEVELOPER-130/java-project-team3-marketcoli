@@ -42,6 +42,8 @@ public class OrdersDao {
 		pstmt1.setString(2, orders.getUserInfo().getU_id());
 		int rowCount1 = pstmt1.executeUpdate();
 
+		int rowCount2 = 0;
+		int rowCount2Sum =0;
 		PreparedStatement pstmt2 = con.prepareStatement(OrdersSQL.ORDERITEM_INSERT);
 
 		for (OrderItem orderItem : orders.getOrderItemList()) {
@@ -49,77 +51,85 @@ public class OrdersDao {
 			// pstmt2.setInt(1, orderItem.getO_no());
 			pstmt2.setInt(1, orderItem.getOi_qty());
 			pstmt2.setInt(2, orderItem.getProduct().getP_no());
+			rowCount2 = pstmt2.executeUpdate();
+			rowCount2Sum++;
 		}
 
-		int rowCount2 = pstmt2.executeUpdate();
 		pstmt1.close();
 		pstmt2.close();
 		con.close();
 
-		return rowCount1 * rowCount2; // 둘중에 하나라도 안되면 0이므로 곱한다.
+		return rowCount1 * rowCount2Sum; // 둘중에 하나라도 안되면 0이므로 곱한다.
 
 	}
-
-	// pk를 통해 삭제
-	public int deleteOrders(int o_no) throws Exception {
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE);
-
-		pstmt.setInt(1, o_no);
-
-		int rowCount = pstmt.executeUpdate();
-
-		pstmt.close();
-		con.close();
-
-		return rowCount;
-
-	}
-
-	public int updateOrders(Orders orders) throws Exception {
-		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE);
-
-		int rowCount = pstmt.executeUpdate();
-
-		pstmt.close();
-		con.close();
-
-		return rowCount;
-	}
-
-	public Orders selectByNo(int o_no) throws Exception {
-		Orders findOrders = null;
-
-		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_BY_NO);
-		pstmt.setInt(1, o_no);
-
-		ResultSet rs = pstmt.executeQuery();
-		if (rs.next()) {
+	
+	
+	
+	
+	
+	
+	
+	/*
+		// pk를 통해 삭제
+		public int deleteOrders(int o_no) throws Exception {
+			Connection con = dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE);
+	
+			pstmt.setInt(1, o_no);
+	
+			int rowCount = pstmt.executeUpdate();
+	
+			pstmt.close();
+			con.close();
+	
+			return rowCount;
+	
 		}
-		rs.close();
-		pstmt.close();
-		con.close();
-		return findOrders;
-
-	}
-
-	public List<Orders> selectAll() throws Exception {
-		// String selectAllSql = "select * from guest";
-		List<Orders> ordersList = new ArrayList<Orders>();
-
-		Connection con = this.dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_ALL);
-		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next()) {
+	
+		public int updateOrders(Orders orders) throws Exception {
+			Connection con = this.dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE);
+	
+			int rowCount = pstmt.executeUpdate();
+	
+			pstmt.close();
+			con.close();
+	
+			return rowCount;
 		}
-		rs.close();
-		pstmt.close();
-		con.close();
-
-		return ordersList;
-
-	}
+	
+		public Orders selectByNo(int o_no) throws Exception {
+			Orders findOrders = null;
+	
+			Connection con = this.dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_BY_NO);
+			pstmt.setInt(1, o_no);
+	
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+			return findOrders;
+	
+		}
+	
+		public List<Orders> selectAll() throws Exception {
+			// String selectAllSql = "select * from guest";
+			List<Orders> ordersList = new ArrayList<Orders>();
+	
+			Connection con = this.dataSource.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_ALL);
+			ResultSet rs = pstmt.executeQuery();
+	
+			while (rs.next()) {
+			}
+			rs.close();
+			pstmt.close();
+			con.close();
+	
+			return ordersList;
+	
+		}*/
 }
