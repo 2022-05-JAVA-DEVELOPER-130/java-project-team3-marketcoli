@@ -8,8 +8,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 
 public class login extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField idText;
+	private JTextField pwText;
 
 	/**
 	 * Create the panel.
@@ -17,43 +17,43 @@ public class login extends JPanel {
 	public login() {
 		setLayout(null);
 		
-		JLabel loginTitle = new JLabel("\uB85C\uADF8\uC778");
+		JLabel loginTitle = new JLabel("로그인");
 		loginTitle.setFont(new Font("굴림", Font.PLAIN, 30));
 		loginTitle.setBounds(124, 64, 120, 65);
 		add(loginTitle);
 		
-		JLabel lblNewLabel = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel.setBounds(55, 167, 57, 15);
-		add(lblNewLabel);
+		JLabel loginidLB = new JLabel("아이디");
+		loginidLB.setBounds(55, 167, 57, 15);
+		add(loginidLB);
 		
-		textField = new JTextField();
-		textField.setBounds(124, 164, 217, 21);
-		add(textField);
-		textField.setColumns(10);
+		idText = new JTextField();
+		idText.setBounds(124, 164, 217, 21);
+		add(idText);
+		idText.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_1.setBounds(55, 241, 57, 15);
-		add(lblNewLabel_1);
+		JLabel loginpwLB = new JLabel("비밀번호");
+		loginpwLB.setBounds(55, 241, 57, 15);
+		add(loginpwLB);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(124, 238, 217, 21);
-		add(textField_1);
-		textField_1.setColumns(10);
+		pwText = new JTextField();
+		pwText.setBounds(124, 238, 217, 21);
+		add(pwText);
+		pwText.setColumns(10);
 		
-		JButton btnNewButton = new JButton("\uB85C\uADF8\uC778");
-		btnNewButton.setBackground(new Color(128, 0, 128));
-		btnNewButton.setBounds(44, 335, 120, 39);
-		add(btnNewButton);
+		JButton loginBtn = new JButton("로그인");
+		loginBtn.setBackground(new Color(128, 0, 128));
+		loginBtn.setBounds(44, 335, 120, 39);
+		add(loginBtn);
 		
-		JButton btnNewButton_1 = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btnNewButton_1.setBackground(new Color(128, 0, 128));
-		btnNewButton_1.setBounds(44, 384, 297, 39);
-		add(btnNewButton_1);
+		JButton joinBtn = new JButton("회원가입");
+		joinBtn.setBackground(new Color(128, 0, 128));
+		joinBtn.setBounds(44, 384, 297, 39);
+		add(joinBtn);
 		
-		JButton btnNewButton_2 = new JButton("취소");
-		btnNewButton_2.setBackground(new Color(128, 0, 128));
-		btnNewButton_2.setBounds(221, 335, 120, 39);
-		add(btnNewButton_2);
+		JButton cancleBtn = new JButton("취소");
+		cancleBtn.setBackground(new Color(128, 0, 128));
+		cancleBtn.setBounds(221, 335, 120, 39);
+		add(cancleBtn);
 		
 		JLabel messageLB = new JLabel("");
 		messageLB.setForeground(Color.RED);
