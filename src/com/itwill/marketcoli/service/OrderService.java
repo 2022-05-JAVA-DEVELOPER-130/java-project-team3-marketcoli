@@ -1,11 +1,13 @@
 package com.itwill.marketcoli.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.itwill.marketcoli.dao.CartDao;
 import com.itwill.marketcoli.dao.OrdersDao;
 import com.itwill.marketcoli.dao.ProductDao;
+import com.itwill.marketcoli.dao.UserInfoDao;
 import com.itwill.marketcoli.dto.Cart;
 import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
@@ -16,6 +18,7 @@ public class OrderService {
 	private OrdersDao orderDao;
 	private ProductDao productDao;
 	private CartDao cartDao;
+	private UserInfoDao userInfoDao;
 	
 	public OrderService() throws Exception{
 		orderDao=new OrdersDao();
@@ -96,14 +99,22 @@ public class OrderService {
 	
 	//cart에서 주문 -> cart에서 Order로 옮겨닮기
 	
-	public int cartToOrder (int c_no) throws Exception {
-		
+	public int cartToOrders (int u_no) throws Exception {
 		ArrayList<Cart> cartList = new ArrayList<Cart>();
-		cartList = cartDao.selectAll(c_no);
+		ArrayList<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		
-		ArrayList<Orders> orderList = new ArrayList<Orders>();
+		cartList = cartDao.selectCartByUserNo(u_no);
+		for (Cart cart : cartList) {
+		 orderItemList.add(new OrderItem(0, cart.getC_qty(), 0, productDao.selectByNo(cart.getP_no())));
+		}
+
+		//Order cartToOrders =new OrderItem(0, u_no, u_no, null)
 		
-		//for
+		
+		
+		
+		
+		
 		
 		return 0;
 	}

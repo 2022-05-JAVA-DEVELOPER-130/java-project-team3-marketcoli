@@ -30,7 +30,7 @@ public class CartDaoTestMain {
 		System.out.println(CartDao.updateCartProduct(updateCart2));
 		
 		System.out.println(">> 카트 번호로 출력");
-		Cart selectCartByNo = CartDao.selectCartByNo(12);
+		Cart selectCartByNo = CartDao.selectCartByUserNo(12);
 		System.out.println(selectCartByNo);
 		
 		System.out.println(">> 카트 전체 출력");
