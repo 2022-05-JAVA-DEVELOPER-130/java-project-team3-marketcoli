@@ -13,7 +13,6 @@ import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 public class OrderService {
 	private OrdersDao orderDao;
@@ -126,4 +125,11 @@ public class OrderService {
 		return orderDao.updateOrderItemQty(oi_qty, oi_no);
 	}
 
+	//주문번호 를 이용한 주문내역 전체 검색
+	public int selectOrderItemByno(int o_no)throws Exception {
+		return orderDao.findOrderByOi_No(o_no);
+		
+	}
+	
+	
 }

@@ -174,6 +174,8 @@ public class OrdersDao {
 		return findOrders;
 	}
 	
+	
+	
 	//주문번호를 이용한 주문 상품 수량 변경
 	public int updateOrderItemByO_no(int OI_QTY, int P_NO, int O_no) throws Exception {
 		String updateOrderitem =" update order_item set OI_QTY = ?  where  P_NO =? and O_no=?";
@@ -188,7 +190,15 @@ public class OrdersDao {
 	
 	
 	
-	
+	public int findOrderByOi_No(int o_no)throws Exception{
+		String selectOrderItem =" select * from order_item oi join product p on oi.p_no = p.p_no where o_no = ?";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(selectOrderItem);
+		pstmt.setInt(1, o_no);
+		int rowCount =pstmt.executeUpdate();
+		return rowCount;
+		
+	}
 	
 	
 	
