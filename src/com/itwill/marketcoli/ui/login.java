@@ -42,17 +42,23 @@ public class login extends JPanel {
 		
 		JButton btnNewButton = new JButton("\uB85C\uADF8\uC778");
 		btnNewButton.setBackground(new Color(128, 0, 128));
-		btnNewButton.setBounds(44, 335, 279, 39);
+		btnNewButton.setBounds(44, 335, 120, 39);
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btnNewButton_1.setBackground(new Color(128, 0, 128));
-		btnNewButton_1.setBounds(44, 384, 279, 39);
+		btnNewButton_1.setBounds(44, 384, 297, 39);
 		add(btnNewButton_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(55, 271, 239, 15);
-		add(lblNewLabel_2);
+		JButton btnNewButton_2 = new JButton("취소");
+		btnNewButton_2.setBackground(new Color(128, 0, 128));
+		btnNewButton_2.setBounds(221, 335, 120, 39);
+		add(btnNewButton_2);
+		
+		JLabel messageLB = new JLabel("");
+		messageLB.setForeground(Color.RED);
+		messageLB.setBounds(55, 278, 175, 15);
+		add(messageLB);
 
 	}
 }
