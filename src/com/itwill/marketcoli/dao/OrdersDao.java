@@ -12,7 +12,6 @@ import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.UserInfo;
 
-
 public class OrdersDao {
 	private DataSource dataSource;
 
@@ -44,7 +43,7 @@ public class OrdersDao {
 		int rowCount1 = pstmt1.executeUpdate();
 
 		int rowCount2 = 0;
-		int rowCount2Sum =0;
+		int rowCount2Sum = 0;
 		PreparedStatement pstmt2 = con.prepareStatement(OrdersSQL.ORDERITEM_INSERT);
 
 		for (OrderItem orderItem : orders.getOrderItemList()) {
@@ -63,114 +62,53 @@ public class OrdersDao {
 		return rowCount1 * rowCount2Sum; // 둘중에 하나라도 안되면 0이므로 곱한다.
 
 	}
-	
-	
+
 	/****************************************************************/
 	// 주문 전체 출력
-		public List<Orders> selectAll() throws Exception {
-			List<Orders> orderslist = new ArrayList<Orders>();
-			String selectAll = "select * from orders o join userinfo u on o.u_id = u.u_id";
-			Connection con = dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(selectAll);
-			ResultSet rs = pstmt.executeQuery();
-			while (rs.next()) {
-				orderslist.add(new Orders(rs.getInt("O_no"),
-										  rs.getDate("O_date"),
-										  rs.getInt("O_PRICE"), 
-							   new UserInfo(), null));
-			}
-			rs.close();
-			pstmt.close();
-			con.close();
-			return orderslist;
+	public List<Orders> selectAll() throws Exception {
+		List<Orders> orderslist = new ArrayList<Orders>();
+		String selectAll = "select * from orders o join userinfo u on o.u_id = u.u_id";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(selectAll);
+		ResultSet rs = pstmt.executeQuery();
+		while (rs.next()) {
+			orderslist.add(
+					new Orders(rs.getInt("O_no"),
+								rs.getDate("O_date"),
+								rs.getInt("O_PRICE"),
+								new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+								/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+								null));
 		}
-			
-			// 유저 id를 이용한 검색
-			public Orders findOrders(String u_id) throws Exception {
-				Orders findOrders = null;
-				String selectOrders = "select * from orders o join userinfo u on o.u_id = u.u_id where o.u_id =?";
-				Connection con = dataSource.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(selectOrders);
-				pstmt.setString(1, u_id);
-				ResultSet rs = pstmt.executeQuery();
-				if (rs.next()) {
-					findOrders = new Orders(rs.getInt("o_no"),
-											rs.getDate("O_date"),
-											rs.getInt("O_PRICE"),
-								 new UserInfo(), null);
-				}
-				rs.close();
-				pstmt.close();
-				con.close();
-				return findOrders;	
-			}
-			
-			
-			
-	
-	
-	
-	/*
-		// pk를 통해 삭제
-		public int deleteOrders(int o_no) throws Exception {
-			Connection con = dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_DELETE);
-	
-			pstmt.setInt(1, o_no);
-	
-			int rowCount = pstmt.executeUpdate();
-	
-			pstmt.close();
-			con.close();
-	
-			return rowCount;
-	
+		rs.close();
+		pstmt.close();
+		con.close();
+		return orderslist;
+		
+		
+		
+	}
+
+	// 유저 id를 이용한 검색
+	public Orders findOrders(String u_id) throws Exception {
+		Orders findOrders = null;
+		String selectOrders = "select * from orders o join userinfo u on o.u_id = u.u_id where o.u_id =?";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(selectOrders);
+		pstmt.setString(1, u_id);
+		ResultSet rs = pstmt.executeQuery();
+		if (rs.next()) {
+			findOrders = new Orders(rs.getInt("o_no"),
+									rs.getDate("O_date"),
+									rs.getInt("O_PRICE"),
+									new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+									/*new UserInfo(), -> UserInfo..에서 get할 값이 없다면, 생성하지 않고null로 해도 될거같은데요?*/
+									null);
 		}
-	
-		public int updateOrders(Orders orders) throws Exception {
-			Connection con = this.dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_UPDATE);
-	
-			int rowCount = pstmt.executeUpdate();
-	
-			pstmt.close();
-			con.close();
-	
-			return rowCount;
-		}
-	
-		public Orders selectByNo(int o_no) throws Exception {
-			Orders findOrders = null;
-	
-			Connection con = this.dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_BY_NO);
-			pstmt.setInt(1, o_no);
-	
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-			}
-			rs.close();
-			pstmt.close();
-			con.close();
-			return findOrders;
-	
-		}
-	
-		public List<Orders> selectAll() throws Exception {
-			// String selectAllSql = "select * from guest";
-			List<Orders> ordersList = new ArrayList<Orders>();
-	
-			Connection con = this.dataSource.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(OrdersSQL.ORDERS_SELECT_ALL);
-			ResultSet rs = pstmt.executeQuery();
-	
-			while (rs.next()) {
-			}
-			rs.close();
-			pstmt.close();
-			con.close();
-	
-			return ordersList;
-	
-		}*/
+		rs.close();
+		pstmt.close();
+		con.close();
+		return findOrders;
+	}
+
 }
