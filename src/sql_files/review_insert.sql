@@ -5,11 +5,11 @@ insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,
 
 insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,
                         R_RATING, P_NO, U_NO, U_NAME, O_DATE )
-                        values (REVIEW_R_NO_SEQ.nextval,'r2.png','정말 맛있어요!!',sysdate,4,'2','2','둘째임',sysdate-7);
+                        values (REVIEW_R_NO_SEQ.nextval,'r2.png','정말 맛있어요!!',sysdate,4,'6','7','둘째임',sysdate-7);
 
 insert into review(R_NO, R_IMAGE, R_CONTENT, R_WDATE,
                         R_RATING, P_NO, U_NO, U_NAME, O_DATE )
-                        values (REVIEW_R_NO_SEQ.nextval,'d4.png','정말 맛있어요!!',sysdate,3,'4','4','셋째임',sysdate-7);
+                        values (REVIEW_R_NO_SEQ.nextval,'d4.png','정말 맛있어요!!',sysdate,3,'6','7','셋째임',sysdate-7);
 
 
 

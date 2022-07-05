@@ -24,5 +24,8 @@ public class CartSQL {
 								= "select * from cart where u_no = ?";
 	
 	public static final String CART_SELECT_ALL 
+								= "select * from cart";
+	
+	public static final String CART_SELECT_BY_ALL 
 								= "select * from cart where u_no = ?";
 }
