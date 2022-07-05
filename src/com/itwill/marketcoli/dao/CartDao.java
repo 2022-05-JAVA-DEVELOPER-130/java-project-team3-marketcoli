@@ -30,8 +30,27 @@ public class CartDao {
 		
 		return rowCount;
 	}
+	/*
+	 * 카트 담기
+	 */
+	public int insertCart(int c_qty, int p_no, int u_no) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_INSERT);
 
-	// pk를 통해 삭제
+		pstmt.setInt(1, c_qty);
+		pstmt.setInt(2, p_no);
+		pstmt.setInt(3, u_no);
+
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		
+		return rowCount;
+	}
+	
+	/*
+	 * 카트 번호로 카트 삭제
+	 */
 	public int deleteCartNo(int c_no) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_DELETE_CART_NO);
@@ -46,6 +65,9 @@ public class CartDao {
 		return rowCount;
 	} 
 	
+	/*
+	 * 유저 번호로 카트 삭제
+	 */
 	public int deleteUserNo(int u_no) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_DELETE_USER_NO);
@@ -65,7 +87,25 @@ public class CartDao {
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_UPDATE_QTY);
 		
 		pstmt.setInt(1, cart.getC_qty());
-		pstmt.setInt(2, cart.getU_no());
+		pstmt.setInt(2, cart.getC_no());
+
+
+		int rowCount = pstmt.executeUpdate();
+
+		pstmt.close();
+		con.close();
+
+		return rowCount;
+	}
+	/*
+	 * 카트 번호로 카트 수량 업데이트
+	 */
+	public int updateCartQty(int c_qty, int c_no) throws Exception {
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_UPDATE_QTY);
+		
+		pstmt.setInt(1, c_qty);
+		pstmt.setInt(2, c_no);
 
 
 		int rowCount = pstmt.executeUpdate();
@@ -82,6 +122,24 @@ public class CartDao {
 		
 		pstmt.setInt(1, cart.getP_no());
 		pstmt.setInt(2, cart.getU_no());
+		
+		
+		int rowCount = pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();
+		
+		return rowCount;
+	}
+	/*
+	 * 유저 번호로 상품 변경
+	 */
+	public int updateCartProduct(int p_no, int u_no) throws Exception {
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_UPDATE_PRODUCT);
+		
+		pstmt.setInt(1, p_no);
+		pstmt.setInt(2, u_no);
 		
 		
 		int rowCount = pstmt.executeUpdate();
@@ -113,9 +171,9 @@ public class CartDao {
 		return findCart;
 	}
 
-	public List<Cart> selectAll() throws Exception {
+	public ArrayList<Cart> selectAll() throws Exception {
 		//String selectAllSql = "select * from user";
-		List<Cart> cartList = new ArrayList<Cart>();
+		ArrayList<Cart> cartList = new ArrayList<Cart>();
 
 		Connection con = this.dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_ALL);
@@ -135,4 +193,29 @@ public class CartDao {
 
 		return cartList;
 	}
+	
+	public ArrayList<Cart> selectAll(int c_no) throws Exception {
+		//String selectAllSql = "select * from user";
+		ArrayList<Cart> cartList = new ArrayList<Cart>();
+
+		Connection con = this.dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_SELECT_ALL);
+		pstmt.setInt(1, c_no);
+		ResultSet rs = pstmt.executeQuery();
+
+		while (rs.next()) {
+
+			cartList.add(new Cart(rs.getInt("c_no"),
+									rs.getInt("c_qty"),
+									rs.getInt("p_no"),
+									rs.getInt("u_no")));
+
+		}
+		rs.close();
+		pstmt.close();
+		con.close();
+
+		return cartList;
+	}
+	
 }
