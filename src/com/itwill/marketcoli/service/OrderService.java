@@ -120,5 +120,18 @@ public class OrderService {
 
 		return cartToOrders;
 	}
+	
+	//주문내역 수량 변경
+	
+	public int updateOrderItemQty(int oi_qty, int oi_no) throws Exception {
+		return orderDao.updateOrderItemQty(oi_qty, oi_no);
+	}
 
+	//주문번호 를 이용한 주문내역 전체 검색
+	public int selectOrderItemByno(int o_no)throws Exception {
+		return orderDao.findOrderByOi_No(o_no);
+		
+	}
+	
+	
 }
