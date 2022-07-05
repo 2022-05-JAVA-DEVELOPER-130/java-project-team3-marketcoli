@@ -10,6 +10,7 @@ import java.util.List;
 import com.itwill.marketcoli.common.DataSource;
 import com.itwill.marketcoli.dto.OrderItem;
 import com.itwill.marketcoli.dto.Orders;
+import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.dto.UserInfo;
 
 public class OrdersDao {
@@ -198,9 +199,10 @@ public class OrdersDao {
 		pstmt.setInt(1, o_no);
 		ResultSet rs =pstmt.executeQuery();
 		if(rs.next()) {
-//			findOrders = new OrderItem(rs, o_no, o_no, null)
+			findOrders= new OrderItem(0, 0, rs.getInt("o_no"),
+						new Product(0, rs.getString("p_name"), rs.getInt("p_price"), null, null, null));
 		}
-		return null;
+		return findOrders;
 		
 	}
 	
