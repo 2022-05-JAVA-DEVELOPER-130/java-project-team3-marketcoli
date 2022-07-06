@@ -628,5 +628,5 @@ public void productListDisplay() throws Exception{
 			JPanel productItemPanel = new JPanel();
 	
 	
-	
+	*/
 }//클래스 끝
