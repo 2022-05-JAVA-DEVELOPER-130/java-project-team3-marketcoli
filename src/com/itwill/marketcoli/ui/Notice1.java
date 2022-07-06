@@ -5,21 +5,21 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class notice1 extends JPanel {
-	private JTextField notice1content;
+public class Notice1 extends JPanel {
+	private JTextField notice1Content;
 	private JTextField notice1Title;
-	private JTextField notice1date;
+	private JTextField notice1Date;
 
 	/**
 	 * Create the panel.
 	 */
-	public notice1() {
+	public Notice1() {
 		setLayout(null);
 		
-		notice1content = new JTextField();
-		notice1content.setBounds(12, 154, 366, 477);
-		add(notice1content);
-		notice1content.setColumns(10);
+		notice1Content = new JTextField();
+		notice1Content.setBounds(12, 154, 366, 477);
+		add(notice1Content);
+		notice1Content.setColumns(10);
 		
 		JButton notice1backBtn_1 = new JButton("이전화면");
 		notice1backBtn_1.setBounds(0, 641, 389, 39);
@@ -30,10 +30,10 @@ public class notice1 extends JPanel {
 		add(notice1Title);
 		notice1Title.setColumns(10);
 		
-		notice1date = new JTextField();
-		notice1date.setBounds(262, 74, 116, 21);
-		add(notice1date);
-		notice1date.setColumns(10);
+		notice1Date = new JTextField();
+		notice1Date.setBounds(262, 74, 116, 21);
+		add(notice1Date);
+		notice1Date.setColumns(10);
 
 	}
 }

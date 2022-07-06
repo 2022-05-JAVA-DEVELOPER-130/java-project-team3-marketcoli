@@ -22,7 +22,7 @@ public class Notice extends JPanel {
 	 */
 	public Notice() {
 		setLayout(null);
-		
+	Notice1 notice1 = new Notice1();
 		
 		JPanel noticePanel = new JPanel();
 		noticePanel.setBounds(0, 77, 390, 603);
