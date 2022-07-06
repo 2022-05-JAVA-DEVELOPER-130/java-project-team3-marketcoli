@@ -42,6 +42,7 @@ public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JButton ordersBtn;
 
 	/**
 	 * Launch the application.
@@ -223,10 +224,10 @@ public class JFrame extends javax.swing.JFrame {
 		savingAddressCheckbox.setBounds(8, 31, 115, 23);
 		cartPanel.add(savingAddressCheckbox);
 		
-		JLabel lblNewLabel = new JLabel("서울특별시 강남구 ");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 12));
-		lblNewLabel.setBounds(131, 35, 152, 15);
-		cartPanel.add(lblNewLabel);
+		JLabel savingAddress = new JLabel("서울특별시 강남구 ");
+		savingAddress.setFont(new Font("굴림", Font.PLAIN, 12));
+		savingAddress.setBounds(131, 35, 152, 15);
+		cartPanel.add(savingAddress);
 		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
 		productAllCheckBox.setFont(new Font("굴림", Font.BOLD, 12));
@@ -264,15 +265,17 @@ public class JFrame extends javax.swing.JFrame {
 		productPrice2.setBounds(161, 345, 57, 15);
 		cartPanel.add(productPrice2);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
-		lblNewLabel_1.setBounds(65, 163, 70, 90);
-		cartPanel.add(lblNewLabel_1);
+		JLabel product1Image1 = new JLabel("");
+		product1Image1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
+		product1Image1.setBounds(65, 163, 70, 90);
+		cartPanel.add(product1Image1);
 		
-		JButton btnNewButton = new JButton("주문하기");
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
-		btnNewButton.setBounds(36, 503, 286, 41);
-		cartPanel.add(btnNewButton);
+		ordersBtn = new JButton("주문하기");
+		ordersBtn.setBackground(new Color(153, 0, 255));
+		ordersBtn.setForeground(new Color(153, 0, 255));
+		ordersBtn.setFont(new Font("굴림", Font.BOLD, 25));
+		ordersBtn.setBounds(36, 503, 286, 41);
+		cartPanel.add(ordersBtn);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
