@@ -246,6 +246,7 @@ public class JFrame extends javax.swing.JFrame {
 		savingAddress.setBounds(131, 35, 152, 15);
 		cartPanel.add(savingAddress);
 		
+		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
 		productAllCheckBox.setSelected(true);
 		productAllCheckBox.setFont(new Font("굴림", Font.BOLD, 12));
