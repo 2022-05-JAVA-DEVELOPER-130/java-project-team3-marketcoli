@@ -163,6 +163,14 @@ public class MyPage extends JPanel {
 					userInfoService.deleteUserInfo(ABORT);
 					
 					//비밀번호 입력 정보 초기화
+					idField.setVisible(true);
+					userNoField.setVisible(true);
+					
+					
+					nowPWField.setText("");
+					newPwField.setText("");
+					newPwReField.setText("");
+					
 					
 					
 				}catch (Exception e1) {
