@@ -55,13 +55,21 @@ DROP SEQUENCE orders_o_no_SEQ;
 
 CREATE SEQUENCE orders_o_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
+--
+--CREATE TABLE cart(
+--		c_no                          		NUMBER(10)		 DEFAULT 0		 NULL ,
+--		c_qty                         		NUMBER(10)		 NULL ,
+--		p_no                          		NUMBER(10)		 NULL ,
+--		p_name                        		VARCHAR2(50)		 NULL ,
+--		p_price                       		NUMBER(10)		 NULL ,
+--		u_no                          		NUMBER(10)		 NULL 
+--);
 
 CREATE TABLE cart(
 		c_no                          		NUMBER(10)		 DEFAULT 0		 NULL ,
 		c_qty                         		NUMBER(10)		 NULL ,
 		p_no                          		NUMBER(10)		 NULL ,
-		p_name                        		VARCHAR2(50)		 NULL ,
-		p_price                       		NUMBER(10)		 NULL ,
+		
 		u_no                          		NUMBER(10)		 NULL 
 );
 
