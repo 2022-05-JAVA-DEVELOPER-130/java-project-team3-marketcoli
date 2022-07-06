@@ -1,4 +1,4 @@
-package com.itwill.marketcoli.ui_test;
+package com.itwill.marketcoli.ui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -15,7 +15,7 @@ import java.awt.Color;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 
-public class testFrameNew extends JFrame {
+public class MarketColiFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JMenuBar menuBar;
@@ -44,7 +44,7 @@ public class testFrameNew extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					testFrameNew frame = new testFrameNew();
+					MarketColiFrame frame = new MarketColiFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class testFrameNew extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public testFrameNew() {
+	public MarketColiFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 650);
 		

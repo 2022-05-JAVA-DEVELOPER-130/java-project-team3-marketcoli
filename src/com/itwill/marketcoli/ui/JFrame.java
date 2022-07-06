@@ -65,32 +65,7 @@ public class JFrame extends javax.swing.JFrame {
 	private JPanel contentPane;
 
 	private JTextField textField;
-	private JTabbedPane noticeTabbedPane;
-	private JPanel notice2;
-	private JTextField notice2Date;
-	private JTextField notice2Title;
-	private JTextField notice3Date;
-	private JTextField notice3Title;
-	private JTextField notice1Date;
-	private JTextField notice1title;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JPanel productAllPanel;
-	private FindIdPassword findIdPassword;
-	private JPanel findIdPwPanel;
-	private login login;
-	private JPanel loginPanel;
-	private join join__1;
-	private JPanel joinPanel;
-	private MyPage myPage;
-	private JPanel myPagePanel;
-	private JPanel noticePanel;
-	private JPanel orderPanel;
-	private JPanel cartPanel;
-	private JPanel productServePanel;
+	
 	private JScrollPane productMainScrollPane;
 	private JPanel productMainPanel;
 	private JTabbedPane productTabbedPane;
