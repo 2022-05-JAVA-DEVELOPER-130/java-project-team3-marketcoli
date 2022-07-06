@@ -27,6 +27,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
 
 // 사이즈 setBounds(100, 100, 390, 844);  
@@ -210,6 +212,53 @@ public class JFrame extends javax.swing.JFrame {
 		JPanel cartPanel = new JPanel();
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
+		
+		JCheckBox savingAddressCheckbox = new JCheckBox("기존주소지");
+		savingAddressCheckbox.setFont(new Font("굴림", Font.BOLD, 13));
+		savingAddressCheckbox.setBounds(8, 31, 115, 23);
+		cartPanel.add(savingAddressCheckbox);
+		
+		JLabel lblNewLabel = new JLabel("서울특별시 강남구 ");
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 12));
+		lblNewLabel.setBounds(131, 35, 152, 15);
+		cartPanel.add(lblNewLabel);
+		
+		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
+		productAllCheckBox.setBounds(8, 108, 115, 23);
+		cartPanel.add(productAllCheckBox);
+		
+		JCheckBox product1 = new JCheckBox("");
+		product1.setBounds(36, 154, 21, 23);
+		cartPanel.add(product1);
+		
+		JCheckBox product2 = new JCheckBox("");
+		product2.setBounds(36, 277, 21, 23);
+		cartPanel.add(product2);
+		
+		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
+		productName1.setBounds(127, 137, 127, 23);
+		cartPanel.add(productName1);
+		
+		JLabel product1Image1 = new JLabel("");
+		product1Image1.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\사과 (3).jpg"));
+		product1Image1.setBounds(96, 170, 77, 63);
+		cartPanel.add(product1Image1);
+		
+		JLabel productName2 = new JLabel("New label");
+		productName2.setBounds(139, 259, 57, 15);
+		cartPanel.add(productName2);
+		
+		JLabel product2Image2 = new JLabel("New label");
+		product2Image2.setBounds(85, 296, 57, 15);
+		cartPanel.add(product2Image2);
+		
+		JLabel productPrice1 = new JLabel("금액:");
+		productPrice1.setBounds(248, 170, 57, 15);
+		cartPanel.add(productPrice1);
+		
+		JLabel productPrice2 = new JLabel("금액:");
+		productPrice2.setBounds(248, 296, 57, 15);
+		cartPanel.add(productPrice2);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
