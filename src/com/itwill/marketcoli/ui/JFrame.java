@@ -303,6 +303,10 @@ public class JFrame extends javax.swing.JFrame {
 		orderBTn.setBounds(36, 497, 290, 52);
 		cartPanel.add(orderBTn);
 		
+		JButton deleteBtn = new JButton("선택물품 삭제");
+		deleteBtn.setBounds(229, 108, 97, 23);
+		cartPanel.add(deleteBtn);
+		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
 		orderPanel.setLayout(null);
