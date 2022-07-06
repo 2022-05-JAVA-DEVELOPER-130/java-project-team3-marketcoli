@@ -89,9 +89,9 @@ public class JFrame extends javax.swing.JFrame {
 	private JPanel productAllPanel;
 	private FindIdPassword findIdPassword;
 	private JPanel findIdPwPanel;
-	private Login login;
+	//private Login login;
 	private JPanel loginPanel;
-	private Join join__1;
+	//private Join join__1;
 	private JPanel joinPanel;
 	private MyPage myPage;
 	private JPanel myPagePanel;
@@ -165,8 +165,8 @@ public class JFrame extends javax.swing.JFrame {
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
 		userMenu.add(joinMenuItem);
 		
-		Join join_ = new Join();
-		userMenu.add(join_);
+		//Join join_ = new Join();
+		//userMenu.add(join_);
 		
 		JMenuItem loginMenuItem = new JMenuItem("로그인");
 		userMenu.add(loginMenuItem);

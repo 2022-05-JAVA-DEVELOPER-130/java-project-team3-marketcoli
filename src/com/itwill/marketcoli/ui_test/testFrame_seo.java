@@ -11,8 +11,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
 import javax.swing.JScrollPane;
-import com.itwill.marketcoli.ui.Join;
-import com.itwill.marketcoli.ui.Login;
 import java.awt.Dimension;
 import com.itwill.marketcoli.ui.MyPage;
 import com.itwill.marketcoli.ui.ProductListPanel;
@@ -38,8 +36,7 @@ public class testFrame_seo extends JFrame {
 	private JPanel noticePanel;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
-	private Join join;
-	private FindIdPassword findIdPassword;
+	//private Join join;
 	private JScrollPane scrollPane_2;
 
 	/**
@@ -97,8 +94,8 @@ public class testFrame_seo extends JFrame {
 		scrollPane = new JScrollPane();
 		userPanel.add(scrollPane, BorderLayout.CENTER);
 		
-		join = new Join();
-		scrollPane.setViewportView(join);
+		/*		join = new Join();
+				scrollPane.setViewportView(join);*/
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
@@ -106,9 +103,6 @@ public class testFrame_seo extends JFrame {
 		
 		scrollPane_1 = new JScrollPane();
 		mypagePanel.add(scrollPane_1, BorderLayout.CENTER);
-		
-		findIdPassword = new FindIdPassword();
-		scrollPane_1.setViewportView(findIdPassword);
 		
 		productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);
