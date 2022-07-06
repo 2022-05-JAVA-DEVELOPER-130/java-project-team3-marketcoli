@@ -551,8 +551,8 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
 	}
-<<<<<<< HEAD
-	
+
+}
 		/*
 		productService= new ProductService();
 		try {
@@ -610,6 +610,3 @@ public class JFrame extends javax.swing.JFrame {
 	
 	*/
 	
-=======
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
-}//
