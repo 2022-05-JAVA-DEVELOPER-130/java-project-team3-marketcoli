@@ -9,8 +9,12 @@ import javax.swing.border.EmptyBorder;
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.service.ProductService;
 import com.itwill.marketcoli.dto.Notice;
+import com.itwill.marketcoli.service.CartService;
 import com.itwill.marketcoli.service.NoticeService;
+import com.itwill.marketcoli.service.OrderService;
 import com.itwill.marketcoli.service.UserInfoService;
+
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
@@ -53,7 +57,10 @@ public class JFrame extends javax.swing.JFrame {
 	/***********Service 선언 생성*************/
 	private UserInfoService userInfoService = new UserInfoService();
 	private NoticeService noticeService = new NoticeService();
-	private ProductService productService;
+	private ProductService productService = new ProductService();
+	//private OrderService orderService = new OrderService();
+	//private CartService cartService = new CartService();
+	
 
 	private JPanel contentPane;
 
@@ -72,6 +79,23 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JPanel productAllPanel;
+	private FindIdPassword findIdPassword;
+	private JPanel findIdPwPanel;
+	private login login;
+	private JPanel loginPanel;
+	private join join__1;
+	private JPanel joinPanel;
+	private MyPage myPage;
+	private JPanel myPagePanel;
+	private JPanel noticePanel;
+	private JPanel orderPanel;
+	private JPanel cartPanel;
+	private JPanel productServePanel;
+	private JScrollPane productMainScrollPane;
+	private JPanel productMainPanel;
+	private JTabbedPane productTabbedPane;
+	private JPanel productPanel;
+	private JTabbedPane mainTabbedPane;
 
 	/**
 	 * Launch the application.
@@ -149,21 +173,21 @@ public class JFrame extends javax.swing.JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JTabbedPane mainTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		mainTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(mainTabbedPane);
 		
-		JPanel productPanel = new JPanel();
+		productPanel = new JPanel();
 		mainTabbedPane.addTab("상품", null, productPanel, null);
 		productPanel.setLayout(new BorderLayout(0, 0));
 		
-		JTabbedPane productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		productPanel.add(productTabbedPane, BorderLayout.CENTER);
 		
-		JPanel productMainPanel = new JPanel();
+		productMainPanel = new JPanel();
 		productTabbedPane.addTab("상품전체보기", null, productMainPanel, null);
 		productMainPanel.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane productMainScrollPane = new JScrollPane();
+		productMainScrollPane = new JScrollPane();
 		productMainPanel.add(productMainScrollPane, BorderLayout.CENTER);
 		
 		productAllPanel = new JPanel();
@@ -204,7 +228,7 @@ public class JFrame extends javax.swing.JFrame {
 		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
 
-		JPanel productServePanel = new JPanel();
+		productServePanel = new JPanel();
 		productTabbedPane.addTab("상품상세보기", null, productServePanel, null);
 		productServePanel.setLayout(new BorderLayout(0, 0));
 		
@@ -244,7 +268,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailPriceLabel.setBounds(12, 500, 181, 25);
 		productDetailpanel.add(productDetailPriceLabel);
 		
-		JPanel cartPanel = new JPanel();
+		cartPanel = new JPanel();
 		cartPanel.setBackground(new Color(255, 255, 255));
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
@@ -307,7 +331,7 @@ public class JFrame extends javax.swing.JFrame {
 		orderBTn.setBounds(36, 497, 290, 52);
 		cartPanel.add(orderBTn);
 		
-		JPanel orderPanel = new JPanel();
+		orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
 		orderPanel.setLayout(null);
 		
@@ -485,7 +509,7 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
 		orderPanel.add(lblNewLabel_2_1);
 		
-		JPanel noticePanel = new JPanel();
+		noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 		noticePanel.setLayout(new BorderLayout(0, 0));
 		
@@ -567,12 +591,33 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
 		
-		JPanel panel = new JPanel();
-		mainTabbedPane.addTab("New tab", null, panel, null);
-		panel.setLayout(new BorderLayout(0, 0));
+		myPagePanel = new JPanel();
+		mainTabbedPane.addTab("마이페이지", null, myPagePanel, null);
+		myPagePanel.setLayout(new BorderLayout(0, 0));
 		
-		MyPage myPage = new MyPage();
-		panel.add(myPage, BorderLayout.CENTER);
+		myPage = new MyPage();
+		myPagePanel.add(myPage, BorderLayout.CENTER);
+		
+		joinPanel = new JPanel();
+		mainTabbedPane.addTab("회원가입", null, joinPanel, null);
+		joinPanel.setLayout(new BorderLayout(0, 0));
+		
+		join__1 = new join();
+		joinPanel.add(join__1, BorderLayout.CENTER);
+		
+		loginPanel = new JPanel();
+		mainTabbedPane.addTab("로그인", null, loginPanel, null);
+		loginPanel.setLayout(new BorderLayout(0, 0));
+		
+		login = new login();
+		loginPanel.add(login, BorderLayout.CENTER);
+		
+		findIdPwPanel = new JPanel();
+		mainTabbedPane.addTab("아이디/비번찾기", null, findIdPwPanel, null);
+		findIdPwPanel.setLayout(new BorderLayout(0, 0));
+		
+		findIdPassword = new FindIdPassword();
+		findIdPwPanel.add(findIdPassword, BorderLayout.CENTER);
 
 
 		productService= new ProductService();
