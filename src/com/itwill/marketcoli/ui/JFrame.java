@@ -534,7 +534,7 @@ public class JFrame extends javax.swing.JFrame {
 			Notice notice = noticeService.selectByNoticeNo(1);
 			String title = notice.getN_title();
 			//Date date = notice.getN_date();
-			Date noticeDate = new Date();
+			//Date noticeDate = new Date();
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일");
 			String noticeDateStr = sdf1.format(notice.getN_date());
 			String content = notice.getN_content();
