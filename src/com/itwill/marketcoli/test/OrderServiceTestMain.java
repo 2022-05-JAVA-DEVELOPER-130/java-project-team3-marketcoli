@@ -18,10 +18,10 @@ public class OrderServiceTestMain {
 		OrderService orderService = new OrderService();
 
 		System.out.println("00.주문 넣기 - 상품에서 직접주문");
-		System.out.println(orderService.insertOrderOne(20, 10, "itwill4"));
+		System.out.println(orderService.insertOrderOne(10, 10, "itwill4"));
 		
 		System.out.println("00.주문 2개 동시에 넣기");	//맞나...
-		System.out.println(orderService.addOrders(20, 10, 13, 20,"itwill4"));
+		System.out.println(orderService.addOrders(10, 10, 13, 20,"itwill4"));
 		/*				
 				// cart에서 주문 -> cart에서 Order로 옮겨닮기
 						System.out.println("00.cart에서 주문");	
