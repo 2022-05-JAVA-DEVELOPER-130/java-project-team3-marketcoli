@@ -18,6 +18,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class MyPage extends JPanel {
 	/**********1.Service객체선언*******/
@@ -25,9 +26,6 @@ public class MyPage extends JPanel {
 	private UserInfoService userInfoService;
 	
 	private JTextField idField;
-	private JTextField nowPWField;
-	private JTextField newPwField;
-	private JTextField newPwReField;
 	private JTextField nameField;
 	private JTextField emailField;
 	private JTextField phoneField;
@@ -35,6 +33,9 @@ public class MyPage extends JPanel {
 	private JTextField jobField;
 	private JPanel orderDataPanel;
 	private JTextField userNoField;
+	private JPasswordField nowPasswordField;
+	private JPasswordField newPasswordField;
+	private JPasswordField newPasswordReField;
 
 	/**
 	 * Create the panel.
@@ -78,28 +79,13 @@ public class MyPage extends JPanel {
 		nowPwLabel.setBounds(58, 211, 121, 15);
 		changeUserDataPanel2.add(nowPwLabel);
 		
-		nowPWField = new JTextField();
-		nowPWField.setColumns(10);
-		nowPWField.setBounds(58, 234, 315, 21);
-		changeUserDataPanel2.add(nowPWField);
-		
 		JLabel newPwLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638");
 		newPwLabel.setBounds(58, 275, 121, 15);
 		changeUserDataPanel2.add(newPwLabel);
 		
-		newPwField = new JTextField();
-		newPwField.setColumns(10);
-		newPwField.setBounds(58, 298, 315, 21);
-		changeUserDataPanel2.add(newPwField);
-		
 		JLabel newPwReLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
 		newPwReLabel.setBounds(58, 340, 108, 15);
 		changeUserDataPanel2.add(newPwReLabel);
-		
-		newPwReField = new JTextField();
-		newPwReField.setColumns(10);
-		newPwReField.setBounds(58, 363, 315, 21);
-		changeUserDataPanel2.add(newPwReField);
 		
 		JLabel nameLabel = new JLabel("\uC774\uB984");
 		nameLabel.setBounds(58, 406, 57, 15);
@@ -166,10 +152,10 @@ public class MyPage extends JPanel {
 					idField.setVisible(true);
 					userNoField.setVisible(true);
 					
+					nowPasswordField.setText("");
+					newPasswordField.setText("");
+					newPasswordReField.setText("");
 					
-					nowPWField.setText("");
-					newPwField.setText("");
-					newPwReField.setText("");
 					
 					
 					
@@ -192,6 +178,18 @@ public class MyPage extends JPanel {
 		userNoField.setColumns(10);
 		userNoField.setBounds(58, 115, 315, 21);
 		changeUserDataPanel2.add(userNoField);
+		
+		nowPasswordField = new JPasswordField();
+		nowPasswordField.setBounds(58, 236, 315, 21);
+		changeUserDataPanel2.add(nowPasswordField);
+		
+		newPasswordField = new JPasswordField();
+		newPasswordField.setBounds(58, 297, 315, 21);
+		changeUserDataPanel2.add(newPasswordField);
+		
+		newPasswordReField = new JPasswordField();
+		newPasswordReField.setBounds(58, 365, 315, 21);
+		changeUserDataPanel2.add(newPasswordReField);
 		
 		
 		
@@ -289,13 +287,4 @@ public class MyPage extends JPanel {
 			orderProductPanel.add(orderDateLabel);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }//클래스끝
