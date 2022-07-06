@@ -51,30 +51,22 @@ import javax.swing.JCheckBox;
 // Jpanel 로 만들어주세요
 
 public class JFrame extends javax.swing.JFrame {
-	
-	/***********Service 선언 생성*************/
+
+	/*********** Service 선언 생성 *************/
 	private UserInfoService userInfoService = new UserInfoService();
 	private NoticeService noticeService = new NoticeService();
-<<<<<<< HEAD
-=======
-	private ProductService productService = new ProductService();
-	//private OrderService orderService = new OrderService();
-	//private CartService cartService = new CartService();
-	
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
+	//private ProductService productService = new ProductService();
+	// private OrderService orderService = new OrderService();
+	// private CartService cartService = new CartService();
 
 	private JPanel contentPane;
 	private JTextField textField;
-<<<<<<< HEAD
-	
-=======
 	private JPanel notice2;
 	private JTextField notice2Date;
 	private JTextField notice2Title;
 	private JTextField notice3Date;
 	private JTextField notice3Title;
 	private JTextField notice1Date;
-<<<<<<< HEAD
 	private JTextField notice1Title;
 	private JTextField orderUserInfoTF;
 	private JTextField destinationTF;
@@ -88,7 +80,6 @@ public class JFrame extends javax.swing.JFrame {
 	private JLabel d_FeeLB;
 	private JLabel orderTotalPriceLB;
 	private JButton orderBtn;
-=======
 	private JTextField notice1title;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -108,13 +99,11 @@ public class JFrame extends javax.swing.JFrame {
 	private JPanel orderPanel;
 	private JPanel cartPanel;
 	private JPanel productServePanel;
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 	private JScrollPane productMainScrollPane;
 	private JPanel productMainPanel;
 	private JTabbedPane productTabbedPane;
 	private JPanel productPanel;
 	private JTabbedPane mainTabbedPane;
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 
 	/**
 	 * Launch the application.
@@ -528,16 +517,13 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
 		orderPanel.add(lblNewLabel_2_1);
 		
-<<<<<<< HEAD
 		
 		/*************공지사항******************/
 		
 		JPanel noticePanel = new JPanel();
 		JPanel notice1 = new JPanel();
 		JTextPane notice1Content = new JTextPane();
-=======
 		noticePanel = new JPanel();
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 		noticePanel.setLayout(new BorderLayout(0, 0));
 		
@@ -637,78 +623,16 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
 		
-<<<<<<< HEAD
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-=======
 		myPagePanel = new JPanel();
 		mainTabbedPane.addTab("마이페이지", null, myPagePanel, null);
 		myPagePanel.setLayout(new BorderLayout(0, 0));
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
 		
-<<<<<<< HEAD
 		/********************************************************/
 		
 		
-	}//생성자 끝
-=======
-		myPage = new MyPage();
-		myPagePanel.add(myPage, BorderLayout.CENTER);
-		
-		joinPanel = new JPanel();
-		mainTabbedPane.addTab("회원가입", null, joinPanel, null);
-		joinPanel.setLayout(new BorderLayout(0, 0));
-		
-		join__1 = new join();
-		joinPanel.add(join__1, BorderLayout.CENTER);
-		
-		loginPanel = new JPanel();
-		mainTabbedPane.addTab("로그인", null, loginPanel, null);
-		loginPanel.setLayout(new BorderLayout(0, 0));
-		
-		login = new login();
-		loginPanel.add(login, BorderLayout.CENTER);
-		
-		findIdPwPanel = new JPanel();
-		mainTabbedPane.addTab("아이디/비번찾기", null, findIdPwPanel, null);
-		findIdPwPanel.setLayout(new BorderLayout(0, 0));
-		
-		findIdPassword = new FindIdPassword();
-		findIdPwPanel.add(findIdPassword, BorderLayout.CENTER);
-
-
-		productService= new ProductService();
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
-	
-	/*
-	productService= new ProductService();
-	try {
-		productListDisplay();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-}
-
-	 */
-/****************productListDisplay 메소드******************/
-	/*
-public void productListDisplay() throws Exception{
-	productAllPanel.removeAll();
-		List<Product> productList=productService.productList();
-		for(int i=0;i<productList.size();i++) {
-			Product product=productList.get(i);
-			
-			JPanel productAllPanel = new JPanel();
-			productAllPanel.setPreferredSize(new Dimension(10, 800));
-			productMainScrollPane.setViewportView(productAllPanel);
-			productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-			JPanel productItemPanel = new JPanel();
-	
-	
-	*/
-}//클래스 끝
+	}// 생성자 끝
+}// 클래스 끝
