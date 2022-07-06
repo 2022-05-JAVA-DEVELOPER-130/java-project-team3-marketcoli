@@ -28,6 +28,7 @@ public class testFrame_sojin extends JFrame {
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
+	private JPanel panel;
 	private ProductListPanel productListPanel;
 
 	/**
@@ -88,8 +89,12 @@ public class testFrame_sojin extends JFrame {
 		tabbedPane.addTab("상품", null, productPanel, null);
 		productPanel.setLayout(new BorderLayout(0, 0));
 		
+		panel = new JPanel();
+		productPanel.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new BorderLayout(0, 0));
+		
 		productListPanel = new ProductListPanel();
-		productPanel.add(productListPanel, BorderLayout.NORTH);
+		panel.add(productListPanel, BorderLayout.CENTER);
 		
 		cartPanel = new JPanel();
 		tabbedPane.addTab("카트", null, cartPanel, null);
