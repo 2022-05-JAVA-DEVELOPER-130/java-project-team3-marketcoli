@@ -4,7 +4,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import com.itwill.marketcoli.dto.Cart;
 import com.itwill.marketcoli.dto.UserInfo;
+import com.itwill.marketcoli.service.CartService;
 import com.itwill.marketcoli.service.UserInfoService;
 import com.itwill.marketcoli.test.UserinfoServiceTestMain;
 
@@ -44,10 +46,11 @@ public class orders extends javax.swing.JPanel {
 		setLayout(null);
 		
 		try {
-			UserInfo userInfo = userInfoService.selectByNo(2);
+			UserInfo userInfo = userInfoService.selectByNo(3);
 			String name = userInfo.getU_name();
 			String phone = userInfo.getU_phone();
 			String address = userInfo.getU_address();
+			
 			
 		
 			JLabel text1 = new JLabel("주 문 상 품");
@@ -98,7 +101,7 @@ public class orders extends javax.swing.JPanel {
 			productListTF.setBounds(138, 41, 171, 21);
 			add(productListTF);
 			productListTF.setColumns(10);
-			productListTF.setText(getName());
+			productListTF.setText("사과 외 3종");
 			
 			orderBtn = new JButton("주  문  하  기");
 			orderBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
@@ -139,31 +142,35 @@ public class orders extends javax.swing.JPanel {
 			text11.setBounds(38, 418, 88, 15);
 			add(text11);
 			
-			orderFinalPriceLB = new JLabel("0");
+			orderFinalPriceLB = new JLabel();
 			orderFinalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			orderFinalPriceLB.setBounds(222, 320, 57, 15);
 			add(orderFinalPriceLB);
+			orderFinalPriceLB.setText("45000");
 			
-			
-			orderPriceLB = new JLabel("0");
+			orderPriceLB = new JLabel();
 			orderPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			orderPriceLB.setBounds(222, 345, 57, 15);
 			add(orderPriceLB);
+			orderPriceLB.setText("42000");
 			
-			p_PriceLB = new JLabel("0");
+			p_PriceLB = new JLabel();
 			p_PriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			p_PriceLB.setBounds(222, 370, 57, 15);
 			add(p_PriceLB);
+			p_PriceLB.setText("42000");
 			
-			discount_FeeLB = new JLabel("0");
+			discount_FeeLB = new JLabel();
 			discount_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			discount_FeeLB.setBounds(222, 395, 57, 15);
 			add(discount_FeeLB);
+			discount_FeeLB.setText("0");
 			
-			d_FeeLB = new JLabel("0");
+			d_FeeLB = new JLabel();
 			d_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			d_FeeLB.setBounds(222, 420, 57, 15);
 			add(d_FeeLB);
+			d_FeeLB.setText("3000");
 			
 			JLabel text6 = new JLabel("결 제 수 단");
 			text6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -197,11 +204,12 @@ public class orders extends javax.swing.JPanel {
 			text17.setBounds(291, 458, 57, 24);
 			add(text17);
 			
-			orderTotalPriceLB = new JLabel("0");
+			orderTotalPriceLB = new JLabel();
 			orderTotalPriceLB.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 			orderTotalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 			orderTotalPriceLB.setBounds(222, 460, 57, 21);
 			add(orderTotalPriceLB);
+			orderTotalPriceLB.setText("45000");
 			
 			JRadioButton rdbtnNewRadioButton = new JRadioButton("신용 카드");
 			rdbtnNewRadioButton.setBounds(56, 241, 93, 23);
