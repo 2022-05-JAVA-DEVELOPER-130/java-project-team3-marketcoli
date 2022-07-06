@@ -60,13 +60,19 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField notice3Date;
 	private JTextField notice3Title;
 	private JTextField notice1Date;
-	private JTextField notice1title;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTabbedPane noticeTabbedPane;
+	private JTextField notice1Title;
+	private JTextField orderUserInfoTF;
+	private JTextField destinationTF;
+	private JTextField detailInfoTF;
+	private JTextField orderProductTF;
+	private JTextField phoneTF;
+	private JLabel orderFinalPriceLB;
+	private JLabel orderPriceLB;
+	private JLabel p_PriceLB;
+	private JLabel discount_FeeLB;
+	private JLabel d_FeeLB;
+	private JLabel orderTotalPriceLB;
+	private JButton orderBtn;
 
 	/**
 	 * Launch the application.
@@ -588,5 +594,37 @@ public class JFrame extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
 		/********************************************************/
+		
+		
 	}//생성자 끝
+	
+	/*
+	productService= new ProductService();
+	try {
+		productListDisplay();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+
+	 */
+/****************productListDisplay 메소드******************/
+	/*
+public void productListDisplay() throws Exception{
+	productAllPanel.removeAll();
+		List<Product> productList=productService.productList();
+		for(int i=0;i<productList.size();i++) {
+			Product product=productList.get(i);
+			
+			JPanel productAllPanel = new JPanel();
+			productAllPanel.setPreferredSize(new Dimension(10, 800));
+			productMainScrollPane.setViewportView(productAllPanel);
+			productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+			JPanel productItemPanel = new JPanel();
+	
+	
+	
 }//클래스 끝
