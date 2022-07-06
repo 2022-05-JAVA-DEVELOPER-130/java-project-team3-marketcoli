@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.itwill.marketcoli.dto.Product;
+import com.itwill.marketcoli.service.ProductService;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -42,8 +45,11 @@ import javax.swing.JCheckBox;
 // Jpanel 로 만들어주세요
 
 public class JFrame extends javax.swing.JFrame {
+	
+	private ProductService productService;
 
 	private JPanel contentPane;
+
 	private JTextField textField;
 	private JTabbedPane noticeTabbedPane;
 	private JPanel notice2;
@@ -58,6 +64,7 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JPanel productAllPanel;
 
 	/**
 	 * Launch the application.
@@ -152,7 +159,7 @@ public class JFrame extends javax.swing.JFrame {
 		JScrollPane productMainScrollPane = new JScrollPane();
 		productMainPanel.add(productMainScrollPane, BorderLayout.CENTER);
 		
-		JPanel productAllPanel = new JPanel();
+		productAllPanel = new JPanel();
 		productAllPanel.setPreferredSize(new Dimension(10, 800));
 		productMainScrollPane.setViewportView(productAllPanel);
 		productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -550,63 +557,60 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setColumns(10);
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
-	}
 
-}
-		/*
+
 		productService= new ProductService();
-		try {
-			productListDisplay();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+			try {
+				productListDisplay();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		
 	}
 	
-		 */
 	/****************productListDisplay 메소드******************/
-		/*
+
 	public void productListDisplay() throws Exception{
 		productAllPanel.removeAll();
-			List<Product> productList=productService.productList();
-			for(int i=0;i<productList.size();i++) {
-				Product product=productList.get(i);
+		List<Product> productList=productService.productList();
+		for(int i=0;i<productList.size();i++) {
+			Product product=productList.get(i);
 				
-				JPanel productAllPanel = new JPanel();
-				productAllPanel.setPreferredSize(new Dimension(10, 800));
-				productMainScrollPane.setViewportView(productAllPanel);
-				productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+			JPanel productItemPanel = new JPanel();
+			productItemPanel.setPreferredSize(new Dimension(300, 155));
+			productItemPanel.setBackground(new Color(230, 230, 250));
+			productAllPanel.add(productItemPanel);
+			productItemPanel.setLayout(null);
 			
-				JPanel productItemPanel = new JPanel();
-				productItemPanel.setPreferredSize(new Dimension(300, 155));
-				productItemPanel.setBackground(new Color(230, 230, 250));
-				productAllPanel.add(productItemPanel);
-				productItemPanel.setLayout(null);
-				
-				JLabel productMainLabel1 = new JLabel("");
-				productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/listProduct/석류.jpg")));
-				productMainLabel1.setBounds(12, 10, 135, 135);
-				productItemPanel.add(productMainLabel1);
-				
-				JLabel productMainLabel2 = new JLabel(product.getP_name());
-				productMainLabel2.setBounds(159, 21, 39, 15);
-				productItemPanel.add(productMainLabel2);
-				
-				JLabel productMainLabel3 = new JLabel(product.getP_price()+"");
-				productMainLabel3.setBounds(159, 46, 48, 15);
-				productItemPanel.add(productMainLabel3);
-				
-				JLabel productMainLabel4 = new JLabel(product.getP_exp());
-				productMainLabel4.setBounds(159, 65, 48, 51);
-				productItemPanel.add(productMainLabel4);
-				
-				JComboBox productComboBox = new JComboBox();
-				productComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
-				productComboBox.setBounds(214, 120, 39, 25);
-				productItemPanel.add(productComboBox);
+			JLabel productMainLabel1 = new JLabel("");
+			productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
+			productMainLabel1.setBounds(12, 10, 135, 135);
+			productItemPanel.add(productMainLabel1);
+			
+			JLabel productMainLabel2 = new JLabel(product.getP_name());
+			productMainLabel2.setBounds(159, 21, 39, 15);
+			productItemPanel.add(productMainLabel2);
+			
+			JLabel productMainLabel3 = new JLabel(product.getP_price()+"");
+			productMainLabel3.setBounds(159, 46, 48, 15);
+			productItemPanel.add(productMainLabel3);
+			
+			JLabel productMainLabel4 = new JLabel(product.getP_exp());
+			productMainLabel4.setBounds(159, 65, 48, 51);
+			productItemPanel.add(productMainLabel4);
+			
+			JComboBox productComboBox = new JComboBox();
+			productComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+			productComboBox.setBounds(214, 120, 39, 25);
+			productItemPanel.add(productComboBox);
+
 	
 			}
 	
-	*/
+		}
+	
+	}
 	
