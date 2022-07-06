@@ -21,7 +21,7 @@ public class UserInfoService {
 		/*
 		 * 아이디존재여부체크 - 존재하면 메세지 - 존재안하면 가입
 		 */
-		UserInfo findUserInfo = userInfoDao.findById(newUserInfo.getU_id());
+		UserInfo findUserInfo = userInfoDao.findByEmail(newUserInfo.getU_id());
 		if (findUserInfo == null) {
 			int rowCount = userInfoDao.insertUserInfo(newUserInfo);
 			isSuccess = true;
@@ -53,14 +53,18 @@ public class UserInfoService {
 		}
 		return loginResult;
 	}
-	//회원 아이디 찾기
-	public UserInfo selectById(String u_email) throws Exception {
-		return userInfoDao.findById(u_email);
-		
+	//회원 이메일로 아이디 찾기
+	public UserInfo selectByEamil(String u_email) throws Exception {
+		return userInfoDao.findByEmail(u_email);
 	}
+	
 	//회원 비밀번호 찾기
 	public UserInfo selectByPw(String u_id, String u_email) throws Exception {
 		return userInfoDao.findByPW(u_id, u_email);
+	}
+	//회원 아이디로 회원정보 출력
+	public UserInfo selectById(String u_id) throws Exception {
+		return userInfoDao.selectById(u_id);
 	}
 	//회원번호로 회원정보 출력
 	public UserInfo selectByNo(int u_no) throws Exception {
