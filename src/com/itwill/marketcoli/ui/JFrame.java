@@ -27,9 +27,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
+import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
-
 
 // 사이즈 setBounds(100, 100, 390, 844);  
 // Jpanel 로 만들어주세요
@@ -37,6 +37,7 @@ import javax.swing.JCheckBox;
 public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -260,6 +261,10 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
+		
+		textField = new JTextField();
+		noticePanel.add(textField);
+		textField.setColumns(10);
 	}
 	
 	

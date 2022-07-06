@@ -9,26 +9,36 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import com.itwill.marketcoli.dao.UserInfoDao;
+import com.itwill.marketcoli.dto.UserInfo;
 import com.itwill.marketcoli.service.OrderService;
+import com.itwill.marketcoli.service.UserInfoService;
 
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class MyPage extends JPanel {
 	/**********1.Service객체선언*******/
 	private OrderService orderService;
+	private UserInfoService userInfoService;
 	
-	private JTextField textField;
-	private JTextField nowPWField;
-	private JTextField newPwField;
-	private JTextField newPwReField;
+	
+	private JTextField idField;
 	private JTextField nameField;
 	private JTextField emailField;
 	private JTextField phoneField;
 	private JTextField birthField;
 	private JTextField jobField;
 	private JPanel orderDataPanel;
+	private JTextField userNoField;
+	private JPasswordField nowPasswordField;
+	private JPasswordField newPasswordField;
+	private JPasswordField newPasswordReField;
+	private JTextField addressField;
 
 	/**
 	 * Create the panel.
@@ -36,6 +46,8 @@ public class MyPage extends JPanel {
 	 */
 	public MyPage() throws Exception {
 		setLayout(new BorderLayout(0, 0));
+		
+		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setPreferredSize(new Dimension(5, 800));
@@ -56,13 +68,14 @@ public class MyPage extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("\uAC1C\uC778\uC815\uBCF4\uC218\uC815");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 25));
-		lblNewLabel.setBounds(132, 67, 164, 46);
+		lblNewLabel.setBounds(129, 34, 164, 46);
 		changeUserDataPanel2.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(58, 169, 315, 21);
-		changeUserDataPanel2.add(textField);
-		textField.setColumns(10);
+		idField = new JTextField();
+		idField.setEnabled(false);
+		idField.setBounds(58, 169, 315, 21);
+		changeUserDataPanel2.add(idField);
+		idField.setColumns(10);
 		
 		JLabel idLabel = new JLabel("\uC544\uC774\uB514");
 		idLabel.setBounds(58, 146, 57, 15);
@@ -72,28 +85,13 @@ public class MyPage extends JPanel {
 		nowPwLabel.setBounds(58, 211, 121, 15);
 		changeUserDataPanel2.add(nowPwLabel);
 		
-		nowPWField = new JTextField();
-		nowPWField.setColumns(10);
-		nowPWField.setBounds(58, 234, 315, 21);
-		changeUserDataPanel2.add(nowPWField);
-		
 		JLabel newPwLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638");
 		newPwLabel.setBounds(58, 275, 121, 15);
 		changeUserDataPanel2.add(newPwLabel);
 		
-		newPwField = new JTextField();
-		newPwField.setColumns(10);
-		newPwField.setBounds(58, 298, 315, 21);
-		changeUserDataPanel2.add(newPwField);
-		
 		JLabel newPwReLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
 		newPwReLabel.setBounds(58, 340, 108, 15);
 		changeUserDataPanel2.add(newPwReLabel);
-		
-		newPwReField = new JTextField();
-		newPwReField.setColumns(10);
-		newPwReField.setBounds(58, 363, 315, 21);
-		changeUserDataPanel2.add(newPwReField);
 		
 		JLabel nameLabel = new JLabel("\uC774\uB984");
 		nameLabel.setBounds(58, 406, 57, 15);
@@ -109,6 +107,7 @@ public class MyPage extends JPanel {
 		changeUserDataPanel2.add(emailLabel);
 		
 		emailField = new JTextField();
+		emailField.setEnabled(false);
 		emailField.setColumns(10);
 		emailField.setBounds(58, 494, 315, 21);
 		changeUserDataPanel2.add(emailField);
@@ -132,22 +131,109 @@ public class MyPage extends JPanel {
 		changeUserDataPanel2.add(birthField);
 		
 		JLabel jobLabel = new JLabel("\uC9C1\uC5C5");
-		jobLabel.setBounds(58, 665, 57, 15);
+		jobLabel.setBounds(58, 727, 57, 15);
 		changeUserDataPanel2.add(jobLabel);
 		
 		jobField = new JTextField();
 		jobField.setColumns(10);
-		jobField.setBounds(58, 688, 315, 21);
+		jobField.setBounds(58, 750, 315, 21);
 		changeUserDataPanel2.add(jobField);
 		
+		
+		//수정하기
 		JButton dataChangeButton = new JButton("\uC218\uC815\uD558\uAE30");
-		dataChangeButton.setBounds(58, 735, 315, 38);
+		dataChangeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					userInfoService.updateUserInfo(new UserInfo(Integer.parseInt(userNoField.getText()),
+							idField.getText(),
+							newPasswordField.getText(),
+							nameField.getText(),
+							emailField.getText(),
+							phoneField.getText(),
+							addressField.getText(),
+							Integer.parseInt(birthField.getText()) ,
+							jobField.getText(),
+							null));
+					
+				}catch (Exception e1) {
+					
+				}
+			}
+			
+			
+		});
+		dataChangeButton.setBounds(58, 797, 137, 38);
 		changeUserDataPanel2.add(dataChangeButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("*\uD544\uC218");
-		lblNewLabel_1.setForeground(Color.RED);
-		lblNewLabel_1.setBounds(332, 146, 36, 15);
-		changeUserDataPanel2.add(lblNewLabel_1);
+		
+		//탈퇴하기 
+		JButton dataDeleteButton = new JButton("탈퇴하기");
+		dataDeleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String u_no = userNoField.getText();
+					userInfoService.deleteUserInfo(Integer.parseInt(u_no));
+					
+					//비밀번호 입력 정보 초기화
+					idField.setVisible(true);
+					userNoField.setVisible(true);
+					
+					nowPasswordField.setText("");
+					newPasswordField.setText("");
+					newPasswordReField.setText("");
+					
+					
+					
+					
+				}catch (Exception e1) {
+					
+				}
+					
+				
+				
+			}
+		});
+		dataDeleteButton.setBounds(236, 797, 137, 38);
+		changeUserDataPanel2.add(dataDeleteButton);
+		
+		JLabel userNoLabel = new JLabel("\uD68C\uC6D0\uBC88\uD638");
+		userNoLabel.setBounds(58, 92, 57, 15);
+		changeUserDataPanel2.add(userNoLabel);
+		
+		userNoField = new JTextField();
+		userNoField.setEnabled(false);
+		userNoField.setColumns(10);
+		userNoField.setBounds(58, 115, 315, 21);
+		changeUserDataPanel2.add(userNoField);
+		UserInfo userInfo = new UserInfo();
+		
+		userInfo = userInfoService.selectById("itwill1");
+		userNoField.setText(userInfo.getU_id());
+		
+		
+		
+		
+		nowPasswordField = new JPasswordField();
+		nowPasswordField.setBounds(58, 236, 315, 21);
+		changeUserDataPanel2.add(nowPasswordField);
+		
+		newPasswordField = new JPasswordField();
+		newPasswordField.setBounds(58, 297, 315, 21);
+		changeUserDataPanel2.add(newPasswordField);
+		
+		newPasswordReField = new JPasswordField();
+		newPasswordReField.setBounds(58, 365, 315, 21);
+		changeUserDataPanel2.add(newPasswordReField);
+		
+		JLabel addressLabel = new JLabel("\uC8FC\uC18C");
+		addressLabel.setBounds(58, 666, 57, 15);
+		changeUserDataPanel2.add(addressLabel);
+		
+		addressField = new JTextField();
+		addressField.setColumns(10);
+		addressField.setBounds(58, 689, 315, 21);
+		changeUserDataPanel2.add(addressField);
 		
 		
 		
@@ -170,7 +256,7 @@ public class MyPage extends JPanel {
 		orderTitleLabel.setFont(new Font("굴림", Font.PLAIN, 25));
 		
 		/*******************************************************************/
-		
+		//주문내역
 		JPanel orderProductPanel = new JPanel();
 		orderProductPanel.setPreferredSize(new Dimension(400, 150));
 		orderProductPanel.setBackground(new Color(221, 160, 221));
@@ -244,14 +330,6 @@ public class MyPage extends JPanel {
 			orderDateLabel.setBounds(129, 34, 146, 15);
 			orderProductPanel.add(orderDateLabel);
 		}
+		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }//클래스끝
