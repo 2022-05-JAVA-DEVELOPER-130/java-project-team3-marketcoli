@@ -11,10 +11,17 @@ import javax.swing.SwingConstants;
 
 import com.itwill.marketcoli.dto.Notice;
 import com.itwill.marketcoli.service.NoticeService;
+import com.itwill.marketcoli.service.UserInfoService;
 
 import javax.swing.JTextPane;
+import java.awt.GridLayout;
+import java.awt.Dimension;
 
 public class NoticeUI extends JPanel {
+	/***********Frame변수 선언*************/
+	private JFrame marketColiFrame;
+	
+	/***********Service 객체 선언*************/
 	private NoticeService noticeService = new NoticeService();
 	
 	private JTextField notice1Date;
@@ -36,13 +43,14 @@ public class NoticeUI extends JPanel {
 	 * Create the panel.
 	 */
 	public NoticeUI() {
+		setPreferredSize(new Dimension(400, 800));
 		setLayout(null);
 		/************* 공지사항 ******************/
 		JPanel tabbedPane = new JPanel();
+		tabbedPane.setPreferredSize(new Dimension(400, 600));
 		JPanel notice1 = new JPanel();
 		tabbedPane.setBounds(0, 0, 389, 680);
 		add(tabbedPane);
-		tabbedPane.setLayout(new BorderLayout(0, 0));
 		
 		try {
 			Notice notice = noticeService.selectByNoticeNo(1);
@@ -52,9 +60,10 @@ public class NoticeUI extends JPanel {
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
 			String noticeDateStr = sdf1.format(notice.getN_date());
 			String content = notice.getN_content();
+		tabbedPane.setLayout(new GridLayout(0, 1, 0, 0));
 			
 		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.add(noticeTabbedPane, BorderLayout.CENTER);
+		tabbedPane.add(noticeTabbedPane);
 		
 		notice1 = new JPanel();
 		notice1.setLayout(null);

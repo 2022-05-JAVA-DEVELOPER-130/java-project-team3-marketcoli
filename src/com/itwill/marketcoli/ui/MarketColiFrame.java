@@ -38,7 +38,12 @@ public class MarketColiFrame extends JFrame {
 	private JMenuItem mypageMenuItem;
 	private JMenuItem logoutMenuItem;
 	private JSeparator separator1;
-	private JScrollPane scrollPane;
+	private JScrollPane userScrollPane;
+	private JPanel loginPanel;
+	private JPanel idpwFindpanel;
+	private JScrollPane loginScrollPane;
+	private JScrollPane idpwFindScrollPane;
+	private JScrollPane noitceScrollPane;
 
 	/**
 	 * Launch the application.
@@ -110,8 +115,22 @@ public class MarketColiFrame extends JFrame {
 		tabbedPane.addTab("회원가입", null, userPanel, null);
 		userPanel.setLayout(new BorderLayout(0, 0));
 		
-		scrollPane = new JScrollPane();
-		userPanel.add(scrollPane, BorderLayout.CENTER);
+		userScrollPane = new JScrollPane();
+		userPanel.add(userScrollPane, BorderLayout.CENTER);
+		
+		loginPanel = new JPanel();
+		tabbedPane.addTab("로그인", null, loginPanel, null);
+		loginPanel.setLayout(new BorderLayout(0, 0));
+		
+		loginScrollPane = new JScrollPane();
+		loginPanel.add(loginScrollPane, BorderLayout.CENTER);
+		
+		idpwFindpanel = new JPanel();
+		tabbedPane.addTab("아이디/비밀번호찾기", null, idpwFindpanel, null);
+		idpwFindpanel.setLayout(new BorderLayout(0, 0));
+		
+		idpwFindScrollPane = new JScrollPane();
+		idpwFindpanel.add(idpwFindScrollPane, BorderLayout.CENTER);
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
@@ -127,6 +146,10 @@ public class MarketColiFrame extends JFrame {
 		
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
+		noticePanel.setLayout(new BorderLayout(0, 0));
+		
+		noitceScrollPane = new JScrollPane();
+		noticePanel.add(noitceScrollPane, BorderLayout.CENTER);
 	}
 
 }

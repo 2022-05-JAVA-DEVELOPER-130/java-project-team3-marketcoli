@@ -17,6 +17,8 @@ import java.awt.Dimension;
 import com.itwill.marketcoli.ui.MyPage;
 import com.itwill.marketcoli.ui.ProductListPanel;
 import com.itwill.marketcoli.ui.FindIdPassword;
+import com.itwill.marketcoli.dto.Notice;
+import com.itwill.marketcoli.ui.NoticeUI;
 
 public class testFrame_seo extends JFrame {
 
@@ -38,6 +40,7 @@ public class testFrame_seo extends JFrame {
 	private JScrollPane scrollPane_1;
 	private Join join;
 	private FindIdPassword findIdPassword;
+	private JScrollPane scrollPane_2;
 
 	/**
 	 * Launch the application.
@@ -118,6 +121,10 @@ public class testFrame_seo extends JFrame {
 		
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
+		noticePanel.setLayout(new BorderLayout(0, 0));
+		
+		scrollPane_2 = new JScrollPane();
+		noticePanel.add(scrollPane_2, BorderLayout.CENTER);
 	}
 
 }
