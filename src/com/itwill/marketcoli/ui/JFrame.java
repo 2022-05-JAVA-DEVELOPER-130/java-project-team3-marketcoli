@@ -43,11 +43,13 @@ public class JFrame extends javax.swing.JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTabbedPane noticeTabbedPane;
-	private JPanel notice1;
-	private JTextField notice1Date;
-	private JTextField notice1Title;
+	private JPanel notice2;
 	private JTextField notice2Date;
 	private JTextField notice2Title;
+	private JTextField notice3Date;
+	private JTextField notice3Title;
+	private JTextField notice1Date;
+	private JTextField notice1title;
 
 	/**
 	 * Launch the application.
@@ -293,53 +295,77 @@ public class JFrame extends javax.swing.JFrame {
 		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		noticePanel.add(noticeTabbedPane);
 		
-		notice1 = new JPanel();
-		noticeTabbedPane.addTab("배송 안내", null, notice1, null);
+		JPanel notice1 = new JPanel();
+		noticeTabbedPane.addTab("안내문", null, notice1, null);
 		notice1.setLayout(null);
 		
 		notice1Date = new JTextField();
 		notice1Date.setText("작성일자");
 		notice1Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		notice1Date.setBounds(245, 3, 116, 30);
-		notice1.add(notice1Date);
 		notice1Date.setColumns(10);
+		notice1.add(notice1Date);
 		
 		JTextPane notice1Content = new JTextPane();
-		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
+		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
 		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice1Content.setBounds(0, 42, 354, 500);
 		notice1.add(notice1Content);
 		
-		notice1Title = new JTextField();
-		notice1Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice1Title.setText("배송 안내");
-		notice1Title.setBounds(0, 3, 233, 30);
-		notice1.add(notice1Title);
-		notice1Title.setColumns(10);
+		notice1title = new JTextField();
+		notice1title.setText("안내문");
+		notice1title.setBounds(1, 3, 233, 30);
+		notice1title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice1title.setColumns(10);
+		notice1.add(notice1title);
 		
-		JPanel notice2 = new JPanel();
+		notice2 = new JPanel();
+		noticeTabbedPane.addTab("배송 안내", null, notice2, null);
 		notice2.setLayout(null);
-		noticeTabbedPane.addTab("긴급공지", null, notice2, null);
 		
 		notice2Date = new JTextField();
 		notice2Date.setText("작성일자");
 		notice2Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		notice2Date.setColumns(10);
 		notice2Date.setBounds(245, 3, 116, 30);
 		notice2.add(notice2Date);
+		notice2Date.setColumns(10);
 		
-		JTextPane notice2content = new JTextPane();
-		notice2content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
-		notice2content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
-		notice2content.setBounds(0, 42, 354, 500);
-		notice2.add(notice2content);
+		JTextPane notice2Content = new JTextPane();
+		notice2Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
+		notice2Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice2Content.setBounds(0, 42, 354, 500);
+		notice2.add(notice2Content);
 		
 		notice2Title = new JTextField();
-		notice2Title.setText("긴급공지");
 		notice2Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice2Title.setColumns(10);
-		notice2Title.setBounds(0, 3, 233, 30);
+		notice2Title.setText("배송 안내");
+		notice2Title.setBounds(1, 3, 233, 30);
 		notice2.add(notice2Title);
+		notice2Title.setColumns(10);
+		
+		JPanel notice3 = new JPanel();
+		notice3.setLayout(null);
+		noticeTabbedPane.addTab("긴급공지", null, notice3, null);
+		
+		notice3Date = new JTextField();
+		notice3Date.setText("작성일자");
+		notice3Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		notice3Date.setColumns(10);
+		notice3Date.setBounds(245, 3, 116, 30);
+		notice3.add(notice3Date);
+		
+		JTextPane notice3content = new JTextPane();
+		notice3content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
+		notice3content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice3content.setBounds(0, 42, 354, 500);
+		notice3.add(notice3content);
+		
+		notice3Title = new JTextField();
+		notice3Title.setText("긴급공지");
+		notice3Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice3Title.setColumns(10);
+		notice3Title.setBounds(1, 3, 233, 30);
+		notice3.add(notice3Title);
 	}
 	
 	
