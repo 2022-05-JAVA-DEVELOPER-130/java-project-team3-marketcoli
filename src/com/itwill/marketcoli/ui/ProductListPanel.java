@@ -51,7 +51,7 @@ public class ProductListPanel extends JPanel {
 		pListPanel.add(pScrollPane, BorderLayout.CENTER);
 		
 		pItemListPanel = new JPanel();
-		pItemListPanel.setPreferredSize(new Dimension(10, 1000));
+		pItemListPanel.setPreferredSize(new Dimension(10, 2600));
 		pScrollPane.setViewportView(pItemListPanel);
 		pItemListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		/**********************************************************/
