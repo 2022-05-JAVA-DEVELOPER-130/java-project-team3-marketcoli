@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import com.itwill.marketcoli.dao.UserInfoDao;
+import com.itwill.marketcoli.dto.Orders;
 import com.itwill.marketcoli.dto.UserInfo;
 import com.itwill.marketcoli.service.OrderService;
 import com.itwill.marketcoli.service.UserInfoService;
@@ -18,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
@@ -310,13 +312,16 @@ public class MyPage extends JPanel {
 		}
 		
 		/******처음프레임생성될때UI초기화****************/
-		orderProductList();
+		//orderProductList();
 		
 		
 	}//생성자끝
-	public void orderProductList() {
+	public void orderProductList(String u_id) throws Exception{
 		orderDataPanel.removeAll();
-		for(int i=0; i<5; i++) {
+		List<Orders> orderList = orderService.selectOrderListbyUserId(u_id);
+		for(int i=0; i<orderList.size(); i++) {
+			Orders orders = orderList.get(i);
+			
 			JPanel orderProductPanel = new JPanel();
 			orderProductPanel.setPreferredSize(new Dimension(400, 150));
 			orderProductPanel.setBackground(new Color(221, 160, 221));
