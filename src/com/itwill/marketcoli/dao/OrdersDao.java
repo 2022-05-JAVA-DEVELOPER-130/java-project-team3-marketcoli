@@ -191,12 +191,12 @@ public class OrdersDao {
 	
 	
 	
-	public OrderItem findOrderByOi_No(int o_no)throws Exception{
+	public OrderItem findOrderItemByOi_No(int oi_no)throws Exception{
 		OrderItem findOrders = null;
-		String selectOrderItem =" select * from order_item oi join product p on oi.p_no = p.p_no where o_no = ?";
+		String selectOrderItem =" select * from order_item oi join product p on oi.p_no = p.p_no where oi_no = ?";
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(selectOrderItem);
-		pstmt.setInt(1, o_no);
+		pstmt.setInt(1, oi_no);
 		ResultSet rs =pstmt.executeQuery();
 		if(rs.next()) {
 			findOrders= new OrderItem(0, 0, rs.getInt("o_no"),
@@ -206,13 +206,23 @@ public class OrdersDao {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public Orders findOrdersByO_No(int o_no)throws Exception{
+		Orders findOrders = null;
+		String selectOrderItem =" select * from orders where o_no=?";
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(selectOrderItem);
+		pstmt.setInt(1, o_no);
+		ResultSet rs =pstmt.executeQuery();
+		if(rs.next()) {
+			findOrders= new Orders(rs.getInt("o_no"),
+					rs.getDate("O_date"),
+					rs.getInt("O_PRICE"),
+					new UserInfo(0, rs.getString("u_id"), null, null, null, null, null, 0, null, null),
+					null);
+		}
+		return findOrders;
+		
+	}
 	
 	
 }

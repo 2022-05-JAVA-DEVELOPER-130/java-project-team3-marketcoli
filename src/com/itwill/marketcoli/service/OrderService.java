@@ -33,7 +33,7 @@ public class OrderService {
 	}
 
 	// 유저아이디가 주문한 주문 전체삭제(u_id)
-	public int deleteOrderByUserId(String u_id) throws Exception {
+	public int deleteOrderByUserId(String u_id) throws Exception  {
 		return orderDao.deleteOrdersByUserId(u_id);
 	}
 
@@ -126,9 +126,13 @@ public class OrderService {
 	}
 	
 	//주문번호 를 이용한 주문내역 전체 검색
-	public OrderItem selectOrderItemByno(int o_no)throws Exception {
-		return orderDao.findOrderByOi_No(o_no);
+	public OrderItem selectOrderItemByOiNo(int o_no)throws Exception {
+		return orderDao.findOrderItemByOi_No(o_no);
 		
+	}
+	
+	public Orders findOrdersByO_No(int o_no) throws Exception {
+		return orderDao.findOrdersByO_No(o_no);
 	}
 
 	

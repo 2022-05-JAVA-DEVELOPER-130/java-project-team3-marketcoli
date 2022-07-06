@@ -24,7 +24,7 @@ public class Join extends JPanel {
 	private JFrame marketColiFrame;
 
 	/*********** UserInfo *************/
-	private UserInfoService userInfoService;
+	private UserInfoService userInfoService = new UserInfoService();
 
 	/************* 로그인한회원 **********/
 	private UserInfo newUserInfo = null; // MemberMainFrame.this.loginMember
@@ -47,11 +47,11 @@ public class Join extends JPanel {
 	private JLabel joinhbdLB;
 	private JLabel joinjobLB;
 	private JButton joinBtn;
-	private JButton cancleBt;
-	private JLabel mustInsertData;
-	private JLabel messageLB;
+	private JButton cancelBtn;
+	private JLabel pwCheckMessageLB;
 	private JPasswordField joinpwField;
 	private JPasswordField joinpwcheckField;
+	private JLabel idDuplicateCheckLB;
 
 	/**
 	 * Create the panel.
@@ -73,17 +73,17 @@ public class Join extends JPanel {
 
 		joinPwLB = new JLabel("비밀번호");
 		joinPwLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		joinPwLB.setBounds(43, 209, 57, 15);
+		joinPwLB.setBounds(43, 243, 57, 15);
 		add(joinPwLB);
 
 		joinPwReLB = new JLabel("비밀번호확인");
 		joinPwReLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		joinPwReLB.setBounds(43, 271, 74, 15);
+		joinPwReLB.setBounds(43, 291, 74, 15);
 		add(joinPwReLB);
 
 		joinNameLB = new JLabel("이름");
 		joinNameLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		joinNameLB.setBounds(43, 332, 57, 15);
+		joinNameLB.setBounds(43, 360, 57, 15);
 		add(joinNameLB);
 
 		joinemailLB = new JLabel("이메일");
@@ -108,48 +108,48 @@ public class Join extends JPanel {
 
 		joinjobLB = new JLabel("직업");
 		joinjobLB.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		joinjobLB.setBounds(43, 576, 57, 15);
+		joinjobLB.setBounds(43, 564, 57, 15);
 		add(joinjobLB);
 
 		joinidtext = new JTextField();
-		joinidtext.setBounds(129, 143, 116, 21);
+		joinidtext.setBounds(139, 143, 116, 21);
 		add(joinidtext);
 		joinidtext.setColumns(10);
 
 		joinNameText = new JTextField();
 		joinNameText.setColumns(10);
-		joinNameText.setBounds(129, 329, 116, 21);
+		joinNameText.setBounds(139, 357, 116, 21);
 		add(joinNameText);
 
 		joinhbdText = new JTextField();
 		joinhbdText.setColumns(10);
-		joinhbdText.setBounds(129, 517, 116, 21);
+		joinhbdText.setBounds(139, 517, 116, 21);
 		add(joinhbdText);
 
 		joinAddressText = new JTextField();
 		joinAddressText.setColumns(10);
-		joinAddressText.setBounds(129, 476, 116, 21);
+		joinAddressText.setBounds(139, 476, 116, 21);
 		add(joinAddressText);
 
 		joinPhoneText = new JTextField();
 		joinPhoneText.setColumns(10);
-		joinPhoneText.setBounds(129, 434, 116, 21);
+		joinPhoneText.setBounds(139, 434, 116, 21);
 		add(joinPhoneText);
 
 		joinEmailText = new JTextField();
 		joinEmailText.setColumns(10);
-		joinEmailText.setBounds(129, 388, 116, 21);
+		joinEmailText.setBounds(139, 388, 116, 21);
 		add(joinEmailText);
 
 		joinjobText = new JTextField();
 		joinjobText.setColumns(10);
-		joinjobText.setBounds(129, 573, 116, 21);
+		joinjobText.setBounds(139, 561, 116, 21);
 		add(joinjobText);
 
-		messageLB = new JLabel("");
-		messageLB.setForeground(Color.RED);
-		messageLB.setBounds(128, 168, 175, 15);
-		add(messageLB);
+		pwCheckMessageLB = new JLabel("");
+		pwCheckMessageLB.setForeground(Color.RED);
+		pwCheckMessageLB.setBounds(139, 332, 175, 15);
+		add(pwCheckMessageLB);
 
 		joinBtn = new JButton("가입");
 		joinBtn.addActionListener(new ActionListener() {
@@ -162,16 +162,15 @@ public class Join extends JPanel {
 					System.out.println("회원가입 시작");
 					String password = joinpwField.getText();
 					String passwordCheck = joinpwcheckField.getText();
-
-					if (!password.equals(passwordCheck)) {
-						messageLB.setText("비밀번호 불일치");
+					if (password.equals(passwordCheck)) {
+						pwCheckMessageLB.setText("비밀번호 일치");
 					} else {
-						messageLB.setText("");
+						pwCheckMessageLB.setText("");
 					}
 
 					// TextField로부터 데이타얻기
 					String id = joinidtext.getText();
-
+					
 					String name = joinNameText.getText();
 					String email = joinEmailText.getText();
 					String phone = joinPhoneText.getText();
@@ -180,9 +179,9 @@ public class Join extends JPanel {
 					String job = joinjobText.getText();
 					//messageLB.setText("*test test");
 
-					if (id.equals("") || password.equals("") || passwordCheck.equals("") || name.equals("")
-					/*	|| email.equals("") || phone.equals("") || address.equals("") || birth == 0 */) {
-						messageLB.setText("*내용을 입력하세요");
+					if (id.equals("") || password.equals("") || passwordCheck.equals("")/* || name.equals("")
+						|| email.equals("") || phone.equals("") || address.equals("") || birth == 0 */) {
+						pwCheckMessageLB.setText("*내용을 입력하세요");
 						return;
 					}
 
@@ -196,8 +195,8 @@ public class Join extends JPanel {
 
 					} else {
 						// 실패(다이알로그를 띄운다.)
-						messageLB.setText("아이디가 중복되었습니다.");
-						JOptionPane.showMessageDialog(null, "아이디가 중복되었습니다.");
+						//pwCheckMessageLB.setText("아이디가 중복되었습니다.");
+						//JOptionPane.showMessageDialog(null, "아이디가 중복되었습니다.");
 						// 아이디쪽(idTF)으로 focus가 간다
 						joinidtext.requestFocus();
 						joinidtext.setSelectionStart(0); // id를 0번(처음) 부터 선택한다
@@ -214,34 +213,55 @@ public class Join extends JPanel {
 		});
 
 		joinBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		joinBtn.setBounds(45, 621, 124, 42);
+		joinBtn.setBounds(43, 638, 124, 42);
 		add(joinBtn);
 
-		cancleBt = new JButton("취소");
-		cancleBt.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		cancleBt.setBounds(235, 621, 124, 42);
-		add(cancleBt);
-
-		mustInsertData = new JLabel("*");
-		mustInsertData.setForeground(Color.RED);
-		mustInsertData.setFont(new Font("굴림", Font.BOLD, 12));
-		mustInsertData.setBounds(257, 143, 15, 15);
-		add(mustInsertData);
+		cancelBtn = new JButton("취소");
+		cancelBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		cancelBtn.setBounds(236, 638, 124, 42);
+		add(cancelBtn);
 
 		joinpwField = new JPasswordField();
-		joinpwField.setBounds(129, 208, 116, 21);
+		joinpwField.setBounds(139, 242, 116, 21);
 		add(joinpwField);
 
 		joinpwcheckField = new JPasswordField();
-		joinpwcheckField.setBounds(129, 270, 116, 21);
+		joinpwcheckField.setBounds(139, 290, 116, 21);
 		add(joinpwcheckField);
+		
+		JButton idDuplicateCheckBtn = new JButton("아이디 중복체크");
+		idDuplicateCheckBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/************* 아이디 중복 체크 ***********/
+				String id = joinidtext.getText();
+				try {
+					
+					System.out.println(userInfoService.selectById(id));
+					if(userInfoService.selectById(id)==null) {
+						idDuplicateCheckLB.setText("아이디 사용가능");
+					}else {
+						idDuplicateCheckLB.setText("아이디 중복");
+					}
+					
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+				
+				
+				
+			}
+		});
+		idDuplicateCheckBtn.setBounds(139, 174, 131, 23);
+		add(idDuplicateCheckBtn);
+		
+		idDuplicateCheckLB = new JLabel("");
+		idDuplicateCheckLB.setBounds(139, 207, 175, 15);
+		add(idDuplicateCheckLB);
 
-		/*********** 2.UserInfoService객체생성 *****************/
-		userInfoService = new UserInfoService();
 
 		/************* 처음프레임생성될때 UI 초기화 ***********/
 		// resetProcess();
 
 	}// 생성자끝
-
 }// 클래스 끝

@@ -25,9 +25,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
 public class MyPage extends JPanel {
+	
+	/***********Frame변수 선언*************/
+	private JFrame marketColiFrame;
+	
 	/********** 1.Service객체선언 *******/
 	private OrderService orderService;
 	private UserInfoService userInfoService;
+	
+	private UserInfo updateUserInfo;
 
 	private JTextField idField;
 	private JTextField nameField;
@@ -59,26 +65,27 @@ public class MyPage extends JPanel {
 	public MyPage() {
 		setLayout(new BorderLayout(0, 0));
 
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setPreferredSize(new Dimension(5, 800));
 		add(tabbedPane, BorderLayout.CENTER);
 
-		JPanel changeUserDataPanel = new JPanel();
+		changeUserDataPanel = new JPanel();
 		changeUserDataPanel.setPreferredSize(new Dimension(10, 800));
 		tabbedPane.addTab("\uAC1C\uC778\uC815\uBCF4\uC218\uC815", null, changeUserDataPanel, null);
 		changeUserDataPanel.setLayout(new BorderLayout(0, 0));
 
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
+		scrollPane.setPreferredSize(new Dimension(400, 800));
 		changeUserDataPanel.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel changeUserDataPanel2 = new JPanel();
+		changeUserDataPanel2 = new JPanel();
 		changeUserDataPanel2.setPreferredSize(new Dimension(10, 800));
 		scrollPane.setViewportView(changeUserDataPanel2);
 		changeUserDataPanel2.setLayout(null);
 
 		lblNewLabel = new JLabel("\uAC1C\uC778\uC815\uBCF4\uC218\uC815");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 25));
-		lblNewLabel.setBounds(129, 34, 164, 46);
+		lblNewLabel.setBounds(129, 37, 164, 46);
 		changeUserDataPanel2.add(lblNewLabel);
 
 		idField = new JTextField();
@@ -226,12 +233,47 @@ public class MyPage extends JPanel {
 		addressField.setColumns(10);
 		addressField.setBounds(58, 689, 315, 21);
 		changeUserDataPanel2.add(addressField);
+		
+		searchUserinfoBtn = new JButton("조회");
+		searchUserinfoBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String id = idField.getText();
+				try {
+					updateUserInfo = userInfoService.selectById(id);
+					
+					userNoField.setText(updateUserInfo.getU_no()+"");
+					nowPasswordField.setText(updateUserInfo.getU_pw());
+					
+					nameField.setText(updateUserInfo.getU_name());
+					emailField.setText(updateUserInfo.getU_email());
+					phoneField.setText(updateUserInfo.getU_phone());
+					addressField.setText(updateUserInfo.getU_address());
+					birthField.setText(updateUserInfo.getU_birth()+"");
+					String job = updateUserInfo.getU_job();
+					if(job == null) {
+						jobField.setText("");
+					}else {
+						jobField.setText(job);
+					}
+					
+					
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
+		searchUserinfoBtn.setBounds(302, 49, 71, 23);
+		changeUserDataPanel2.add(searchUserinfoBtn);
 
-		JPanel orderUserData = new JPanel();
+		orderUserData = new JPanel();
 		tabbedPane.addTab("\uC8FC\uBB38\uB0B4\uC5ED", null, orderUserData, null);
 		orderUserData.setLayout(new BorderLayout(0, 0));
 
-		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1 = new JScrollPane();
 		orderUserData.add(scrollPane_1, BorderLayout.CENTER);
 
 		orderDataPanel = new JPanel();
@@ -241,42 +283,42 @@ public class MyPage extends JPanel {
 
 //		
 
-		JLabel orderTitleLabel = new JLabel("\uC8FC\uBB38\uB0B4\uC5ED");
+		orderTitleLabel = new JLabel("\uC8FC\uBB38\uB0B4\uC5ED");
 		orderDataPanel.add(orderTitleLabel);
 		orderTitleLabel.setFont(new Font("굴림", Font.PLAIN, 25));
 
 		/*******************************************************************/
 		// 주문내역
-		JPanel orderProductPanel = new JPanel();
-		orderProductPanel.setPreferredSize(new Dimension(400, 150));
-		orderProductPanel.setBackground(new Color(221, 160, 221));
-		orderDataPanel.add(orderProductPanel);
-		orderProductPanel.setLayout(null);
+		orderProductPanel_1 = new JPanel();
+		orderProductPanel_1.setPreferredSize(new Dimension(400, 150));
+		orderProductPanel_1.setBackground(new Color(221, 160, 221));
+		orderDataPanel.add(orderProductPanel_1);
+		orderProductPanel_1.setLayout(null);
 
-		JLabel orderProductImg = new JLabel("\uC8FC\uBB38\uC0C1\uD488\uC0AC\uC9C4");
-		orderProductImg.setBackground(Color.WHITE);
-		orderProductImg.setBounds(12, 10, 105, 114);
-		orderProductPanel.add(orderProductImg);
+		orderProductImg_1 = new JLabel("\uC8FC\uBB38\uC0C1\uD488\uC0AC\uC9C4");
+		orderProductImg_1.setBackground(Color.WHITE);
+		orderProductImg_1.setBounds(12, 10, 105, 114);
+		orderProductPanel_1.add(orderProductImg_1);
 
-		JLabel orderNoLabel = new JLabel("\uC8FC\uBB38\uBC88\uD638");
-		orderNoLabel.setBounds(129, 10, 146, 15);
-		orderProductPanel.add(orderNoLabel);
+		orderNoLabel_1 = new JLabel("\uC8FC\uBB38\uBC88\uD638");
+		orderNoLabel_1.setBounds(129, 10, 146, 15);
+		orderProductPanel_1.add(orderNoLabel_1);
 
-		JLabel orderProductNameLabel = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uC774\uB984");
-		orderProductNameLabel.setBounds(129, 59, 146, 15);
-		orderProductPanel.add(orderProductNameLabel);
+		orderProductNameLabel_1 = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uC774\uB984");
+		orderProductNameLabel_1.setBounds(129, 59, 146, 15);
+		orderProductPanel_1.add(orderProductNameLabel_1);
 
-		JLabel orderProductPriceLabel = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uAC00\uACA9");
-		orderProductPriceLabel.setBounds(129, 84, 146, 15);
-		orderProductPanel.add(orderProductPriceLabel);
+		orderProductPriceLabel_1 = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uAC00\uACA9");
+		orderProductPriceLabel_1.setBounds(129, 84, 146, 15);
+		orderProductPanel_1.add(orderProductPriceLabel_1);
 
-		JLabel orderProductCountLabel = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uC218\uB7C9");
-		orderProductCountLabel.setBounds(129, 109, 146, 15);
-		orderProductPanel.add(orderProductCountLabel);
+		orderProductCountLabel_1 = new JLabel("\uC8FC\uBB38 \uC0C1\uD488 \uC218\uB7C9");
+		orderProductCountLabel_1.setBounds(129, 109, 146, 15);
+		orderProductPanel_1.add(orderProductCountLabel_1);
 
-		JLabel orderDateLabel = new JLabel("\uC8FC\uBB38\uB0A0\uC9DC");
-		orderDateLabel.setBounds(129, 34, 146, 15);
-		orderProductPanel.add(orderDateLabel);
+		orderDateLabel_1 = new JLabel("\uC8FC\uBB38\uB0A0\uC9DC");
+		orderDateLabel_1.setBounds(129, 34, 146, 15);
+		orderProductPanel_1.add(orderDateLabel_1);
 		/*******************************************************************/
 		/******** 2.Service객체생성 **********/
 		try {
@@ -291,7 +333,24 @@ public class MyPage extends JPanel {
 		/****** 처음프레임생성될때UI초기화 ****************/
 
 	}// 생성자끝
+	
+	
 	String u_id = "itwill2";
+	private JButton searchUserinfoBtn;
+	private JTabbedPane tabbedPane;
+	private JPanel changeUserDataPanel;
+	private JScrollPane scrollPane;
+	private JPanel orderUserData;
+	private JScrollPane scrollPane_1;
+	private JLabel orderTitleLabel;
+	private JPanel orderProductPanel_1;
+	private JLabel orderProductImg_1;
+	private JLabel orderNoLabel_1;
+	private JLabel orderProductNameLabel_1;
+	private JLabel orderProductPriceLabel_1;
+	private JLabel orderProductCountLabel_1;
+	private JLabel orderDateLabel_1;
+	private JPanel changeUserDataPanel2;
 	
 
 	public void orderProductList(String u_id) throws Exception {
@@ -307,8 +366,6 @@ public class MyPage extends JPanel {
 			
 			for (int j = 0; j < orders.getOrderItemList().size(); j++) {
 				
-				
-
 				OrderItem orderItem = orders.getOrderItemList().get(j);
 
 				System.out.println(orderItem);

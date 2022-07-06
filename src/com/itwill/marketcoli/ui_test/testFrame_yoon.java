@@ -10,7 +10,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
-import com.itwill.marketcoli.ui.orders;
+import com.itwill.marketcoli.ui.OrdersPanel;
 
 public class testFrame_yoon extends JFrame {
 

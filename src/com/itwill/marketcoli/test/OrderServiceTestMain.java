@@ -46,7 +46,7 @@ public class OrderServiceTestMain {
 		
 		//주문번호 를 이용한 주문내역 전체 검색
 		System.out.println("00.주문번호로 전체내역 검색");
-		System.out.println(orderService.selectOrderItemByno(80));
+		System.out.println(orderService.selectOrderItemByOiNo(80));
 	}
 
 }

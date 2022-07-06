@@ -17,6 +17,8 @@ import com.itwill.marketcoli.ui.ProductListPanel;
 import com.itwill.marketcoli.ui.FindIdPassword;
 import com.itwill.marketcoli.dto.Notice;
 import com.itwill.marketcoli.ui.NoticeUI;
+import com.itwill.marketcoli.ui.Cart;
+import com.itwill.marketcoli.ui.OrdersPanel;
 
 public class testFrame_seo extends JFrame {
 
@@ -39,6 +41,8 @@ public class testFrame_seo extends JFrame {
 	//private Join join;
 	private JScrollPane scrollPane_2;
 	private ProductListPanel productListPanel;
+	private Cart cart;
+	private OrdersPanel ordersPanel;
 
 	/**
 	 * Launch the application.
@@ -95,6 +99,9 @@ public class testFrame_seo extends JFrame {
 		scrollPane = new JScrollPane();
 		userPanel.add(scrollPane, BorderLayout.CENTER);
 		
+		cart = new Cart();
+		scrollPane.setViewportView(cart);
+		
 		/*		join = new Join();
 				scrollPane.setViewportView(join);*/
 		
@@ -116,6 +123,10 @@ public class testFrame_seo extends JFrame {
 		
 		orderPanel = new JPanel();
 		tabbedPane.addTab("주문", null, orderPanel, null);
+		orderPanel.setLayout(new BorderLayout(0, 0));
+		
+		ordersPanel = new OrdersPanel();
+		orderPanel.add(ordersPanel, BorderLayout.CENTER);
 		
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
