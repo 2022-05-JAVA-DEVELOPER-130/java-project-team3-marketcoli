@@ -27,6 +27,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
 
 // 사이즈 setBounds(100, 100, 390, 844);  
@@ -70,7 +72,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu cartMenu = new JMenu("");
 		cartMenu.setHorizontalAlignment(SwingConstants.RIGHT);
-		cartMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		menuBar.add(cartMenu);
 		
 		JMenuItem nothing1 = new JMenuItem("");
@@ -90,7 +92,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu userMenu = new JMenu("");
 		userMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		userMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\door.png"));
+		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/door25.png")));
 		menuBar.add(userMenu);
 		
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
@@ -141,7 +143,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.setLayout(null);
 		
 		JLabel productMainLabel1 = new JLabel("");
-		productMainLabel1.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류135.jpg"));
+		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류135.jpg")));
 		productMainLabel1.setBounds(12, 10, 135, 135);
 		productItemPanel.add(productMainLabel1);
 		
@@ -163,7 +165,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.add(productComboBox);
 
 		JButton productCartBtn = new JButton("");
-		productCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
 
@@ -180,7 +182,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.setLayout(null);
 		
 		JLabel productDetailImegeLabel = new JLabel("");
-		productDetailImegeLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류310.jpg"));
+		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류310.jpg")));
 		productDetailImegeLabel.setBounds(12, 10, 310, 310);
 		productDetailpanel.add(productDetailImegeLabel);
 		
@@ -190,7 +192,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailComboBox);
 		
 		JButton productDetailCartBtn = new JButton("");
-		productDetailCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		productDetailCartBtn.setBounds(255, 500, 67, 25);
 		productDetailpanel.add(productDetailCartBtn);
 		
@@ -210,6 +212,48 @@ public class JFrame extends javax.swing.JFrame {
 		JPanel cartPanel = new JPanel();
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
+		
+		JCheckBox savingAddressCheckbox = new JCheckBox("기존주소지");
+		savingAddressCheckbox.setFont(new Font("굴림", Font.BOLD, 13));
+		savingAddressCheckbox.setBounds(8, 31, 115, 23);
+		cartPanel.add(savingAddressCheckbox);
+		
+		JLabel lblNewLabel = new JLabel("서울특별시 강남구 ");
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 12));
+		lblNewLabel.setBounds(131, 35, 152, 15);
+		cartPanel.add(lblNewLabel);
+		
+		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
+		productAllCheckBox.setBounds(8, 108, 115, 23);
+		cartPanel.add(productAllCheckBox);
+		
+		JCheckBox product1 = new JCheckBox("");
+		product1.setBounds(36, 154, 21, 23);
+		cartPanel.add(product1);
+		
+		JCheckBox product2 = new JCheckBox("");
+		product2.setBounds(36, 277, 21, 23);
+		cartPanel.add(product2);
+		
+		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
+		productName1.setBounds(127, 137, 127, 23);
+		cartPanel.add(productName1);
+		
+		JLabel productName2 = new JLabel("New label");
+		productName2.setBounds(139, 259, 57, 15);
+		cartPanel.add(productName2);
+		
+		JLabel product2Image2 = new JLabel("New label");
+		product2Image2.setBounds(85, 296, 57, 15);
+		cartPanel.add(product2Image2);
+		
+		JLabel productPrice1 = new JLabel("금액:");
+		productPrice1.setBounds(248, 170, 57, 15);
+		cartPanel.add(productPrice1);
+		
+		JLabel productPrice2 = new JLabel("금액:");
+		productPrice2.setBounds(248, 296, 57, 15);
+		cartPanel.add(productPrice2);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
