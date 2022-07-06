@@ -616,7 +616,10 @@ public class JFrame extends javax.swing.JFrame {
 			productComboBox.setBounds(214, 120, 39, 25);
 			productItemPanel.add(productComboBox);
 
-	
+			JButton productCartBtn = new JButton("");
+			productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
+			productCartBtn.setBounds(256, 120, 32, 25);
+			productItemPanel.add(productCartBtn);
 			}
 
 
