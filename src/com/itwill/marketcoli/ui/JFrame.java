@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.itwill.marketcoli.dto.Notice;
+import com.itwill.marketcoli.service.NoticeService;
+import com.itwill.marketcoli.service.UserInfoService;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -16,6 +20,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.Insets;
@@ -41,10 +47,13 @@ import javax.swing.JCheckBox;
 // Jpanel 로 만들어주세요
 
 public class JFrame extends javax.swing.JFrame {
+	
+	/***********Service 선언 생성*************/
+	private UserInfoService userInfoService = new UserInfoService();
+	private NoticeService noticeService = new NoticeService();
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTabbedPane noticeTabbedPane;
 	private JPanel notice2;
 	private JTextField notice2Date;
 	private JTextField notice2Title;
@@ -57,6 +66,7 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTabbedPane noticeTabbedPane;
 
 	/**
 	 * Launch the application.
@@ -470,37 +480,60 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
 		orderPanel.add(lblNewLabel_2_1);
 		
+		
+		/*************공지사항******************/
+		
 		JPanel noticePanel = new JPanel();
+		JPanel notice1 = new JPanel();
+		JTextPane notice1Content = new JTextPane();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 		noticePanel.setLayout(new BorderLayout(0, 0));
 		
 		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		noticePanel.add(noticeTabbedPane);
 		
-		JPanel notice1 = new JPanel();
-		noticeTabbedPane.addTab("안내문", null, notice1, null);
+		try {
+			Notice notice = noticeService.selectByNoticeNo(1);
+			String title = notice.getN_title();
+			//Date date = notice.getN_date();
+			Date noticeDate = new Date();
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일");
+			String noticeDateStr = sdf1.format(notice.getN_date());
+			String content = notice.getN_content();
+		
+		noticeTabbedPane.addTab(title, null, notice1, null);
 		notice1.setLayout(null);
 		
 		notice1Date = new JTextField();
-		notice1Date.setText("작성일자");
+		//notice1Date.setText("작성일자");
+		notice1Date.setText(noticeDateStr);
 		notice1Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		notice1Date.setBounds(245, 3, 116, 30);
 		notice1Date.setColumns(10);
 		notice1.add(notice1Date);
 		
-		JTextPane notice1Content = new JTextPane();
 		notice1Content.setEditable(false);
-		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
+		//notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
+		notice1Content.setText(content);
 		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice1Content.setBounds(0, 42, 354, 500);
 		notice1.add(notice1Content);
 		
+
 		notice1title = new JTextField();
 		notice1title.setText("안내문");
 		notice1title.setBounds(1, 3, 233, 30);
 		notice1title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		notice1title.setColumns(10);
 		notice1.add(notice1title);
+
+		/*****************/
+		notice = noticeService.selectByNoticeNo(2);
+		title = notice.getN_title();
+		//Date date = notice.getN_date();
+		noticeDateStr = sdf1.format(notice.getN_date());
+		content = notice.getN_content();
+		/*****************/
 		
 		notice2 = new JPanel();
 		noticeTabbedPane.addTab("배송 안내", null, notice2, null);
@@ -549,5 +582,11 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setColumns(10);
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
-	}
-}//
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		/********************************************************/
+	}//생성자 끝
+}//클래스 끝
