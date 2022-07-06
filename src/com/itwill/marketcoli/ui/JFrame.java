@@ -236,39 +236,46 @@ public class JFrame extends javax.swing.JFrame {
 		
 		
 		JCheckBox product1 = new JCheckBox("");
-		product1.setBounds(36, 154, 21, 23);
+		product1.setBounds(53, 190, 21, 23);
 		cartPanel.add(product1);
-		
-
-		
-		JCheckBox product2CheckBox = new JCheckBox("");
-		product2CheckBox.setBounds(36, 345, 21, 23);
-		cartPanel.add(product2CheckBox);
 
 		JCheckBox product2 = new JCheckBox("");
-		product2.setBounds(36, 277, 21, 23);
+		product2.setBounds(53, 365, 21, 23);
 		cartPanel.add(product2);
 
 		
 		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
-		productName1.setBounds(127, 137, 127, 23);
+		productName1.setBounds(116, 137, 127, 23);
 		cartPanel.add(productName1);
 		
-		JLabel productName2 = new JLabel("New label");
-		productName2.setBounds(139, 259, 57, 15);
+		JLabel productName2 = new JLabel("복숭아");
+		productName2.setBounds(118, 299, 57, 15);
 		cartPanel.add(productName2);
 		
-		JLabel product2Image2 = new JLabel("New label");
-		product2Image2.setBounds(85, 296, 57, 15);
+		JLabel product2Image2 = new JLabel("");
+		product2Image2.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/복숭아7090.jpg")));
+		product2Image2.setBounds(116, 332, 70, 90);
 		cartPanel.add(product2Image2);
 		
 		JLabel productPrice1 = new JLabel("금액:");
-		productPrice1.setBounds(248, 170, 57, 15);
+		productPrice1.setBounds(248, 198, 57, 15);
 		cartPanel.add(productPrice1);
 		
 		JLabel productPrice2 = new JLabel("금액:");
-		productPrice2.setBounds(248, 296, 57, 15);
+		productPrice2.setBounds(248, 365, 57, 15);
 		cartPanel.add(productPrice2);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
+		lblNewLabel_1.setBounds(116, 170, 70, 90);
+		cartPanel.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("주문하기");
+		btnNewButton.setBackground(new Color(204, 102, 255));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
+		btnNewButton.setBounds(53, 506, 252, 38);
+		cartPanel.add(btnNewButton);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
