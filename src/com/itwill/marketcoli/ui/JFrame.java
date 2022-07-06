@@ -27,6 +27,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
+import javax.swing.JTextField;
 
 
 // 사이즈 setBounds(100, 100, 390, 844);  
@@ -35,6 +36,7 @@ import java.awt.FlowLayout;
 public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -216,6 +218,10 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
+		
+		textField = new JTextField();
+		noticePanel.add(textField);
+		textField.setColumns(10);
 	}
 	
 	
