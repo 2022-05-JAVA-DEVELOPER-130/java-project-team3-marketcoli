@@ -618,13 +618,12 @@ public class JFrame extends javax.swing.JFrame {
 
 	
 			}
-	
-<<<<<<< HEAD
-		}
+
+
 	
 	}
 	
-=======
-	*/
+
+
 }//클래스 끝
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
+
