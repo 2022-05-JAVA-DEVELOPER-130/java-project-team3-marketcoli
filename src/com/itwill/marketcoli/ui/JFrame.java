@@ -240,7 +240,7 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(productName1);
 		
 		JLabel productName2 = new JLabel("New label");
-		productName2.setBounds(139, 259, 57, 15);
+		productName2.setBounds(139, 285, 57, 15);
 		cartPanel.add(productName2);
 		
 		JLabel product2Image2 = new JLabel("New label");
@@ -254,6 +254,11 @@ public class JFrame extends javax.swing.JFrame {
 		JLabel productPrice2 = new JLabel("금액:");
 		productPrice2.setBounds(248, 296, 57, 15);
 		cartPanel.add(productPrice2);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과106_160.jpg")));
+		lblNewLabel_1.setBounds(105, 160, 105, 160);
+		cartPanel.add(lblNewLabel_1);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
