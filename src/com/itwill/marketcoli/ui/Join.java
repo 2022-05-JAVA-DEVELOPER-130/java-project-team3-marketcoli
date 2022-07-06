@@ -16,11 +16,12 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Dimension;
 
-public class join extends JPanel {
+public class Join extends JPanel {
 
 	/*********** Frame변수 선언 *************/
-	private JFrame jframe;
+	private JFrame marketColiFrame;
 
 	/*********** UserInfo *************/
 	private UserInfoService userInfoService;
@@ -55,9 +56,8 @@ public class join extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public join() {
-
-		
+	public Join() {
+		setPreferredSize(new Dimension(400, 800));
 
 		setLayout(null);
 
@@ -158,22 +158,30 @@ public class join extends JPanel {
 				// 유효성 체크(skip,생략) -> Dto에 입력
 
 				try {
-					
+
 					System.out.println("회원가입 시작");
-					
-					// TextField로부터 데이타얻기
-					String id = joinidtext.getText();
 					String password = joinpwField.getText();
 					String passwordCheck = joinpwcheckField.getText();
+
+					if (!password.equals(passwordCheck)) {
+						messageLB.setText("비밀번호 불일치");
+					} else {
+						messageLB.setText("");
+					}
+
+					// TextField로부터 데이타얻기
+					String id = joinidtext.getText();
+
 					String name = joinNameText.getText();
 					String email = joinEmailText.getText();
 					String phone = joinPhoneText.getText();
 					String address = joinAddressText.getText();
 					int birth = Integer.parseInt(joinhbdText.getText());
 					String job = joinjobText.getText();
+					//messageLB.setText("*test test");
 
 					if (id.equals("") || password.equals("") || passwordCheck.equals("") || name.equals("")
-							|| email.equals("") || phone.equals("") || address.equals("") || birth == 0) {
+					/*	|| email.equals("") || phone.equals("") || address.equals("") || birth == 0 */) {
 						messageLB.setText("*내용을 입력하세요");
 						return;
 					}
@@ -236,4 +244,4 @@ public class join extends JPanel {
 
 	}// 생성자끝
 
-}// 메소드 끝
+}// 클래스 끝

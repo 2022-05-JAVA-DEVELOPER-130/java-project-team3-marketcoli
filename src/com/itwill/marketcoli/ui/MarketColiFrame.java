@@ -14,6 +14,8 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import javax.swing.JScrollPane;
+import java.awt.Dimension;
 
 public class MarketColiFrame extends JFrame {
 
@@ -36,6 +38,7 @@ public class MarketColiFrame extends JFrame {
 	private JMenuItem mypageMenuItem;
 	private JMenuItem logoutMenuItem;
 	private JSeparator separator1;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -103,7 +106,12 @@ public class MarketColiFrame extends JFrame {
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
 		userPanel = new JPanel();
+		userPanel.setPreferredSize(new Dimension(10, 800));
 		tabbedPane.addTab("회원가입", null, userPanel, null);
+		userPanel.setLayout(new BorderLayout(0, 0));
+		
+		scrollPane = new JScrollPane();
+		userPanel.add(scrollPane, BorderLayout.CENTER);
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);

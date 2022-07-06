@@ -17,7 +17,7 @@ public class UserInfoSQL {
 	 = "select u_id from userinfo where u_email = ?";
 	
 	public static final String USERINFO_SELECT_BY_PW 
-	 = "select u_pw from userinfo where u_id = ? and u_email = ?";
+	 = "select * from userinfo where u_id = ? and u_email = ?";
 	
 	public static final String USERINFO_SELECT_ALL 
 	 = "select * from userinfo";

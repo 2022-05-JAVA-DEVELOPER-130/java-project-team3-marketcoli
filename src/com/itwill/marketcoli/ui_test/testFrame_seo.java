@@ -11,11 +11,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
 import javax.swing.JScrollPane;
-import com.itwill.marketcoli.ui.join;
-import com.itwill.marketcoli.ui.login;
+import com.itwill.marketcoli.ui.Join;
+import com.itwill.marketcoli.ui.Login;
 import java.awt.Dimension;
 import com.itwill.marketcoli.ui.MyPage;
 import com.itwill.marketcoli.ui.ProductListPanel;
+import com.itwill.marketcoli.ui.FindIdPassword;
 
 public class testFrame_seo extends JFrame {
 
@@ -34,7 +35,9 @@ public class testFrame_seo extends JFrame {
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
 	private JScrollPane scrollPane;
-	private MyPage myPage;
+	private JScrollPane scrollPane_1;
+	private Join join;
+	private FindIdPassword findIdPassword;
 
 	/**
 	 * Launch the application.
@@ -91,11 +94,18 @@ public class testFrame_seo extends JFrame {
 		scrollPane = new JScrollPane();
 		userPanel.add(scrollPane, BorderLayout.CENTER);
 		
-		myPage = new MyPage();
-		scrollPane.setViewportView(myPage);
+		join = new Join();
+		scrollPane.setViewportView(join);
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
+		mypagePanel.setLayout(new BorderLayout(0, 0));
+		
+		scrollPane_1 = new JScrollPane();
+		mypagePanel.add(scrollPane_1, BorderLayout.CENTER);
+		
+		findIdPassword = new FindIdPassword();
+		scrollPane_1.setViewportView(findIdPassword);
 		
 		productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);

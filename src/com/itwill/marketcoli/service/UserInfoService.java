@@ -57,11 +57,16 @@ public class UserInfoService {
 	public UserInfo selectByEamil(String u_email) throws Exception {
 		return userInfoDao.findByEmail(u_email);
 	}
-	
+
 	//회원 비밀번호 찾기
 	public UserInfo selectByPw(String u_id, String u_email) throws Exception {
 		return userInfoDao.findByPW(u_id, u_email);
 	}
+	/*	public String selectByPw(String u_id, String u_email) throws Exception {
+			return userInfoDao.findByPW(u_id, u_email);
+		}
+		*/
+	
 	//회원 아이디로 회원정보 출력
 	public UserInfo selectById(String u_id) throws Exception {
 		return userInfoDao.selectById(u_id);
