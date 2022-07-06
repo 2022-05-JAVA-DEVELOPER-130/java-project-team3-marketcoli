@@ -8,11 +8,17 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import com.itwill.marketcoli.service.OrderService;
+
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
 public class MyPage extends JPanel {
+	/**********1.Service객체선언*******/
+	private OrderService orderService;
+	
 	private JTextField textField;
 	private JTextField nowPWField;
 	private JTextField newPwField;
@@ -26,8 +32,9 @@ public class MyPage extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws Exception 
 	 */
-	public MyPage() {
+	public MyPage() throws Exception {
 		setLayout(new BorderLayout(0, 0));
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -195,8 +202,8 @@ public class MyPage extends JPanel {
 		orderDateLabel.setBounds(129, 34, 146, 15);
 		orderProductPanel.add(orderDateLabel);
 		/*******************************************************************/
-		/********2.UserinfoService객체생성**********/
-		
+		/********2.Service객체생성**********/
+		orderService=new OrderService();
 		
 		/******처음프레임생성될때UI초기화****************/
 		orderProductList();
