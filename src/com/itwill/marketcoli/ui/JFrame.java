@@ -27,13 +27,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
-<<<<<<< HEAD
 import javax.swing.JTextField;
-=======
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
-
 
 // 사이즈 setBounds(100, 100, 390, 844);  
 // Jpanel 로 만들어주세요
