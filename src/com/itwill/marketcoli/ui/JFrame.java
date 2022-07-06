@@ -26,14 +26,16 @@ import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+<<<<<<< HEAD
+import java.awt.FlowLayout;
+import javax.swing.JTextField;
+=======
 import java.awt.FlowLayout;
 
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
-
-
 
 // 사이즈 setBounds(100, 100, 390, 844);  
 // Jpanel 로 만들어주세요
@@ -50,6 +52,11 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField notice3Title;
 	private JTextField notice1Date;
 	private JTextField notice1title;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -85,7 +92,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu cartMenu = new JMenu("");
 		cartMenu.setHorizontalAlignment(SwingConstants.RIGHT);
-		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		menuBar.add(cartMenu);
 		
 		JMenuItem nothing1 = new JMenuItem("");
@@ -105,7 +112,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu userMenu = new JMenu("");
 		userMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/door25.png")));
+		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/door.png")));
 		menuBar.add(userMenu);
 		
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
@@ -156,19 +163,19 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.setLayout(null);
 		
 		JLabel productMainLabel1 = new JLabel("");
-		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류135.jpg")));
+		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/listProduct/석류.jpg")));
 		productMainLabel1.setBounds(12, 10, 135, 135);
 		productItemPanel.add(productMainLabel1);
 		
-		JLabel productMainLabel2 = new JLabel("상품명");
+		JLabel productMainLabel2 = new JLabel("");
 		productMainLabel2.setBounds(159, 21, 140, 15);
 		productItemPanel.add(productMainLabel2);
 		
-		JLabel productMainLabel3 = new JLabel("상품가격");
+		JLabel productMainLabel3 = new JLabel("");
 		productMainLabel3.setBounds(159, 46, 140, 15);
 		productItemPanel.add(productMainLabel3);
 		
-		JLabel productMainLabel4 = new JLabel("상품설명");
+		JLabel productMainLabel4 = new JLabel("");
 		productMainLabel4.setBounds(159, 65, 140, 51);
 		productItemPanel.add(productMainLabel4);
 		
@@ -178,7 +185,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.add(productComboBox);
 
 		JButton productCartBtn = new JButton("");
-		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
 
@@ -195,7 +202,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.setLayout(null);
 		
 		JLabel productDetailImegeLabel = new JLabel("");
-		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류310.jpg")));
+		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/detailProduct/석류.jpg")));
 		productDetailImegeLabel.setBounds(12, 10, 310, 310);
 		productDetailpanel.add(productDetailImegeLabel);
 		
@@ -205,20 +212,20 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailComboBox);
 		
 		JButton productDetailCartBtn = new JButton("");
-		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		productDetailCartBtn.setBounds(255, 500, 67, 25);
 		productDetailpanel.add(productDetailCartBtn);
 		
-		JLabel productDetailTitleLabel = new JLabel("상품명");
+		JLabel productDetailTitleLabel = new JLabel("");
 		productDetailTitleLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		productDetailTitleLabel.setBounds(12, 330, 310, 32);
+		productDetailTitleLabel.setBounds(12, 330, 46, 32);
 		productDetailpanel.add(productDetailTitleLabel);
 		
-		JLabel productDetailExpLabel = new JLabel("상품설명");
-		productDetailExpLabel.setBounds(12, 372, 311, 116);
+		JLabel productDetailExpLabel = new JLabel("");
+		productDetailExpLabel.setBounds(12, 372, 311, 76);
 		productDetailpanel.add(productDetailExpLabel);
 		
-		JLabel productDetailPriceLabel = new JLabel("상품가격");
+		JLabel productDetailPriceLabel = new JLabel("");
 		productDetailPriceLabel.setBounds(12, 500, 181, 25);
 		productDetailpanel.add(productDetailPriceLabel);
 		
@@ -287,6 +294,181 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
+		orderPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("주 문 상 품 : ");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel.setBounds(43, 35, 88, 15);
+		orderPanel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("주문자 정보 : ");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_1.setBounds(43, 63, 88, 15);
+		orderPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("배 송 지 : ");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_2.setBounds(43, 122, 88, 15);
+		orderPanel.add(lblNewLabel_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(143, 60, 171, 21);
+		orderPanel.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(143, 119, 171, 21);
+		orderPanel.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(143, 150, 171, 21);
+		orderPanel.add(textField_3);
+		
+		JLabel lblNewLabel_3 = new JLabel("상세 정보 입력 :");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_3.setBounds(43, 153, 88, 15);
+		orderPanel.add(lblNewLabel_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setForeground(Color.BLACK);
+		textField_4.setColumns(10);
+		textField_4.setBounds(143, 32, 171, 21);
+		orderPanel.add(textField_4);
+		
+		JButton orderBtn = new JButton("주  문  하  기");
+		orderBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		orderBtn.setBackground(new Color(147, 112, 219));
+		orderBtn.setBounds(23, 507, 310, 31);
+		orderPanel.add(orderBtn);
+		
+		JLabel lblNewLabel_4 = new JLabel("최종 결제 금액");
+		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(63, 454, 111, 23);
+		orderPanel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("결 제 금 액");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		lblNewLabel_5.setBounds(43, 317, 88, 15);
+		orderPanel.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("┖ 상품금액");
+		lblNewLabel_6.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_6.setBounds(63, 366, 79, 15);
+		orderPanel.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_5_1 = new JLabel("주 문 금 액");
+		lblNewLabel_5_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_5_1.setBounds(43, 341, 88, 15);
+		orderPanel.add(lblNewLabel_5_1);
+		
+		JLabel lblNewLabel_6_1 = new JLabel("┖ 할인금액");
+		lblNewLabel_6_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_6_1.setBounds(63, 391, 79, 15);
+		orderPanel.add(lblNewLabel_6_1);
+		
+		JLabel lblNewLabel_5_1_1 = new JLabel("배  송  비");
+		lblNewLabel_5_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_1_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_5_1_1.setBounds(43, 416, 88, 15);
+		orderPanel.add(lblNewLabel_5_1_1);
+		
+		JLabel orderFinalPriceLB = new JLabel("0");
+		orderFinalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderFinalPriceLB.setBounds(227, 319, 57, 15);
+		orderPanel.add(orderFinalPriceLB);
+		
+		JLabel orderPriceLB = new JLabel("0");
+		orderPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderPriceLB.setBounds(227, 343, 57, 15);
+		orderPanel.add(orderPriceLB);
+		
+		JLabel p_PriceLB = new JLabel("0");
+		p_PriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		p_PriceLB.setBounds(227, 368, 57, 15);
+		orderPanel.add(p_PriceLB);
+		
+		JLabel discount_FeeLB = new JLabel("0");
+		discount_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		discount_FeeLB.setBounds(227, 393, 57, 15);
+		orderPanel.add(discount_FeeLB);
+		
+		JLabel d_FeeLB = new JLabel("0");
+		d_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		d_FeeLB.setBounds(227, 418, 57, 15);
+		orderPanel.add(d_FeeLB);
+		
+		JLabel lblNewLabel_5_2 = new JLabel("결 제 수 단");
+		lblNewLabel_5_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_2.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		lblNewLabel_5_2.setBounds(43, 213, 88, 15);
+		orderPanel.add(lblNewLabel_5_2);
+		
+		JLabel won5 = new JLabel("원");
+		won5.setBounds(290, 418, 57, 15);
+		orderPanel.add(won5);
+		
+		JLabel won4 = new JLabel("원");
+		won4.setBounds(290, 393, 57, 15);
+		orderPanel.add(won4);
+		
+		JLabel won3 = new JLabel("원");
+		won3.setBounds(290, 368, 57, 15);
+		orderPanel.add(won3);
+		
+		JLabel won2 = new JLabel("원");
+		won2.setBounds(290, 343, 57, 15);
+		orderPanel.add(won2);
+		
+		JLabel won1 = new JLabel("원");
+		won1.setBounds(290, 318, 57, 15);
+		orderPanel.add(won1);
+		
+		JLabel won6 = new JLabel("원");
+		won6.setHorizontalAlignment(SwingConstants.LEFT);
+		won6.setFont(new Font("Dialog", Font.PLAIN, 15));
+		won6.setBounds(290, 453, 57, 24);
+		orderPanel.add(won6);
+		
+		JLabel orderTotalPriceLB = new JLabel("0");
+		orderTotalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderTotalPriceLB.setFont(new Font("Dialog", Font.PLAIN, 15));
+		orderTotalPriceLB.setBounds(227, 455, 57, 21);
+		orderPanel.add(orderTotalPriceLB);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("신용 카드");
+		rdbtnNewRadioButton.setBounds(63, 234, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("간편 결제");
+		rdbtnNewRadioButton_1.setBounds(63, 259, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("계좌 이체");
+		rdbtnNewRadioButton_2.setBounds(223, 234, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_2_1 = new JRadioButton("휴대폰 결제");
+		rdbtnNewRadioButton_2_1.setBounds(223, 259, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_2_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(143, 88, 171, 21);
+		orderPanel.add(textField_5);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("배 송 지 : ");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
+		orderPanel.add(lblNewLabel_2_1);
 		
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
@@ -368,6 +550,4 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
 	}
-	
-	
 }//
