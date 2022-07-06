@@ -73,7 +73,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu cartMenu = new JMenu("");
 		cartMenu.setHorizontalAlignment(SwingConstants.RIGHT);
-		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		menuBar.add(cartMenu);
 		
 		JMenuItem nothing1 = new JMenuItem("");
@@ -93,7 +93,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu userMenu = new JMenu("");
 		userMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/door25.png")));
+		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/door.png")));
 		menuBar.add(userMenu);
 		
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
@@ -144,19 +144,19 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.setLayout(null);
 		
 		JLabel productMainLabel1 = new JLabel("");
-		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류135.jpg")));
+		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/listProduct/석류.jpg")));
 		productMainLabel1.setBounds(12, 10, 135, 135);
 		productItemPanel.add(productMainLabel1);
 		
-		JLabel productMainLabel2 = new JLabel("상품명");
+		JLabel productMainLabel2 = new JLabel("");
 		productMainLabel2.setBounds(159, 21, 140, 15);
 		productItemPanel.add(productMainLabel2);
 		
-		JLabel productMainLabel3 = new JLabel("상품가격");
+		JLabel productMainLabel3 = new JLabel("");
 		productMainLabel3.setBounds(159, 46, 140, 15);
 		productItemPanel.add(productMainLabel3);
 		
-		JLabel productMainLabel4 = new JLabel("상품설명");
+		JLabel productMainLabel4 = new JLabel("");
 		productMainLabel4.setBounds(159, 65, 140, 51);
 		productItemPanel.add(productMainLabel4);
 		
@@ -166,7 +166,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.add(productComboBox);
 
 		JButton productCartBtn = new JButton("");
-		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
 
@@ -183,7 +183,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.setLayout(null);
 		
 		JLabel productDetailImegeLabel = new JLabel("");
-		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류310.jpg")));
+		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/detailProduct/석류.jpg")));
 		productDetailImegeLabel.setBounds(12, 10, 310, 310);
 		productDetailpanel.add(productDetailImegeLabel);
 		
@@ -193,20 +193,20 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailComboBox);
 		
 		JButton productDetailCartBtn = new JButton("");
-		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
+		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/simpol/cart.png")));
 		productDetailCartBtn.setBounds(255, 500, 67, 25);
 		productDetailpanel.add(productDetailCartBtn);
 		
-		JLabel productDetailTitleLabel = new JLabel("상품명");
+		JLabel productDetailTitleLabel = new JLabel("");
 		productDetailTitleLabel.setFont(new Font("굴림", Font.BOLD, 15));
-		productDetailTitleLabel.setBounds(12, 330, 310, 32);
+		productDetailTitleLabel.setBounds(12, 330, 46, 32);
 		productDetailpanel.add(productDetailTitleLabel);
 		
-		JLabel productDetailExpLabel = new JLabel("상품설명");
-		productDetailExpLabel.setBounds(12, 372, 311, 116);
+		JLabel productDetailExpLabel = new JLabel("");
+		productDetailExpLabel.setBounds(12, 372, 311, 76);
 		productDetailpanel.add(productDetailExpLabel);
 		
-		JLabel productDetailPriceLabel = new JLabel("상품가격");
+		JLabel productDetailPriceLabel = new JLabel("");
 		productDetailPriceLabel.setBounds(12, 500, 181, 25);
 		productDetailpanel.add(productDetailPriceLabel);
 		
