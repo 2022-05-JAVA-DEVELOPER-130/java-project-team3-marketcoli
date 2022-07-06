@@ -15,6 +15,7 @@ import com.itwill.marketcoli.ui.join;
 import com.itwill.marketcoli.ui.login;
 import java.awt.Dimension;
 import com.itwill.marketcoli.ui.MyPage;
+import com.itwill.marketcoli.ui.ProductListPanel;
 
 public class testFrame_seo extends JFrame {
 

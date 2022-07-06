@@ -91,6 +91,8 @@ public class ProductListPanel extends JPanel {
 	public void productListDisplay() throws Exception {
 		pItemListPanel.removeAll();
 		List<Product> productList = productService.productList();
+		
+		
 		for (int i = 0; i < productList.size(); i++) {
 			Product product = productList.get(i);
 
@@ -105,14 +107,17 @@ public class ProductListPanel extends JPanel {
 			pItemListPanel.add(pItemPanel);
 			pItemPanel.setLayout(null);
 
+			//System.out.println(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
+	
+			
 			pLabel = new JLabel("");
 			pLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
 			pLabel.setBounds(12, 10, 135, 135);
 			pItemPanel.add(pLabel);
 
-			JLabel pLabel_1 = new JLabel(product.getP_name());
-			pLabel_1.setBounds(159, 20, 219, 15);
-			pItemPanel.add(pLabel_1);
+			pLabel_4 = new JLabel(product.getP_name());
+			pLabel_4.setBounds(159, 20, 219, 15);
+			pItemPanel.add(pLabel_4);
 
 			pLabel_2 = new JLabel(product.getP_price()+"");
 			pLabel_2.setBounds(159, 50, 219, 15);
