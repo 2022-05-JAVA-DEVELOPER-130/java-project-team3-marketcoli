@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.sun.javafx.scene.control.SelectedCellsMap;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -236,13 +238,18 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(savingAddress);
 		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
+		productAllCheckBox.setSelected(true);
 		productAllCheckBox.setFont(new Font("굴림", Font.BOLD, 12));
 		productAllCheckBox.setBounds(8, 108, 115, 23);
 		cartPanel.add(productAllCheckBox);
+		boolean setSelected;
+			
+		
 		
 		JCheckBox product1CheckBox = new JCheckBox("");
 		product1CheckBox.setBounds(36, 187, 21, 23);
 		cartPanel.add(product1CheckBox);
+		
 		
 		JCheckBox product2CheckBox = new JCheckBox("");
 		product2CheckBox.setBounds(36, 345, 21, 23);
