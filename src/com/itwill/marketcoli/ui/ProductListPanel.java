@@ -17,6 +17,7 @@ import com.itwill.marketcoli.service.ProductService;
 import javax.swing.JScrollPane;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class ProductListPanel extends JPanel {
 	
@@ -24,13 +25,13 @@ public class ProductListPanel extends JPanel {
 
 	private JPanel pItemPanel;
 	private JPanel pItemListPanel;
-	private JScrollPane pScrollPane;
 	private JPanel pListPanel;
 	private JTabbedPane productTabbedPane;
-	private JLabel pLabel_3;
-	private JLabel pLabel_2;
-	private JLabel pLabel;
-	private JLabel pLabel_4;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JScrollPane pScrollPane;
 
 	/**
 	 * Create the panel.
@@ -39,6 +40,7 @@ public class ProductListPanel extends JPanel {
 		setLayout(new BorderLayout(390, 680));
 
 		productTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
 		add(productTabbedPane, BorderLayout.CENTER);
 
 		pListPanel = new JPanel();
@@ -47,34 +49,35 @@ public class ProductListPanel extends JPanel {
 
 		pScrollPane = new JScrollPane();
 		pListPanel.add(pScrollPane, BorderLayout.CENTER);
-		/**********************************************************/
+		
 		pItemListPanel = new JPanel();
-		pItemListPanel.setPreferredSize(new Dimension(10, 800));
+		pItemListPanel.setPreferredSize(new Dimension(10, 1000));
 		pScrollPane.setViewportView(pItemListPanel);
 		pItemListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-
+		/**********************************************************/
 		pItemPanel = new JPanel();
 		pItemPanel.setBackground(new Color(230, 230, 250));
 		pItemPanel.setPreferredSize(new Dimension(390, 155));
 		pItemListPanel.add(pItemPanel);
 		pItemPanel.setLayout(null);
 
-		pLabel = new JLabel("그림");
-		pLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/체리.jpg")));
-		pLabel.setBounds(12, 10, 135, 135);
-		pItemPanel.add(pLabel);
-
-		pLabel_4 = new JLabel("상품명");
-		pLabel_4.setBounds(159, 20, 219, 15);
-		pItemPanel.add(pLabel_4);
-
-		pLabel_2 = new JLabel("가격");
-		pLabel_2.setBounds(159, 50, 219, 15);
-		pItemPanel.add(pLabel_2);
-
-		pLabel_3 = new JLabel("설명");
-		pLabel_3.setBounds(159, 75, 219, 60);
-		pItemPanel.add(pLabel_3);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/사과.jpg")));
+		lblNewLabel.setBounds(12, 10, 135, 135);
+		pItemPanel.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("사과");
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(173, 27, 57, 15);
+		pItemPanel.add(lblNewLabel_1);
+				
+		lblNewLabel_2 = new JLabel("가격");
+		lblNewLabel_2.setBounds(173, 52, 57, 15);
+		pItemPanel.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("설명");
+		lblNewLabel_3.setBounds(173, 77, 205, 68);
+		pItemPanel.add(lblNewLabel_3);
 		/**********************************************************/
 
 		productService = new ProductService();
@@ -89,15 +92,10 @@ public class ProductListPanel extends JPanel {
 
 	/**************** productListDisplay 메소드 ******************/
 	public void productListDisplay() throws Exception {
-		pItemListPanel.removeAll();
 		List<Product> productList = productService.productList();
+		pItemListPanel.removeAll();
 		for (int i = 0; i < productList.size(); i++) {
 			Product product = productList.get(i);
-
-			pItemListPanel = new JPanel();
-			pItemListPanel.setPreferredSize(new Dimension(10, 800));
-			pScrollPane.setViewportView(pItemListPanel);
-			pItemListPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 			pItemPanel = new JPanel();
 			pItemPanel.setBackground(new Color(230, 230, 250));
@@ -105,22 +103,23 @@ public class ProductListPanel extends JPanel {
 			pItemListPanel.add(pItemPanel);
 			pItemPanel.setLayout(null);
 
-			pLabel = new JLabel("");
-			pLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
-			pLabel.setBounds(12, 10, 135, 135);
-			pItemPanel.add(pLabel);
-
-			JLabel pLabel_1 = new JLabel(product.getP_name());
-			pLabel_1.setBounds(159, 20, 219, 15);
-			pItemPanel.add(pLabel_1);
-
-			pLabel_2 = new JLabel(product.getP_price()+"");
-			pLabel_2.setBounds(159, 50, 219, 15);
-			pItemPanel.add(pLabel_2);
-
-			pLabel_3 = new JLabel(product.getP_exp());
-			pLabel_3.setBounds(159, 75, 219, 60);
-			pItemPanel.add(pLabel_3);
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
+			lblNewLabel.setBounds(12, 10, 135, 135);
+			pItemPanel.add(lblNewLabel);
+			
+			lblNewLabel_1 = new JLabel(product.getP_name());
+			lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 13));
+			lblNewLabel_1.setBounds(173, 27, 57, 15);
+			pItemPanel.add(lblNewLabel_1);
+					
+			lblNewLabel_2 = new JLabel(product.getP_price()+"");
+			lblNewLabel_2.setBounds(173, 52, 57, 15);
+			pItemPanel.add(lblNewLabel_2);
+			
+			lblNewLabel_3 = new JLabel(product.getP_exp());
+			lblNewLabel_3.setBounds(173, 77, 205, 68);
+			pItemPanel.add(lblNewLabel_3);
 
 		}
 	}

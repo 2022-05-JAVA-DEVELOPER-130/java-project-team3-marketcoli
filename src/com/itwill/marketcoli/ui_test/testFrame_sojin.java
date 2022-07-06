@@ -10,6 +10,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
+import com.itwill.marketcoli.ui.ProductListPanel;
 
 public class testFrame_sojin extends JFrame {
 
@@ -27,6 +28,7 @@ public class testFrame_sojin extends JFrame {
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
+	private ProductListPanel productListPanel;
 
 	/**
 	 * Launch the application.
@@ -84,6 +86,10 @@ public class testFrame_sojin extends JFrame {
 		
 		productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);
+		productPanel.setLayout(new BorderLayout(0, 0));
+		
+		productListPanel = new ProductListPanel();
+		productPanel.add(productListPanel, BorderLayout.NORTH);
 		
 		cartPanel = new JPanel();
 		tabbedPane.addTab("카트", null, cartPanel, null);
