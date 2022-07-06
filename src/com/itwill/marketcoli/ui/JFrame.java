@@ -239,11 +239,6 @@ public class JFrame extends javax.swing.JFrame {
 		productName1.setBounds(127, 137, 127, 23);
 		cartPanel.add(productName1);
 		
-		JLabel product1Image1 = new JLabel("");
-		product1Image1.setIcon(new ImageIcon("C:\\Users\\ITWILL\\Desktop\\사과 (3).jpg"));
-		product1Image1.setBounds(96, 170, 77, 63);
-		cartPanel.add(product1Image1);
-		
 		JLabel productName2 = new JLabel("New label");
 		productName2.setBounds(139, 259, 57, 15);
 		cartPanel.add(productName2);
