@@ -186,10 +186,10 @@ public class login extends JPanel {
 		loginUser = loginSuccessMember;
 
 		if(loginUser==null) {
-			System.out.println("로그인 성공");
-		}else {
-			
 			System.out.println("로그인 실패");
+		}else {
+			System.out.println("로그인 성공");
+			
 		}
 			
 		
