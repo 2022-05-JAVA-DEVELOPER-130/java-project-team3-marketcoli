@@ -10,6 +10,10 @@ import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
+import javax.swing.JScrollPane;
+import com.itwill.marketcoli.ui.join;
+import com.itwill.marketcoli.ui.login;
+import java.awt.Dimension;
 
 public class testFrame_seo extends JFrame {
 
@@ -27,6 +31,7 @@ public class testFrame_seo extends JFrame {
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -78,6 +83,10 @@ public class testFrame_seo extends JFrame {
 		
 		userPanel = new JPanel();
 		tabbedPane.addTab("회원가입", null, userPanel, null);
+		userPanel.setLayout(new BorderLayout(0, 0));
+		
+		scrollPane = new JScrollPane();
+		userPanel.add(scrollPane, BorderLayout.CENTER);
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
