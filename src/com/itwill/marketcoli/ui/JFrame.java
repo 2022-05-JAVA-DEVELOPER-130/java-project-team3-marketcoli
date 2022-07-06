@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -25,8 +26,7 @@ import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-
-
+import java.awt.FlowLayout;
 
 
 // 사이즈 setBounds(100, 100, 390, 844);  
@@ -96,6 +96,9 @@ public class JFrame extends javax.swing.JFrame {
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
 		userMenu.add(joinMenuItem);
 		
+		join join_ = new join();
+		userMenu.add(join_);
+		
 		JMenuItem loginMenuItem = new JMenuItem("로그인");
 		userMenu.add(loginMenuItem);
 		
@@ -126,44 +129,44 @@ public class JFrame extends javax.swing.JFrame {
 		JScrollPane productMainScrollPane = new JScrollPane();
 		productMainPanel.add(productMainScrollPane, BorderLayout.CENTER);
 		
-		JPanel productPriceLabel = new JPanel();
-		productPriceLabel.setPreferredSize(new Dimension(10, 800));
-		productMainScrollPane.setViewportView(productPriceLabel);
-		productPriceLabel.setLayout(null);
-		
+		JPanel productAllPanel = new JPanel();
+		productAllPanel.setPreferredSize(new Dimension(10, 800));
+		productMainScrollPane.setViewportView(productAllPanel);
+		productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	
 		JPanel productItemPanel = new JPanel();
+		productItemPanel.setPreferredSize(new Dimension(300, 155));
 		productItemPanel.setBackground(new Color(230, 230, 250));
-		productItemPanel.setBounds(12, 10, 311, 156);
-		productPriceLabel.add(productItemPanel);
+		productAllPanel.add(productItemPanel);
 		productItemPanel.setLayout(null);
 		
-		JLabel productImageLabel = new JLabel("");
-		productImageLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류135.jpg"));
-		productImageLabel.setBounds(12, 10, 135, 135);
-		productItemPanel.add(productImageLabel);
+		JLabel productMainLabel1 = new JLabel("");
+		productMainLabel1.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류135.jpg"));
+		productMainLabel1.setBounds(12, 10, 135, 135);
+		productItemPanel.add(productMainLabel1);
 		
-		JLabel productNameLabel = new JLabel("상품명");
-		productNameLabel.setBounds(159, 21, 140, 15);
-		productItemPanel.add(productNameLabel);
+		JLabel productMainLabel2 = new JLabel("상품명");
+		productMainLabel2.setBounds(159, 21, 140, 15);
+		productItemPanel.add(productMainLabel2);
 		
-		JLabel lblNewLabel = new JLabel("상품가격");
-		lblNewLabel.setBounds(159, 46, 140, 15);
-		productItemPanel.add(lblNewLabel);
+		JLabel productMainLabel3 = new JLabel("상품가격");
+		productMainLabel3.setBounds(159, 46, 140, 15);
+		productItemPanel.add(productMainLabel3);
 		
-		JLabel producExpLabel = new JLabel("상품설명");
-		producExpLabel.setBounds(159, 65, 140, 51);
-		productItemPanel.add(producExpLabel);
+		JLabel productMainLabel4 = new JLabel("상품설명");
+		productMainLabel4.setBounds(159, 65, 140, 51);
+		productItemPanel.add(productMainLabel4);
 		
 		JComboBox productComboBox = new JComboBox();
 		productComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
-		productComboBox.setBounds(227, 120, 39, 25);
+		productComboBox.setBounds(214, 120, 39, 25);
 		productItemPanel.add(productComboBox);
 
 		JButton productCartBtn = new JButton("");
 		productCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
-		productCartBtn.setBounds(267, 120, 32, 25);
+		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
-		
+
 		JPanel productServePanel = new JPanel();
 		productTabbedPane.addTab("상품상세보기", null, productServePanel, null);
 		productServePanel.setLayout(new BorderLayout(0, 0));
@@ -206,6 +209,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JPanel cartPanel = new JPanel();
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
+		cartPanel.setLayout(null);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
@@ -213,4 +217,6 @@ public class JFrame extends javax.swing.JFrame {
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 	}
-}
+	
+	
+}//
