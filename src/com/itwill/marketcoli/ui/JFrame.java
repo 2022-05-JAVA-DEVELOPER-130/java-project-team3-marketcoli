@@ -271,6 +271,10 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("주문하기");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBackground(new Color(204, 102, 255));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
