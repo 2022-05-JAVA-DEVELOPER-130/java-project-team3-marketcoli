@@ -27,10 +27,10 @@ public class ProductListPanel extends JPanel {
 	private JPanel pItemListPanel;
 	private JPanel pListPanel;
 	private JTabbedPane productTabbedPane;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
+	private JLabel productImageLB;
+	private JLabel productNameLB;
+	private JLabel productPriceNB;
+	private JLabel productExpLB;
 	private JScrollPane pScrollPane;
 
 	/**
@@ -61,23 +61,23 @@ public class ProductListPanel extends JPanel {
 		pItemListPanel.add(pItemPanel);
 		pItemPanel.setLayout(null);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/사과.jpg")));
-		lblNewLabel.setBounds(12, 10, 135, 135);
-		pItemPanel.add(lblNewLabel);
+		productImageLB = new JLabel("");
+		productImageLB.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/사과.jpg")));
+		productImageLB.setBounds(12, 10, 135, 135);
+		pItemPanel.add(productImageLB);
 		
-		lblNewLabel_1 = new JLabel("사과");
-		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(173, 27, 57, 15);
-		pItemPanel.add(lblNewLabel_1);
+		productNameLB = new JLabel("사과");
+		productNameLB.setFont(new Font("굴림", Font.BOLD, 13));
+		productNameLB.setBounds(173, 27, 57, 15);
+		pItemPanel.add(productNameLB);
 				
-		lblNewLabel_2 = new JLabel("가격");
-		lblNewLabel_2.setBounds(173, 52, 57, 15);
-		pItemPanel.add(lblNewLabel_2);
+		productPriceNB = new JLabel("가격");
+		productPriceNB.setBounds(173, 52, 57, 15);
+		pItemPanel.add(productPriceNB);
 		
-		lblNewLabel_3 = new JLabel("설명");
-		lblNewLabel_3.setBounds(173, 77, 205, 68);
-		pItemPanel.add(lblNewLabel_3);
+		productExpLB = new JLabel("설명");
+		productExpLB.setBounds(173, 77, 205, 68);
+		pItemPanel.add(productExpLB);
 		/**********************************************************/
 
 		productService = new ProductService();
@@ -103,23 +103,23 @@ public class ProductListPanel extends JPanel {
 			pItemListPanel.add(pItemPanel);
 			pItemPanel.setLayout(null);
 
-			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
-			lblNewLabel.setBounds(12, 10, 135, 135);
-			pItemPanel.add(lblNewLabel);
+			productImageLB = new JLabel("");
+			productImageLB.setIcon(new ImageIcon(ProductListPanel.class.getResource("/images/listProduct/"+product.getP_name()+".jpg")));
+			productImageLB.setBounds(12, 10, 135, 135);
+			pItemPanel.add(productImageLB);
 			
-			lblNewLabel_1 = new JLabel(product.getP_name());
-			lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 13));
-			lblNewLabel_1.setBounds(173, 27, 57, 15);
-			pItemPanel.add(lblNewLabel_1);
+			productNameLB = new JLabel(product.getP_name());
+			productNameLB.setFont(new Font("굴림", Font.BOLD, 13));
+			productNameLB.setBounds(173, 27, 57, 15);
+			pItemPanel.add(productNameLB);
 					
-			lblNewLabel_2 = new JLabel(product.getP_price()+"");
-			lblNewLabel_2.setBounds(173, 52, 57, 15);
-			pItemPanel.add(lblNewLabel_2);
+			productPriceNB = new JLabel(product.getP_price()+"");
+			productPriceNB.setBounds(173, 52, 57, 15);
+			pItemPanel.add(productPriceNB);
 			
-			lblNewLabel_3 = new JLabel(product.getP_exp());
-			lblNewLabel_3.setBounds(173, 77, 205, 68);
-			pItemPanel.add(lblNewLabel_3);
+			productExpLB = new JLabel(product.getP_exp());
+			productExpLB.setBounds(173, 77, 205, 68);
+			pItemPanel.add(productExpLB);
 
 		}
 	}

@@ -38,6 +38,7 @@ public class testFrame_seo extends JFrame {
 	private JScrollPane scrollPane_1;
 	//private Join join;
 	private JScrollPane scrollPane_2;
+	private ProductListPanel productListPanel;
 
 	/**
 	 * Launch the application.
@@ -103,6 +104,9 @@ public class testFrame_seo extends JFrame {
 		
 		scrollPane_1 = new JScrollPane();
 		mypagePanel.add(scrollPane_1, BorderLayout.CENTER);
+		
+		productListPanel = new ProductListPanel();
+		scrollPane_1.setViewportView(productListPanel);
 		
 		productPanel = new JPanel();
 		tabbedPane.addTab("상품", null, productPanel, null);
