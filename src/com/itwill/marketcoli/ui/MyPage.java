@@ -39,12 +39,23 @@ public class MyPage extends JPanel {
 	private JPasswordField newPasswordField;
 	private JPasswordField newPasswordReField;
 	private JTextField addressField;
+	private JLabel lblNewLabel;
+	private JLabel idLabel;
+	private JLabel nowPwLabel;
+	private JLabel newPwLabel;
+	private JLabel newPwReLabel;
+	private JLabel nameLabel;
+	private JLabel emailLabel;
+	private JLabel phoneLabel;
+	private JLabel birthLabel;
+	private JLabel jobLabel;
+	private JButton dataChangeButton;
+	private JButton dataDeleteButton;
+	private JLabel userNoLabel;
+	private JLabel addressLabel;
 
-	/**
-	 * Create the panel.
-	 * @throws Exception 
-	 */
-	public MyPage() throws Exception {
+	
+	public MyPage() {
 		setLayout(new BorderLayout(0, 0));
 		
 		
@@ -66,34 +77,33 @@ public class MyPage extends JPanel {
 		scrollPane.setViewportView(changeUserDataPanel2);
 		changeUserDataPanel2.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\uAC1C\uC778\uC815\uBCF4\uC218\uC815");
+		lblNewLabel = new JLabel("\uAC1C\uC778\uC815\uBCF4\uC218\uC815");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 25));
 		lblNewLabel.setBounds(129, 34, 164, 46);
 		changeUserDataPanel2.add(lblNewLabel);
 		
 		idField = new JTextField();
-		idField.setEnabled(false);
 		idField.setBounds(58, 169, 315, 21);
 		changeUserDataPanel2.add(idField);
 		idField.setColumns(10);
 		
-		JLabel idLabel = new JLabel("\uC544\uC774\uB514");
+		idLabel = new JLabel("\uC544\uC774\uB514");
 		idLabel.setBounds(58, 146, 57, 15);
 		changeUserDataPanel2.add(idLabel);
 		
-		JLabel nowPwLabel = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
+		nowPwLabel = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
 		nowPwLabel.setBounds(58, 211, 121, 15);
 		changeUserDataPanel2.add(nowPwLabel);
 		
-		JLabel newPwLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638");
+		newPwLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638");
 		newPwLabel.setBounds(58, 275, 121, 15);
 		changeUserDataPanel2.add(newPwLabel);
 		
-		JLabel newPwReLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
+		newPwReLabel = new JLabel("\uC0C8 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
 		newPwReLabel.setBounds(58, 340, 108, 15);
 		changeUserDataPanel2.add(newPwReLabel);
 		
-		JLabel nameLabel = new JLabel("\uC774\uB984");
+		nameLabel = new JLabel("\uC774\uB984");
 		nameLabel.setBounds(58, 406, 57, 15);
 		changeUserDataPanel2.add(nameLabel);
 		
@@ -102,17 +112,16 @@ public class MyPage extends JPanel {
 		nameField.setBounds(58, 429, 315, 21);
 		changeUserDataPanel2.add(nameField);
 		
-		JLabel emailLabel = new JLabel("\uC774\uBA54\uC77C");
+		emailLabel = new JLabel("\uC774\uBA54\uC77C");
 		emailLabel.setBounds(58, 471, 57, 15);
 		changeUserDataPanel2.add(emailLabel);
 		
 		emailField = new JTextField();
-		emailField.setEnabled(false);
 		emailField.setColumns(10);
 		emailField.setBounds(58, 494, 315, 21);
 		changeUserDataPanel2.add(emailField);
 		
-		JLabel phoneLabel = new JLabel("\uD578\uB4DC\uD3F0 \uBC88\uD638");
+		phoneLabel = new JLabel("\uD578\uB4DC\uD3F0 \uBC88\uD638");
 		phoneLabel.setBounds(58, 535, 108, 15);
 		changeUserDataPanel2.add(phoneLabel);
 		
@@ -121,7 +130,7 @@ public class MyPage extends JPanel {
 		phoneField.setBounds(58, 558, 315, 21);
 		changeUserDataPanel2.add(phoneField);
 		
-		JLabel birthLabel = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
+		birthLabel = new JLabel("\uC0DD\uB144\uC6D4\uC77C");
 		birthLabel.setBounds(58, 600, 57, 15);
 		changeUserDataPanel2.add(birthLabel);
 		
@@ -130,7 +139,7 @@ public class MyPage extends JPanel {
 		birthField.setBounds(58, 623, 315, 21);
 		changeUserDataPanel2.add(birthField);
 		
-		JLabel jobLabel = new JLabel("\uC9C1\uC5C5");
+		jobLabel = new JLabel("\uC9C1\uC5C5");
 		jobLabel.setBounds(58, 727, 57, 15);
 		changeUserDataPanel2.add(jobLabel);
 		
@@ -139,13 +148,14 @@ public class MyPage extends JPanel {
 		jobField.setBounds(58, 750, 315, 21);
 		changeUserDataPanel2.add(jobField);
 		
+		dataChangeButton = new JButton("\uC218\uC815\uD558\uAE30");
 		
 		//수정하기
-		JButton dataChangeButton = new JButton("\uC218\uC815\uD558\uAE30");
 		dataChangeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					userInfoService.updateUserInfo(new UserInfo(Integer.parseInt(userNoField.getText()),
+					UserInfo updateUserInfo = new UserInfo(
+							Integer.parseInt(userNoField.getText()),
 							idField.getText(),
 							newPasswordField.getText(),
 							nameField.getText(),
@@ -154,7 +164,8 @@ public class MyPage extends JPanel {
 							addressField.getText(),
 							Integer.parseInt(birthField.getText()) ,
 							jobField.getText(),
-							null));
+							null);
+					userInfoService.updateUserInfo(updateUserInfo);
 					
 				}catch (Exception e1) {
 					
@@ -163,12 +174,14 @@ public class MyPage extends JPanel {
 			
 			
 		});
+		
+		
 		dataChangeButton.setBounds(58, 797, 137, 38);
 		changeUserDataPanel2.add(dataChangeButton);
 		
 		
 		//탈퇴하기 
-		JButton dataDeleteButton = new JButton("탈퇴하기");
+		dataDeleteButton = new JButton("탈퇴하기");
 		dataDeleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -187,7 +200,7 @@ public class MyPage extends JPanel {
 					
 					
 				}catch (Exception e1) {
-					
+					e1.printStackTrace();
 				}
 					
 				
@@ -197,19 +210,18 @@ public class MyPage extends JPanel {
 		dataDeleteButton.setBounds(236, 797, 137, 38);
 		changeUserDataPanel2.add(dataDeleteButton);
 		
-		JLabel userNoLabel = new JLabel("\uD68C\uC6D0\uBC88\uD638");
+		userNoLabel = new JLabel("\uD68C\uC6D0\uBC88\uD638");
 		userNoLabel.setBounds(58, 92, 57, 15);
 		changeUserDataPanel2.add(userNoLabel);
 		
 		userNoField = new JTextField();
-		userNoField.setEnabled(false);
 		userNoField.setColumns(10);
 		userNoField.setBounds(58, 115, 315, 21);
 		changeUserDataPanel2.add(userNoField);
 		UserInfo userInfo = new UserInfo();
 		
-		userInfo = userInfoService.selectById("itwill1");
-		userNoField.setText(userInfo.getU_id());
+		//userInfo = userInfoService.selectById("itwill1");
+		//userNoField.setText(userInfo.getU_id());
 		
 		
 		
@@ -226,7 +238,7 @@ public class MyPage extends JPanel {
 		newPasswordReField.setBounds(58, 365, 315, 21);
 		changeUserDataPanel2.add(newPasswordReField);
 		
-		JLabel addressLabel = new JLabel("\uC8FC\uC18C");
+		addressLabel = new JLabel("\uC8FC\uC18C");
 		addressLabel.setBounds(58, 666, 57, 15);
 		changeUserDataPanel2.add(addressLabel);
 		
@@ -289,7 +301,13 @@ public class MyPage extends JPanel {
 		orderProductPanel.add(orderDateLabel);
 		/*******************************************************************/
 		/********2.Service객체생성**********/
-		orderService=new OrderService();
+		try {
+			orderService=new OrderService();
+			userInfoService=new UserInfoService();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		/******처음프레임생성될때UI초기화****************/
 		orderProductList();
