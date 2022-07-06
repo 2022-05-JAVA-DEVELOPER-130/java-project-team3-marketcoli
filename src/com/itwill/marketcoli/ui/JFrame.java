@@ -307,6 +307,7 @@ public class JFrame extends javax.swing.JFrame {
 		notice1.add(notice1Date);
 		
 		JTextPane notice1Content = new JTextPane();
+		notice1Content.setEditable(false);
 		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
 		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice1Content.setBounds(0, 42, 354, 500);
