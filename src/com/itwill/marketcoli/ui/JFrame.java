@@ -566,6 +566,13 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setColumns(10);
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
+		
+		JPanel panel = new JPanel();
+		mainTabbedPane.addTab("New tab", null, panel, null);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		MyPage myPage = new MyPage();
+		panel.add(myPage, BorderLayout.CENTER);
 
 
 		productService= new ProductService();
