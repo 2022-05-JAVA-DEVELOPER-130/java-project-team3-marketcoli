@@ -26,10 +26,10 @@ import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-<<<<<<< HEAD
+
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
-=======
+
 import java.awt.FlowLayout;
 
 import javax.swing.JTextField;
