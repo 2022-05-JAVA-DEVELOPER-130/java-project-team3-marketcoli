@@ -27,12 +27,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
-<<<<<<< HEAD
+
 import javax.swing.JTextField;
-=======
+
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/java-project-team3-marketcoli.git
+
 
 
 // 사이즈 setBounds(100, 100, 390, 844);  
@@ -229,41 +229,50 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(lblNewLabel);
 		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
+		productAllCheckBox.setFont(new Font("굴림", Font.BOLD, 12));
 		productAllCheckBox.setBounds(8, 108, 115, 23);
 		cartPanel.add(productAllCheckBox);
 		
 		JCheckBox product1 = new JCheckBox("");
-		product1.setBounds(36, 154, 21, 23);
+		product1.setBounds(36, 187, 21, 23);
 		cartPanel.add(product1);
 		
 		JCheckBox product2 = new JCheckBox("");
-		product2.setBounds(36, 277, 21, 23);
+		product2.setBounds(36, 345, 21, 23);
 		cartPanel.add(product2);
 		
-		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
-		productName1.setBounds(127, 137, 127, 23);
+		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
+		productName1.setFont(new Font("굴림", Font.BOLD, 12));
+		productName1.setBounds(65, 130, 127, 23);
 		cartPanel.add(productName1);
 		
-		JLabel productName2 = new JLabel("New label");
-		productName2.setBounds(139, 285, 57, 15);
+		JLabel productName2 = new JLabel("나는 신비복숭아");
+		productName2.setFont(new Font("굴림", Font.BOLD, 12));
+		productName2.setBounds(65, 296, 131, 15);
 		cartPanel.add(productName2);
 		
-		JLabel product2Image2 = new JLabel("New label");
-		product2Image2.setBounds(85, 296, 57, 15);
+		JLabel product2Image2 = new JLabel("");
+		product2Image2.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/복숭아7090.jpg")));
+		product2Image2.setBounds(65, 321, 70, 90);
 		cartPanel.add(product2Image2);
 		
 		JLabel productPrice1 = new JLabel("금액:");
-		productPrice1.setBounds(248, 170, 57, 15);
+		productPrice1.setBounds(161, 187, 57, 15);
 		cartPanel.add(productPrice1);
 		
 		JLabel productPrice2 = new JLabel("금액:");
-		productPrice2.setBounds(248, 296, 57, 15);
+		productPrice2.setBounds(161, 345, 57, 15);
 		cartPanel.add(productPrice2);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과106_160.jpg")));
-		lblNewLabel_1.setBounds(105, 160, 105, 160);
+		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
+		lblNewLabel_1.setBounds(65, 163, 70, 90);
 		cartPanel.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("주문하기");
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
+		btnNewButton.setBounds(36, 503, 286, 41);
+		cartPanel.add(btnNewButton);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
