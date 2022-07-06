@@ -8,6 +8,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.itwill.marketcoli.dto.Product;
 import com.itwill.marketcoli.service.ProductService;
+import com.itwill.marketcoli.dto.Notice;
+import com.itwill.marketcoli.service.NoticeService;
+import com.itwill.marketcoli.service.UserInfoService;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
@@ -20,6 +23,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.Insets;
@@ -45,7 +50,9 @@ import javax.swing.JCheckBox;
 // Jpanel 로 만들어주세요
 
 public class JFrame extends javax.swing.JFrame {
-	
+	/***********Service 선언 생성*************/
+	private UserInfoService userInfoService = new UserInfoService();
+	private NoticeService noticeService = new NoticeService();
 	private ProductService productService;
 
 	private JPanel contentPane;
