@@ -13,10 +13,10 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class login extends JPanel {
+public class Login extends JPanel {
 	
 	/***********Frame변수 선언*************/
-	private JFrame jframe;
+	private JFrame marketColiFrame;
 	
 	/***********UserInfo*************/
 	private UserInfoService userInfoService;
@@ -38,7 +38,7 @@ public class login extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public login() {
+	public Login() {
 		setLayout(null);
 		
 		loginTitle = new JLabel("로그인");
@@ -92,6 +92,7 @@ public class login extends JPanel {
 						memberTabbedPane.setEnabledAt(1, false);
 						*/
 
+						loginMessageLB.setText("로그인 성공");
 						loginProcess(id);
 
 					} else if (result == 1) {
@@ -231,5 +232,7 @@ public class login extends JPanel {
 		*/
 		/****************************************************/
 		
-	}
+	}//메소드 끝
+	
+	
 }//클래스끝

@@ -37,7 +37,7 @@ public class UserinfoServiceTestMain {
 		
 		//회원 비밀번호 찾기
 		System.out.println(">>비밀번호찾기");
-		System.out.println(userInfoService.selectByPw("insert100", "1@update.test"));
+		System.out.println(userInfoService.selectByPw("itwill4", "d@www.d.com"));
 		
 		//회원번호로 회원정보 출력
 		System.out.println("회원번호로 회원정보 출력");
