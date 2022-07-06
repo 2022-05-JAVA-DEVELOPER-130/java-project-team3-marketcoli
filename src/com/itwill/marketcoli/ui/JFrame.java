@@ -28,8 +28,14 @@ import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 
@@ -40,6 +46,19 @@ public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTabbedPane noticeTabbedPane;
+	private JPanel notice2;
+	private JTextField notice2Date;
+	private JTextField notice2Title;
+	private JTextField notice3Date;
+	private JTextField notice3Title;
+	private JTextField notice1Date;
+	private JTextField notice1title;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -213,6 +232,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailPriceLabel);
 		
 		JPanel cartPanel = new JPanel();
+		cartPanel.setBackground(new Color(255, 255, 255));
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
 		
@@ -221,10 +241,10 @@ public class JFrame extends javax.swing.JFrame {
 		savingAddressCheckbox.setBounds(8, 31, 115, 23);
 		cartPanel.add(savingAddressCheckbox);
 		
-		JLabel lblNewLabel = new JLabel("서울특별시 강남구 ");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 12));
-		lblNewLabel.setBounds(131, 35, 152, 15);
-		cartPanel.add(lblNewLabel);
+		JLabel savingAddress = new JLabel("서울특별시 강남구 ");
+		savingAddress.setFont(new Font("굴림", Font.PLAIN, 12));
+		savingAddress.setBounds(131, 35, 152, 15);
+		cartPanel.add(savingAddress);
 		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
 		productAllCheckBox.setSelected(true);
@@ -232,65 +252,312 @@ public class JFrame extends javax.swing.JFrame {
 		productAllCheckBox.setBounds(8, 108, 115, 23);
 		cartPanel.add(productAllCheckBox);
 		boolean setSelected;
-			
-		
-		
-		JCheckBox product1 = new JCheckBox("");
-		product1.setBounds(53, 190, 21, 23);
-		cartPanel.add(product1);
 
-		JCheckBox product2 = new JCheckBox("");
-		product2.setBounds(53, 365, 21, 23);
-		cartPanel.add(product2);
-
+		JCheckBox product1CheckBox = new JCheckBox("");
+		product1CheckBox.setBounds(36, 187, 21, 23);
+		cartPanel.add(product1CheckBox);
+		
+		JCheckBox product2CheckBox = new JCheckBox("");
+		product2CheckBox.setBounds(36, 345, 21, 23);
+		cartPanel.add(product2CheckBox);
 		
 		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
 		productName1.setBounds(116, 137, 127, 23);
+		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
+		productName1.setFont(new Font("굴림", Font.BOLD, 12));
+		productName1.setBounds(65, 130, 127, 23);
 		cartPanel.add(productName1);
 		
 		JLabel productName2 = new JLabel("복숭아");
 		productName2.setBounds(118, 299, 57, 15);
+		JLabel productName2 = new JLabel("나는 신비복숭아");
+		productName2.setFont(new Font("굴림", Font.BOLD, 12));
+		productName2.setBounds(65, 296, 131, 15);
 		cartPanel.add(productName2);
 		
 		JLabel product2Image2 = new JLabel("");
 		product2Image2.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/복숭아7090.jpg")));
 		product2Image2.setBounds(116, 332, 70, 90);
+		product2Image2.setBounds(65, 321, 70, 90);
 		cartPanel.add(product2Image2);
 		
 		JLabel productPrice1 = new JLabel("금액:");
 		productPrice1.setBounds(248, 198, 57, 15);
+		productPrice1.setBounds(161, 187, 57, 15);
 		cartPanel.add(productPrice1);
 		
 		JLabel productPrice2 = new JLabel("금액:");
 		productPrice2.setBounds(248, 365, 57, 15);
+		productPrice2.setBounds(161, 345, 57, 15);
 		cartPanel.add(productPrice2);
+		JLabel product1Image1 = new JLabel("");
+		product1Image1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
+		product1Image1.setBounds(65, 163, 70, 90);
+		cartPanel.add(product1Image1);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
-		lblNewLabel_1.setBounds(116, 170, 70, 90);
-		cartPanel.add(lblNewLabel_1);
-		
-		JButton btnNewButton = new JButton("주문하기");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBackground(new Color(204, 102, 255));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setFont(new Font("굴림", Font.BOLD, 25));
-		btnNewButton.setBounds(53, 506, 252, 38);
-		cartPanel.add(btnNewButton);
+		JButton orderBTn = new JButton("주문하기");
+		orderBTn.setForeground(new Color(255, 255, 255));
+		orderBTn.setBackground(new Color(204, 0, 255));
+		orderBTn.setFont(new Font("굴림", Font.BOLD, 25));
+		orderBTn.setBounds(36, 497, 290, 52);
+		cartPanel.add(orderBTn);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
+		orderPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("주 문 상 품 : ");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel.setBounds(43, 35, 88, 15);
+		orderPanel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("주문자 정보 : ");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_1.setBounds(43, 63, 88, 15);
+		orderPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("배 송 지 : ");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_2.setBounds(43, 122, 88, 15);
+		orderPanel.add(lblNewLabel_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(143, 60, 171, 21);
+		orderPanel.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(143, 119, 171, 21);
+		orderPanel.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(143, 150, 171, 21);
+		orderPanel.add(textField_3);
+		
+		JLabel lblNewLabel_3 = new JLabel("상세 정보 입력 :");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_3.setBounds(43, 153, 88, 15);
+		orderPanel.add(lblNewLabel_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setForeground(Color.BLACK);
+		textField_4.setColumns(10);
+		textField_4.setBounds(143, 32, 171, 21);
+		orderPanel.add(textField_4);
+		
+		JButton orderBtn = new JButton("주  문  하  기");
+		orderBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		orderBtn.setBackground(new Color(147, 112, 219));
+		orderBtn.setBounds(23, 507, 310, 31);
+		orderPanel.add(orderBtn);
+		
+		JLabel lblNewLabel_4 = new JLabel("최종 결제 금액");
+		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(63, 454, 111, 23);
+		orderPanel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("결 제 금 액");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		lblNewLabel_5.setBounds(43, 317, 88, 15);
+		orderPanel.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("┖ 상품금액");
+		lblNewLabel_6.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_6.setBounds(63, 366, 79, 15);
+		orderPanel.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_5_1 = new JLabel("주 문 금 액");
+		lblNewLabel_5_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_5_1.setBounds(43, 341, 88, 15);
+		orderPanel.add(lblNewLabel_5_1);
+		
+		JLabel lblNewLabel_6_1 = new JLabel("┖ 할인금액");
+		lblNewLabel_6_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_6_1.setBounds(63, 391, 79, 15);
+		orderPanel.add(lblNewLabel_6_1);
+		
+		JLabel lblNewLabel_5_1_1 = new JLabel("배  송  비");
+		lblNewLabel_5_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_1_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_5_1_1.setBounds(43, 416, 88, 15);
+		orderPanel.add(lblNewLabel_5_1_1);
+		
+		JLabel orderFinalPriceLB = new JLabel("0");
+		orderFinalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderFinalPriceLB.setBounds(227, 319, 57, 15);
+		orderPanel.add(orderFinalPriceLB);
+		
+		JLabel orderPriceLB = new JLabel("0");
+		orderPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderPriceLB.setBounds(227, 343, 57, 15);
+		orderPanel.add(orderPriceLB);
+		
+		JLabel p_PriceLB = new JLabel("0");
+		p_PriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		p_PriceLB.setBounds(227, 368, 57, 15);
+		orderPanel.add(p_PriceLB);
+		
+		JLabel discount_FeeLB = new JLabel("0");
+		discount_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		discount_FeeLB.setBounds(227, 393, 57, 15);
+		orderPanel.add(discount_FeeLB);
+		
+		JLabel d_FeeLB = new JLabel("0");
+		d_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		d_FeeLB.setBounds(227, 418, 57, 15);
+		orderPanel.add(d_FeeLB);
+		
+		JLabel lblNewLabel_5_2 = new JLabel("결 제 수 단");
+		lblNewLabel_5_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5_2.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		lblNewLabel_5_2.setBounds(43, 213, 88, 15);
+		orderPanel.add(lblNewLabel_5_2);
+		
+		JLabel won5 = new JLabel("원");
+		won5.setBounds(290, 418, 57, 15);
+		orderPanel.add(won5);
+		
+		JLabel won4 = new JLabel("원");
+		won4.setBounds(290, 393, 57, 15);
+		orderPanel.add(won4);
+		
+		JLabel won3 = new JLabel("원");
+		won3.setBounds(290, 368, 57, 15);
+		orderPanel.add(won3);
+		
+		JLabel won2 = new JLabel("원");
+		won2.setBounds(290, 343, 57, 15);
+		orderPanel.add(won2);
+		
+		JLabel won1 = new JLabel("원");
+		won1.setBounds(290, 318, 57, 15);
+		orderPanel.add(won1);
+		
+		JLabel won6 = new JLabel("원");
+		won6.setHorizontalAlignment(SwingConstants.LEFT);
+		won6.setFont(new Font("Dialog", Font.PLAIN, 15));
+		won6.setBounds(290, 453, 57, 24);
+		orderPanel.add(won6);
+		
+		JLabel orderTotalPriceLB = new JLabel("0");
+		orderTotalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
+		orderTotalPriceLB.setFont(new Font("Dialog", Font.PLAIN, 15));
+		orderTotalPriceLB.setBounds(227, 455, 57, 21);
+		orderPanel.add(orderTotalPriceLB);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("신용 카드");
+		rdbtnNewRadioButton.setBounds(63, 234, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("간편 결제");
+		rdbtnNewRadioButton_1.setBounds(63, 259, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("계좌 이체");
+		rdbtnNewRadioButton_2.setBounds(223, 234, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_2_1 = new JRadioButton("휴대폰 결제");
+		rdbtnNewRadioButton_2_1.setBounds(223, 259, 93, 23);
+		orderPanel.add(rdbtnNewRadioButton_2_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(143, 88, 171, 21);
+		orderPanel.add(textField_5);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("배 송 지 : ");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
+		orderPanel.add(lblNewLabel_2_1);
 		
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
+		noticePanel.setLayout(new BorderLayout(0, 0));
 		
-		textField = new JTextField();
-		noticePanel.add(textField);
-		textField.setColumns(10);
+		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		noticePanel.add(noticeTabbedPane);
+		
+		JPanel notice1 = new JPanel();
+		noticeTabbedPane.addTab("안내문", null, notice1, null);
+		notice1.setLayout(null);
+		
+		notice1Date = new JTextField();
+		notice1Date.setText("작성일자");
+		notice1Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		notice1Date.setBounds(245, 3, 116, 30);
+		notice1Date.setColumns(10);
+		notice1.add(notice1Date);
+		
+		JTextPane notice1Content = new JTextPane();
+		notice1Content.setEditable(false);
+		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
+		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice1Content.setBounds(0, 42, 354, 500);
+		notice1.add(notice1Content);
+		
+		notice1title = new JTextField();
+		notice1title.setText("안내문");
+		notice1title.setBounds(1, 3, 233, 30);
+		notice1title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice1title.setColumns(10);
+		notice1.add(notice1title);
+		
+		notice2 = new JPanel();
+		noticeTabbedPane.addTab("배송 안내", null, notice2, null);
+		notice2.setLayout(null);
+		
+		notice2Date = new JTextField();
+		notice2Date.setText("작성일자");
+		notice2Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		notice2Date.setBounds(245, 3, 116, 30);
+		notice2.add(notice2Date);
+		notice2Date.setColumns(10);
+		
+		JTextPane notice2Content = new JTextPane();
+		notice2Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
+		notice2Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice2Content.setBounds(0, 42, 354, 500);
+		notice2.add(notice2Content);
+		
+		notice2Title = new JTextField();
+		notice2Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice2Title.setText("배송 안내");
+		notice2Title.setBounds(1, 3, 233, 30);
+		notice2.add(notice2Title);
+		notice2Title.setColumns(10);
+		
+		JPanel notice3 = new JPanel();
+		notice3.setLayout(null);
+		noticeTabbedPane.addTab("긴급공지", null, notice3, null);
+		
+		notice3Date = new JTextField();
+		notice3Date.setText("작성일자");
+		notice3Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		notice3Date.setColumns(10);
+		notice3Date.setBounds(245, 3, 116, 30);
+		notice3.add(notice3Date);
+		
+		JTextPane notice3content = new JTextPane();
+		notice3content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
+		notice3content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice3content.setBounds(0, 42, 354, 500);
+		notice3.add(notice3content);
+		
+		notice3Title = new JTextField();
+		notice3Title.setText("긴급공지");
+		notice3Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice3Title.setColumns(10);
+		notice3Title.setBounds(1, 3, 233, 30);
+		notice3.add(notice3Title);
 	}
-	
-	
 }//
