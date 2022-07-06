@@ -50,7 +50,7 @@ public class UserInfoDaoTestMain {
 		System.out.println(userInfoDao.selectByNo(1));
 		
 		System.out.println("5.findById");
-		System.out.println(userInfoDao.findById("11@update.com"));
+		System.out.println(userInfoDao.findByEmail("11@update.com"));
 		
 		System.out.println("6.findByPw");
 		System.out.println(userInfoDao.findByPW("itwill1", "11@update.com"));
