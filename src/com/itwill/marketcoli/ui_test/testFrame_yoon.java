@@ -10,6 +10,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
+import com.itwill.marketcoli.ui.orders;
 
 public class testFrame_yoon extends JFrame {
 
@@ -23,10 +24,10 @@ public class testFrame_yoon extends JFrame {
 	private JTabbedPane tabbedPane;
 	private JPanel productPanel;
 	private JPanel cartPanel;
-	private JPanel orderPanel;
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
+	private orders orders;
 
 	/**
 	 * Launch the application.
@@ -88,8 +89,8 @@ public class testFrame_yoon extends JFrame {
 		cartPanel = new JPanel();
 		tabbedPane.addTab("카트", null, cartPanel, null);
 		
-		orderPanel = new JPanel();
-		tabbedPane.addTab("주문", null, orderPanel, null);
+		orders = new orders();
+		tabbedPane.addTab("New tab", null, orders, null);
 		
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
