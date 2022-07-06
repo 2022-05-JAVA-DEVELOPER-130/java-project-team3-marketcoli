@@ -508,6 +508,7 @@ public class JFrame extends javax.swing.JFrame {
 		notice2.setLayout(null);
 		
 		notice2Date = new JTextField();
+		notice2Date.setEditable(false);
 		notice2Date.setText("작성일자");
 		notice2Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		notice2Date.setBounds(245, 3, 116, 30);
@@ -522,6 +523,7 @@ public class JFrame extends javax.swing.JFrame {
 		notice2.add(notice2Content);
 		
 		notice2Title = new JTextField();
+		notice2Title.setEditable(false);
 		notice2Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		notice2Title.setText("배송 안내");
 		notice2Title.setBounds(1, 3, 233, 30);
