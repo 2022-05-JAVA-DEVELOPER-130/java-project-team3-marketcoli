@@ -129,15 +129,15 @@ public class JFrame extends javax.swing.JFrame {
 		JScrollPane productMainScrollPane = new JScrollPane();
 		productMainPanel.add(productMainScrollPane, BorderLayout.CENTER);
 		
-		JPanel productPriceLabel = new JPanel();
-		productPriceLabel.setPreferredSize(new Dimension(10, 800));
-		productMainScrollPane.setViewportView(productPriceLabel);
-		productPriceLabel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JPanel productAllLabel = new JPanel();
+		productAllLabel.setPreferredSize(new Dimension(10, 800));
+		productMainScrollPane.setViewportView(productAllLabel);
+		productAllLabel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	
 		JPanel productItemPanel = new JPanel();
 		productItemPanel.setPreferredSize(new Dimension(300, 155));
 		productItemPanel.setBackground(new Color(230, 230, 250));
-		productPriceLabel.add(productItemPanel);
+		productAllLabel.add(productItemPanel);
 		productItemPanel.setLayout(null);
 		
 		JLabel productMainLabel1 = new JLabel("");
