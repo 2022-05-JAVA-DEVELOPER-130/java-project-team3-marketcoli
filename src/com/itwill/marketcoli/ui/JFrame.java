@@ -72,7 +72,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu cartMenu = new JMenu("");
 		cartMenu.setHorizontalAlignment(SwingConstants.RIGHT);
-		cartMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		cartMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		menuBar.add(cartMenu);
 		
 		JMenuItem nothing1 = new JMenuItem("");
@@ -92,7 +92,7 @@ public class JFrame extends javax.swing.JFrame {
 		
 		JMenu userMenu = new JMenu("");
 		userMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		userMenu.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\door.png"));
+		userMenu.setIcon(new ImageIcon(JFrame.class.getResource("/images/door25.png")));
 		menuBar.add(userMenu);
 		
 		JMenuItem joinMenuItem = new JMenuItem("회원가입");
@@ -143,7 +143,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.setLayout(null);
 		
 		JLabel productMainLabel1 = new JLabel("");
-		productMainLabel1.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류135.jpg"));
+		productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류135.jpg")));
 		productMainLabel1.setBounds(12, 10, 135, 135);
 		productItemPanel.add(productMainLabel1);
 		
@@ -165,7 +165,7 @@ public class JFrame extends javax.swing.JFrame {
 		productItemPanel.add(productComboBox);
 
 		JButton productCartBtn = new JButton("");
-		productCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		productCartBtn.setBounds(256, 120, 32, 25);
 		productItemPanel.add(productCartBtn);
 
@@ -182,7 +182,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.setLayout(null);
 		
 		JLabel productDetailImegeLabel = new JLabel("");
-		productDetailImegeLabel.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\과일\\석류310.jpg"));
+		productDetailImegeLabel.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/석류310.jpg")));
 		productDetailImegeLabel.setBounds(12, 10, 310, 310);
 		productDetailpanel.add(productDetailImegeLabel);
 		
@@ -192,7 +192,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailComboBox);
 		
 		JButton productDetailCartBtn = new JButton("");
-		productDetailCartBtn.setIcon(new ImageIcon("C:\\2022-05-JAVA-DEVELOPER\\git-repositories\\java-project-team3-marketcoli\\src\\images\\cart.png"));
+		productDetailCartBtn.setIcon(new ImageIcon(JFrame.class.getResource("/images/cart 25.png")));
 		productDetailCartBtn.setBounds(255, 500, 67, 25);
 		productDetailpanel.add(productDetailCartBtn);
 		
