@@ -27,7 +27,6 @@ public class testFrame_yoon extends JFrame {
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
-	private orders orders;
 
 	/**
 	 * Launch the application.
@@ -88,9 +87,6 @@ public class testFrame_yoon extends JFrame {
 		
 		cartPanel = new JPanel();
 		tabbedPane.addTab("카트", null, cartPanel, null);
-		
-		orders = new orders();
-		tabbedPane.addTab("New tab", null, orders, null);
 		
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
