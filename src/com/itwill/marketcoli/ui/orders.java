@@ -17,6 +17,13 @@ public class orders extends javax.swing.JPanel {
 	private JTextField destinationTF;
 	private JTextField detailInfoTF;
 	private JTextField productListTF;
+	private JButton orderBtn;
+	private JLabel orderFinalPriceLB;
+	private JLabel orderPriceLB;
+	private JLabel p_PriceLB;
+	private JLabel d_FeeLB;
+	private JLabel orderTotalPriceLB;
+	private JLabel discount_FeeLB;
 
 	/**
 	 * Create the panel.
@@ -69,7 +76,7 @@ public class orders extends javax.swing.JPanel {
 		add(productListTF);
 		productListTF.setColumns(10);
 		
-		JButton orderBtn = new JButton("주  문  하  기");
+		orderBtn = new JButton("주  문  하  기");
 		orderBtn.setFont(new Font("맑은 고딕", Font.BOLD, 14));
 		orderBtn.setBackground(new Color(147, 112, 219));
 		orderBtn.setBounds(38, 613, 310, 31);
@@ -108,27 +115,27 @@ public class orders extends javax.swing.JPanel {
 		lblNewLabel_5_1_1.setBounds(38, 478, 88, 15);
 		add(lblNewLabel_5_1_1);
 		
-		JLabel orderFinalPriceLB = new JLabel("0");
+		orderFinalPriceLB = new JLabel("0");
 		orderFinalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		orderFinalPriceLB.setBounds(222, 380, 57, 15);
 		add(orderFinalPriceLB);
 		
-		JLabel orderPriceLB = new JLabel("0");
+		orderPriceLB = new JLabel("0");
 		orderPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		orderPriceLB.setBounds(222, 405, 57, 15);
 		add(orderPriceLB);
 		
-		JLabel p_PriceLB = new JLabel("0");
+		p_PriceLB = new JLabel("0");
 		p_PriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		p_PriceLB.setBounds(222, 430, 57, 15);
 		add(p_PriceLB);
 		
-		JLabel discount_FeeLB = new JLabel("0");
+		discount_FeeLB = new JLabel("0");
 		discount_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		discount_FeeLB.setBounds(222, 455, 57, 15);
 		add(discount_FeeLB);
 		
-		JLabel d_FeeLB = new JLabel("0");
+		d_FeeLB = new JLabel("0");
 		d_FeeLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		d_FeeLB.setBounds(222, 480, 57, 15);
 		add(d_FeeLB);
@@ -165,7 +172,7 @@ public class orders extends javax.swing.JPanel {
 		won6.setBounds(291, 534, 57, 24);
 		add(won6);
 		
-		JLabel orderTotalPriceLB = new JLabel("0");
+		orderTotalPriceLB = new JLabel("0");
 		orderTotalPriceLB.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		orderTotalPriceLB.setHorizontalAlignment(SwingConstants.RIGHT);
 		orderTotalPriceLB.setBounds(222, 536, 57, 21);
