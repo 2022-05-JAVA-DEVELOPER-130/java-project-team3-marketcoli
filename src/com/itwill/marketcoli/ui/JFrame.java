@@ -29,13 +29,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.FlowLayout;
-
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
-
-
 
 // 사이즈 setBounds(100, 100, 390, 844);  
 // Jpanel 로 만들어주세요
@@ -44,12 +40,6 @@ public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTabbedPane noticeTabbedPane;
-	private JPanel notice1;
-	private JTextField notice1Date;
-	private JTextField notice1Title;
-	private JTextField notice2Date;
-	private JTextField notice2Title;
 
 	/**
 	 * Launch the application.
@@ -223,7 +213,6 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailPriceLabel);
 		
 		JPanel cartPanel = new JPanel();
-		cartPanel.setBackground(new Color(255, 255, 255));
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
 		
@@ -232,10 +221,10 @@ public class JFrame extends javax.swing.JFrame {
 		savingAddressCheckbox.setBounds(8, 31, 115, 23);
 		cartPanel.add(savingAddressCheckbox);
 		
-		JLabel savingAddress = new JLabel("서울특별시 강남구 ");
-		savingAddress.setFont(new Font("굴림", Font.PLAIN, 12));
-		savingAddress.setBounds(131, 35, 152, 15);
-		cartPanel.add(savingAddress);
+		JLabel lblNewLabel = new JLabel("서울특별시 강남구 ");
+		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 12));
+		lblNewLabel.setBounds(131, 35, 152, 15);
+		cartPanel.add(lblNewLabel);
 		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
 		productAllCheckBox.setSelected(true);
@@ -246,107 +235,50 @@ public class JFrame extends javax.swing.JFrame {
 			
 		
 		
-		JCheckBox product1CheckBox = new JCheckBox("");
-		product1CheckBox.setBounds(36, 187, 21, 23);
-		cartPanel.add(product1CheckBox);
+		JCheckBox product1 = new JCheckBox("");
+		product1.setBounds(36, 154, 21, 23);
+		cartPanel.add(product1);
 		
+
 		
 		JCheckBox product2CheckBox = new JCheckBox("");
 		product2CheckBox.setBounds(36, 345, 21, 23);
 		cartPanel.add(product2CheckBox);
+
+		JCheckBox product2 = new JCheckBox("");
+		product2.setBounds(36, 277, 21, 23);
+		cartPanel.add(product2);
+
 		
-		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
-		productName1.setFont(new Font("굴림", Font.BOLD, 12));
-		productName1.setBounds(65, 130, 127, 23);
+		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
+		productName1.setBounds(127, 137, 127, 23);
 		cartPanel.add(productName1);
 		
-		JLabel productName2 = new JLabel("나는 신비복숭아");
-		productName2.setFont(new Font("굴림", Font.BOLD, 12));
-		productName2.setBounds(65, 296, 131, 15);
+		JLabel productName2 = new JLabel("New label");
+		productName2.setBounds(139, 259, 57, 15);
 		cartPanel.add(productName2);
 		
-		JLabel product2Image2 = new JLabel("");
-		product2Image2.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/복숭아7090.jpg")));
-		product2Image2.setBounds(65, 321, 70, 90);
+		JLabel product2Image2 = new JLabel("New label");
+		product2Image2.setBounds(85, 296, 57, 15);
 		cartPanel.add(product2Image2);
 		
 		JLabel productPrice1 = new JLabel("금액:");
-		productPrice1.setBounds(161, 187, 57, 15);
+		productPrice1.setBounds(248, 170, 57, 15);
 		cartPanel.add(productPrice1);
 		
 		JLabel productPrice2 = new JLabel("금액:");
-		productPrice2.setBounds(161, 345, 57, 15);
+		productPrice2.setBounds(248, 296, 57, 15);
 		cartPanel.add(productPrice2);
-		
-		JLabel product1Image1 = new JLabel("");
-		product1Image1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
-		product1Image1.setBounds(65, 163, 70, 90);
-		cartPanel.add(product1Image1);
-		
-		JButton orderBTn = new JButton("주문하기");
-		orderBTn.setForeground(new Color(255, 255, 255));
-		orderBTn.setBackground(new Color(204, 0, 255));
-		orderBTn.setFont(new Font("굴림", Font.BOLD, 25));
-		orderBTn.setBounds(36, 497, 290, 52);
-		cartPanel.add(orderBTn);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
 		
 		JPanel noticePanel = new JPanel();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
-		noticePanel.setLayout(new BorderLayout(0, 0));
 		
-		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		noticePanel.add(noticeTabbedPane);
-		
-		notice1 = new JPanel();
-		noticeTabbedPane.addTab("배송 안내", null, notice1, null);
-		notice1.setLayout(null);
-		
-		notice1Date = new JTextField();
-		notice1Date.setText("작성일자");
-		notice1Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		notice1Date.setBounds(245, 3, 116, 30);
-		notice1.add(notice1Date);
-		notice1Date.setColumns(10);
-		
-		JTextPane notice1Content = new JTextPane();
-		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
-		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
-		notice1Content.setBounds(0, 42, 354, 500);
-		notice1.add(notice1Content);
-		
-		notice1Title = new JTextField();
-		notice1Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice1Title.setText("배송 안내");
-		notice1Title.setBounds(0, 3, 233, 30);
-		notice1.add(notice1Title);
-		notice1Title.setColumns(10);
-		
-		JPanel notice2 = new JPanel();
-		notice2.setLayout(null);
-		noticeTabbedPane.addTab("긴급공지", null, notice2, null);
-		
-		notice2Date = new JTextField();
-		notice2Date.setText("작성일자");
-		notice2Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		notice2Date.setColumns(10);
-		notice2Date.setBounds(245, 3, 116, 30);
-		notice2.add(notice2Date);
-		
-		JTextPane notice2content = new JTextPane();
-		notice2content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
-		notice2content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
-		notice2content.setBounds(0, 42, 354, 500);
-		notice2.add(notice2content);
-		
-		notice2Title = new JTextField();
-		notice2Title.setText("긴급공지");
-		notice2Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice2Title.setColumns(10);
-		notice2Title.setBounds(0, 3, 233, 30);
-		notice2.add(notice2Title);
+		textField = new JTextField();
+		noticePanel.add(textField);
+		textField.setColumns(10);
 	}
 	
 	

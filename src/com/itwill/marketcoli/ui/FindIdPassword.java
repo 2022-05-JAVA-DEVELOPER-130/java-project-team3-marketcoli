@@ -8,9 +8,11 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class FindIdPassword extends JPanel {
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField findIdTF;
+	private JTextField findPwIdTF;
+	private JTextField findPwEmailTF;
+	private JButton FindIdBtn;
+	private JButton FindWdBtn;
 
 	/**
 	 * Create the panel.
@@ -18,10 +20,10 @@ public class FindIdPassword extends JPanel {
 	public FindIdPassword() {
 		setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(136, 199, 179, 21);
-		add(textField);
-		textField.setColumns(10);
+		findIdTF = new JTextField();
+		findIdTF.setBounds(136, 199, 179, 21);
+		add(findIdTF);
+		findIdTF.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("아이디 찾기");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -33,19 +35,19 @@ public class FindIdPassword extends JPanel {
 		lblNewLabel_1.setBounds(68, 202, 57, 15);
 		add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("아이디 찾기");
-		btnNewButton.setBounds(134, 249, 116, 23);
-		add(btnNewButton);
+		FindIdBtn = new JButton("아이디 찾기");
+		FindIdBtn.setBounds(134, 249, 116, 23);
+		add(FindIdBtn);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(136, 453, 179, 21);
-		add(textField_2);
+		findPwIdTF = new JTextField();
+		findPwIdTF.setColumns(10);
+		findPwIdTF.setBounds(136, 453, 179, 21);
+		add(findPwIdTF);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(136, 501, 179, 21);
-		add(textField_3);
+		findPwEmailTF = new JTextField();
+		findPwEmailTF.setColumns(10);
+		findPwEmailTF.setBounds(136, 501, 179, 21);
+		add(findPwEmailTF);
 		
 		JLabel lblNewLabel_3 = new JLabel("비밀번호 찾기");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -61,9 +63,9 @@ public class FindIdPassword extends JPanel {
 		lblNewLabel_2_1.setBounds(68, 504, 57, 15);
 		add(lblNewLabel_2_1);
 		
-		JButton btnNewButton_1 = new JButton("비밀번호 찾기");
-		btnNewButton_1.setBounds(134, 563, 116, 23);
-		add(btnNewButton_1);
+		FindWdBtn = new JButton("비밀번호 찾기");
+		FindWdBtn.setBounds(134, 563, 116, 23);
+		add(FindWdBtn);
 
 	}
 }

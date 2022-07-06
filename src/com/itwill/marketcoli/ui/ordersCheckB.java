@@ -15,6 +15,7 @@ import java.awt.Font;
 public class ordersCheckB extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	private JButton orderCheckBtn;
 
 	/**
 	 * Launch the application.
@@ -49,7 +50,7 @@ public class ordersCheckB extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				JButton orderCheckBtn = new JButton("확인");
+				orderCheckBtn = new JButton("확인");
 				orderCheckBtn.setActionCommand("OK");
 				buttonPane.add(orderCheckBtn);
 				getRootPane().setDefaultButton(orderCheckBtn);
