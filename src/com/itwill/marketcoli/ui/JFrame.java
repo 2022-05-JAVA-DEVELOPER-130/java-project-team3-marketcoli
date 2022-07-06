@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.itwill.marketcoli.dto.Notice;
+import com.itwill.marketcoli.service.NoticeService;
+import com.itwill.marketcoli.service.UserInfoService;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -16,7 +20,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.Insets;
@@ -42,10 +47,13 @@ import javax.swing.JCheckBox;
 // Jpanel 로 만들어주세요
 
 public class JFrame extends javax.swing.JFrame {
+	
+	/***********Service 선언 생성*************/
+	private UserInfoService userInfoService = new UserInfoService();
+	private NoticeService noticeService = new NoticeService();
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTabbedPane noticeTabbedPane;
 	private JPanel notice2;
 	private JTextField notice2Date;
 	private JTextField notice2Title;
@@ -53,11 +61,18 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField notice3Title;
 	private JTextField notice1Date;
 	private JTextField notice1Title;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField orderUserInfoTF;
+	private JTextField destinationTF;
+	private JTextField detailInfoTF;
+	private JTextField orderProductTF;
+	private JTextField phoneTF;
+	private JLabel orderFinalPriceLB;
+	private JLabel orderPriceLB;
+	private JLabel p_PriceLB;
+	private JLabel discount_FeeLB;
+	private JLabel d_FeeLB;
+	private JLabel orderTotalPriceLB;
+	private JButton orderBtn;
 
 	/**
 	 * Launch the application.
@@ -471,37 +486,60 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel_2_1.setBounds(43, 91, 88, 15);
 		orderPanel.add(lblNewLabel_2_1);
 		
+		
+		/*************공지사항******************/
+		
 		JPanel noticePanel = new JPanel();
+		JPanel notice1 = new JPanel();
+		JTextPane notice1Content = new JTextPane();
 		mainTabbedPane.addTab("공지사항", null, noticePanel, null);
 		noticePanel.setLayout(new BorderLayout(0, 0));
 		
 		noticeTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		noticePanel.add(noticeTabbedPane);
 		
-		JPanel notice1 = new JPanel();
-		noticeTabbedPane.addTab("안내문", null, notice1, null);
+		try {
+			Notice notice = noticeService.selectByNoticeNo(1);
+			String title = notice.getN_title();
+			//Date date = notice.getN_date();
+			Date noticeDate = new Date();
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy년 MM월 dd일");
+			String noticeDateStr = sdf1.format(notice.getN_date());
+			String content = notice.getN_content();
+		
+		noticeTabbedPane.addTab(title, null, notice1, null);
 		notice1.setLayout(null);
 		
 		notice1Date = new JTextField();
-		notice1Date.setText("작성일자");
+		//notice1Date.setText("작성일자");
+		notice1Date.setText(noticeDateStr);
 		notice1Date.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		notice1Date.setBounds(245, 3, 116, 30);
 		notice1Date.setColumns(10);
 		notice1.add(notice1Date);
 		
-		JTextPane notice1Content = new JTextPane();
 		notice1Content.setEditable(false);
-		notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
+		//notice1Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 저희 마켓콜리 상품 구매 시 회원가입이 필요합니다. 회원가입 절차 진행 후 구매 부탁드립니다.");
+		notice1Content.setText(content);
 		notice1Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice1Content.setBounds(0, 42, 354, 500);
 		notice1.add(notice1Content);
 		
-		notice1Title = new JTextField();
-		notice1Title.setText("안내문");
-		notice1Title.setBounds(1, 3, 233, 30);
-		notice1Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice1Title.setColumns(10);
-		notice1.add(notice1Title);
+
+		notice1title = new JTextField();
+		notice1title.setText("안내문");
+		notice1title.setBounds(1, 3, 233, 30);
+		notice1title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice1title.setColumns(10);
+		notice1.add(notice1title);
+
+		/*****************/
+		notice = noticeService.selectByNoticeNo(2);
+		title = notice.getN_title();
+		//Date date = notice.getN_date();
+		noticeDateStr = sdf1.format(notice.getN_date());
+		content = notice.getN_content();
+		/*****************/
 		
 		notice2 = new JPanel();
 		noticeTabbedPane.addTab("배송 안내", null, notice2, null);
@@ -516,7 +554,6 @@ public class JFrame extends javax.swing.JFrame {
 		notice2Date.setColumns(10);
 		
 		JTextPane notice2Content = new JTextPane();
-		notice2Content.setEditable(false);
 		notice2Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
 		notice2Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice2Content.setBounds(0, 42, 354, 500);
@@ -541,12 +578,11 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Date.setBounds(245, 3, 116, 30);
 		notice3.add(notice3Date);
 		
-		JTextPane notice3Content = new JTextPane();
-		notice3Content.setEditable(false);
-		notice3Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
-		notice3Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
-		notice3Content.setBounds(0, 42, 354, 500);
-		notice3.add(notice3Content);
+		JTextPane notice3content = new JTextPane();
+		notice3content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
+		notice3content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice3content.setBounds(0, 42, 354, 500);
+		notice3.add(notice3content);
 		
 		notice3Title = new JTextField();
 		notice3Title.setText("긴급공지");
@@ -554,63 +590,43 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Title.setColumns(10);
 		notice3Title.setBounds(1, 3, 233, 30);
 		notice3.add(notice3Title);
-	}
-
-}
-		/*
-		productService= new ProductService();
-		try {
-			productListDisplay();
+		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		/********************************************************/
 		
+		
+	}//생성자 끝
+	
+	/*
+	productService= new ProductService();
+	try {
+		productListDisplay();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
 	
-		 */
-	/****************productListDisplay 메소드******************/
-		/*
-	public void productListDisplay() throws Exception{
-		productAllPanel.removeAll();
-			List<Product> productList=productService.productList();
-			for(int i=0;i<productList.size();i++) {
-				Product product=productList.get(i);
-				
-				JPanel productAllPanel = new JPanel();
-				productAllPanel.setPreferredSize(new Dimension(10, 800));
-				productMainScrollPane.setViewportView(productAllPanel);
-				productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+}
+
+	 */
+/****************productListDisplay 메소드******************/
+	/*
+public void productListDisplay() throws Exception{
+	productAllPanel.removeAll();
+		List<Product> productList=productService.productList();
+		for(int i=0;i<productList.size();i++) {
+			Product product=productList.get(i);
 			
-				JPanel productItemPanel = new JPanel();
-				productItemPanel.setPreferredSize(new Dimension(300, 155));
-				productItemPanel.setBackground(new Color(230, 230, 250));
-				productAllPanel.add(productItemPanel);
-				productItemPanel.setLayout(null);
-				
-				JLabel productMainLabel1 = new JLabel("");
-				productMainLabel1.setIcon(new ImageIcon(JFrame.class.getResource("/images/listProduct/석류.jpg")));
-				productMainLabel1.setBounds(12, 10, 135, 135);
-				productItemPanel.add(productMainLabel1);
-				
-				JLabel productMainLabel2 = new JLabel(product.getP_name());
-				productMainLabel2.setBounds(159, 21, 39, 15);
-				productItemPanel.add(productMainLabel2);
-				
-				JLabel productMainLabel3 = new JLabel(product.getP_price()+"");
-				productMainLabel3.setBounds(159, 46, 48, 15);
-				productItemPanel.add(productMainLabel3);
-				
-				JLabel productMainLabel4 = new JLabel(product.getP_exp());
-				productMainLabel4.setBounds(159, 65, 48, 51);
-				productItemPanel.add(productMainLabel4);
-				
-				JComboBox productComboBox = new JComboBox();
-				productComboBox.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
-				productComboBox.setBounds(214, 120, 39, 25);
-				productItemPanel.add(productComboBox);
+			JPanel productAllPanel = new JPanel();
+			productAllPanel.setPreferredSize(new Dimension(10, 800));
+			productMainScrollPane.setViewportView(productAllPanel);
+			productAllPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+			JPanel productItemPanel = new JPanel();
 	
-			}
 	
-	*/
 	
+}//클래스 끝
