@@ -42,7 +42,6 @@ public class JFrame extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JButton ordersBtn;
 
 	/**
 	 * Launch the application.
@@ -216,6 +215,7 @@ public class JFrame extends javax.swing.JFrame {
 		productDetailpanel.add(productDetailPriceLabel);
 		
 		JPanel cartPanel = new JPanel();
+		cartPanel.setBackground(new Color(255, 255, 255));
 		mainTabbedPane.addTab("\uC7A5\uBC14\uAD6C\uB2C8", null, cartPanel, null);
 		cartPanel.setLayout(null);
 		
@@ -234,13 +234,13 @@ public class JFrame extends javax.swing.JFrame {
 		productAllCheckBox.setBounds(8, 108, 115, 23);
 		cartPanel.add(productAllCheckBox);
 		
-		JCheckBox product1 = new JCheckBox("");
-		product1.setBounds(36, 187, 21, 23);
-		cartPanel.add(product1);
+		JCheckBox product1CheckBox = new JCheckBox("");
+		product1CheckBox.setBounds(36, 187, 21, 23);
+		cartPanel.add(product1CheckBox);
 		
-		JCheckBox product2 = new JCheckBox("");
-		product2.setBounds(36, 345, 21, 23);
-		cartPanel.add(product2);
+		JCheckBox product2CheckBox = new JCheckBox("");
+		product2CheckBox.setBounds(36, 345, 21, 23);
+		cartPanel.add(product2CheckBox);
 		
 		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
 		productName1.setFont(new Font("굴림", Font.BOLD, 12));
@@ -270,12 +270,12 @@ public class JFrame extends javax.swing.JFrame {
 		product1Image1.setBounds(65, 163, 70, 90);
 		cartPanel.add(product1Image1);
 		
-		ordersBtn = new JButton("주문하기");
-		ordersBtn.setBackground(new Color(153, 0, 255));
-		ordersBtn.setForeground(new Color(153, 0, 255));
-		ordersBtn.setFont(new Font("굴림", Font.BOLD, 25));
-		ordersBtn.setBounds(36, 503, 286, 41);
-		cartPanel.add(ordersBtn);
+		JButton orderBTn = new JButton("주문하기");
+		orderBTn.setForeground(new Color(255, 255, 255));
+		orderBTn.setBackground(new Color(204, 0, 255));
+		orderBTn.setFont(new Font("굴림", Font.BOLD, 25));
+		orderBTn.setBounds(36, 497, 290, 52);
+		cartPanel.add(orderBTn);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
