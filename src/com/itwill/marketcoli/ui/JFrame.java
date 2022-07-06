@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.sun.javafx.scene.control.SelectedCellsMap;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JMenuBar;
 import javax.swing.JLabel;
@@ -252,11 +254,14 @@ public class JFrame extends javax.swing.JFrame {
 		savingAddress.setBounds(131, 35, 152, 15);
 		cartPanel.add(savingAddress);
 		
+		
 		JCheckBox productAllCheckBox = new JCheckBox("상품 전체선택");
+		productAllCheckBox.setSelected(true);
 		productAllCheckBox.setFont(new Font("굴림", Font.BOLD, 12));
 		productAllCheckBox.setBounds(8, 108, 115, 23);
 		cartPanel.add(productAllCheckBox);
-		
+		boolean setSelected;
+
 		JCheckBox product1CheckBox = new JCheckBox("");
 		product1CheckBox.setBounds(36, 187, 21, 23);
 		cartPanel.add(product1CheckBox);
@@ -266,28 +271,32 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(product2CheckBox);
 		
 		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
+		productName1.setBounds(116, 137, 127, 23);
 		productName1.setFont(new Font("굴림", Font.BOLD, 12));
 		productName1.setBounds(65, 130, 127, 23);
 		cartPanel.add(productName1);
 		
 		JLabel productName2 = new JLabel("나는 신비복숭아");
+		productName2.setBounds(118, 299, 57, 15);
 		productName2.setFont(new Font("굴림", Font.BOLD, 12));
 		productName2.setBounds(65, 296, 131, 15);
 		cartPanel.add(productName2);
 		
 		JLabel product2Image2 = new JLabel("");
 		product2Image2.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/복숭아7090.jpg")));
+		product2Image2.setBounds(116, 332, 70, 90);
 		product2Image2.setBounds(65, 321, 70, 90);
 		cartPanel.add(product2Image2);
 		
 		JLabel productPrice1 = new JLabel("금액:");
+		productPrice1.setBounds(248, 198, 57, 15);
 		productPrice1.setBounds(161, 187, 57, 15);
 		cartPanel.add(productPrice1);
 		
 		JLabel productPrice2 = new JLabel("금액:");
+		productPrice2.setBounds(248, 365, 57, 15);
 		productPrice2.setBounds(161, 345, 57, 15);
 		cartPanel.add(productPrice2);
-		
 		JLabel product1Image1 = new JLabel("");
 		product1Image1.setIcon(new ImageIcon(JFrame.class.getResource("/images/과일/사과7090.jpg")));
 		product1Image1.setBounds(65, 163, 70, 90);
@@ -299,6 +308,10 @@ public class JFrame extends javax.swing.JFrame {
 		orderBTn.setFont(new Font("굴림", Font.BOLD, 25));
 		orderBTn.setBounds(36, 497, 290, 52);
 		cartPanel.add(orderBTn);
+		
+		JButton deleteBtn = new JButton("선택물품 삭제");
+		deleteBtn.setBounds(225, 108, 122, 23);
+		cartPanel.add(deleteBtn);
 		
 		JPanel orderPanel = new JPanel();
 		mainTabbedPane.addTab("주문하기", null, orderPanel, null);
