@@ -51,7 +51,7 @@ public class JFrame extends javax.swing.JFrame {
 	private JTextField notice3Date;
 	private JTextField notice3Title;
 	private JTextField notice1Date;
-	private JTextField notice1title;
+	private JTextField notice1Title;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -495,12 +495,12 @@ public class JFrame extends javax.swing.JFrame {
 		notice1Content.setBounds(0, 42, 354, 500);
 		notice1.add(notice1Content);
 		
-		notice1title = new JTextField();
-		notice1title.setText("안내문");
-		notice1title.setBounds(1, 3, 233, 30);
-		notice1title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		notice1title.setColumns(10);
-		notice1.add(notice1title);
+		notice1Title = new JTextField();
+		notice1Title.setText("안내문");
+		notice1Title.setBounds(1, 3, 233, 30);
+		notice1Title.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		notice1Title.setColumns(10);
+		notice1.add(notice1Title);
 		
 		notice2 = new JPanel();
 		noticeTabbedPane.addTab("배송 안내", null, notice2, null);
@@ -514,6 +514,7 @@ public class JFrame extends javax.swing.JFrame {
 		notice2Date.setColumns(10);
 		
 		JTextPane notice2Content = new JTextPane();
+		notice2Content.setEditable(false);
 		notice2Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 오전에 주문 시 당일 출고되어 배송됩니다.");
 		notice2Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
 		notice2Content.setBounds(0, 42, 354, 500);
@@ -537,11 +538,12 @@ public class JFrame extends javax.swing.JFrame {
 		notice3Date.setBounds(245, 3, 116, 30);
 		notice3.add(notice3Date);
 		
-		JTextPane notice3content = new JTextPane();
-		notice3content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
-		notice3content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
-		notice3content.setBounds(0, 42, 354, 500);
-		notice3.add(notice3content);
+		JTextPane notice3Content = new JTextPane();
+		notice3Content.setEditable(false);
+		notice3Content.setText("안녕하세요! 마켓콜리 입니다. 마켓콜리를 사랑해주시고 아껴주신 고객님께 진심으로 감사드립니다. 현재 코로나 사태로 인한 배송량이 급증하여 당일출고가 어려운점 안내드립니다. 회원님들의 양해 부탁드립니다. 항상 최선을 다하는 마켓콜리가 되겠습니다. ");
+		notice3Content.setFont(new Font("맑은 고딕", Font.PLAIN, 13));
+		notice3Content.setBounds(0, 42, 354, 500);
+		notice3.add(notice3Content);
 		
 		notice3Title = new JTextField();
 		notice3Title.setText("긴급공지");
