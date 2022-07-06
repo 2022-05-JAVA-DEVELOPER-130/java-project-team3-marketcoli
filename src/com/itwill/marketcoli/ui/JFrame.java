@@ -262,16 +262,14 @@ public class JFrame extends javax.swing.JFrame {
 		product2CheckBox.setBounds(36, 345, 21, 23);
 		cartPanel.add(product2CheckBox);
 		
-		JLabel productName1 = new JLabel("맛있는 꿀사과 한개 ");
-		productName1.setBounds(116, 137, 127, 23);
 		JLabel productName1 = new JLabel("빨가면 사과,사과는 맛있어! ");
+		productName1.setBounds(116, 137, 127, 23);
 		productName1.setFont(new Font("굴림", Font.BOLD, 12));
 		productName1.setBounds(65, 130, 127, 23);
 		cartPanel.add(productName1);
 		
-		JLabel productName2 = new JLabel("복숭아");
-		productName2.setBounds(118, 299, 57, 15);
 		JLabel productName2 = new JLabel("나는 신비복숭아");
+		productName2.setBounds(118, 299, 57, 15);
 		productName2.setFont(new Font("굴림", Font.BOLD, 12));
 		productName2.setBounds(65, 296, 131, 15);
 		cartPanel.add(productName2);
@@ -304,7 +302,7 @@ public class JFrame extends javax.swing.JFrame {
 		cartPanel.add(orderBTn);
 		
 		JButton deleteBtn = new JButton("선택물품 삭제");
-		deleteBtn.setBounds(229, 108, 97, 23);
+		deleteBtn.setBounds(225, 108, 122, 23);
 		cartPanel.add(deleteBtn);
 		
 		JPanel orderPanel = new JPanel();
