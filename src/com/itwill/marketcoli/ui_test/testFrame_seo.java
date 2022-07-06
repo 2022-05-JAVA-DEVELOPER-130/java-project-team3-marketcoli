@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import com.itwill.marketcoli.ui.join;
 import com.itwill.marketcoli.ui.login;
 import java.awt.Dimension;
+import com.itwill.marketcoli.ui.MyPage;
+import com.itwill.marketcoli.ui.ProductListPanel;
 
 public class testFrame_seo extends JFrame {
 
@@ -32,6 +34,7 @@ public class testFrame_seo extends JFrame {
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
 	private JScrollPane scrollPane;
+	private MyPage myPage;
 
 	/**
 	 * Launch the application.
@@ -87,6 +90,9 @@ public class testFrame_seo extends JFrame {
 		
 		scrollPane = new JScrollPane();
 		userPanel.add(scrollPane, BorderLayout.CENTER);
+		
+		myPage = new MyPage();
+		scrollPane.setViewportView(myPage);
 		
 		mypagePanel = new JPanel();
 		tabbedPane.addTab("마이페이지", null, mypagePanel, null);
