@@ -9,17 +9,22 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import com.itwill.marketcoli.dto.UserInfo;
 import com.itwill.marketcoli.service.OrderService;
+import com.itwill.marketcoli.service.UserInfoService;
 
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MyPage extends JPanel {
 	/**********1.Service객체선언*******/
 	private OrderService orderService;
+	private UserInfoService userInfoService;
 	
-	private JTextField textField;
+	private JTextField idField;
 	private JTextField nowPWField;
 	private JTextField newPwField;
 	private JTextField newPwReField;
@@ -29,6 +34,7 @@ public class MyPage extends JPanel {
 	private JTextField birthField;
 	private JTextField jobField;
 	private JPanel orderDataPanel;
+	private JTextField userNoField;
 
 	/**
 	 * Create the panel.
@@ -56,13 +62,13 @@ public class MyPage extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("\uAC1C\uC778\uC815\uBCF4\uC218\uC815");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 25));
-		lblNewLabel.setBounds(132, 67, 164, 46);
+		lblNewLabel.setBounds(129, 34, 164, 46);
 		changeUserDataPanel2.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(58, 169, 315, 21);
-		changeUserDataPanel2.add(textField);
-		textField.setColumns(10);
+		idField = new JTextField();
+		idField.setBounds(58, 169, 315, 21);
+		changeUserDataPanel2.add(idField);
+		idField.setColumns(10);
 		
 		JLabel idLabel = new JLabel("\uC544\uC774\uB514");
 		idLabel.setBounds(58, 146, 57, 15);
@@ -141,13 +147,43 @@ public class MyPage extends JPanel {
 		changeUserDataPanel2.add(jobField);
 		
 		JButton dataChangeButton = new JButton("\uC218\uC815\uD558\uAE30");
-		dataChangeButton.setBounds(58, 735, 315, 38);
+		dataChangeButton.setBounds(58, 735, 137, 38);
 		changeUserDataPanel2.add(dataChangeButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("*\uD544\uC218");
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setBounds(332, 146, 36, 15);
 		changeUserDataPanel2.add(lblNewLabel_1);
+		
+		JButton dataDeleteButton = new JButton("탈퇴하기");
+		dataDeleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String u_no = userNoField.getText();
+					userInfoService.deleteUserInfo(ABORT);
+					
+					//비밀번호 입력 정보 초기화
+					
+					
+				}catch (Exception e1) {
+					
+				}
+					
+				
+				
+			}
+		});
+		dataDeleteButton.setBounds(236, 735, 137, 38);
+		changeUserDataPanel2.add(dataDeleteButton);
+		
+		JLabel userNoLabel = new JLabel("\uD68C\uC6D0\uBC88\uD638");
+		userNoLabel.setBounds(58, 92, 57, 15);
+		changeUserDataPanel2.add(userNoLabel);
+		
+		userNoField = new JTextField();
+		userNoField.setColumns(10);
+		userNoField.setBounds(58, 115, 315, 21);
+		changeUserDataPanel2.add(userNoField);
 		
 		
 		
