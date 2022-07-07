@@ -11,6 +11,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import java.awt.Scrollbar;
 import com.itwill.marketcoli.ui.ProductListPanel;
+import com.itwill.marketcoli.ui.ProductDetailPanel;
+import java.awt.CardLayout;
 
 public class testFrame_sojin extends JFrame {
 
@@ -28,8 +30,9 @@ public class testFrame_sojin extends JFrame {
 	private JPanel userPanel;
 	private JPanel mypagePanel;
 	private JPanel noticePanel;
-	private JPanel panel;
-	private ProductListPanel productListPanel;
+	private JTabbedPane tabbedPane_1;
+	private ProductDetailPanel productDetailPanel;
+	private ProductDetailPanel productDetailPanel_1;
 
 	/**
 	 * Launch the application.
@@ -89,12 +92,14 @@ public class testFrame_sojin extends JFrame {
 		tabbedPane.addTab("상품", null, productPanel, null);
 		productPanel.setLayout(new BorderLayout(0, 0));
 		
-		panel = new JPanel();
-		productPanel.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
+		tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		productPanel.add(tabbedPane_1, BorderLayout.CENTER);
 		
-		productListPanel = new ProductListPanel();
-		panel.add(productListPanel, BorderLayout.CENTER);
+		productDetailPanel = new ProductDetailPanel();
+		tabbedPane_1.addTab("New tab", null, productDetailPanel, null);
+		
+		productDetailPanel_1 = new ProductDetailPanel();
+		tabbedPane_1.addTab("New tab", null, productDetailPanel_1, null);
 		
 		cartPanel = new JPanel();
 		tabbedPane.addTab("카트", null, cartPanel, null);
@@ -105,5 +110,4 @@ public class testFrame_sojin extends JFrame {
 		noticePanel = new JPanel();
 		tabbedPane.addTab("공지사항", null, noticePanel, null);
 	}
-
 }
