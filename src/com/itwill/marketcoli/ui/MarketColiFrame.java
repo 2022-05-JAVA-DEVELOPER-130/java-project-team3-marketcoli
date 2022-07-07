@@ -16,6 +16,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MarketColiFrame extends JFrame {
 
@@ -53,6 +55,8 @@ public class MarketColiFrame extends JFrame {
 	private ProductListPanel productListPanel;
 	private OrdersPanel ordersPanel;
 	private NoticeUI noticeUI;
+	private JMenuItem exitMenuItem;
+	private JSeparator separator2;
 
 	/**
 	 * Launch the application.
@@ -80,10 +84,10 @@ public class MarketColiFrame extends JFrame {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		cartMenu = new JMenu("");
+		cartMenu = new JMenu("               ");
 		menuBar.add(cartMenu);
 		
-		nothing1 = new JMenu("");
+		nothing1 = new JMenu("                            ");
 		menuBar.add(nothing1);
 		
 		titleMenu = new JMenu("Market Coli");
@@ -91,10 +95,10 @@ public class MarketColiFrame extends JFrame {
 		titleMenu.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		menuBar.add(titleMenu);
 		
-		noting2 = new JMenu("");
+		noting2 = new JMenu("                                                  ");
 		menuBar.add(noting2);
 		
-		userMenu = new JMenu("");
+		userMenu = new JMenu("메뉴");
 		menuBar.add(userMenu);
 		
 		joinMenuItem = new JMenuItem("회원가입");
@@ -111,6 +115,19 @@ public class MarketColiFrame extends JFrame {
 		
 		logoutMenuItem = new JMenuItem("로그아웃");
 		userMenu.add(logoutMenuItem);
+		
+		separator2 = new JSeparator();
+		userMenu.add(separator2);
+		
+		exitMenuItem = new JMenuItem("종료");
+		exitMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+			}
+			
+		});
+		userMenu.add(exitMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -191,5 +208,4 @@ public class MarketColiFrame extends JFrame {
 		noticeUI = new NoticeUI();
 		noitceScrollPane.setViewportView(noticeUI);
 	}
-
 }
